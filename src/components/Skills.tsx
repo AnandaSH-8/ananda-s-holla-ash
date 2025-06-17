@@ -1,56 +1,66 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useState } from "react";
 
 const Skills = () => {
+  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
+
   const skillCategories = [
     {
       title: "Frontend",
-      color: "bg-blue-500",
+      color: "bg-orange-500",
       skills: ["React.js", "Vue.js", "Tailwind CSS", "Vuetify", "MUI", "HTML", "CSS", "JavaScript"]
     },
     {
       title: "Backend", 
-      color: "bg-green-500",
+      color: "bg-orange-600",
       skills: ["Node.js", "Express.js", "NestJS", "REST APIs"]
     },
     {
       title: "Database",
-      color: "bg-purple-500", 
+      color: "bg-orange-400", 
       skills: ["PostgreSQL", "MongoDB"]
     },
     {
       title: "Tools & Others",
-      color: "bg-orange-500",
+      color: "bg-orange-700",
       skills: ["Git", "Postman", "Vercel", "Netlify"]
     }
   ];
 
   return (
-    <section className="py-20 px-4 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section id="skills" className="py-20 px-4 bg-gradient-to-br from-background to-warm-cream dark:from-background dark:to-charcoal">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+        <div className="text-center mb-16 animate-fade-in">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Skills & Tech Stack
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-8"></div>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <div className="w-24 h-1 orange-gradient mx-auto mb-8"></div>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Technologies and tools I use to bring ideas to life
           </p>
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {skillCategories.map((category, index) => (
-            <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card key={index} className="border-0 shadow-lg card-hover bg-card/50 backdrop-blur-sm animate-slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
               <CardContent className="p-6">
-                <div className={`w-12 h-12 ${category.color} rounded-lg flex items-center justify-center mb-4`}>
+                <div className={`w-12 h-12 ${category.color} rounded-lg flex items-center justify-center mb-4 animate-pulse-orange`}>
                   <div className="w-6 h-6 bg-white rounded-full"></div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-4">{category.title}</h3>
+                <h3 className="text-xl font-bold text-foreground mb-4">{category.title}</h3>
                 <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill, skillIndex) => (
-                    <Badge key={skillIndex} variant="secondary" className="text-sm">
+                    <Badge 
+                      key={skillIndex} 
+                      variant="secondary" 
+                      className="text-sm tech-bounce cursor-pointer hover:bg-orange-100 hover:text-orange-800 dark:hover:bg-orange-900 dark:hover:text-orange-200 transition-all duration-200"
+                      onMouseEnter={() => setHoveredSkill(skill)}
+                      onMouseLeave={() => setHoveredSkill(null)}
+                    >
                       {skill}
+                      {skill === "React.js" && <span className="ml-1 text-orange-500">🔥</span>}
                     </Badge>
                   ))}
                 </div>
@@ -58,6 +68,12 @@ const Skills = () => {
             </Card>
           ))}
         </div>
+        
+        {hoveredSkill && (
+          <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-orange-500 text-white px-4 py-2 rounded-lg shadow-lg animate-bounce-in z-50">
+            {hoveredSkill}
+          </div>
+        )}
       </div>
     </section>
   );

@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,14 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Custom Orange Theme Colors
+				'orange-primary': 'hsl(var(--orange-primary))',
+				'orange-secondary': 'hsl(var(--orange-secondary))',
+				'warm-cream': 'hsl(var(--warm-cream))',
+				'slate-gray': 'hsl(var(--slate-gray))',
+				'navy-dark': 'hsl(var(--navy-dark))',
+				'charcoal': 'hsl(var(--charcoal))'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
