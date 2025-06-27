@@ -190,6 +190,29 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+  /* 3D Tech Icon Styles */
+  .tech-icon-3d {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+  }
+
+  .tech-icon-3d:hover {
+    animation: float 2s ease-in-out infinite;
+  }
+
+  .tech-icon-3d > div {
+    transform-style: preserve-3d;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .tech-icon-3d:hover > div {
+    transform: translateZ(20px) rotateY(15deg) rotateX(10deg) scale(1.1);
+    box-shadow: 
+      0 25px 50px -12px rgba(255, 107, 0, 0.25),
+      0 0 0 1px rgba(255, 107, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
   
   @keyframes fadeIn {
     from {
@@ -278,6 +301,15 @@
     }
   }
 
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .animate-fade-in,
     .animate-slide-up,
@@ -288,7 +320,8 @@
     .animate-pulse-orange,
     .hover-scale:hover,
     .tech-bounce:hover,
-    .card-hover:hover {
+    .card-hover:hover,
+    .tech-icon-3d:hover {
       animation: none;
       transform: none;
       transition: none;

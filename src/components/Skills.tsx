@@ -1,7 +1,7 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
+import TechIcon from "./TechIcon";
 
 const Skills = () => {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
@@ -44,24 +44,25 @@ const Skills = () => {
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {skillCategories.map((category, index) => (
-            <Card key={index} className="border-0 shadow-lg card-hover bg-card/50 backdrop-blur-sm animate-slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
+            <Card key={index} className="border-0 shadow-lg card-hover bg-card/50 backdrop-blur-sm animate-slide-up overflow-hidden" style={{ animationDelay: `${index * 0.1}s` }}>
               <CardContent className="p-6">
                 <div className={`w-12 h-12 ${category.color} rounded-lg flex items-center justify-center mb-4 animate-pulse-orange`}>
                   <div className="w-6 h-6 bg-white rounded-full"></div>
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-4">{category.title}</h3>
-                <div className="flex flex-wrap gap-2">
+                <h3 className="text-xl font-bold text-foreground mb-6">{category.title}</h3>
+                <div className="grid grid-cols-2 gap-4">
                   {category.skills.map((skill, skillIndex) => (
-                    <Badge 
-                      key={skillIndex} 
-                      variant="secondary" 
-                      className="text-sm tech-bounce cursor-pointer hover:bg-orange-100 hover:text-orange-800 dark:hover:bg-orange-900 dark:hover:text-orange-200 transition-all duration-200"
+                    <div
+                      key={skillIndex}
                       onMouseEnter={() => setHoveredSkill(skill)}
                       onMouseLeave={() => setHoveredSkill(null)}
+                      className="flex flex-col items-center"
                     >
-                      {skill}
-                      {skill === "React.js" && <span className="ml-1 text-orange-500">🔥</span>}
-                    </Badge>
+                      <TechIcon name={skill} />
+                      {skill === "React.js" && (
+                        <div className="text-orange-500 text-lg mt-1">🔥</div>
+                      )}
+                    </div>
                   ))}
                 </div>
               </CardContent>
