@@ -74,23 +74,45 @@ const TechIcon = ({ name, className = "" }: TechIconProps) => {
   };
 
   return (
-    <div className={`tech-icon-3d group cursor-pointer ${className}`}>
+    <div className={`tech-icon-enhanced group cursor-pointer ${className}`}>
       <div 
-        className="w-16 h-16 flex items-center justify-center rounded-xl shadow-lg transform transition-all duration-300 group-hover:scale-110 group-hover:-rotate-12 group-hover:shadow-2xl"
+        className="relative w-16 h-16 flex items-center justify-center rounded-xl shadow-lg transform transition-all duration-500 group-hover:scale-125 group-hover:-rotate-12 group-hover:shadow-2xl animate-icon-float"
         style={{ 
-          backgroundColor: `${getIconColor(name)}20`,
-          border: `2px solid ${getIconColor(name)}40`
+          backgroundColor: `${getIconColor(name)}15`,
+          border: `2px solid ${getIconColor(name)}30`
         }}
       >
+        {/* Glowing background effect */}
         <div 
-          className="text-3xl transition-all duration-300 group-hover:scale-125"
+          className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-glow-pulse"
+          style={{ 
+            background: `radial-gradient(circle, ${getIconColor(name)}20 0%, transparent 70%)`,
+            filter: 'blur(8px)'
+          }}
+        ></div>
+        
+        {/* Main icon */}
+        <div 
+          className="text-3xl transition-all duration-500 group-hover:scale-110 relative z-10 animate-icon-breathe"
           style={{ color: getIconColor(name) }}
         >
           {getIcon(name)}
         </div>
+        
+        {/* Sparkle effects */}
+        <div className="absolute -top-1 -right-1 w-2 h-2 bg-orange-400 rounded-full opacity-0 group-hover:opacity-100 animate-sparkle-1 transition-opacity duration-300"></div>
+        <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 bg-orange-500 rounded-full opacity-0 group-hover:opacity-100 animate-sparkle-2 transition-opacity duration-300"></div>
+        <div className="absolute top-1 left-1 w-1 h-1 bg-orange-300 rounded-full opacity-0 group-hover:opacity-100 animate-sparkle-3 transition-opacity duration-300"></div>
+        
+        {/* Animated border ring */}
+        <div 
+          className="absolute inset-0 rounded-xl border-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-border-spin"
+          style={{ borderColor: `${getIconColor(name)}60` }}
+        ></div>
       </div>
-      <div className="mt-2 text-center">
-        <span className="text-xs font-medium text-muted-foreground group-hover:text-orange-500 transition-colors">
+      
+      <div className="mt-3 text-center">
+        <span className="text-xs font-medium text-muted-foreground group-hover:text-orange-500 transition-all duration-300 group-hover:font-bold">
           {name}
         </span>
       </div>
