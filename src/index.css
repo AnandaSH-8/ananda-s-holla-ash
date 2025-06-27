@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -46,9 +45,9 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    /* Custom Orange Theme Colors */
-    --orange-primary: 25 100% 50%; /* #FF6B00 */
-    --orange-secondary: 39 100% 50%; /* #FFA500 */
+    /* Custom Light Orange/Saffron Theme Colors */
+    --orange-primary: 30 100% 65%; /* #FF9A42 - Lighter Orange/Saffron */
+    --orange-secondary: 39 100% 60%; /* #FFCC42 - Light Golden Orange */
     --warm-cream: 39 100% 96%; /* #FFF4E6 */
     --slate-gray: 217 15% 45%; /* #6B7280 */
     --navy-dark: 240 44% 13%; /* #1A1A2E */
@@ -65,7 +64,7 @@
     --popover: 0 0% 18%;
     --popover-foreground: 39 100% 96%;
 
-    --primary: 25 100% 50%; /* Orange Primary */
+    --primary: 30 100% 65%; /* Light Orange Primary */
     --primary-foreground: 240 44% 13%;
 
     --secondary: 0 0% 25%;
@@ -82,16 +81,16 @@
 
     --border: 0 0% 25%;
     --input: 0 0% 25%;
-    --ring: 25 100% 50%;
+    --ring: 30 100% 65%;
     
     --sidebar-background: 240 44% 13%;
     --sidebar-foreground: 39 100% 96%;
-    --sidebar-primary: 25 100% 50%;
+    --sidebar-primary: 30 100% 65%;
     --sidebar-primary-foreground: 240 44% 13%;
     --sidebar-accent: 0 0% 25%;
     --sidebar-accent-foreground: 39 100% 96%;
     --sidebar-border: 0 0% 25%;
-    --sidebar-ring: 25 100% 50%;
+    --sidebar-ring: 30 100% 65%;
   }
 }
 
