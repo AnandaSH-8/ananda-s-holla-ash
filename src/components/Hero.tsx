@@ -22,13 +22,13 @@ const Hero = () => {
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         {/* Left Side - Content */}
         <div className="text-center md:text-left animate-fade-in">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold orange-gradient-text mb-4 animate-glow">
-            Ananda S Holla
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-4 animate-glow leading-tight">
+            <span className="orange-gradient-text">Ananda S Holla</span>
           </h1>
-          <h2 className="text-2xl md:text-3xl text-muted-foreground mb-6 font-medium animate-slide-up">
+          <h2 className="text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-6 font-semibold animate-slide-up">
             Full Stack Web Developer
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed animate-scale-in">
+          <p className="text-base md:text-lg lg:text-xl text-muted-foreground mb-8 leading-relaxed animate-scale-in max-w-lg md:max-w-none">
             Crafting scalable and maintainable web applications with 2.7+ years of experience. 
             Passionate about clean architecture and performance optimization.
           </p>
