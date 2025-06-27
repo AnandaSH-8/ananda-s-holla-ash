@@ -1,8 +1,11 @@
 
 import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 const Hero = () => {
+  const [nameClicked, setNameClicked] = useState(false);
+
   const scrollToContact = () => {
     const element = document.getElementById('contact');
     if (element) {
@@ -17,14 +20,71 @@ const Hero = () => {
     }
   };
 
+  const handleNameClick = () => {
+    setNameClicked(true);
+    setTimeout(() => setNameClicked(false), 1000);
+  };
+
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center px-4 pt-20 bg-gradient-to-br from-warm-cream via-background to-orange-50 dark:from-navy-dark dark:via-background dark:to-charcoal">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         {/* Left Side - Content */}
         <div className="text-center md:text-left animate-fade-in">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-4 animate-glow leading-tight">
-            <span className="orange-gradient-text">Ananda S Holla</span>
-          </h1>
+          <div 
+            className={`relative cursor-pointer group overflow-hidden rounded-2xl p-4 transition-all duration-500 ${
+              nameClicked ? 'animate-name-explosion' : ''
+            }`}
+            onClick={handleNameClick}
+          >
+            {/* Ripple effect background */}
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-400/20 to-orange-600/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            
+            {/* Click ripple effect */}
+            {nameClicked && (
+              <div className="absolute inset-0 bg-orange-500/30 rounded-2xl animate-ripple-effect"></div>
+            )}
+            
+            <h1 className={`text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-4 leading-tight relative z-10 transition-all duration-300 group-hover:scale-105 ${
+              nameClicked ? 'animate-name-bounce text-orange-600' : 'animate-glow'
+            }`}>
+              <span className={`orange-gradient-text relative inline-block transition-all duration-500 ${
+                nameClicked ? 'animate-letter-dance' : 'group-hover:animate-letter-glow'
+              }`}>
+                {"Ananda S Holla".split("").map((letter, index) => (
+                  <span
+                    key={index}
+                    className={`inline-block transition-all duration-300 ${
+                      nameClicked ? 'animate-letter-bounce' : 'hover:animate-letter-float'
+                    }`}
+                    style={{ 
+                      animationDelay: `${index * 0.1}s`,
+                      filter: nameClicked ? 'drop-shadow(0 0 10px rgba(255, 107, 0, 0.8))' : 'none'
+                    }}
+                  >
+                    {letter === " " ? "\u00A0" : letter}
+                  </span>
+                ))}
+              </span>
+            </h1>
+            
+            {/* Sparkle effects on click */}
+            {nameClicked && (
+              <>
+                <div className="absolute top-4 right-4 w-3 h-3 bg-orange-400 rounded-full animate-sparkle-burst-1"></div>
+                <div className="absolute bottom-4 left-4 w-2 h-2 bg-orange-500 rounded-full animate-sparkle-burst-2"></div>
+                <div className="absolute top-1/2 left-1/4 w-2.5 h-2.5 bg-orange-300 rounded-full animate-sparkle-burst-3"></div>
+                <div className="absolute top-1/4 right-1/3 w-1.5 h-1.5 bg-orange-600 rounded-full animate-sparkle-burst-4"></div>
+              </>
+            )}
+            
+            {/* Click instruction */}
+            <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <span className="text-xs text-orange-500 bg-orange-50 dark:bg-orange-900/30 px-2 py-1 rounded-full animate-bounce-gentle">
+                Click me! ✨
+              </span>
+            </div>
+          </div>
+          
           <h2 className="text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-6 font-semibold animate-slide-up">
             Full Stack Web Developer
           </h2>
