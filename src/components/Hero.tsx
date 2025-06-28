@@ -1,4 +1,3 @@
-
 import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
@@ -38,16 +37,16 @@ const Hero = () => {
         {/* Left Side - Content */}
         <div className="text-center lg:text-left animate-hero-content-entrance order-2 lg:order-1">
           <div 
-            className="relative cursor-pointer group overflow-hidden rounded-2xl p-6 mb-8 transition-all duration-500"
+            className="relative cursor-pointer group overflow-visible rounded-2xl p-6 mb-8 transition-all duration-500"
             onClick={handleNameClick}
           >
             {/* Interactive background effects */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#FF6B00]/10 to-[#FFA500]/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             
-            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-[#333] dark:text-[#EDEDED] mb-6 leading-tight relative z-10 transition-all duration-500">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-[#333] dark:text-[#EDEDED] mb-6 leading-tight relative z-10 transition-all duration-500 min-h-[1.2em]">
               <span className="saffron-gradient-text relative inline-block transition-all duration-500">
                 {showFullName ? (
-                  <span className="animate-fade-in">
+                  <span className="animate-fade-in block">
                     {"Ananda S Holla".split("").map((letter, index) => (
                       <span
                         key={index}
@@ -62,14 +61,14 @@ const Hero = () => {
                     ))}
                   </span>
                 ) : (
-                  <span className="hover:scale-105 transition-transform duration-300">ASH</span>
+                  <span className="hover:scale-105 transition-transform duration-300 block">ASH</span>
                 )}
               </span>
             </h1>
             
             {/* Click instruction tooltip */}
-            <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <span className="text-sm text-[#FF6B00] bg-[#FFF4E6] dark:bg-[#FF6B00]/20 px-4 py-2 rounded-full animate-bounce-gentle shadow-lg border border-[#FF6B00]/20">
+            <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-20">
+              <span className="text-sm text-[#FF6B00] bg-[#FFF4E6] dark:bg-[#FF6B00]/20 px-4 py-2 rounded-full animate-bounce-gentle shadow-lg border border-[#FF6B00]/20 whitespace-nowrap">
                 {showFullName ? 'Click to collapse' : 'Click to expand'} ✨
               </span>
             </div>
