@@ -7,24 +7,24 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 0 0% 20%;
+    --foreground: 0 0% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 20%;
+    --card-foreground: 0 0% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 20%;
+    --popover-foreground: 0 0% 15%;
 
     --primary: 217 91% 60%; /* Blue for water theme */
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
+    --secondary: 210 40% 98%;
     --secondary-foreground: 222.2 47.4% 11.2%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 210 40% 98%;
+    --muted-foreground: 215.4 16.3% 56.9%;
 
-    --accent: 210 40% 96.1%;
+    --accent: 210 40% 98%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -50,46 +50,46 @@
     --water-secondary: 195 100% 50%; /* #00BFFF */
     --water-accent: 180 100% 50%; /* #00FFFF */
     --water-light: 200 100% 97%; /* #F0F9FF */
-    --text-primary: 0 0% 20%; /* #333333 */
-    --text-secondary: 0 0% 93%; /* #EDEDED */
+    --text-primary: 0 0% 15%; /* #262626 */
+    --text-secondary: 0 0% 95%; /* #F5F5F5 */
   }
 
   .dark {
-    --background: 240 44% 11%; /* #1A1A2E */
-    --foreground: 0 0% 93%; /* #EDEDED */
+    --background: 240 10% 8%; /* #141419 */
+    --foreground: 0 0% 95%; /* #F5F5F5 */
 
-    --card: 0 0% 18%; /* #2E2E2E */
-    --card-foreground: 0 0% 93%;
+    --card: 0 0% 12%; /* #1F1F1F */
+    --card-foreground: 0 0% 95%;
 
-    --popover: 0 0% 18%;
-    --popover-foreground: 0 0% 93%;
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 95%;
 
     --primary: 25 100% 50%; /* Orange for fire theme */
-    --primary-foreground: 240 44% 11%;
+    --primary-foreground: 240 10% 8%;
 
-    --secondary: 0 0% 25%;
-    --secondary-foreground: 0 0% 93%;
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 0 0% 25%;
-    --muted-foreground: 217 15% 65%;
+    --muted: 0 0% 18%;
+    --muted-foreground: 217 15% 70%;
 
-    --accent: 0 0% 25%;
-    --accent-foreground: 0 0% 93%;
+    --accent: 0 0% 18%;
+    --accent-foreground: 0 0% 95%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 93%;
+    --destructive-foreground: 0 0% 95%;
 
-    --border: 0 0% 25%;
-    --input: 0 0% 25%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
     --ring: 25 100% 50%;
     
-    --sidebar-background: 240 44% 11%;
-    --sidebar-foreground: 0 0% 93%;
+    --sidebar-background: 240 10% 8%;
+    --sidebar-foreground: 0 0% 95%;
     --sidebar-primary: 25 100% 50%;
-    --sidebar-primary-foreground: 240 44% 11%;
-    --sidebar-accent: 0 0% 25%;
-    --sidebar-accent-foreground: 0 0% 93%;
-    --sidebar-border: 0 0% 25%;
+    --sidebar-primary-foreground: 240 10% 8%;
+    --sidebar-accent: 0 0% 18%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 0 0% 18%;
     --sidebar-ring: 25 100% 50%;
 
     /* Fire Theme Colors (Dark Mode) */
