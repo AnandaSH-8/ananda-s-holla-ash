@@ -164,6 +164,35 @@
     animation: heatShimmer 1s ease-in-out infinite alternate;
   }
 
+  /* New Flame Animations for Name */
+  .animate-name-flame-glow {
+    animation: nameFlameGlow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-flame-dance {
+    animation: flameDance 1.5s ease-in-out infinite;
+  }
+
+  .animate-flame-flicker {
+    animation: flameFlicker 0.8s ease-in-out infinite alternate;
+  }
+
+  .animate-flame-float-1 {
+    animation: flameFloat1 3s ease-in-out infinite;
+  }
+
+  .animate-flame-float-2 {
+    animation: flameFloat2 2.5s ease-in-out infinite;
+  }
+
+  .animate-flame-float-3 {
+    animation: flameFloat3 3.5s ease-in-out infinite;
+  }
+
+  .animate-flame-float-4 {
+    animation: flameFloat4 2.8s ease-in-out infinite;
+  }
+
   /* Enhanced Skills Animations */
   .animate-skills-header-entrance {
     animation: skillsHeaderEntrance 1.2s ease-out;
@@ -434,6 +463,104 @@
     }
   }
 
+  /* New Flame Animation Keyframes */
+  @keyframes nameFlameGlow {
+    from {
+      text-shadow: 
+        0 0 5px rgba(229, 90, 0, 0.6),
+        0 0 10px rgba(255, 140, 66, 0.4),
+        0 0 15px rgba(255, 107, 0, 0.3);
+    }
+    to {
+      text-shadow: 
+        0 0 10px rgba(229, 90, 0, 0.8),
+        0 0 20px rgba(255, 140, 66, 0.6),
+        0 0 30px rgba(255, 107, 0, 0.5);
+    }
+  }
+
+  @keyframes flameDance {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-2px) rotate(5deg);
+    }
+    50% {
+      transform: translateY(-1px) rotate(-3deg);
+    }
+    75% {
+      transform: translateY(-3px) rotate(2deg);
+    }
+  }
+
+  @keyframes flameFlicker {
+    from {
+      opacity: 0.8;
+      transform: scale(1) rotate(0deg);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1.1) rotate(5deg);
+    }
+  }
+
+  @keyframes flameFloat1 {
+    0%, 100% {
+      transform: translateY(0px) translateX(0px) rotate(0deg);
+      opacity: 0.7;
+    }
+    33% {
+      transform: translateY(-8px) translateX(3px) rotate(10deg);
+      opacity: 1;
+    }
+    66% {
+      transform: translateY(-5px) translateX(-2px) rotate(-5deg);
+      opacity: 0.8;
+    }
+  }
+
+  @keyframes flameFloat2 {
+    0%, 100% {
+      transform: translateY(0px) translateX(0px) rotate(0deg);
+      opacity: 0.6;
+    }
+    50% {
+      transform: translateY(-10px) translateX(-4px) rotate(15deg);
+      opacity: 0.9;
+    }
+  }
+
+  @keyframes flameFloat3 {
+    0%, 100% {
+      transform: translateY(0px) translateX(0px) rotate(0deg);
+      opacity: 0.8;
+    }
+    25% {
+      transform: translateY(-6px) translateX(2px) rotate(-8deg);
+      opacity: 1;
+    }
+    75% {
+      transform: translateY(-12px) translateX(-1px) rotate(12deg);
+      opacity: 0.7;
+    }
+  }
+
+  @keyframes flameFloat4 {
+    0%, 100% {
+      transform: translateY(0px) translateX(0px) rotate(0deg);
+      opacity: 0.5;
+    }
+    40% {
+      transform: translateY(-7px) translateX(4px) rotate(-10deg);
+      opacity: 0.9;
+    }
+    80% {
+      transform: translateY(-4px) translateX(-3px) rotate(8deg);
+      opacity: 0.6;
+    }
+  }
+
   @keyframes heroContentEntrance {
     from {
       opacity: 0;
@@ -570,21 +697,6 @@
     50% {
       transform: scaleY(1.2) scaleX(0.8) translateY(-2px);
       filter: brightness(1.8);
-    }
-  }
-
-  @keyframes flameDance {
-    0%, 100% {
-      transform: translateX(0px) rotate(0deg);
-    }
-    25% {
-      transform: translateX(1px) rotate(1deg);
-    }
-    50% {
-      transform: translateX(-0.5px) rotate(-0.5deg);
-    }
-    75% {
-      transform: translateX(0.5px) rotate(0.5deg);
     }
   }
 

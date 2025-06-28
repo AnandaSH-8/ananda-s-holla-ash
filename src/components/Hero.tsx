@@ -34,36 +34,51 @@ const Hero = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-[#FF6B00]/10 to-[#FFA500]/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             
             <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-[#333] dark:text-[#EDEDED] mb-6 leading-tight relative z-10 transition-all duration-500 p-6">
-              <span className="relative inline-block transition-all duration-500 group">
+              <span className="relative inline-block transition-all duration-500 group w-full text-center lg:text-left">
                 {/* Default state - ASH with gradient */}
                 <span className="saffron-gradient-text group-hover:opacity-0 group-hover:scale-95 transition-all duration-500 block">
                   ASH
                 </span>
                 
-                {/* Hover state - Full name with primary color */}
-                <span className="absolute inset-0 opacity-0 scale-105 group-hover:opacity-100 group-hover:scale-100 transition-all duration-500 whitespace-nowrap text-primary">
-                  {"Ananda S Holla".split("").map((letter, index) => (
-                    <span
-                      key={index}
-                      className="inline-block animate-letter-bounce text-[#FF6B00] dark:text-[#FFA500]"
-                      style={{ 
-                        animationDelay: `${index * 0.1}s`,
-                        filter: 'drop-shadow(0 0 10px rgba(255, 107, 0, 0.6))'
-                      }}
-                    >
-                      {letter === " " ? "\u00A0" : letter}
+                {/* Hover state - Full name with flame animation */}
+                <span className="absolute inset-0 opacity-0 scale-105 group-hover:opacity-100 group-hover:scale-100 transition-all duration-500 flex items-center justify-center lg:justify-start w-full animate-name-flame-glow">
+                  <span className="relative inline-block">
+                    {"Ananda S Holla".split("").map((letter, index) => (
+                      <span
+                        key={index}
+                        className="inline-block animate-letter-bounce text-[#E55A00] dark:text-[#FF8C42] relative"
+                        style={{ 
+                          animationDelay: `${index * 0.1}s`,
+                        }}
+                      >
+                        {letter === " " ? "\u00A0" : letter}
+                        {/* Flame effect for each letter */}
+                        <span 
+                          className="absolute -top-2 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                          style={{ animationDelay: `${index * 0.05}s` }}
+                        >
+                          <span className="text-xs animate-flame-dance">🔥</span>
+                        </span>
+                      </span>
+                    ))}
+                    
+                    {/* Additional flame effects around the text */}
+                    <span className="absolute -top-4 -left-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-flame-float-1">
+                      <span className="text-lg animate-flame-flicker">🔥</span>
                     </span>
-                  ))}
+                    <span className="absolute -top-3 -right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-flame-float-2">
+                      <span className="text-sm animate-flame-flicker">🔥</span>
+                    </span>
+                    <span className="absolute -bottom-2 left-1/4 opacity-0 group-hover:opacity-100 transition-opacity duration-600 animate-flame-float-3">
+                      <span className="text-xs animate-flame-flicker">🔥</span>
+                    </span>
+                    <span className="absolute -bottom-1 right-1/4 opacity-0 group-hover:opacity-100 transition-opacity duration-800 animate-flame-float-4">
+                      <span className="text-xs animate-flame-flicker">🔥</span>
+                    </span>
+                  </span>
                 </span>
               </span>
             </h1>
-            
-            {/* Hover instruction tooltip */}
-            <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-20">
-              <span className="text-sm text-[#FF6B00] bg-[#FFF4E6] dark:bg-[#FF6B00]/20 px-4 py-2 rounded-full animate-bounce-gentle shadow-lg border border-[#FF6B00]/20 whitespace-nowrap">
-                Hover to see full name ✨
-              </span>
-            </div>
           </div>
           
           <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-[#333]/80 dark:text-[#EDEDED]/80 mb-8 font-bold animate-hero-subtitle">
