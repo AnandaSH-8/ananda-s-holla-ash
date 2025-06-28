@@ -47,7 +47,7 @@ const TechIcon = ({ name, className = "" }: TechIconProps) => {
     };
     
     const IconComponent = iconMap[iconName];
-    return IconComponent ? <IconComponent /> : <div className="w-6 h-6 bg-orange-500 rounded"></div>;
+    return IconComponent ? <IconComponent /> : <div className="w-8 h-8 bg-[#FF6B00] rounded"></div>;
   };
 
   const getIconColor = (iconName: string) => {
@@ -74,47 +74,91 @@ const TechIcon = ({ name, className = "" }: TechIconProps) => {
   };
 
   return (
-    <div className={`tech-icon-enhanced group cursor-pointer ${className}`}>
+    <div className={`tech-icon-3d-enhanced group cursor-pointer relative ${className}`}>
       <div 
-        className="relative w-16 h-16 flex items-center justify-center rounded-xl shadow-lg transform transition-all duration-500 group-hover:scale-125 group-hover:-rotate-12 group-hover:shadow-2xl animate-icon-float"
+        className="relative w-20 h-20 flex items-center justify-center rounded-2xl shadow-2xl transform transition-all duration-700 group-hover:scale-150 group-hover:rotate-360 group-hover:shadow-3xl animate-tech-icon-float perspective-1000"
         style={{ 
           backgroundColor: `${getIconColor(name)}15`,
-          border: `2px solid ${getIconColor(name)}30`
+          border: `3px solid ${getIconColor(name)}30`,
+          transformStyle: 'preserve-3d'
         }}
       >
-        {/* Glowing background effect */}
+        {/* 3D depth layers */}
         <div 
-          className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-glow-pulse"
+          className="absolute inset-0 rounded-2xl opacity-30 transform translate-z-[-4px]"
           style={{ 
-            background: `radial-gradient(circle, ${getIconColor(name)}20 0%, transparent 70%)`,
-            filter: 'blur(8px)'
+            backgroundColor: getIconColor(name),
+            filter: 'blur(2px)'
           }}
         ></div>
         
-        {/* Main icon */}
+        {/* Glowing aura effect */}
         <div 
-          className="text-3xl transition-all duration-500 group-hover:scale-110 relative z-10 animate-icon-breathe"
-          style={{ color: getIconColor(name) }}
+          className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-tech-glow-aura"
+          style={{ 
+            background: `radial-gradient(circle, ${getIconColor(name)}30 0%, transparent 70%)`,
+            filter: 'blur(10px)',
+            transform: 'scale(1.5)'
+          }}
+        ></div>
+        
+        {/* Main icon container */}
+        <div 
+          className="text-4xl transition-all duration-700 group-hover:scale-125 relative z-10 animate-tech-icon-breathe transform-gpu"
+          style={{ 
+            color: getIconColor(name),
+            filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.3))',
+            transformStyle: 'preserve-3d'
+          }}
         >
           {getIcon(name)}
         </div>
         
-        {/* Sparkle effects */}
-        <div className="absolute -top-1 -right-1 w-2 h-2 bg-orange-400 rounded-full opacity-0 group-hover:opacity-100 animate-sparkle-1 transition-opacity duration-300"></div>
-        <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 bg-orange-500 rounded-full opacity-0 group-hover:opacity-100 animate-sparkle-2 transition-opacity duration-300"></div>
-        <div className="absolute top-1 left-1 w-1 h-1 bg-orange-300 rounded-full opacity-0 group-hover:opacity-100 animate-sparkle-3 transition-opacity duration-300"></div>
+        {/* Enhanced sparkle effects */}
+        <div className="absolute -top-2 -right-2 w-3 h-3 bg-[#FFA500] rounded-full opacity-0 group-hover:opacity-100 animate-tech-sparkle-1 transition-opacity duration-300"></div>
+        <div className="absolute -bottom-2 -left-2 w-2.5 h-2.5 bg-[#FF6B00] rounded-full opacity-0 group-hover:opacity-100 animate-tech-sparkle-2 transition-opacity duration-300"></div>
+        <div className="absolute top-2 left-2 w-2 h-2 bg-[#FFD700] rounded-full opacity-0 group-hover:opacity-100 animate-tech-sparkle-3 transition-opacity duration-300"></div>
         
-        {/* Animated border ring */}
+        {/* 3D rotating border ring */}
         <div 
-          className="absolute inset-0 rounded-xl border-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-border-spin"
-          style={{ borderColor: `${getIconColor(name)}60` }}
+          className="absolute inset-0 rounded-2xl border-3 opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-tech-border-spin-3d"
+          style={{ 
+            borderColor: `${getIconColor(name)}80`,
+            borderStyle: 'dashed',
+            transform: 'rotateX(45deg) rotateY(45deg)'
+          }}
+        ></div>
+        
+        {/* Inner glow pulse */}
+        <div 
+          className="absolute inset-2 rounded-xl opacity-0 group-hover:opacity-50 transition-opacity duration-500 animate-tech-inner-glow"
+          style={{ 
+            background: `linear-gradient(45deg, ${getIconColor(name)}20, transparent, ${getIconColor(name)}20)`
+          }}
         ></div>
       </div>
       
-      <div className="mt-3 text-center">
-        <span className="text-xs font-medium text-muted-foreground group-hover:text-orange-500 transition-all duration-300 group-hover:font-bold">
+      {/* Enhanced name label */}
+      <div className="mt-4 text-center transform transition-all duration-500 group-hover:scale-110">
+        <span className="text-sm font-bold text-[#333]/70 dark:text-[#EDEDED]/70 group-hover:text-[#FF6B00] transition-all duration-300 group-hover:text-base group-hover:font-black">
           {name}
         </span>
+      </div>
+      
+      {/* 3D hover tooltip */}
+      <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
+        <div 
+          className="bg-gradient-to-r text-white px-4 py-2 rounded-xl shadow-2xl text-xs font-bold whitespace-nowrap border-2 border-white/20"
+          style={{ 
+            background: `linear-gradient(135deg, ${getIconColor(name)}, ${getIconColor(name)}CC)`
+          }}
+        >
+          Click to explore {name}
+          <div 
+            className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-2 border-r-2 border-t-4 border-transparent"
+            style={{ borderTopColor: getIconColor(name) }}
+          ></div>
+        </div>
       </div>
     </div>
   );

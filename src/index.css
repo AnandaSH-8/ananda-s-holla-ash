@@ -1,19 +1,20 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
+/* Enhanced Saffron/Orange Color Scheme Design System */
 
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 0 0% 20%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 20%;
 
     --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
@@ -45,52 +46,52 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    /* Custom Light Orange/Saffron Theme Colors */
-    --orange-primary: 30 100% 65%; /* #FF9A42 - Lighter Orange/Saffron */
-    --orange-secondary: 39 100% 60%; /* #FFCC42 - Light Golden Orange */
-    --warm-cream: 39 100% 96%; /* #FFF4E6 */
-    --slate-gray: 217 15% 45%; /* #6B7280 */
-    --navy-dark: 240 44% 13%; /* #1A1A2E */
-    --charcoal: 0 0% 18%; /* #2E2E2E */
+    /* Enhanced Saffron Color Palette */
+    --saffron-primary: 25 100% 50%; /* #FF6B00 */
+    --saffron-secondary: 39 100% 50%; /* #FFA500 */
+    --saffron-accent: 45 100% 60%; /* #FFD700 */
+    --warm-beige: 39 100% 96%; /* #FFF4E6 */
+    --text-primary: 0 0% 20%; /* #333333 */
+    --text-secondary: 0 0% 93%; /* #EDEDED */
   }
 
   .dark {
-    --background: 240 44% 13%; /* Navy Dark */
-    --foreground: 39 100% 96%; /* Warm Cream */
+    --background: 240 44% 11%; /* #1A1A2E */
+    --foreground: 0 0% 93%; /* #EDEDED */
 
-    --card: 0 0% 18%; /* Charcoal */
-    --card-foreground: 39 100% 96%;
+    --card: 0 0% 18%; /* #2E2E2E */
+    --card-foreground: 0 0% 93%;
 
     --popover: 0 0% 18%;
-    --popover-foreground: 39 100% 96%;
+    --popover-foreground: 0 0% 93%;
 
-    --primary: 30 100% 65%; /* Light Orange Primary */
-    --primary-foreground: 240 44% 13%;
+    --primary: 25 100% 50%; /* #FF6B00 */
+    --primary-foreground: 240 44% 11%;
 
     --secondary: 0 0% 25%;
-    --secondary-foreground: 39 100% 96%;
+    --secondary-foreground: 0 0% 93%;
 
     --muted: 0 0% 25%;
     --muted-foreground: 217 15% 65%;
 
     --accent: 0 0% 25%;
-    --accent-foreground: 39 100% 96%;
+    --accent-foreground: 0 0% 93%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 39 100% 96%;
+    --destructive-foreground: 0 0% 93%;
 
     --border: 0 0% 25%;
     --input: 0 0% 25%;
-    --ring: 30 100% 65%;
+    --ring: 25 100% 50%;
     
-    --sidebar-background: 240 44% 13%;
-    --sidebar-foreground: 39 100% 96%;
-    --sidebar-primary: 30 100% 65%;
-    --sidebar-primary-foreground: 240 44% 13%;
+    --sidebar-background: 240 44% 11%;
+    --sidebar-foreground: 0 0% 93%;
+    --sidebar-primary: 25 100% 50%;
+    --sidebar-primary-foreground: 240 44% 11%;
     --sidebar-accent: 0 0% 25%;
-    --sidebar-accent-foreground: 39 100% 96%;
+    --sidebar-accent-foreground: 0 0% 93%;
     --sidebar-border: 0 0% 25%;
-    --sidebar-ring: 30 100% 65%;
+    --sidebar-ring: 25 100% 50%;
   }
 }
 
@@ -106,80 +107,264 @@
 }
 
 @layer utilities {
-  .animate-fade-in {
-    animation: fadeIn 1s ease-in-out;
-  }
-  
-  .animate-slide-up {
-    animation: slideUp 0.8s ease-out;
+  /* Enhanced Hero Animations */
+  .animate-hero-content-entrance {
+    animation: heroContentEntrance 1.2s ease-out;
   }
 
-  .animate-scale-in {
-    animation: scaleIn 0.6s ease-out;
+  .animate-hero-subtitle {
+    animation: heroSubtitle 1s ease-out 0.3s both;
   }
 
-  .animate-bounce-in {
-    animation: bounceIn 0.5s ease-out;
+  .animate-hero-description {
+    animation: heroDescription 1s ease-out 0.6s both;
   }
 
-  .animate-flame {
-    animation: flame 2s ease-in-out infinite;
+  .animate-hero-cta {
+    animation: heroCTA 1s ease-out 0.9s both;
   }
 
-  .animate-glow {
-    animation: glow 2s ease-in-out infinite alternate;
+  .animate-hero-social {
+    animation: heroSocial 1s ease-out 1.2s both;
   }
 
-  .animate-pulse-orange {
-    animation: pulseOrange 2s ease-in-out infinite;
+  .animate-hero-photo {
+    animation: heroPhoto 1.5s ease-out 0.5s both;
   }
 
-  /* New realistic fire animations */
-  .animate-realistic-fire {
-    animation: realisticFire 3s ease-in-out infinite;
+  .animate-hero-glow {
+    animation: heroGlow 3s ease-in-out infinite alternate;
   }
 
-  .animate-flame-flicker {
-    animation: flameFlicker 2s ease-in-out infinite, flameDance 4s ease-in-out infinite;
+  /* Enhanced Logo Animations */
+  .animate-logo-burn {
+    animation: logoBurn 2s ease-in-out infinite;
+  }
+
+  .animate-flame-outer {
+    animation: flameOuter 2.5s ease-in-out infinite, flameDance 4s ease-in-out infinite;
+  }
+
+  .animate-flame-middle {
+    animation: flameMiddle 2s ease-in-out infinite, flameDance 3s ease-in-out infinite reverse;
   }
 
   .animate-flame-inner {
-    animation: flameInner 1.5s ease-in-out infinite, flameDance 3s ease-in-out infinite reverse;
+    animation: flameInner 1.5s ease-in-out infinite, flameDance 2.5s ease-in-out infinite;
   }
 
-  .animate-letter-glow {
-    animation: letterGlow 2s ease-in-out infinite alternate;
+  .animate-letter-burn {
+    animation: letterBurn 2s ease-in-out infinite alternate;
   }
 
-  .animate-sparks {
-    animation: sparkFloat 3s ease-in-out infinite;
+  .animate-sparks-dance {
+    animation: sparksDance 3s ease-in-out infinite;
+  }
+
+  .animate-heat-shimmer {
+    animation: heatShimmer 1s ease-in-out infinite alternate;
+  }
+
+  /* Enhanced Skills Animations */
+  .animate-skills-header-entrance {
+    animation: skillsHeaderEntrance 1.2s ease-out;
+  }
+
+  .animate-skills-title-reveal {
+    animation: skillsTitleReveal 1s ease-out 0.3s both;
+  }
+
+  .animate-skills-underline {
+    animation: skillsUnderline 1.5s ease-out 0.8s both;
+  }
+
+  .animate-skills-subtitle {
+    animation: skillsSubtitle 1s ease-out 1s both;
+  }
+
+  .animate-skills-card-entrance {
+    animation: skillsCardEntrance 0.8s ease-out both;
+  }
+
+  .animate-category-icon-3d {
+    animation: categoryIcon3D 2s ease-in-out infinite;
+  }
+
+  .animate-icon-inner-pulse {
+    animation: iconInnerPulse 1.5s ease-in-out infinite;
+  }
+
+  .animate-icon-glow-ring {
+    animation: iconGlowRing 2s linear infinite;
+  }
+
+  .animate-tech-icon-entrance {
+    animation: techIconEntrance 0.6s ease-out both;
+  }
+
+  .animate-react-fire-pulse {
+    animation: reactFirePulse 1.5s ease-in-out infinite;
+  }
+
+  .animate-card-border-glow {
+    animation: cardBorderGlow 3s ease-in-out infinite;
+  }
+
+  .animate-tooltip-3d-entrance {
+    animation: tooltip3DEntrance 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  /* Enhanced Tech Icon Animations */
+  .animate-tech-icon-float {
+    animation: techIconFloat 3s ease-in-out infinite;
+  }
+
+  .animate-tech-icon-breathe {
+    animation: techIconBreathe 2s ease-in-out infinite;
+  }
+
+  .animate-tech-glow-aura {
+    animation: techGlowAura 2s ease-in-out infinite;
+  }
+
+  .animate-tech-sparkle-1 {
+    animation: techSparkle1 1s ease-in-out infinite;
+  }
+
+  .animate-tech-sparkle-2 {
+    animation: techSparkle2 1.2s ease-in-out infinite 0.3s;
+  }
+
+  .animate-tech-sparkle-3 {
+    animation: techSparkle3 0.8s ease-in-out infinite 0.6s;
+  }
+
+  .animate-tech-border-spin-3d {
+    animation: techBorderSpin3D 4s linear infinite;
+  }
+
+  .animate-tech-inner-glow {
+    animation: techInnerGlow 2s ease-in-out infinite alternate;
+  }
+
+  /* Floating Background Elements */
+  .animate-float-bg-1 {
+    animation: floatBg1 6s ease-in-out infinite;
+  }
+
+  .animate-float-bg-2 {
+    animation: floatBg2 8s ease-in-out infinite;
+  }
+
+  .animate-float-bg-3 {
+    animation: floatBg3 5s ease-in-out infinite;
+  }
+
+  .animate-float-bg-4 {
+    animation: floatBg4 7s ease-in-out infinite;
+  }
+
+  .animate-float-bg-5 {
+    animation: floatBg5 4s ease-in-out infinite;
+  }
+
+  /* Floating Embers for Dark Mode */
+  .ember-1 {
+    top: 20%;
+    left: 10%;
+  }
+
+  .ember-2 {
+    top: 60%;
+    right: 15%;
+  }
+
+  .ember-3 {
+    bottom: 30%;
+    left: 20%;
+  }
+
+  .ember-4 {
+    top: 40%;
+    right: 30%;
+  }
+
+  .animate-float-ember-1 {
+    animation: floatEmber1 8s ease-in-out infinite;
+  }
+
+  .animate-float-ember-2 {
+    animation: floatEmber2 10s ease-in-out infinite;
+  }
+
+  .animate-float-ember-3 {
+    animation: floatEmber3 6s ease-in-out infinite;
+  }
+
+  .animate-float-ember-4 {
+    animation: floatEmber4 12s ease-in-out infinite;
+  }
+
+  /* Enhanced Utility Classes */
+  .saffron-gradient {
+    background: linear-gradient(135deg, #FF6B00, #FFA500);
+  }
+
+  .saffron-gradient-text {
+    background: linear-gradient(135deg, #FF6B00, #FFA500);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .hover-scale {
-    transition: transform 0.2s ease-out;
+    transition: transform 0.3s ease-out;
   }
 
   .hover-scale:hover {
     transform: scale(1.05);
   }
 
-  .tech-bounce {
-    transition: all 0.2s ease-out;
+  .card-hover-3d {
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
-  .tech-bounce:hover {
-    transform: scale(1.1) translateY(-2px);
+  .card-hover-3d:hover {
+    transform: translateY(-15px) scale(1.03) rotateX(10deg);
+    box-shadow: 0 30px 60px -10px rgba(255, 107, 0, 0.3);
   }
 
-  .card-hover {
-    transition: all 0.3s ease-out;
+  .tech-icon-3d-enhanced {
+    perspective: 1500px;
+    transform-style: preserve-3d;
   }
 
-  .card-hover:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 20px 25px -5px rgba(255, 107, 0, 0.1), 0 10px 10px -5px rgba(255, 107, 0, 0.04);
+  .social-glow:hover {
+    filter: drop-shadow(0 0 10px currentColor);
   }
 
+  .animate-cta-glow {
+    animation: ctaGlow 2s ease-in-out infinite;
+  }
+
+  .animate-glow-border {
+    animation: glowBorder 2s ease-in-out infinite;
+  }
+
+  .animate-photo-bounce {
+    animation: photoBounce 2s ease-in-out infinite;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .transform-gpu {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  /* Navigation Underline */
   .nav-underline {
     position: relative;
   }
@@ -188,11 +373,12 @@
     content: '';
     position: absolute;
     width: 0;
-    height: 2px;
-    bottom: -4px;
+    height: 3px;
+    bottom: -6px;
     left: 0;
-    background: linear-gradient(90deg, hsl(var(--orange-primary)), hsl(var(--orange-secondary)));
+    background: linear-gradient(90deg, #FF6B00, #FFA500);
     transition: width 0.3s ease-out;
+    border-radius: 2px;
   }
 
   .nav-underline:hover::after,
@@ -200,41 +386,30 @@
     width: 100%;
   }
 
-  .orange-gradient {
-    background: linear-gradient(135deg, hsl(var(--orange-primary)), hsl(var(--orange-secondary)));
+  /* Keyframe Animations */
+  @keyframes heroContentEntrance {
+    from {
+      opacity: 0;
+      transform: translateX(-50px) rotateY(-15deg);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0) rotateY(0);
+    }
   }
 
-  .orange-gradient-text {
-    background: linear-gradient(135deg, hsl(var(--orange-primary)), hsl(var(--orange-secondary)));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  @keyframes heroSubtitle {
+    from {
+      opacity: 0;
+      transform: translateY(30px) scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
   }
 
-  /* 3D Tech Icon Styles */
-  .tech-icon-3d {
-    perspective: 1000px;
-    transform-style: preserve-3d;
-  }
-
-  .tech-icon-3d:hover {
-    animation: float 2s ease-in-out infinite;
-  }
-
-  .tech-icon-3d > div {
-    transform-style: preserve-3d;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .tech-icon-3d:hover > div {
-    transform: translateZ(20px) rotateY(15deg) rotateX(10deg) scale(1.1);
-    box-shadow: 
-      0 25px 50px -12px rgba(255, 107, 0, 0.25),
-      0 0 0 1px rgba(255, 107, 0, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  }
-  
-  @keyframes fadeIn {
+  @keyframes heroDescription {
     from {
       opacity: 0;
       transform: translateY(20px);
@@ -245,10 +420,21 @@
     }
   }
 
-  @keyframes slideUp {
+  @keyframes heroCTA {
     from {
       opacity: 0;
-      transform: translateY(40px);
+      transform: translateY(30px) scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes heroSocial {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
     }
     to {
       opacity: 1;
@@ -256,55 +442,27 @@
     }
   }
 
-  @keyframes scaleIn {
+  @keyframes heroPhoto {
     from {
       opacity: 0;
-      transform: scale(0.9);
+      transform: translateX(50px) rotateY(15deg) scale(0.9);
     }
     to {
       opacity: 1;
-      transform: scale(1);
+      transform: translateX(0) rotateY(0) scale(1);
     }
   }
 
-  @keyframes bounceIn {
-    0% {
-      opacity: 0;
-      transform: scale(0.3);
+  @keyframes heroGlow {
+    from {
+      text-shadow: 0 0 10px rgba(255, 107, 0, 0.5);
     }
-    50% {
-      transform: scale(1.05);
-    }
-    70% {
-      transform: scale(0.9);
-    }
-    100% {
-      opacity: 1;
-      transform: scale(1);
+    to {
+      text-shadow: 0 0 20px rgba(255, 165, 0, 0.8), 0 0 30px rgba(255, 165, 0, 0.4);
     }
   }
 
-  @keyframes flame {
-    0%, 100% {
-      transform: scaleY(1) scaleX(1);
-      filter: hue-rotate(0deg);
-    }
-    25% {
-      transform: scaleY(1.1) scaleX(0.95);
-      filter: hue-rotate(10deg);
-    }
-    50% {
-      transform: scaleY(0.95) scaleX(1.05);
-      filter: hue-rotate(-5deg);
-    }
-    75% {
-      transform: scaleY(1.05) scaleX(0.98);
-      filter: hue-rotate(15deg);
-    }
-  }
-
-  /* New realistic fire animations */
-  @keyframes realisticFire {
+  @keyframes logoBurn {
     0%, 100% {
       transform: scale(1) rotate(0deg);
       filter: hue-rotate(0deg) brightness(1);
@@ -323,32 +481,32 @@
     }
   }
 
-  @keyframes flameFlicker {
+  @keyframes flameOuter {
     0%, 100% {
       transform: scaleY(1) scaleX(1) skewX(0deg);
-      opacity: 1;
+      opacity: 0.9;
     }
     25% {
       transform: scaleY(1.1) scaleX(0.95) skewX(2deg);
-      opacity: 0.9;
+      opacity: 0.8;
     }
     50% {
       transform: scaleY(0.9) scaleX(1.05) skewX(-1deg);
-      opacity: 0.8;
+      opacity: 0.7;
     }
     75% {
       transform: scaleY(1.05) scaleX(0.98) skewX(1deg);
-      opacity: 0.95;
+      opacity: 0.85;
     }
   }
 
-  @keyframes flameInner {
+  @keyframes flameMiddle {
     0%, 100% {
       transform: scaleY(1) scaleX(1) translateY(0px);
       filter: brightness(1.2);
     }
     33% {
-      transform: scaleY(1.15) scaleX(0.9) translateY(-2px);
+      transform: scaleY(1.15) scaleX(0.9) translateY(-1px);
       filter: brightness(1.4);
     }
     66% {
@@ -357,344 +515,218 @@
     }
   }
 
+  @keyframes flameInner {
+    0%, 100% {
+      transform: scaleY(1) scaleX(1) translateY(0px);
+      filter: brightness(1.5);
+    }
+    50% {
+      transform: scaleY(1.2) scaleX(0.8) translateY(-2px);
+      filter: brightness(1.8);
+    }
+  }
+
   @keyframes flameDance {
     0%, 100% {
       transform: translateX(0px) rotate(0deg);
     }
     25% {
-      transform: translateX(2px) rotate(1deg);
+      transform: translateX(1px) rotate(1deg);
     }
     50% {
-      transform: translateX(-1px) rotate(-0.5deg);
+      transform: translateX(-0.5px) rotate(-0.5deg);
     }
     75% {
-      transform: translateX(1px) rotate(0.5deg);
+      transform: translateX(0.5px) rotate(0.5deg);
     }
   }
 
-  @keyframes letterGlow {
+  @keyframes letterBurn {
     from {
       text-shadow: 
-        0 0 5px rgba(255, 255, 255, 0.8),
-        0 0 10px rgba(255, 215, 0, 0.6),
-        0 0 15px rgba(255, 140, 0, 0.4);
-      filter: brightness(1);
+        0 0 5px rgba(255, 255, 255, 0.9),
+        0 0 10px rgba(255, 215, 0, 0.7),
+        0 0 15px rgba(255, 140, 0, 0.5);
+      filter: brightness(1.2);
     }
     to {
       text-shadow: 
         0 0 10px rgba(255, 255, 255, 1),
-        0 0 20px rgba(255, 215, 0, 0.8),
-        0 0 30px rgba(255, 140, 0, 0.6);
-      filter: brightness(1.2);
+        0 0 20px rgba(255, 215, 0, 0.9),
+        0 0 30px rgba(255, 140, 0, 0.7);
+      filter: brightness(1.5);
     }
   }
 
-  @keyframes sparkFloat {
+  @keyframes sparksDance {
     0%, 100% {
-      transform: translateY(0px);
+      transform: translateY(0px) rotate(0deg);
       opacity: 1;
     }
     50% {
-      transform: translateY(-5px);
-      opacity: 0.7;
-    }
-  }
-
-  @keyframes glow {
-    from {
-      text-shadow: 0 0 5px hsl(var(--orange-primary)), 0 0 10px hsl(var(--orange-primary)), 0 0 15px hsl(var(--orange-primary));
-    }
-    to {
-      text-shadow: 0 0 10px hsl(var(--orange-secondary)), 0 0 20px hsl(var(--orange-secondary)), 0 0 30px hsl(var(--orange-secondary));
-    }
-  }
-
-  @keyframes pulseOrange {
-    0%, 100% {
-      box-shadow: 0 0 5px rgba(255, 107, 0, 0.7);
-    }
-    50% {
-      box-shadow: 0 0 20px rgba(255, 165, 0, 0.9), 0 0 30px rgba(255, 165, 0, 0.6);
-    }
-  }
-
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .animate-fade-in,
-    .animate-slide-up,
-    .animate-scale-in,
-    .animate-bounce-in,
-    .animate-flame,
-    .animate-glow,
-    .animate-pulse-orange,
-    .animate-realistic-fire,
-    .animate-flame-flicker,
-    .animate-flame-inner,
-    .animate-letter-glow,
-    .animate-sparks,
-    .hover-scale:hover,
-    .tech-bounce:hover,
-    .card-hover:hover,
-    .tech-icon-3d:hover {
-      animation: none;
-      transform: none;
-      transition: none;
-    }
-  }
-
-  /* Enhanced Skills Section Animations */
-  .animate-fade-in-up {
-    animation: fadeInUp 1s ease-out;
-  }
-
-  .animate-title-reveal {
-    animation: titleReveal 1.2s ease-out;
-  }
-
-  .animate-expand-width {
-    animation: expandWidth 1.5s ease-out 0.5s both;
-  }
-
-  .animate-fade-in-delayed {
-    animation: fadeIn 1s ease-out 0.8s both;
-  }
-
-  .animate-slide-up-staggered {
-    animation: slideUpStaggered 0.8s ease-out both;
-  }
-
-  .animate-tech-entrance {
-    animation: techEntrance 0.6s ease-out both;
-  }
-
-  .animate-pulse-glow {
-    animation: pulseGlow 2s ease-in-out infinite;
-  }
-
-  .animate-inner-pulse {
-    animation: innerPulse 1.5s ease-in-out infinite;
-  }
-
-  .animate-bounce-gentle {
-    animation: bounceGentle 2s ease-in-out infinite;
-  }
-
-  .animate-border-glow {
-    animation: borderGlow 3s ease-in-out infinite;
-  }
-
-  .animate-tooltip-bounce {
-    animation: tooltipBounce 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
-
-  .animate-float-slow {
-    animation: floatSlow 6s ease-in-out infinite;
-  }
-
-  .animate-float-medium {
-    animation: floatMedium 4s ease-in-out infinite;
-  }
-
-  .animate-float-fast {
-    animation: floatFast 3s ease-in-out infinite;
-  }
-
-  /* Enhanced Tech Icon Animations */
-  .tech-icon-enhanced {
-    perspective: 1000px;
-    transform-style: preserve-3d;
-  }
-
-  .animate-icon-float {
-    animation: iconFloat 3s ease-in-out infinite;
-  }
-
-  .animate-icon-breathe {
-    animation: iconBreathe 2s ease-in-out infinite;
-  }
-
-  .animate-glow-pulse {
-    animation: glowPulse 2s ease-in-out infinite;
-  }
-
-  .animate-sparkle-1 {
-    animation: sparkle1 1s ease-in-out infinite;
-  }
-
-  .animate-sparkle-2 {
-    animation: sparkle2 1.2s ease-in-out infinite 0.2s;
-  }
-
-  .animate-sparkle-3 {
-    animation: sparkle3 0.8s ease-in-out infinite 0.4s;
-  }
-
-  .animate-border-spin {
-    animation: borderSpin 3s linear infinite;
-  }
-
-  .card-hover-enhanced {
-    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-
-  .card-hover-enhanced:hover {
-    transform: translateY(-10px) scale(1.03) rotateX(5deg);
-    box-shadow: 
-      0 25px 50px -12px rgba(255, 107, 0, 0.25),
-      0 0 0 1px rgba(255, 107, 0, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  }
-
-  /* New Keyframe Animations */
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes titleReveal {
-    from {
-      opacity: 0;
-      transform: translateY(20px) scale(0.95);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-  }
-
-  @keyframes expandWidth {
-    from {
-      width: 0;
-    }
-    to {
-      width: 6rem;
-    }
-  }
-
-  @keyframes slideUpStaggered {
-    from {
-      opacity: 0;
-      transform: translateY(50px) rotateX(15deg);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0) rotateX(0deg);
-    }
-  }
-
-  @keyframes techEntrance {
-    from {
-      opacity: 0;
-      transform: translateY(20px) scale(0.8);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-  }
-
-  @keyframes pulseGlow {
-    0%, 100% {
-      box-shadow: 0 0 5px rgba(255, 107, 0, 0.5);
-      transform: scale(1);
-    }
-    50% {
-      box-shadow: 0 0 20px rgba(255, 107, 0, 0.8), 0 0 30px rgba(255, 107, 0, 0.4);
-      transform: scale(1.05);
-    }
-  }
-
-  @keyframes innerPulse {
-    0%, 100% {
-      transform: scale(1);
-      opacity: 1;
-    }
-    50% {
-      transform: scale(1.2);
+      transform: translateY(-3px) rotate(180deg);
       opacity: 0.8;
     }
   }
 
-  @keyframes bounceGentle {
-    0%, 100% {
+  @keyframes heatShimmer {
+    from {
+      transform: scaleX(1) skewX(0deg);
+      opacity: 0.3;
+    }
+    to {
+      transform: scaleX(1.1) skewX(2deg);
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes skillsHeaderEntrance {
+    from {
+      opacity: 0;
+      transform: translateY(-30px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes skillsTitleReveal {
+    from {
+      opacity: 0;
+      transform: translateY(20px) rotateX(20deg);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) rotateX(0);
+    }
+  }
+
+  @keyframes skillsUnderline {
+    from {
+      width: 0;
+      opacity: 0;
+    }
+    to {
+      width: 8rem;
+      opacity: 1;
+    }
+  }
+
+  @keyframes skillsSubtitle {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    to {
+      opacity: 1;
       transform: translateY(0);
     }
-    50% {
-      transform: translateY(-5px);
+  }
+
+  @keyframes skillsCardEntrance {
+    from {
+      opacity: 0;
+      transform: translateY(50px) rotateX(30deg) scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) rotateX(0) scale(1);
     }
   }
 
-  @keyframes borderGlow {
+  @keyframes categoryIcon3D {
     0%, 100% {
-      box-shadow: inset 0 0 0 1px rgba(255, 107, 0, 0.2);
+      transform: rotateY(0deg) rotateX(0deg);
+    }
+    25% {
+      transform: rotateY(90deg) rotateX(15deg);
     }
     50% {
-      box-shadow: inset 0 0 0 2px rgba(255, 107, 0, 0.6);
+      transform: rotateY(180deg) rotateX(0deg);
+    }
+    75% {
+      transform: rotateY(270deg) rotateX(-15deg);
     }
   }
 
-  @keyframes tooltipBounce {
+  @keyframes iconInnerPulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 0.9;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 0.7;
+    }
+  }
+
+  @keyframes iconGlowRing {
+    from {
+      transform: rotate(0deg) scale(1);
+      opacity: 0.5;
+    }
+    to {
+      transform: rotate(360deg) scale(1.1);
+      opacity: 0.8;
+    }
+  }
+
+  @keyframes techIconEntrance {
+    from {
+      opacity: 0;
+      transform: translateY(20px) rotateY(45deg) scale(0.7);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) rotateY(0) scale(1);
+    }
+  }
+
+  @keyframes reactFirePulse {
+    0%, 100% {
+      transform: scale(1) rotate(0deg);
+      filter: hue-rotate(0deg);
+    }
+    50% {
+      transform: scale(1.2) rotate(10deg);
+      filter: hue-rotate(20deg);
+    }
+  }
+
+  @keyframes cardBorderGlow {
+    0%, 100% {
+      box-shadow: inset 0 0 0 2px rgba(255, 107, 0, 0.2);
+    }
+    50% {
+      box-shadow: inset 0 0 0 3px rgba(255, 107, 0, 0.6);
+    }
+  }
+
+  @keyframes tooltip3DEntrance {
     0% {
       opacity: 0;
-      transform: translateX(-50%) translateY(20px) scale(0.8);
+      transform: translateX(-50%) translateY(20px) scale(0.7) rotateX(45deg);
     }
     100% {
       opacity: 1;
-      transform: translateX(-50%) translateY(0) scale(1);
+      transform: translateX(-50%) translateY(0) scale(1) rotateX(0);
     }
   }
 
-  @keyframes floatSlow {
+  @keyframes techIconFloat {
     0%, 100% {
-      transform: translateY(0px) rotate(0deg);
+      transform: translateY(0px) rotateZ(0deg);
     }
-    50% {
-      transform: translateY(-20px) rotate(180deg);
+    33% {
+      transform: translateY(-5px) rotateZ(2deg);
     }
-  }
-
-  @keyframes floatMedium {
-    0%, 100% {
-      transform: translateY(0px) rotate(0deg);
-    }
-    50% {
-      transform: translateY(-15px) rotate(180deg);
+    66% {
+      transform: translateY(2px) rotateZ(-1deg);
     }
   }
 
-  @keyframes floatFast {
-    0%, 100% {
-      transform: translateY(0px) rotate(0deg);
-    }
-    50% {
-      transform: translateY(-10px) rotate(180deg);
-    }
-  }
-
-  @keyframes iconFloat {
-    0%, 100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-3px);
-    }
-  }
-
-  @keyframes iconBreathe {
+  @keyframes techIconBreathe {
     0%, 100% {
       transform: scale(1);
     }
@@ -703,87 +735,233 @@
     }
   }
 
-  @keyframes glowPulse {
+  @keyframes techGlowAura {
     0%, 100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.2);
+    }
+  }
+
+  @keyframes techSparkle1 {
+    0%, 100% {
+      transform: scale(0) rotate(0deg);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.5) rotate(180deg);
+      opacity: 1;
+    }
+  }
+
+  @keyframes techSparkle2 {
+    0%, 100% {
+      transform: scale(0) rotate(0deg);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(2) rotate(-180deg);
+      opacity: 1;
+    }
+  }
+
+  @keyframes techSparkle3 {
+    0%, 100% {
+      transform: scale(0) rotate(0deg);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.2) rotate(90deg);
+      opacity: 1;
+    }
+  }
+
+  @keyframes techBorderSpin3D {
+    from {
+      transform: rotateX(45deg) rotateY(45deg) rotateZ(0deg);
+    }
+    to {
+      transform: rotateX(45deg) rotateY(45deg) rotateZ(360deg);
+    }
+  }
+
+  @keyframes techInnerGlow {
+    from {
+      opacity: 0.2;
+    }
+    to {
+      opacity: 0.6;
+    }
+  }
+
+  @keyframes floatBg1 {
+    0%, 100% {
+      transform: translateY(0px) translateX(0px) rotate(0deg);
+      opacity: 0.3;
+    }
+    33% {
+      transform: translateY(-20px) translateX(10px) rotate(120deg);
+      opacity: 0.6;
+    }
+    66% {
+      transform: translateY(10px) translateX(-5px) rotate(240deg);
+      opacity: 0.4;
+    }
+  }
+
+  @keyframes floatBg2 {
+    0%, 100% {
+      transform: translateY(0px) translateX(0px) rotate(0deg);
+      opacity: 0.2;
+    }
+    50% {
+      transform: translateY(-30px) translateX(-15px) rotate(180deg);
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes floatBg3 {
+    0%, 100% {
+      transform: translateY(0px) translateX(0px) rotate(0deg);
+      opacity: 0.4;
+    }
+    25% {
+      transform: translateY(-15px) translateX(20px) rotate(90deg);
+      opacity: 0.7;
+    }
+    75% {
+      transform: translateY(25px) translateX(-10px) rotate(270deg);
+      opacity: 0.3;
+    }
+  }
+
+  @keyframes floatBg4 {
+    0%, 100% {
+      transform: translateY(0px) translateX(0px) rotate(0deg);
+      opacity: 0.3;
+    }
+    40% {
+      transform: translateY(-25px) translateX(-20px) rotate(144deg);
+      opacity: 0.6;
+    }
+    80% {
+      transform: translateY(15px) translateX(25px) rotate(288deg);
+      opacity: 0.4;
+    }
+  }
+
+  @keyframes floatBg5 {
+    0%, 100% {
+      transform: translateY(0px) translateX(0px) rotate(0deg);
       opacity: 0.5;
     }
     50% {
-      opacity: 1;
+      transform: translateY(-10px) translateX(5px) rotate(180deg);
+      opacity: 0.8;
     }
   }
 
-  @keyframes sparkle1 {
+  @keyframes floatEmber1 {
     0%, 100% {
-      transform: scale(0) rotate(0deg);
-      opacity: 0;
+      transform: translateY(0px) translateX(0px);
+      opacity: 0.4;
+    }
+    25% {
+      transform: translateY(-50px) translateX(20px);
+      opacity: 0.8;
     }
     50% {
-      transform: scale(1) rotate(180deg);
-      opacity: 1;
+      transform: translateY(-30px) translateX(-10px);
+      opacity: 0.6;
+    }
+    75% {
+      transform: translateY(-70px) translateX(30px);
+      opacity: 0.9;
     }
   }
 
-  @keyframes sparkle2 {
+  @keyframes floatEmber2 {
     0%, 100% {
-      transform: scale(0) rotate(0deg);
-      opacity: 0;
+      transform: translateY(0px) translateX(0px);
+      opacity: 0.3;
+    }
+    33% {
+      transform: translateY(-60px) translateX(-25px);
+      opacity: 0.7;
+    }
+    66% {
+      transform: translateY(-20px) translateX(15px);
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes floatEmber3 {
+    0%, 100% {
+      transform: translateY(0px) translateX(0px);
+      opacity: 0.5;
     }
     50% {
-      transform: scale(1) rotate(-180deg);
-      opacity: 1;
+      transform: translateY(-40px) translateX(10px);
+      opacity: 0.8;
     }
   }
 
-  @keyframes sparkle3 {
+  @keyframes floatEmber4 {
     0%, 100% {
-      transform: scale(0) rotate(0deg);
-      opacity: 0;
+      transform: translateY(0px) translateX(0px);
+      opacity: 0.2;
+    }
+    20% {
+      transform: translateY(-80px) translateX(-30px);
+      opacity: 0.6;
+    }
+    40% {
+      transform: translateY(-50px) translateX(20px);
+      opacity: 0.8;
+    }
+    60% {
+      transform: translateY(-90px) translateX(-10px);
+      opacity: 0.4;
+    }
+    80% {
+      transform: translateY(-60px) translateX(25px);
+      opacity: 0.7;
+    }
+  }
+
+  @keyframes ctaGlow {
+    0%, 100% {
+      box-shadow: 0 0 15px rgba(255, 107, 0, 0.5);
     }
     50% {
-      transform: scale(1) rotate(90deg);
-      opacity: 1;
+      box-shadow: 0 0 30px rgba(255, 107, 0, 0.8), 0 0 40px rgba(255, 165, 0, 0.4);
     }
   }
 
-  @keyframes borderSpin {
-    from {
-      transform: rotate(0deg);
+  @keyframes glowBorder {
+    0%, 100% {
+      border-color: rgba(255, 107, 0, 0.5);
+      box-shadow: 0 0 10px rgba(255, 107, 0, 0.3);
     }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .animate-fade-in-up,
-    .animate-title-reveal,
-    .animate-expand-width,
-    .animate-fade-in-delayed,
-    .animate-slide-up-staggered,
-    .animate-tech-entrance,
-    .animate-pulse-glow,
-    .animate-inner-pulse,
-    .animate-bounce-gentle,
-    .animate-border-glow,
-    .animate-tooltip-bounce,
-    .animate-float-slow,
-    .animate-float-medium,
-    .animate-float-fast,
-    .animate-icon-float,
-    .animate-icon-breathe,
-    .animate-glow-pulse,
-    .animate-sparkle-1,
-    .animate-sparkle-2,
-    .animate-sparkle-3,
-    .animate-border-spin,
-    .card-hover-enhanced:hover {
-      animation: none;
-      transform: none;
-      transition: none;
+    50% {
+      border-color: rgba(255, 107, 0, 1);
+      box-shadow: 0 0 20px rgba(255, 107, 0, 0.6);
     }
   }
 
-  /* Name Click Animations */
+  @keyframes photoBounce {
+    0%, 100% {
+      transform: translateY(0px) scale(1);
+    }
+    50% {
+      transform: translateY(-10px) scale(1.05);
+    }
+  }
+
+  /* Keep existing name click animations */
   .animate-name-explosion {
     animation: nameExplosion 1s ease-out;
   }
@@ -824,7 +1002,14 @@
     animation: sparkleBurst4 1.1s ease-out;
   }
 
-  /* Name Click Keyframes */
+  .animate-bounce-gentle {
+    animation: bounceGentle 2s ease-in-out infinite;
+  }
+
+  .animate-letter-glow {
+    animation: letterGlow 2s ease-in-out infinite alternate;
+  }
+
   @keyframes nameExplosion {
     0% {
       transform: scale(1);
@@ -965,20 +1150,37 @@
     }
   }
 
+  @keyframes bounceGentle {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+
+  @keyframes letterGlow {
+    from {
+      text-shadow: 
+        0 0 5px rgba(255, 255, 255, 0.8),
+        0 0 10px rgba(255, 215, 0, 0.6),
+        0 0 15px rgba(255, 140, 0, 0.4);
+      filter: brightness(1);
+    }
+    to {
+      text-shadow: 
+        0 0 10px rgba(255, 255, 255, 1),
+        0 0 20px rgba(255, 215, 0, 0.8),
+        0 0 30px rgba(255, 140, 0, 0.6);
+      filter: brightness(1.2);
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    .animate-name-explosion,
-    .animate-name-bounce,
-    .animate-ripple-effect,
-    .animate-letter-dance,
-    .animate-letter-bounce,
-    .animate-letter-float,
-    .animate-sparkle-burst-1,
-    .animate-sparkle-burst-2,
-    .animate-sparkle-burst-3,
-    .animate-sparkle-burst-4 {
-      animation: none;
-      transform: none;
-      transition: none;
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
     }
   }
 }
