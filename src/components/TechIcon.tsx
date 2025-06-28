@@ -26,6 +26,7 @@ interface TechIconProps {
 
 const TechIcon = ({ name, className = "" }: TechIconProps) => {
   const [isClicked, setIsClicked] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const getIcon = (iconName: string) => {
     const iconMap: { [key: string]: React.ComponentType<any> } = {
@@ -78,27 +79,52 @@ const TechIcon = ({ name, className = "" }: TechIconProps) => {
 
   const handleClick = () => {
     setIsClicked(true);
-    setTimeout(() => setIsClicked(false), 600);
+    setTimeout(() => setIsClicked(false), 800);
+  };
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
   };
 
   return (
     <div className={`group cursor-pointer ${className}`} onClick={handleClick}>
       <div 
         className={`relative w-16 h-16 flex items-center justify-center rounded-xl shadow-lg transform transition-all duration-300 ${
-          isClicked ? 'animate-bounce scale-125 rotate-12' : 'hover:scale-105'
+          isClicked 
+            ? 'animate-bounce scale-125 rotate-12' 
+            : isHovered
+            ? 'scale-110 -translate-y-2'
+            : 'hover:scale-105'
         }`}
         style={{ 
           backgroundColor: `${getIconColor(name)}10`,
-          border: `2px solid ${getIconColor(name)}20`
+          border: `2px solid ${getIconColor(name)}20`,
+          boxShadow: isHovered 
+            ? `0 20px 40px -10px ${getIconColor(name)}30, 0 0 20px ${getIconColor(name)}20`
+            : `0 10px 30px -5px ${getIconColor(name)}15`
         }}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
         <div 
           className={`text-3xl transition-all duration-300 ${
-            isClicked ? 'scale-150' : ''
+            isClicked 
+              ? 'scale-150 rotate-180' 
+              : isHovered
+              ? 'scale-125'
+              : ''
           }`}
           style={{ 
             color: getIconColor(name),
-            filter: isClicked ? `drop-shadow(0 0 20px ${getIconColor(name)})` : 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))'
+            filter: isClicked 
+              ? `drop-shadow(0 0 20px ${getIconColor(name)}) brightness(1.5)` 
+              : isHovered
+              ? `drop-shadow(0 0 15px ${getIconColor(name)}) brightness(1.3)`
+              : 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))'
           }}
         >
           {getIcon(name)}
@@ -106,22 +132,43 @@ const TechIcon = ({ name, className = "" }: TechIconProps) => {
         
         {/* Click effect */}
         {isClicked && (
+          <>
+            <div 
+              className="absolute inset-0 rounded-xl animate-ping"
+              style={{ 
+                backgroundColor: getIconColor(name),
+                opacity: 0.3
+              }}
+            ></div>
+            {/* Sparkle effects */}
+            <div className="absolute -top-1 -right-1 w-2 h-2 bg-yellow-300 rounded-full animate-ping" style={{ animationDelay: '0.1s' }}></div>
+            <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 bg-orange-300 rounded-full animate-ping" style={{ animationDelay: '0.2s' }}></div>
+            <div className="absolute top-0 left-1/2 w-1 h-1 bg-white rounded-full animate-ping" style={{ animationDelay: '0.3s' }}></div>
+          </>
+        )}
+
+        {/* Hover glow effect */}
+        {isHovered && (
           <div 
-            className="absolute inset-0 rounded-xl animate-ping"
+            className="absolute inset-0 rounded-xl opacity-30 animate-pulse"
             style={{ 
               backgroundColor: getIconColor(name),
-              opacity: 0.3
             }}
           ></div>
         )}
       </div>
       
       <div className="mt-3 text-center">
-        <span className={`text-sm font-semibold transition-colors duration-300 ${
+        <span className={`text-sm font-semibold transition-all duration-300 ${
           isClicked 
-            ? 'text-[#FF6B00] scale-110' 
+            ? 'text-[#FF6B00] scale-110 font-bold' 
+            : isHovered
+            ? `scale-105 font-bold`
             : 'text-[#333]/70 dark:text-[#EDEDED]/70'
-        }`}>
+        }`}
+        style={{
+          color: isHovered && !isClicked ? getIconColor(name) : undefined
+        }}>
           {name}
         </span>
       </div>
