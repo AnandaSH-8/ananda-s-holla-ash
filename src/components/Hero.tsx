@@ -1,10 +1,7 @@
 import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
 
 const Hero = () => {
-  const [showFullName, setShowFullName] = useState(false);
-
   const scrollToContact = () => {
     const element = document.getElementById('contact');
     if (element) {
@@ -17,10 +14,6 @@ const Hero = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
-  };
-
-  const handleNameClick = () => {
-    setShowFullName(!showFullName);
   };
 
   return (
@@ -36,40 +29,39 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
         {/* Left Side - Content */}
         <div className="text-center lg:text-left animate-hero-content-entrance order-2 lg:order-1">
-          <div 
-            className="relative cursor-pointer group overflow-visible rounded-2xl p-6 mb-8 transition-all duration-500"
-            onClick={handleNameClick}
-          >
+          <div className="relative group mb-8 transition-all duration-500">
             {/* Interactive background effects */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#FF6B00]/10 to-[#FFA500]/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             
-            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-[#333] dark:text-[#EDEDED] mb-6 leading-tight relative z-10 transition-all duration-500 min-h-[1.2em]">
-              <span className="saffron-gradient-text relative inline-block transition-all duration-500">
-                {showFullName ? (
-                  <span className="animate-fade-in block">
-                    {"Ananda S Holla".split("").map((letter, index) => (
-                      <span
-                        key={index}
-                        className="inline-block animate-letter-bounce"
-                        style={{ 
-                          animationDelay: `${index * 0.1}s`,
-                          filter: 'drop-shadow(0 0 10px rgba(255, 107, 0, 0.6))'
-                        }}
-                      >
-                        {letter === " " ? "\u00A0" : letter}
-                      </span>
-                    ))}
-                  </span>
-                ) : (
-                  <span className="hover:scale-105 transition-transform duration-300 block">ASH</span>
-                )}
+            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-[#333] dark:text-[#EDEDED] mb-6 leading-tight relative z-10 transition-all duration-500 p-6">
+              <span className="saffron-gradient-text relative inline-block transition-all duration-500 group">
+                {/* Default state - ASH */}
+                <span className="group-hover:opacity-0 group-hover:scale-95 transition-all duration-500 block">
+                  ASH
+                </span>
+                
+                {/* Hover state - Full name */}
+                <span className="absolute inset-0 opacity-0 scale-105 group-hover:opacity-100 group-hover:scale-100 transition-all duration-500 whitespace-nowrap">
+                  {"Ananda S Holla".split("").map((letter, index) => (
+                    <span
+                      key={index}
+                      className="inline-block animate-letter-bounce"
+                      style={{ 
+                        animationDelay: `${index * 0.1}s`,
+                        filter: 'drop-shadow(0 0 10px rgba(255, 107, 0, 0.6))'
+                      }}
+                    >
+                      {letter === " " ? "\u00A0" : letter}
+                    </span>
+                  ))}
+                </span>
               </span>
             </h1>
             
-            {/* Click instruction tooltip */}
+            {/* Hover instruction tooltip */}
             <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-20">
               <span className="text-sm text-[#FF6B00] bg-[#FFF4E6] dark:bg-[#FF6B00]/20 px-4 py-2 rounded-full animate-bounce-gentle shadow-lg border border-[#FF6B00]/20 whitespace-nowrap">
-                {showFullName ? 'Click to collapse' : 'Click to expand'} ✨
+                Hover to see full name ✨
               </span>
             </div>
           </div>
