@@ -1,4 +1,3 @@
-
 import { 
   SiReact, 
   SiVuedotjs, 
@@ -79,96 +78,93 @@ const TechIcon = ({ name, className = "" }: TechIconProps) => {
 
   const handleClick = () => {
     setIsClicked(true);
-    setTimeout(() => setIsClicked(false), 800);
-  };
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
+    setTimeout(() => setIsClicked(false), 1500);
   };
 
   return (
     <div className={`group cursor-pointer ${className}`} onClick={handleClick}>
       <div 
         className={`relative w-16 h-16 flex items-center justify-center rounded-xl shadow-lg transform transition-all duration-300 ${
-          isClicked 
-            ? 'animate-bounce scale-125 rotate-12' 
-            : isHovered
-            ? 'scale-110 -translate-y-2'
-            : 'hover:scale-105'
+          isClicked ? 'scale-110' : 'hover:scale-105'
         }`}
         style={{ 
           backgroundColor: `${getIconColor(name)}10`,
           border: `2px solid ${getIconColor(name)}20`,
-          boxShadow: isHovered 
-            ? `0 20px 40px -10px ${getIconColor(name)}30, 0 0 20px ${getIconColor(name)}20`
+          boxShadow: isClicked 
+            ? `0 0 30px ${getIconColor(name)}50, 0 0 60px ${getIconColor(name)}30`
             : `0 10px 30px -5px ${getIconColor(name)}15`
         }}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
       >
         <div 
-          className={`text-3xl transition-all duration-300 ${
-            isClicked 
-              ? 'scale-150 rotate-180' 
-              : isHovered
-              ? 'scale-125'
-              : ''
+          className={`text-3xl transition-all duration-500 relative z-10 ${
+            isClicked ? 'animate-pulse' : ''
           }`}
           style={{ 
             color: getIconColor(name),
             filter: isClicked 
               ? `drop-shadow(0 0 20px ${getIconColor(name)}) brightness(1.5)` 
-              : isHovered
-              ? `drop-shadow(0 0 15px ${getIconColor(name)}) brightness(1.3)`
               : 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))'
           }}
         >
           {getIcon(name)}
         </div>
         
-        {/* Click effect */}
+        {/* Fire flame effect when clicked */}
         {isClicked && (
           <>
+            {/* Outer flame */}
             <div 
-              className="absolute inset-0 rounded-xl animate-ping"
+              className="absolute inset-0 rounded-xl animate-flame-outer"
               style={{ 
-                backgroundColor: getIconColor(name),
-                opacity: 0.3
+                background: `radial-gradient(ellipse at center, transparent 30%, ${getIconColor(name)}20 60%, ${getIconColor(name)}40 90%, transparent 100%)`,
+                transform: 'scaleY(1.5) scaleX(0.8)',
+                transformOrigin: 'bottom center'
               }}
-            ></div>
-            {/* Sparkle effects */}
-            <div className="absolute -top-1 -right-1 w-2 h-2 bg-yellow-300 rounded-full animate-ping" style={{ animationDelay: '0.1s' }}></div>
-            <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 bg-orange-300 rounded-full animate-ping" style={{ animationDelay: '0.2s' }}></div>
-            <div className="absolute top-0 left-1/2 w-1 h-1 bg-white rounded-full animate-ping" style={{ animationDelay: '0.3s' }}></div>
+            />
+            
+            {/* Middle flame */}
+            <div 
+              className="absolute inset-1 rounded-xl animate-flame-middle"
+              style={{ 
+                background: `radial-gradient(ellipse at center, transparent 40%, ${getIconColor(name)}30 70%, ${getIconColor(name)}60 90%, transparent 100%)`,
+                transform: 'scaleY(1.3) scaleX(0.9)',
+                transformOrigin: 'bottom center'
+              }}
+            />
+            
+            {/* Inner flame */}
+            <div 
+              className="absolute inset-2 rounded-lg animate-flame-inner"
+              style={{ 
+                background: `radial-gradient(ellipse at center, ${getIconColor(name)}60 30%, ${getIconColor(name)}80 60%, transparent 90%)`,
+                transform: 'scaleY(1.1) scaleX(0.95)',
+                transformOrigin: 'bottom center'
+              }}
+            />
+            
+            {/* Sparks */}
+            <div className="absolute -top-2 left-1/2 w-1 h-1 bg-yellow-400 rounded-full animate-sparks-dance" style={{ animationDelay: '0.1s' }}></div>
+            <div className="absolute -top-3 left-1/3 w-0.5 h-0.5 bg-orange-400 rounded-full animate-sparks-dance" style={{ animationDelay: '0.3s' }}></div>
+            <div className="absolute -top-2 right-1/3 w-0.5 h-0.5 bg-red-400 rounded-full animate-sparks-dance" style={{ animationDelay: '0.5s' }}></div>
+            
+            {/* Heat shimmer effect */}
+            <div 
+              className="absolute -inset-4 rounded-xl animate-heat-shimmer"
+              style={{ 
+                background: `linear-gradient(transparent 0%, ${getIconColor(name)}05 50%, transparent 100%)`,
+                filter: 'blur(2px)'
+              }}
+            />
           </>
-        )}
-
-        {/* Hover glow effect */}
-        {isHovered && (
-          <div 
-            className="absolute inset-0 rounded-xl opacity-30 animate-pulse"
-            style={{ 
-              backgroundColor: getIconColor(name),
-            }}
-          ></div>
         )}
       </div>
       
       <div className="mt-3 text-center">
         <span className={`text-sm font-semibold transition-all duration-300 ${
           isClicked 
-            ? 'text-[#FF6B00] scale-110 font-bold' 
-            : isHovered
-            ? `scale-105 font-bold`
+            ? 'text-[#FF6B00] scale-110 font-bold animate-letter-burn' 
             : 'text-[#333]/70 dark:text-[#EDEDED]/70'
-        }`}
-        style={{
-          color: isHovered && !isClicked ? getIconColor(name) : undefined
-        }}>
+        }`}>
           {name}
         </span>
       </div>
