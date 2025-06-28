@@ -16,7 +16,6 @@ import {
   SiVercel,
   SiNetlify
 } from 'react-icons/si';
-import { useState } from 'react';
 
 interface TechIconProps {
   name: string;
@@ -24,8 +23,6 @@ interface TechIconProps {
 }
 
 const TechIcon = ({ name, className = "" }: TechIconProps) => {
-  const [isClicked, setIsClicked] = useState(false);
-
   const getIcon = (iconName: string) => {
     const iconMap: { [key: string]: React.ComponentType<any> } = {
       'React.js': SiReact,
@@ -49,7 +46,7 @@ const TechIcon = ({ name, className = "" }: TechIconProps) => {
     };
     
     const IconComponent = iconMap[iconName];
-    return IconComponent ? <IconComponent /> : <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-cyan-500 dark:from-orange-500 dark:to-red-500 rounded"></div>;
+    return IconComponent ? <IconComponent /> : <div className="w-6 h-6 bg-gray-400 rounded"></div>;
   };
 
   const getIconColor = (iconName: string) => {
@@ -72,98 +69,39 @@ const TechIcon = ({ name, className = "" }: TechIconProps) => {
       'Netlify': '#00C7B7',
     };
     
-    return colorMap[iconName] || '#3B82F6';
-  };
-
-  const handleClick = () => {
-    setIsClicked(true);
-    setTimeout(() => setIsClicked(false), 2000);
+    return colorMap[iconName] || '#6B7280';
   };
 
   return (
-    <div className={`group cursor-pointer ${className}`} onClick={handleClick}>
+    <div className={`group cursor-pointer ${className}`}>
       <div 
-        className={`relative w-16 h-16 flex flex-col items-center justify-center rounded-2xl shadow-lg transform transition-all duration-500 hover:scale-110 hover:rotate-6 ${
-          isClicked ? 'scale-125 rotate-12' : ''
-        }`}
+        className="relative w-12 h-12 flex flex-col items-center justify-center rounded-lg shadow-sm transform transition-all duration-300 hover:scale-110 hover:shadow-md bg-gray-50 dark:bg-gray-700"
         style={{ 
-          backgroundColor: `${getIconColor(name)}15`,
-          border: `2px solid ${getIconColor(name)}30`,
-          boxShadow: isClicked 
-            ? `0 0 40px ${getIconColor(name)}60, 0 0 80px ${getIconColor(name)}40`
-            : `0 10px 30px -5px ${getIconColor(name)}25`
+          borderLeft: `3px solid ${getIconColor(name)}`,
         }}
       >
-        {/* Spectacular icon with enhanced effects */}
+        {/* Icon */}
         <div 
-          className={`text-2xl transition-all duration-700 relative z-10 ${
-            isClicked ? 'animate-bounce' : 'group-hover:scale-125'
-          }`}
+          className="text-xl transition-all duration-300 group-hover:scale-110"
           style={{ 
             color: getIconColor(name),
-            filter: isClicked 
-              ? `drop-shadow(0 0 20px ${getIconColor(name)}) brightness(1.8) saturate(1.5)` 
-              : 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))'
           }}
         >
           {getIcon(name)}
         </div>
         
-        {/* Spectacular click effect - removed tooltip, enhanced visual feedback */}
-        {isClicked && (
-          <>
-            {/* Explosive ring effect */}
-            <div 
-              className="absolute inset-0 rounded-2xl animate-ping"
-              style={{ 
-                background: `radial-gradient(circle, transparent 30%, ${getIconColor(name)}40 60%, ${getIconColor(name)}60 90%, transparent 100%)`,
-                transform: 'scale(1.5)',
-              }}
-            />
-            
-            {/* Pulsing glow */}
-            <div 
-              className="absolute inset-0 rounded-2xl animate-pulse"
-              style={{ 
-                background: `radial-gradient(circle, ${getIconColor(name)}30 0%, ${getIconColor(name)}20 50%, transparent 100%)`,
-                transform: 'scale(2)',
-              }}
-            />
-            
-            {/* Sparkling particles */}
-            <div className="absolute -top-2 left-1/2 w-1 h-1 bg-yellow-400 rounded-full animate-ping" style={{ animationDelay: '0.1s' }}></div>
-            <div className="absolute -top-3 left-1/3 w-0.5 h-0.5 bg-white rounded-full animate-ping" style={{ animationDelay: '0.3s' }}></div>
-            <div className="absolute -top-2 right-1/3 w-0.5 h-0.5 bg-yellow-300 rounded-full animate-ping" style={{ animationDelay: '0.5s' }}></div>
-            <div className="absolute -right-2 top-1/2 w-1 h-1 bg-white rounded-full animate-ping" style={{ animationDelay: '0.2s' }}></div>
-            <div className="absolute -left-2 top-1/3 w-0.5 h-0.5 bg-yellow-400 rounded-full animate-ping" style={{ animationDelay: '0.4s' }}></div>
-            
-            {/* Rotating energy ring */}
-            <div 
-              className="absolute inset-0 rounded-2xl animate-spin"
-              style={{ 
-                background: `conic-gradient(from 0deg, transparent, ${getIconColor(name)}60, transparent)`,
-                animationDuration: '1s'
-              }}
-            />
-          </>
-        )}
-        
-        {/* Floating hover effect */}
+        {/* Subtle hover glow */}
         <div 
-          className="absolute -inset-2 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"
+          className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-20 transition-opacity duration-300"
           style={{ 
-            background: `radial-gradient(circle, transparent 40%, ${getIconColor(name)}20 70%, transparent 100%)`
+            backgroundColor: getIconColor(name)
           }}
         />
       </div>
       
-      {/* Enhanced skill name */}
-      <div className="mt-3 text-center">
-        <span className={`text-xs font-bold transition-all duration-300 ${
-          isClicked 
-            ? 'text-blue-600 dark:text-orange-500 scale-110 animate-pulse' 
-            : 'text-gray-600 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-orange-500'
-        }`}>
+      {/* Skill name */}
+      <div className="mt-2 text-center">
+        <span className="text-xs font-medium text-gray-600 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300">
           {name}
         </span>
       </div>
