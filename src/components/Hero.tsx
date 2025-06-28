@@ -34,18 +34,18 @@ const Hero = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-[#FF6B00]/10 to-[#FFA500]/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             
             <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-[#333] dark:text-[#EDEDED] mb-6 leading-tight relative z-10 transition-all duration-500 p-6">
-              <span className="saffron-gradient-text relative inline-block transition-all duration-500 group">
-                {/* Default state - ASH */}
-                <span className="group-hover:opacity-0 group-hover:scale-95 transition-all duration-500 block">
+              <span className="relative inline-block transition-all duration-500 group">
+                {/* Default state - ASH with gradient */}
+                <span className="saffron-gradient-text group-hover:opacity-0 group-hover:scale-95 transition-all duration-500 block">
                   ASH
                 </span>
                 
-                {/* Hover state - Full name */}
-                <span className="absolute inset-0 opacity-0 scale-105 group-hover:opacity-100 group-hover:scale-100 transition-all duration-500 whitespace-nowrap">
+                {/* Hover state - Full name with primary color */}
+                <span className="absolute inset-0 opacity-0 scale-105 group-hover:opacity-100 group-hover:scale-100 transition-all duration-500 whitespace-nowrap text-primary">
                   {"Ananda S Holla".split("").map((letter, index) => (
                     <span
                       key={index}
-                      className="inline-block animate-letter-bounce"
+                      className="inline-block animate-letter-bounce text-[#FF6B00] dark:text-[#FFA500]"
                       style={{ 
                         animationDelay: `${index * 0.1}s`,
                         filter: 'drop-shadow(0 0 10px rgba(255, 107, 0, 0.6))'
