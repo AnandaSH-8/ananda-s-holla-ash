@@ -112,6 +112,56 @@
 }
 
 @layer utilities {
+  /* Water Wave Animations (Light Mode) */
+  .animate-wave-deep {
+    animation: waveDeep 4s ease-in-out infinite;
+  }
+
+  .animate-wave-mid {
+    animation: waveMid 3s ease-in-out infinite;
+  }
+
+  .animate-wave-surface {
+    animation: waveSurface 2s ease-in-out infinite;
+  }
+
+  .animate-bubbles-float {
+    animation: bubblesFloat 6s ease-in-out infinite;
+  }
+
+  .animate-water-ripple {
+    animation: waterRipple 3s ease-in-out infinite;
+  }
+
+  .animate-letter-water-glow {
+    animation: letterWaterGlow 3s ease-in-out infinite alternate;
+  }
+
+  /* Fire Flame Animations (Dark Mode) */
+  .animate-flame-massive {
+    animation: flameMassive 2s ease-in-out infinite, flameDance 3s ease-in-out infinite;
+  }
+
+  .animate-flame-intense {
+    animation: flameIntense 1.8s ease-in-out infinite, flameDance 2.5s ease-in-out infinite reverse;
+  }
+
+  .animate-flame-core {
+    animation: flameCore 1.5s ease-in-out infinite, flameDance 2s ease-in-out infinite;
+  }
+
+  .animate-letter-fire-burn {
+    animation: letterFireBurn 1.5s ease-in-out infinite alternate;
+  }
+
+  .animate-sparks-explosion {
+    animation: sparksExplosion 4s ease-in-out infinite;
+  }
+
+  .animate-heat-intense {
+    animation: heatIntense 1.2s ease-in-out infinite alternate;
+  }
+
   /* Water Bubble Animations (Light Mode) */
   .animate-water-bubble-1 {
     animation: waterBubble1 4s ease-in-out infinite;
@@ -464,6 +514,196 @@
   }
 
   /* Keyframe Animations */
+
+  /* Water Wave Animations */
+  @keyframes waveDeep {
+    0%, 100% {
+      transform: scaleY(1) scaleX(1) skewX(0deg);
+      opacity: 0.8;
+    }
+    25% {
+      transform: scaleY(1.1) scaleX(0.95) skewX(-2deg);
+      opacity: 0.9;
+    }
+    50% {
+      transform: scaleY(0.9) scaleX(1.05) skewX(1deg);
+      opacity: 0.7;
+    }
+    75% {
+      transform: scaleY(1.05) scaleX(0.98) skewX(-1deg);
+      opacity: 0.85;
+    }
+  }
+
+  @keyframes waveMid {
+    0%, 100% {
+      transform: scaleY(1) scaleX(1) translateY(0px);
+      filter: brightness(1.1);
+    }
+    33% {
+      transform: scaleY(1.15) scaleX(0.9) translateY(-1px);
+      filter: brightness(1.3);
+    }
+    66% {
+      transform: scaleY(0.85) scaleX(1.1) translateY(1px);
+      filter: brightness(0.9);
+    }
+  }
+
+  @keyframes waveSurface {
+    0%, 100% {
+      transform: scaleY(1) scaleX(1) translateY(0px);
+      filter: brightness(1.3);
+    }
+    50% {
+      transform: scaleY(1.2) scaleX(0.8) translateY(-2px);
+      filter: brightness(1.6);
+    }
+  }
+
+  @keyframes bubblesFloat {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-2px) rotate(90deg);
+    }
+    50% {
+      transform: translateY(-1px) rotate(180deg);
+    }
+    75% {
+      transform: translateY(-3px) rotate(270deg);
+    }
+  }
+
+  @keyframes waterRipple {
+    0%, 100% {
+      transform: scaleX(1) skewX(0deg);
+      opacity: 0.4;
+    }
+    50% {
+      transform: scaleX(1.1) skewX(2deg);
+      opacity: 0.6;
+    }
+  }
+
+  @keyframes letterWaterGlow {
+    from {
+      text-shadow: 
+        0 0 5px rgba(255, 255, 255, 0.9),
+        0 0 10px rgba(0, 191, 255, 0.7),
+        0 0 15px rgba(59, 130, 246, 0.5);
+      filter: brightness(1.2);
+    }
+    to {
+      text-shadow: 
+        0 0 10px rgba(255, 255, 255, 1),
+        0 0 20px rgba(0, 191, 255, 0.9),
+        0 0 30px rgba(59, 130, 246, 0.7);
+      filter: brightness(1.5);
+    }
+  }
+
+  /* Fire Flame Animations */
+  @keyframes flameMassive {
+    0%, 100% {
+      transform: scaleY(1) scaleX(1) skewX(0deg);
+      opacity: 0.9;
+    }
+    25% {
+      transform: scaleY(1.2) scaleX(0.9) skewX(3deg);
+      opacity: 0.8;
+    }
+    50% {
+      transform: scaleY(0.8) scaleX(1.1) skewX(-2deg);
+      opacity: 0.7;
+    }
+    75% {
+      transform: scaleY(1.1) scaleX(0.95) skewX(2deg);
+      opacity: 0.85;
+    }
+  }
+
+  @keyframes flameIntense {
+    0%, 100% {
+      transform: scaleY(1) scaleX(1) translateY(0px);
+      filter: brightness(1.4);
+    }
+    33% {
+      transform: scaleY(1.25) scaleX(0.85) translateY(-2px);
+      filter: brightness(1.7);
+    }
+    66% {
+      transform: scaleY(0.75) scaleX(1.15) translateY(2px);
+      filter: brightness(1.1);
+    }
+  }
+
+  @keyframes flameCore {
+    0%, 100% {
+      transform: scaleY(1) scaleX(1) translateY(0px);
+      filter: brightness(1.8);
+    }
+    50% {
+      transform: scaleY(1.3) scaleX(0.7) translateY(-3px);
+      filter: brightness(2.2);
+    }
+  }
+
+  @keyframes flameDance {
+    0%, 100% {
+      transform: translateX(0px) rotate(0deg);
+    }
+    25% {
+      transform: translateX(2px) rotate(2deg);
+    }
+    50% {
+      transform: translateX(-1px) rotate(-1deg);
+    }
+    75% {
+      transform: translateX(1px) rotate(1deg);
+    }
+  }
+
+  @keyframes letterFireBurn {
+    from {
+      text-shadow: 
+        0 0 8px rgba(255, 255, 255, 0.9),
+        0 0 15px rgba(255, 215, 0, 0.8),
+        0 0 25px rgba(255, 107, 0, 0.6);
+      filter: brightness(1.5);
+    }
+    to {
+      text-shadow: 
+        0 0 15px rgba(255, 255, 255, 1),
+        0 0 30px rgba(255, 215, 0, 0.9),
+        0 0 45px rgba(255, 107, 0, 0.8);
+      filter: brightness(2);
+    }
+  }
+
+  @keyframes sparksExplosion {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(-5px) rotate(180deg);
+      opacity: 0.6;
+    }
+  }
+
+  @keyframes heatIntense {
+    from {
+      transform: scaleX(1) skewX(0deg);
+      opacity: 0.4;
+    }
+    to {
+      transform: scaleX(1.2) skewX(3deg);
+      opacity: 0.7;
+    }
+  }
+
   @keyframes waterBubble1 {
     0%, 100% {
       transform: translateY(0px) scale(1);
