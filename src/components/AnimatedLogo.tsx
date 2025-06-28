@@ -3,9 +3,9 @@ const AnimatedLogo = () => {
     <div className="relative inline-block cursor-pointer group">
       {/* Light Theme - Ocean Waves */}
       <svg
-        width="60"
-        height="60"
-        viewBox="0 0 60 60"
+        width="80"
+        height="80"
+        viewBox="0 0 80 80"
         className="block dark:hidden hover:scale-110 transition-transform duration-300"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -32,7 +32,7 @@ const AnimatedLogo = () => {
 
           {/* Water Effects */}
           <filter id="waterGlow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
             <feMerge> 
               <feMergeNode in="coloredBlur"/>
               <feMergeNode in="SourceGraphic"/>
@@ -40,16 +40,16 @@ const AnimatedLogo = () => {
           </filter>
         </defs>
         
-        {/* Flowing water waves - more natural curved shapes */}
+        {/* Flowing water waves - larger, more dramatic shapes */}
         
         {/* Deep water layer - flowing horizontal curves */}
         <path
-          d="M5 20 
-             C15 15, 25 25, 35 20 
-             C45 15, 55 25, 55 35 
-             C55 45, 45 50, 35 45 
-             C25 40, 15 50, 5 45 
-             C5 35, 5 25, 5 20 Z"
+          d="M8 25 
+             C18 18, 28 32, 38 25 
+             C48 18, 58 32, 58 42 
+             C58 52, 48 58, 38 52 
+             C28 46, 18 58, 8 52 
+             C8 42, 8 32, 8 25 Z"
           fill="url(#oceanFlow1)"
           filter="url(#waterGlow)"
           className="animate-wave-deep"
@@ -57,11 +57,11 @@ const AnimatedLogo = () => {
         
         {/* Mid water layer - gentle curves */}
         <path
-          d="M10 25 
-             C20 20, 30 30, 40 25 
-             C50 20, 50 30, 45 40 
-             C40 45, 30 40, 20 45 
-             C10 40, 10 30, 10 25 Z"
+          d="M12 30 
+             C22 23, 32 37, 42 30 
+             C52 23, 52 37, 47 47 
+             C42 52, 32 47, 22 52 
+             C12 47, 12 37, 12 30 Z"
           fill="url(#oceanFlow2)"
           filter="url(#waterGlow)"
           className="animate-wave-mid"
@@ -69,55 +69,68 @@ const AnimatedLogo = () => {
         
         {/* Surface water layer - top flowing curves */}
         <path
-          d="M15 28 
-             C25 23, 35 33, 45 28 
-             C45 35, 40 38, 30 35 
-             C20 32, 15 35, 15 28 Z"
+          d="M18 33 
+             C28 26, 38 40, 48 33 
+             C48 40, 43 43, 33 40 
+             C23 37, 18 40, 18 33 Z"
           fill="url(#oceanFlow3)"
           filter="url(#waterGlow)"
           className="animate-wave-surface"
         />
         
-        {/* Letter A - Simple, clean text */}
+        {/* Letter A - Much larger, bold text */}
         <text
-          x="30"
-          y="38"
+          x="40"
+          y="45"
           textAnchor="middle"
           dominantBaseline="middle"
           style={{ 
-            fontSize: '24px', 
+            fontSize: '36px', 
             fontFamily: 'Arial, sans-serif', 
             fontWeight: 'bold',
             fill: '#1565C0'
           }}
+          className="animate-letter-water-glow"
         >
           A
         </text>
         
-        {/* Floating water bubbles */}
+        {/* Floating water bubbles - larger and more dramatic */}
         <g className="animate-bubbles-float">
-          <circle cx="20" cy="18" r="2" fill="#B3E5FC" opacity="0.7">
-            <animate attributeName="cy" values="18;8;18" dur="4s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values="0.7;0.3;0.7" dur="4s" repeatCount="indefinite"/>
+          <circle cx="25" cy="20" r="3" fill="#B3E5FC" opacity="0.8">
+            <animate attributeName="cy" values="20;8;20" dur="4s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.8;0.3;0.8" dur="4s" repeatCount="indefinite"/>
+            <animate attributeName="r" values="3;1.5;3" dur="4s" repeatCount="indefinite"/>
           </circle>
           
-          <circle cx="40" cy="16" r="1.5" fill="#4FC3F7" opacity="0.6">
-            <animate attributeName="cy" values="16;6;16" dur="5s" repeatCount="indefinite" begin="1s"/>
-            <animate attributeName="opacity" values="0.6;0.2;0.6" dur="5s" repeatCount="indefinite" begin="1s"/>
+          <circle cx="55" cy="18" r="2.5" fill="#4FC3F7" opacity="0.7">
+            <animate attributeName="cy" values="18;6;18" dur="5s" repeatCount="indefinite" begin="1s"/>
+            <animate attributeName="opacity" values="0.7;0.2;0.7" dur="5s" repeatCount="indefinite" begin="1s"/>
+            <animate attributeName="r" values="2.5;1;2.5" dur="5s" repeatCount="indefinite" begin="1s"/>
           </circle>
           
-          <circle cx="25" cy="12" r="1.2" fill="#29B6F6" opacity="0.8">
-            <animate attributeName="cy" values="12;2;12" dur="3.5s" repeatCount="indefinite" begin="2s"/>
-            <animate attributeName="opacity" values="0.8;0.4;0.8" dur="3.5s" repeatCount="indefinite" begin="2s"/>
+          <circle cx="35" cy="15" r="2" fill="#29B6F6" opacity="0.9">
+            <animate attributeName="cy" values="15;3;15" dur="3.5s" repeatCount="indefinite" begin="2s"/>
+            <animate attributeName="opacity" values="0.9;0.4;0.9" dur="3.5s" repeatCount="indefinite" begin="2s"/>
+            <animate attributeName="r" values="2;0.8;2" dur="3.5s" repeatCount="indefinite" begin="2s"/>
+          </circle>
+          
+          <circle cx="15" cy="35" r="1.8" fill="#87CEEB" opacity="0.6">
+            <animate attributeName="cy" values="35;25;35" dur="6s" repeatCount="indefinite" begin="3s"/>
+            <animate attributeName="opacity" values="0.6;0.1;0.6" dur="6s" repeatCount="indefinite" begin="3s"/>
+            <animate attributeName="r" values="1.8;0.5;1.8" dur="6s" repeatCount="indefinite" begin="3s"/>
           </circle>
         </g>
+        
+        {/* Water ripple effect at bottom */}
+        <ellipse cx="40" cy="65" rx="25" ry="8" fill="#B3E5FC" opacity="0.4" className="animate-water-ripple"/>
       </svg>
 
       {/* Dark Theme - Burning Fire */}
       <svg
-        width="60"
-        height="60"
-        viewBox="0 0 60 60"
+        width="80"
+        height="80"
+        viewBox="0 0 80 80"
         className="hidden dark:block hover:scale-110 transition-transform duration-300"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -147,7 +160,7 @@ const AnimatedLogo = () => {
 
           {/* Fire glow effects */}
           <filter id="fireGlow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
             <feMerge> 
               <feMergeNode in="coloredBlur"/>
               <feMergeNode in="SourceGraphic"/>
@@ -155,21 +168,21 @@ const AnimatedLogo = () => {
           </filter>
         </defs>
         
-        {/* Dynamic flame shapes - tall, dancing flames */}
+        {/* Dynamic flame shapes - much larger, more dramatic */}
         
-        {/* Outer flame - tall dancing shape */}
+        {/* Outer flame - massive dancing shape */}
         <path
-          d="M30 8 
-             C25 12, 20 18, 18 28 
-             C16 38, 20 45, 25 50 
-             C30 55, 35 50, 40 45 
-             C44 38, 42 28, 40 18 
-             C38 12, 35 8, 30 8 Z
-             M28 10 
-             C32 6, 36 10, 38 16 
-             C40 22, 38 28, 35 32 
-             C32 28, 28 22, 28 16 
-             C28 12, 28 10, 28 10 Z"
+          d="M40 10 
+             C32 15, 25 22, 22 35 
+             C20 48, 25 58, 32 65 
+             C40 70, 48 65, 55 58 
+             C60 48, 58 35, 55 22 
+             C52 15, 48 10, 40 10 Z
+             M36 12 
+             C42 6, 48 12, 52 20 
+             C56 28, 52 36, 48 42 
+             C42 36, 36 28, 36 20 
+             C36 15, 36 12, 36 12 Z"
           fill="url(#fireFlame1)"
           filter="url(#fireGlow)"
           className="animate-flame-massive"
@@ -177,12 +190,12 @@ const AnimatedLogo = () => {
         
         {/* Middle flame - intense core */}
         <path
-          d="M30 12 
-             C26 16, 22 22, 21 30 
-             C20 36, 23 42, 27 46 
-             C30 48, 33 46, 37 42 
-             C41 36, 40 30, 39 22 
-             C38 16, 34 12, 30 12 Z"
+          d="M40 15 
+             C34 20, 28 28, 26 38 
+             C24 46, 28 54, 34 60 
+             C40 63, 46 60, 52 54 
+             C58 46, 56 38, 54 28 
+             C52 20, 46 15, 40 15 Z"
           fill="url(#fireFlame2)"
           filter="url(#fireGlow)"
           className="animate-flame-intense"
@@ -190,59 +203,75 @@ const AnimatedLogo = () => {
         
         {/* Inner flame - white hot center */}
         <path
-          d="M30 16 
-             C28 20, 26 24, 25 30 
-             C24 34, 26 38, 28 40 
-             C30 42, 32 40, 34 38 
-             C36 34, 35 30, 35 24 
-             C35 20, 32 16, 30 16 Z"
+          d="M40 20 
+             C36 25, 32 30, 30 38 
+             C28 44, 32 50, 36 53 
+             C40 55, 44 53, 48 50 
+             C52 44, 50 38, 50 30 
+             C50 25, 44 20, 40 20 Z"
           fill="url(#fireFlame3)"
           filter="url(#fireGlow)"
           className="animate-flame-core"
         />
         
-        {/* Letter A - Simple, clean text */}
+        {/* Letter A - Much larger, bold text */}
         <text
-          x="30"
-          y="38"
+          x="40"
+          y="45"
           textAnchor="middle"
           dominantBaseline="middle"
           style={{ 
-            fontSize: '24px', 
+            fontSize: '36px', 
             fontFamily: 'Arial, sans-serif', 
             fontWeight: 'bold',
             fill: '#FFFFFF'
           }}
+          className="animate-letter-fire-burn"
         >
           A
         </text>
         
-        {/* Flying sparks and embers */}
+        {/* Flying sparks and embers - larger and more dramatic */}
         <g className="animate-sparks-explosion">
-          <circle cx="18" cy="15" r="2.5" fill="#FFD700">
-            <animate attributeName="cy" values="15;5;15" dur="2s" repeatCount="indefinite"/>
+          <circle cx="22" cy="18" r="3.5" fill="#FFD700">
+            <animate attributeName="cy" values="18;5;18" dur="2s" repeatCount="indefinite"/>
             <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
-            <animate attributeName="r" values="2.5;1;2.5" dur="2s" repeatCount="indefinite"/>
+            <animate attributeName="r" values="3.5;1.5;3.5" dur="2s" repeatCount="indefinite"/>
           </circle>
           
-          <circle cx="42" cy="12" r="2" fill="#FFA500">
-            <animate attributeName="cy" values="12;2;12" dur="2.5s" repeatCount="indefinite" begin="0.5s"/>
+          <circle cx="58" cy="15" r="3" fill="#FFA500">
+            <animate attributeName="cy" values="15;2;15" dur="2.5s" repeatCount="indefinite" begin="0.5s"/>
             <animate attributeName="opacity" values="1;0.2;1" dur="2.5s" repeatCount="indefinite" begin="0.5s"/>
-            <animate attributeName="r" values="2;0.8;2" dur="2.5s" repeatCount="indefinite" begin="0.5s"/>
+            <animate attributeName="r" values="3;1;3" dur="2.5s" repeatCount="indefinite" begin="0.5s"/>
           </circle>
           
-          <circle cx="25" cy="10" r="1.8" fill="#FF6B00">
-            <animate attributeName="cy" values="10;0;10" dur="3s" repeatCount="indefinite" begin="1s"/>
+          <circle cx="30" cy="12" r="2.5" fill="#FF6B00">
+            <animate attributeName="cy" values="12;0;12" dur="3s" repeatCount="indefinite" begin="1s"/>
             <animate attributeName="opacity" values="1;0.1;1" dur="3s" repeatCount="indefinite" begin="1s"/>
-            <animate attributeName="r" values="1.8;0.5;1.8" dur="3s" repeatCount="indefinite" begin="1s"/>
+            <animate attributeName="r" values="2.5;0.8;2.5" dur="3s" repeatCount="indefinite" begin="1s"/>
           </circle>
           
-          <circle cx="35" cy="14" r="1.5" fill="#FF4500">
-            <animate attributeName="cy" values="14;4;14" dur="1.8s" repeatCount="indefinite" begin="1.5s"/>
+          <circle cx="50" cy="16" r="2.2" fill="#FF4500">
+            <animate attributeName="cy" values="16;4;16" dur="1.8s" repeatCount="indefinite" begin="1.5s"/>
             <animate attributeName="opacity" values="1;0.4;1" dur="1.8s" repeatCount="indefinite" begin="1.5s"/>
-            <animate attributeName="r" values="1.5;0.6;1.5" dur="1.8s" repeatCount="indefinite" begin="1.5s"/>
+            <animate attributeName="r" values="2.2;0.8;2.2" dur="1.8s" repeatCount="indefinite" begin="1.5s"/>
+          </circle>
+          
+          <circle cx="15" cy="25" r="2" fill="#DC143C">
+            <animate attributeName="cy" values="25;12;25" dur="2.2s" repeatCount="indefinite" begin="2s"/>
+            <animate attributeName="opacity" values="1;0.3;1" dur="2.2s" repeatCount="indefinite" begin="2s"/>
+            <animate attributeName="r" values="2;0.6;2" dur="2.2s" repeatCount="indefinite" begin="2s"/>
+          </circle>
+          
+          <circle cx="65" cy="28" r="1.8" fill="#8B0000">
+            <animate attributeName="cy" values="28;15;28" dur="2.8s" repeatCount="indefinite" begin="2.5s"/>
+            <animate attributeName="opacity" values="1;0.2;1" dur="2.8s" repeatCount="indefinite" begin="2.5s"/>
+            <animate attributeName="r" values="1.8;0.5;1.8" dur="2.8s" repeatCount="indefinite" begin="2.5s"/>
           </circle>
         </g>
+        
+        {/* Heat shimmer effect at bottom */}
+        <ellipse cx="40" cy="70" rx="30" ry="6" fill="#FF6B00" opacity="0.3" className="animate-heat-intense"/>
       </svg>
     </div>
   );
