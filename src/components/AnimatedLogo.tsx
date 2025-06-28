@@ -78,21 +78,17 @@ const AnimatedLogo = () => {
           className="animate-wave-surface"
         />
         
-        {/* Letter A - Modern, clean typography */}
+        {/* Letter A - Simple, clean text */}
         <text
           x="30"
-          y="36"
+          y="38"
           textAnchor="middle"
           dominantBaseline="middle"
-          className="animate-letter-water-glow"
           style={{ 
-            fontSize: '32px', 
-            fontFamily: 'Poppins, Inter, sans-serif', 
-            fontWeight: '800',
-            fill: '#FFFFFF',
-            stroke: '#0288D1',
-            strokeWidth: '1.5px',
-            filter: 'drop-shadow(2px 2px 4px rgba(2, 136, 209, 0.6))'
+            fontSize: '24px', 
+            fontFamily: 'Arial, sans-serif', 
+            fontWeight: 'bold',
+            fill: '#1565C0'
           }}
         >
           A
@@ -205,21 +201,17 @@ const AnimatedLogo = () => {
           className="animate-flame-core"
         />
         
-        {/* Letter A - Modern, bold typography */}
+        {/* Letter A - Simple, clean text */}
         <text
           x="30"
-          y="36"
+          y="38"
           textAnchor="middle"
           dominantBaseline="middle"
-          className="animate-letter-fire-burn"
           style={{ 
-            fontSize: '32px', 
-            fontFamily: 'Poppins, Inter, sans-serif', 
-            fontWeight: '800',
-            fill: '#FFFFFF',
-            stroke: '#8B0000',
-            strokeWidth: '1.5px',
-            filter: 'drop-shadow(2px 2px 6px rgba(139, 0, 0, 0.8))'
+            fontSize: '24px', 
+            fontFamily: 'Arial, sans-serif', 
+            fontWeight: 'bold',
+            fill: '#FFFFFF'
           }}
         >
           A
