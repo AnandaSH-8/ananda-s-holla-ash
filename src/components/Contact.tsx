@@ -23,17 +23,17 @@ const Contact = () => {
                 <div className="space-y-3">
                   <div className="flex items-center">
                     <span className="text-gray-600 dark:text-gray-300">
-                      📧 your.email@example.com
+                      📧 ashdeveloper8@gmail.com
                     </span>
                   </div>
                   <div className="flex items-center">
                     <span className="text-gray-600 dark:text-gray-300">
-                      📱 +1 (555) 123-4567
+                      📱 +91 8217754037
                     </span>
                   </div>
                   <div className="flex items-center">
                     <span className="text-gray-600 dark:text-gray-300">
-                      📍 Your City, Country
+                      📍 Moodabidri, India
                     </span>
                   </div>
                 </div>
