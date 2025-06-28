@@ -48,65 +48,66 @@ const AnimatedLogo = () => {
               <feMergeNode in="SourceGraphic"/>
             </feMerge>
           </filter>
-
-          {/* Wave distortion */}
-          <filter id="waveTurbulence">
-            <feTurbulence baseFrequency="0.02 0.05" numOctaves="2" result="noise" seed="1"/>
-            <feDisplacementMap in="SourceGraphic" in2="noise" scale="2"/>
-          </filter>
         </defs>
         
-        {/* Multiple wave layers for depth */}
+        {/* Multiple wave layers - more rectangular/flowing shapes */}
         
-        {/* Deep ocean wave - largest */}
+        {/* Deep ocean wave - flowing horizontal shape */}
         <path
-          d="M30 10 
-             C42 18, 48 28, 46 42 
-             C44 52, 36 56, 30 58 
-             C24 56, 16 52, 14 42 
-             C12 28, 18 18, 30 10 Z"
+          d="M8 25 
+             Q15 15, 25 20 
+             Q35 25, 45 18 
+             Q52 22, 52 35 
+             Q45 45, 35 40 
+             Q25 35, 15 42 
+             Q8 38, 8 25 Z"
           fill="url(#oceanDeep)"
           filter="url(#waterGlow)"
           className="animate-wave-deep"
         />
         
-        {/* Mid ocean wave */}
+        {/* Mid ocean wave - curved flowing shape */}
         <path
-          d="M30 14 
-             C38 20, 42 28, 40.5 38 
-             C39 46, 35 49, 30 50.5 
-             C25 49, 21 46, 19.5 38 
-             C18 28, 22 20, 30 14 Z"
+          d="M12 28 
+             Q18 20, 28 24 
+             Q38 28, 48 22 
+             Q48 32, 42 38 
+             Q32 34, 22 38 
+             Q12 34, 12 28 Z"
           fill="url(#oceanMid)"
           filter="url(#waterGlow)"
           className="animate-wave-mid"
         />
         
-        {/* Surface wave - brightest */}
+        {/* Surface wave - top flowing layer */}
         <path
-          d="M30 18 
-             C34 22, 36 28, 35 34 
-             C34 39, 32 41, 30 42 
-             C28 41, 26 39, 25 34 
-             C24 28, 26 22, 30 18 Z"
+          d="M16 30 
+             Q22 24, 30 28 
+             Q38 32, 44 26 
+             Q44 34, 38 36 
+             Q30 32, 22 36 
+             Q16 34, 16 30 Z"
           fill="url(#oceanSurface)"
           filter="url(#waterGlow)"
           className="animate-wave-surface"
         />
         
-        {/* Letter A - ocean themed */}
+        {/* Letter A - highly visible with strong contrast */}
         <text
           x="30"
           y="35"
           textAnchor="middle"
           dominantBaseline="middle"
-          className="fill-white font-black animate-letter-water-glow drop-shadow-lg"
+          className="font-black drop-shadow-lg"
           filter="url(#letterWaterGlow)"
           style={{ 
-            fontSize: '24px', 
+            fontSize: '28px', 
             fontFamily: 'Inter, sans-serif', 
             fontWeight: '900',
-            textShadow: '0 0 10px rgba(0, 191, 255, 0.8)'
+            fill: '#FFFFFF',
+            stroke: '#003366',
+            strokeWidth: '1px',
+            textShadow: '2px 2px 4px rgba(0, 51, 102, 0.8)'
           }}
         >
           A
@@ -152,7 +153,7 @@ const AnimatedLogo = () => {
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
-          {/* Enhanced fire gradients for more realistic effect */}
+          {/* Enhanced fire gradients */}
           <radialGradient id="fireCore" cx="50%" cy="80%" r="35%">
             <stop offset="0%" stopColor="#FFFFFF" />
             <stop offset="20%" stopColor="#FFD700" />
@@ -194,35 +195,41 @@ const AnimatedLogo = () => {
               <feMergeNode in="SourceGraphic"/>
             </feMerge>
           </filter>
-
-          {/* Flame distortion for realistic flicker */}
-          <filter id="flameTurbulence">
-            <feTurbulence baseFrequency="0.08 0.15" numOctaves="4" result="noise" seed="3"/>
-            <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5"/>
-          </filter>
         </defs>
         
-        {/* Multiple flame layers for massive fire effect */}
+        {/* Multiple flame layers - jagged, irregular fire shapes */}
         
-        {/* Outermost flame - huge and dramatic */}
+        {/* Outermost flame - tall jagged shape */}
         <path
-          d="M30 6 
-             C42 12, 50 22, 48 40 
-             C46 50, 38 55, 30 57 
-             C22 55, 14 50, 12 40 
-             C10 22, 18 12, 30 6 Z"
+          d="M30 8 
+             L35 12 Q40 8, 45 15 
+             L48 20 Q52 18, 50 28 
+             Q48 35, 45 40 
+             L42 45 Q38 50, 35 48 
+             Q32 52, 30 50 
+             Q28 52, 25 48 
+             Q22 50, 18 45 
+             L15 40 Q12 35, 10 28 
+             Q8 18, 12 20 
+             L15 15 Q20 8, 25 12 
+             L30 8 Z"
           fill="url(#fireOuter)"
           filter="url(#fireGlow)"
           className="animate-flame-massive"
         />
         
-        {/* Middle flame layer - intense heat */}
+        {/* Middle flame layer - intense jagged shape */}
         <path
-          d="M30 10 
-             C38 16, 44 24, 42.5 38 
-             C41 46, 35 50, 30 51.5 
-             C25 50, 19 46, 17.5 38 
-             C16 24, 22 16, 30 10 Z"
+          d="M30 12 
+             L33 16 Q36 14, 38 20 
+             Q40 25, 38 32 
+             L36 38 Q34 42, 32 40 
+             Q30 44, 30 42 
+             Q30 44, 28 40 
+             Q26 42, 24 38 
+             L22 32 Q20 25, 22 20 
+             Q24 14, 27 16 
+             L30 12 Z"
           fill="url(#fireCore)"
           filter="url(#fireGlow)"
           className="animate-flame-intense"
@@ -230,35 +237,41 @@ const AnimatedLogo = () => {
         
         {/* Inner flame - white hot core */}
         <path
-          d="M30 14 
-             C35 18, 38 24, 37 32 
-             C36 38, 33 41, 30 42 
-             C27 41, 24 38, 23 32 
-             C22 24, 25 18, 30 14 Z"
+          d="M30 16 
+             L32 20 Q34 18, 35 24 
+             Q36 28, 34 32 
+             Q32 36, 30 34 
+             Q28 36, 26 32 
+             Q24 28, 25 24 
+             Q26 18, 28 20 
+             L30 16 Z"
           fill="url(#fireInner)"
           filter="url(#fireGlow)"
           className="animate-flame-core"
         />
         
-        {/* Letter A - burning white hot */}
+        {/* Letter A - highly visible with strong contrast */}
         <text
           x="30"
           y="35"
           textAnchor="middle"
           dominantBaseline="middle"
-          className="fill-white font-black animate-letter-fire-burn drop-shadow-lg"
+          className="font-black drop-shadow-lg"
           filter="url(#letterFireGlow)"
           style={{ 
-            fontSize: '24px', 
+            fontSize: '28px', 
             fontFamily: 'Inter, sans-serif', 
             fontWeight: '900',
-            textShadow: '0 0 15px rgba(255, 255, 255, 0.9), 0 0 25px rgba(255, 215, 0, 0.8)'
+            fill: '#FFFFFF',
+            stroke: '#8B0000',
+            strokeWidth: '1px',
+            textShadow: '2px 2px 4px rgba(139, 0, 0, 0.8)'
           }}
         >
           A
         </text>
         
-        {/* Dynamic sparks and embers - more dramatic */}
+        {/* Dynamic sparks and embers */}
         <g className="animate-sparks-explosion">
           {/* Large sparks */}
           <circle cx="15" cy="12" r="2" fill="#FFD700" className="animate-spark-large-1">
@@ -302,14 +315,6 @@ const AnimatedLogo = () => {
         {/* Heat distortion effect */}
         <rect x="10" y="50" width="40" height="8" fill="url(#fireOuter)" opacity="0.4" className="animate-heat-intense" rx="4"/>
       </svg>
-      
-      {/* Theme-appropriate hover tooltip */}
-      <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-        <span className="text-xs text-blue-600 bg-white dark:text-orange-500 dark:bg-[#2E2E2E] px-3 py-1 rounded-full shadow-lg border border-blue-500/20 dark:border-orange-500/20 whitespace-nowrap">
-          <span className="dark:hidden">Ocean Waves 🌊</span>
-          <span className="hidden dark:inline">Always Burning 🔥</span>
-        </span>
-      </div>
     </div>
   );
 };
