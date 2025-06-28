@@ -30,11 +30,29 @@ const AnimatedLogo = () => {
             <stop offset="100%" stopColor="#4FC3F7" />
           </linearGradient>
 
+          {/* Enhanced Text Gradients */}
+          <linearGradient id="textGradientWater" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#0D47A1" />
+            <stop offset="50%" stopColor="#1565C0" />
+            <stop offset="100%" stopColor="#1976D2" />
+          </linearGradient>
+
           {/* Water Effects */}
           <filter id="waterGlow" x="-50%" y="-50%" width="200%" height="200%">
             <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
             <feMerge> 
               <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+
+          {/* Enhanced Text Glow for Water */}
+          <filter id="textGlowWater" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+            <feFlood floodColor="#1565C0" floodOpacity="0.8"/>
+            <feComposite in2="coloredBlur" operator="in"/>
+            <feMerge> 
+              <feMergeNode/>
               <feMergeNode in="SourceGraphic"/>
             </feMerge>
           </filter>
@@ -78,21 +96,39 @@ const AnimatedLogo = () => {
           className="animate-wave-surface"
         />
         
-        {/* Letter A - Much larger, bold text */}
+        {/* Letter A - Enhanced with premium font styling */}
         <text
           x="40"
           y="45"
           textAnchor="middle"
           dominantBaseline="middle"
+          fill="url(#textGradientWater)"
+          filter="url(#textGlowWater)"
+          className="animate-letter-water-glow group-hover:animate-pulse"
           style={{ 
             fontSize: '36px', 
-            fontFamily: 'Arial, sans-serif', 
-            fontWeight: 'bold',
-            fill: '#1565C0'
+            fontFamily: '"Playfair Display", "Georgia", "Times New Roman", serif', 
+            fontWeight: '900',
+            fontStyle: 'italic',
+            textShadow: '0 2px 4px rgba(21, 101, 192, 0.3)',
+            transition: 'all 0.3s ease'
           }}
-          className="animate-letter-water-glow"
         >
           A
+          <animateTransform
+            attributeName="transform"
+            type="scale"
+            values="1;1.1;1"
+            dur="2s"
+            repeatCount="indefinite"
+            begin="0s"
+          />
+          <animate
+            attributeName="opacity"
+            values="0.8;1;0.8"
+            dur="3s"
+            repeatCount="indefinite"
+          />
         </text>
         
         {/* Floating water bubbles - larger and more dramatic */}
@@ -158,11 +194,30 @@ const AnimatedLogo = () => {
             <stop offset="100%" stopColor="#FF6B00" />
           </linearGradient>
 
+          {/* Enhanced Text Gradients for Fire */}
+          <linearGradient id="textGradientFire" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#FFFFFF" />
+            <stop offset="30%" stopColor="#FFD700" />
+            <stop offset="70%" stopColor="#FFA500" />
+            <stop offset="100%" stopColor="#FF6B00" />
+          </linearGradient>
+
           {/* Fire glow effects */}
           <filter id="fireGlow" x="-50%" y="-50%" width="200%" height="200%">
             <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
             <feMerge> 
               <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+
+          {/* Enhanced Text Glow for Fire */}
+          <filter id="textGlowFire" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feFlood floodColor="#FFD700" floodOpacity="0.9"/>
+            <feComposite in2="coloredBlur" operator="in"/>
+            <feMerge> 
+              <feMergeNode/>
               <feMergeNode in="SourceGraphic"/>
             </feMerge>
           </filter>
@@ -214,21 +269,39 @@ const AnimatedLogo = () => {
           className="animate-flame-core"
         />
         
-        {/* Letter A - Much larger, bold text */}
+        {/* Letter A - Enhanced with premium font styling */}
         <text
           x="40"
           y="45"
           textAnchor="middle"
           dominantBaseline="middle"
+          fill="url(#textGradientFire)"
+          filter="url(#textGlowFire)"
+          className="animate-letter-fire-burn group-hover:animate-pulse"
           style={{ 
             fontSize: '36px', 
-            fontFamily: 'Arial, sans-serif', 
-            fontWeight: 'bold',
-            fill: '#FFFFFF'
+            fontFamily: '"Playfair Display", "Georgia", "Times New Roman", serif', 
+            fontWeight: '900',
+            fontStyle: 'italic',
+            textShadow: '0 0 10px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 107, 0, 0.6)',
+            transition: 'all 0.3s ease'
           }}
-          className="animate-letter-fire-burn"
         >
           A
+          <animateTransform
+            attributeName="transform"
+            type="scale"
+            values="1;1.15;1"
+            dur="1.5s"
+            repeatCount="indefinite"
+            begin="0s"
+          />
+          <animate
+            attributeName="opacity"
+            values="0.9;1;0.9"
+            dur="2s"
+            repeatCount="indefinite"
+          />
         </text>
         
         {/* Flying sparks and embers - larger and more dramatic */}
