@@ -17,6 +17,7 @@ import {
   SiVercel,
   SiNetlify
 } from 'react-icons/si';
+import { useState } from 'react';
 
 interface TechIconProps {
   name: string;
@@ -24,6 +25,8 @@ interface TechIconProps {
 }
 
 const TechIcon = ({ name, className = "" }: TechIconProps) => {
+  const [isClicked, setIsClicked] = useState(false);
+
   const getIcon = (iconName: string) => {
     const iconMap: { [key: string]: React.ComponentType<any> } = {
       'React.js': SiReact,
@@ -73,37 +76,52 @@ const TechIcon = ({ name, className = "" }: TechIconProps) => {
     return colorMap[iconName] || '#FF6B00';
   };
 
+  const handleClick = () => {
+    setIsClicked(true);
+    setTimeout(() => setIsClicked(false), 600);
+  };
+
   return (
-    <div className={`group cursor-pointer ${className}`}>
+    <div className={`group cursor-pointer ${className}`} onClick={handleClick}>
       <div 
-        className="relative w-16 h-16 flex items-center justify-center rounded-xl shadow-lg transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-12 group-hover:shadow-xl"
+        className={`relative w-16 h-16 flex items-center justify-center rounded-xl shadow-lg transform transition-all duration-300 ${
+          isClicked ? 'animate-bounce scale-125 rotate-12' : 'hover:scale-105'
+        }`}
         style={{ 
           backgroundColor: `${getIconColor(name)}10`,
           border: `2px solid ${getIconColor(name)}20`
         }}
       >
         <div 
-          className="text-3xl transition-all duration-300 group-hover:scale-125"
+          className={`text-3xl transition-all duration-300 ${
+            isClicked ? 'scale-150' : ''
+          }`}
           style={{ 
             color: getIconColor(name),
-            filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))'
+            filter: isClicked ? `drop-shadow(0 0 20px ${getIconColor(name)})` : 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))'
           }}
         >
           {getIcon(name)}
         </div>
         
-        {/* Hover glow effect */}
-        <div 
-          className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300"
-          style={{ 
-            background: `radial-gradient(circle, ${getIconColor(name)} 0%, transparent 70%)`,
-            filter: 'blur(8px)'
-          }}
-        ></div>
+        {/* Click effect */}
+        {isClicked && (
+          <div 
+            className="absolute inset-0 rounded-xl animate-ping"
+            style={{ 
+              backgroundColor: getIconColor(name),
+              opacity: 0.3
+            }}
+          ></div>
+        )}
       </div>
       
       <div className="mt-3 text-center">
-        <span className="text-sm font-semibold text-[#333]/70 dark:text-[#EDEDED]/70 group-hover:text-[#FF6B00] transition-colors duration-300">
+        <span className={`text-sm font-semibold transition-colors duration-300 ${
+          isClicked 
+            ? 'text-[#FF6B00] scale-110' 
+            : 'text-[#333]/70 dark:text-[#EDEDED]/70'
+        }`}>
           {name}
         </span>
       </div>

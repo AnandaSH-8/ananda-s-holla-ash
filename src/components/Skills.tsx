@@ -8,11 +8,11 @@ const Skills = () => {
   const [visibleCards, setVisibleCards] = useState<number[]>([]);
 
   useEffect(() => {
-    // Staggered animation entrance
+    // Simple staggered entrance
     const timers = skillCategories.map((_, index) => 
       setTimeout(() => {
         setVisibleCards(prev => [...prev, index]);
-      }, index * 150)
+      }, index * 100)
     );
 
     return () => timers.forEach(clearTimeout);
@@ -72,23 +72,23 @@ const Skills = () => {
           {skillCategories.map((category, index) => (
             <Card 
               key={index} 
-              className={`border-0 shadow-xl hover-scale bg-white/90 dark:bg-[#2E2E2E]/90 backdrop-blur-sm overflow-hidden group relative transform transition-all duration-500 ${
+              className={`border-0 shadow-xl hover:shadow-2xl bg-white/90 dark:bg-[#2E2E2E]/90 backdrop-blur-sm overflow-hidden group relative transform transition-all duration-300 hover:scale-105 ${
                 visibleCards.includes(index) 
                   ? 'animate-fade-in opacity-100 translate-y-0' 
                   : 'opacity-0 translate-y-10'
               }`}
               style={{ 
-                animationDelay: `${index * 0.15}s`,
+                animationDelay: `${index * 0.1}s`,
                 boxShadow: `0 10px 30px -5px ${category.glowColor}15`
               }}
             >
               <CardContent className="p-6 relative">
                 {/* Category icon */}
-                <div className={`w-12 h-12 ${category.color} rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                <div className={`w-12 h-12 ${category.color} rounded-xl flex items-center justify-center mb-5 transition-transform duration-300`}>
                   <div className="w-6 h-6 bg-white/90 rounded-lg"></div>
                 </div>
                 
-                <h3 className="text-xl font-bold text-[#333] dark:text-[#EDEDED] mb-6 group-hover:text-[#FF6B00] transition-colors duration-300">
+                <h3 className="text-xl font-bold text-[#333] dark:text-[#EDEDED] mb-6 transition-colors duration-300">
                   {category.title}
                 </h3>
                 
@@ -100,7 +100,6 @@ const Skills = () => {
                       onMouseEnter={() => setHoveredSkill(skill)}
                       onMouseLeave={() => setHoveredSkill(null)}
                       className="flex flex-col items-center"
-                      style={{ animationDelay: `${(index * 0.1) + (skillIndex * 0.05)}s` }}
                     >
                       <TechIcon name={skill} />
                     </div>
