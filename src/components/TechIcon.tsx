@@ -25,7 +25,6 @@ interface TechIconProps {
 
 const TechIcon = ({ name, className = "" }: TechIconProps) => {
   const [isClicked, setIsClicked] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
 
   const getIcon = (iconName: string) => {
     const iconMap: { [key: string]: React.ComponentType<any> } = {
@@ -50,7 +49,7 @@ const TechIcon = ({ name, className = "" }: TechIconProps) => {
     };
     
     const IconComponent = iconMap[iconName];
-    return IconComponent ? <IconComponent /> : <div className="w-8 h-8 bg-[#FF6B00] rounded"></div>;
+    return IconComponent ? <IconComponent /> : <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-cyan-500 dark:from-orange-500 dark:to-red-500 rounded"></div>;
   };
 
   const getIconColor = (iconName: string) => {
@@ -73,97 +72,97 @@ const TechIcon = ({ name, className = "" }: TechIconProps) => {
       'Netlify': '#00C7B7',
     };
     
-    return colorMap[iconName] || '#FF6B00';
+    return colorMap[iconName] || '#3B82F6';
   };
 
   const handleClick = () => {
     setIsClicked(true);
-    setTimeout(() => setIsClicked(false), 1500);
+    setTimeout(() => setIsClicked(false), 2000);
   };
 
   return (
     <div className={`group cursor-pointer ${className}`} onClick={handleClick}>
       <div 
-        className={`relative w-16 h-16 flex items-center justify-center rounded-xl shadow-lg transform transition-all duration-300 ${
-          isClicked ? 'scale-110' : 'hover:scale-105'
+        className={`relative w-16 h-16 flex flex-col items-center justify-center rounded-2xl shadow-lg transform transition-all duration-500 hover:scale-110 hover:rotate-6 ${
+          isClicked ? 'scale-125 rotate-12' : ''
         }`}
         style={{ 
-          backgroundColor: `${getIconColor(name)}10`,
-          border: `2px solid ${getIconColor(name)}20`,
+          backgroundColor: `${getIconColor(name)}15`,
+          border: `2px solid ${getIconColor(name)}30`,
           boxShadow: isClicked 
-            ? `0 0 30px ${getIconColor(name)}50, 0 0 60px ${getIconColor(name)}30`
-            : `0 10px 30px -5px ${getIconColor(name)}15`
+            ? `0 0 40px ${getIconColor(name)}60, 0 0 80px ${getIconColor(name)}40`
+            : `0 10px 30px -5px ${getIconColor(name)}25`
         }}
       >
+        {/* Spectacular icon with enhanced effects */}
         <div 
-          className={`text-3xl transition-all duration-500 relative z-10 ${
-            isClicked ? 'animate-pulse' : ''
+          className={`text-2xl transition-all duration-700 relative z-10 ${
+            isClicked ? 'animate-bounce' : 'group-hover:scale-125'
           }`}
           style={{ 
             color: getIconColor(name),
             filter: isClicked 
-              ? `drop-shadow(0 0 20px ${getIconColor(name)}) brightness(1.5)` 
+              ? `drop-shadow(0 0 20px ${getIconColor(name)}) brightness(1.8) saturate(1.5)` 
               : 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))'
           }}
         >
           {getIcon(name)}
         </div>
         
-        {/* Fire flame effect when clicked */}
+        {/* Spectacular click effect - removed tooltip, enhanced visual feedback */}
         {isClicked && (
           <>
-            {/* Outer flame */}
+            {/* Explosive ring effect */}
             <div 
-              className="absolute inset-0 rounded-xl animate-flame-outer"
+              className="absolute inset-0 rounded-2xl animate-ping"
               style={{ 
-                background: `radial-gradient(ellipse at center, transparent 30%, ${getIconColor(name)}20 60%, ${getIconColor(name)}40 90%, transparent 100%)`,
-                transform: 'scaleY(1.5) scaleX(0.8)',
-                transformOrigin: 'bottom center'
+                background: `radial-gradient(circle, transparent 30%, ${getIconColor(name)}40 60%, ${getIconColor(name)}60 90%, transparent 100%)`,
+                transform: 'scale(1.5)',
               }}
             />
             
-            {/* Middle flame */}
+            {/* Pulsing glow */}
             <div 
-              className="absolute inset-1 rounded-xl animate-flame-middle"
+              className="absolute inset-0 rounded-2xl animate-pulse"
               style={{ 
-                background: `radial-gradient(ellipse at center, transparent 40%, ${getIconColor(name)}30 70%, ${getIconColor(name)}60 90%, transparent 100%)`,
-                transform: 'scaleY(1.3) scaleX(0.9)',
-                transformOrigin: 'bottom center'
+                background: `radial-gradient(circle, ${getIconColor(name)}30 0%, ${getIconColor(name)}20 50%, transparent 100%)`,
+                transform: 'scale(2)',
               }}
             />
             
-            {/* Inner flame */}
-            <div 
-              className="absolute inset-2 rounded-lg animate-flame-inner"
-              style={{ 
-                background: `radial-gradient(ellipse at center, ${getIconColor(name)}60 30%, ${getIconColor(name)}80 60%, transparent 90%)`,
-                transform: 'scaleY(1.1) scaleX(0.95)',
-                transformOrigin: 'bottom center'
-              }}
-            />
+            {/* Sparkling particles */}
+            <div className="absolute -top-2 left-1/2 w-1 h-1 bg-yellow-400 rounded-full animate-ping" style={{ animationDelay: '0.1s' }}></div>
+            <div className="absolute -top-3 left-1/3 w-0.5 h-0.5 bg-white rounded-full animate-ping" style={{ animationDelay: '0.3s' }}></div>
+            <div className="absolute -top-2 right-1/3 w-0.5 h-0.5 bg-yellow-300 rounded-full animate-ping" style={{ animationDelay: '0.5s' }}></div>
+            <div className="absolute -right-2 top-1/2 w-1 h-1 bg-white rounded-full animate-ping" style={{ animationDelay: '0.2s' }}></div>
+            <div className="absolute -left-2 top-1/3 w-0.5 h-0.5 bg-yellow-400 rounded-full animate-ping" style={{ animationDelay: '0.4s' }}></div>
             
-            {/* Sparks */}
-            <div className="absolute -top-2 left-1/2 w-1 h-1 bg-yellow-400 rounded-full animate-sparks-dance" style={{ animationDelay: '0.1s' }}></div>
-            <div className="absolute -top-3 left-1/3 w-0.5 h-0.5 bg-orange-400 rounded-full animate-sparks-dance" style={{ animationDelay: '0.3s' }}></div>
-            <div className="absolute -top-2 right-1/3 w-0.5 h-0.5 bg-red-400 rounded-full animate-sparks-dance" style={{ animationDelay: '0.5s' }}></div>
-            
-            {/* Heat shimmer effect */}
+            {/* Rotating energy ring */}
             <div 
-              className="absolute -inset-4 rounded-xl animate-heat-shimmer"
+              className="absolute inset-0 rounded-2xl animate-spin"
               style={{ 
-                background: `linear-gradient(transparent 0%, ${getIconColor(name)}05 50%, transparent 100%)`,
-                filter: 'blur(2px)'
+                background: `conic-gradient(from 0deg, transparent, ${getIconColor(name)}60, transparent)`,
+                animationDuration: '1s'
               }}
             />
           </>
         )}
+        
+        {/* Floating hover effect */}
+        <div 
+          className="absolute -inset-2 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"
+          style={{ 
+            background: `radial-gradient(circle, transparent 40%, ${getIconColor(name)}20 70%, transparent 100%)`
+          }}
+        />
       </div>
       
+      {/* Enhanced skill name */}
       <div className="mt-3 text-center">
-        <span className={`text-sm font-semibold transition-all duration-300 ${
+        <span className={`text-xs font-bold transition-all duration-300 ${
           isClicked 
-            ? 'text-[#FF6B00] scale-110 font-bold animate-letter-burn' 
-            : 'text-[#333]/70 dark:text-[#EDEDED]/70'
+            ? 'text-blue-600 dark:text-orange-500 scale-110 animate-pulse' 
+            : 'text-gray-600 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-orange-500'
         }`}>
           {name}
         </span>
