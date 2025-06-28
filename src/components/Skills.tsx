@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { useState, useEffect } from "react";
 import TechIcon from "./TechIcon";
@@ -21,47 +20,51 @@ const Skills = () => {
   const skillCategories = [
     {
       title: "Frontend",
-      color: "bg-gradient-to-br from-[#FF6B00] to-[#FFA500]",
-      glowColor: "#FF6B00",
+      color: "bg-gradient-to-br from-blue-500 to-cyan-500 dark:from-orange-500 dark:to-red-500",
+      glowColor: "#3B82F6",
+      darkGlowColor: "#FF6B00",
       skills: ["React.js", "Vue.js", "Tailwind CSS", "Vuetify", "MUI", "HTML", "CSS", "JavaScript"]
     },
     {
       title: "Backend", 
-      color: "bg-gradient-to-br from-[#FFA500] to-[#FFD700]",
-      glowColor: "#FFA500",
+      color: "bg-gradient-to-br from-cyan-500 to-blue-600 dark:from-red-500 dark:to-orange-600",
+      glowColor: "#00BFFF",
+      darkGlowColor: "#FFA500",
       skills: ["Node.js", "Express.js", "NestJS", "REST APIs"]
     },
     {
       title: "Database",
-      color: "bg-gradient-to-br from-[#FF8C00] to-[#FF6B00]",
-      glowColor: "#FF8C00",
+      color: "bg-gradient-to-br from-blue-600 to-indigo-600 dark:from-orange-600 dark:to-yellow-600",
+      glowColor: "#4F46E5",
+      darkGlowColor: "#FF8C00",
       skills: ["PostgreSQL", "MongoDB"]
     },
     {
       title: "Tools & Others",
-      color: "bg-gradient-to-br from-[#FF4500] to-[#FF6B00]",
-      glowColor: "#FF4500",
+      color: "bg-gradient-to-br from-indigo-600 to-purple-600 dark:from-yellow-600 dark:to-red-600",
+      glowColor: "#7C3AED",
+      darkGlowColor: "#FF4500",
       skills: ["Git", "Postman", "Vercel", "Netlify"]
     }
   ];
 
   return (
-    <section id="skills" className="py-20 px-4 bg-gradient-to-br from-white via-[#FFF4E6] to-orange-50 dark:from-[#1A1A2E] dark:via-[#2E2E2E] dark:to-[#1A1A2E] relative overflow-hidden">
+    <section id="skills" className="py-20 px-4 bg-gradient-to-br from-white via-blue-50 to-cyan-50 dark:from-[#1A1A2E] dark:via-[#2E2E2E] dark:to-[#1A1A2E] relative overflow-hidden">
       {/* Floating background elements */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-10 w-4 h-4 bg-[#FF6B00]/20 rounded-full animate-float-bg-1"></div>
-        <div className="absolute top-40 right-20 w-6 h-6 bg-[#FFA500]/15 rounded-full animate-float-bg-2"></div>
-        <div className="absolute bottom-40 left-1/4 w-3 h-3 bg-[#FF8C00]/25 rounded-full animate-float-bg-3"></div>
-        <div className="absolute bottom-20 right-1/3 w-5 h-5 bg-[#FF4500]/20 rounded-full animate-float-bg-4"></div>
+        <div className="absolute top-20 left-10 w-4 h-4 bg-blue-500/20 dark:bg-orange-500/20 rounded-full animate-float-bg-1"></div>
+        <div className="absolute top-40 right-20 w-6 h-6 bg-cyan-500/15 dark:bg-red-500/15 rounded-full animate-float-bg-2"></div>
+        <div className="absolute bottom-40 left-1/4 w-3 h-3 bg-blue-600/25 dark:bg-orange-600/25 rounded-full animate-float-bg-3"></div>
+        <div className="absolute bottom-20 right-1/3 w-5 h-5 bg-indigo-500/20 dark:bg-yellow-500/20 rounded-full animate-float-bg-4"></div>
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Header section */}
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#333] dark:text-[#EDEDED] mb-6">
-            Skills & <span className="saffron-gradient-text">Tech Stack</span>
+            Skills & <span className="water-gradient-text dark:fire-gradient-text">Tech Stack</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#FF6B00] to-[#FFA500] mx-auto mb-8"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 dark:from-orange-500 dark:to-red-500 mx-auto mb-8"></div>
           <p className="text-lg md:text-xl text-[#333]/70 dark:text-[#EDEDED]/70 max-w-2xl mx-auto leading-relaxed">
             Technologies and tools I use to bring innovative ideas to life
           </p>
@@ -112,7 +115,7 @@ const Skills = () => {
         
         {/* Hover tooltip */}
         {hoveredSkill && (
-          <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-[#FF6B00] to-[#FFA500] text-white px-6 py-3 rounded-xl shadow-xl animate-fade-in z-50">
+          <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-500 to-cyan-500 dark:from-orange-500 dark:to-red-500 text-white px-6 py-3 rounded-xl shadow-xl animate-fade-in z-50">
             <span className="font-semibold">{hoveredSkill}</span>
           </div>
         )}

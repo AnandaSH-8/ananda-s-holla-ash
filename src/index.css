@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Enhanced Saffron/Orange Color Scheme Design System */
+/* Enhanced Water/Fire Theme Design System */
 
 @layer base {
   :root {
@@ -15,7 +15,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 20%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 217 91% 60%; /* Blue for water theme */
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -32,24 +32,24 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 217 91% 60%;
 
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary: 217 91% 60%;
     --sidebar-primary-foreground: 0 0% 98%;
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    /* Enhanced Saffron Color Palette */
-    --saffron-primary: 25 100% 50%; /* #FF6B00 */
-    --saffron-secondary: 39 100% 50%; /* #FFA500 */
-    --saffron-accent: 45 100% 60%; /* #FFD700 */
-    --warm-beige: 39 100% 96%; /* #FFF4E6 */
+    /* Water Theme Colors (Light Mode) */
+    --water-primary: 217 91% 60%; /* #3B82F6 */
+    --water-secondary: 195 100% 50%; /* #00BFFF */
+    --water-accent: 180 100% 50%; /* #00FFFF */
+    --water-light: 200 100% 97%; /* #F0F9FF */
     --text-primary: 0 0% 20%; /* #333333 */
     --text-secondary: 0 0% 93%; /* #EDEDED */
   }
@@ -64,7 +64,7 @@
     --popover: 0 0% 18%;
     --popover-foreground: 0 0% 93%;
 
-    --primary: 25 100% 50%; /* #FF6B00 */
+    --primary: 25 100% 50%; /* Orange for fire theme */
     --primary-foreground: 240 44% 11%;
 
     --secondary: 0 0% 25%;
@@ -91,6 +91,12 @@
     --sidebar-accent-foreground: 0 0% 93%;
     --sidebar-border: 0 0% 25%;
     --sidebar-ring: 25 100% 50%;
+
+    /* Fire Theme Colors (Dark Mode) */
+    --fire-primary: 25 100% 50%; /* #FF6B00 */
+    --fire-secondary: 39 100% 50%; /* #FFA500 */
+    --fire-accent: 0 100% 50%; /* #FF0000 */
+    --fire-light: 25 100% 96%; /* #FFF4E6 */
   }
 }
 
@@ -106,6 +112,23 @@
 }
 
 @layer utilities {
+  /* Water Bubble Animations (Light Mode) */
+  .animate-water-bubble-1 {
+    animation: waterBubble1 4s ease-in-out infinite;
+  }
+
+  .animate-water-bubble-2 {
+    animation: waterBubble2 5s ease-in-out infinite;
+  }
+
+  .animate-water-bubble-3 {
+    animation: waterBubble3 3s ease-in-out infinite;
+  }
+
+  .animate-water-bubble-4 {
+    animation: waterBubble4 6s ease-in-out infinite;
+  }
+
   /* Enhanced Hero Animations */
   .animate-hero-content-entrance {
     animation: heroContentEntrance 1.2s ease-out;
@@ -162,35 +185,6 @@
 
   .animate-heat-shimmer {
     animation: heatShimmer 1s ease-in-out infinite alternate;
-  }
-
-  /* New Flame Animations for Name */
-  .animate-name-flame-glow {
-    animation: nameFlameGlow 2s ease-in-out infinite alternate;
-  }
-
-  .animate-flame-dance {
-    animation: flameDance 1.5s ease-in-out infinite;
-  }
-
-  .animate-flame-flicker {
-    animation: flameFlicker 0.8s ease-in-out infinite alternate;
-  }
-
-  .animate-flame-float-1 {
-    animation: flameFloat1 3s ease-in-out infinite;
-  }
-
-  .animate-flame-float-2 {
-    animation: flameFloat2 2.5s ease-in-out infinite;
-  }
-
-  .animate-flame-float-3 {
-    animation: flameFloat3 3.5s ease-in-out infinite;
-  }
-
-  .animate-flame-float-4 {
-    animation: flameFloat4 2.8s ease-in-out infinite;
   }
 
   /* Enhanced Skills Animations */
@@ -334,11 +328,45 @@
   }
 
   /* Enhanced Utility Classes */
-  .saffron-gradient {
+  .water-gradient {
+    background: linear-gradient(135deg, #3B82F6, #00BFFF);
+  }
+
+  .fire-gradient {
     background: linear-gradient(135deg, #FF6B00, #FFA500);
   }
 
+  .water-gradient-text {
+    background: linear-gradient(135deg, #3B82F6, #00BFFF);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .fire-gradient-text {
+    background: linear-gradient(135deg, #FF6B00, #FFA500);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Legacy support */
+  .saffron-gradient {
+    background: linear-gradient(135deg, #3B82F6, #00BFFF);
+  }
+
   .saffron-gradient-text {
+    background: linear-gradient(135deg, #3B82F6, #00BFFF);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .dark .saffron-gradient {
+    background: linear-gradient(135deg, #FF6B00, #FFA500);
+  }
+
+  .dark .saffron-gradient-text {
     background: linear-gradient(135deg, #FF6B00, #FFA500);
     background-clip: text;
     -webkit-background-clip: text;
@@ -359,6 +387,10 @@
 
   .card-hover-3d:hover {
     transform: translateY(-15px) scale(1.03) rotateX(10deg);
+    box-shadow: 0 30px 60px -10px rgba(59, 130, 246, 0.3);
+  }
+
+  .dark .card-hover-3d:hover {
     box-shadow: 0 30px 60px -10px rgba(255, 107, 0, 0.3);
   }
 
@@ -404,9 +436,13 @@
     height: 3px;
     bottom: -6px;
     left: 0;
-    background: linear-gradient(90deg, #FF6B00, #FFA500);
+    background: linear-gradient(90deg, #3B82F6, #00BFFF);
     transition: width 0.3s ease-out;
     border-radius: 2px;
+  }
+
+  .dark .nav-underline::after {
+    background: linear-gradient(90deg, #FF6B00, #FFA500);
   }
 
   .nav-underline:hover::after,
@@ -428,6 +464,58 @@
   }
 
   /* Keyframe Animations */
+  @keyframes waterBubble1 {
+    0%, 100% {
+      transform: translateY(0px) scale(1);
+      opacity: 0.3;
+    }
+    50% {
+      transform: translateY(-30px) scale(1.2);
+      opacity: 0.7;
+    }
+  }
+
+  @keyframes waterBubble2 {
+    0%, 100% {
+      transform: translateY(0px) scale(1);
+      opacity: 0.2;
+    }
+    33% {
+      transform: translateY(-40px) scale(1.5);
+      opacity: 0.6;
+    }
+    66% {
+      transform: translateY(-20px) scale(0.8);
+      opacity: 0.4;
+    }
+  }
+
+  @keyframes waterBubble3 {
+    0%, 100% {
+      transform: translateY(0px) scale(1);
+      opacity: 0.4;
+    }
+    50% {
+      transform: translateY(-25px) scale(1.3);
+      opacity: 0.8;
+    }
+  }
+
+  @keyframes waterBubble4 {
+    0%, 100% {
+      transform: translateY(0px) scale(1);
+      opacity: 0.25;
+    }
+    25% {
+      transform: translateY(-35px) scale(1.1);
+      opacity: 0.5;
+    }
+    75% {
+      transform: translateY(-15px) scale(1.4);
+      opacity: 0.7;
+    }
+  }
+
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -460,104 +548,6 @@
     }
     50% {
       transform: translateY(-5px);
-    }
-  }
-
-  /* New Flame Animation Keyframes */
-  @keyframes nameFlameGlow {
-    from {
-      text-shadow: 
-        0 0 5px rgba(229, 90, 0, 0.6),
-        0 0 10px rgba(255, 140, 66, 0.4),
-        0 0 15px rgba(255, 107, 0, 0.3);
-    }
-    to {
-      text-shadow: 
-        0 0 10px rgba(229, 90, 0, 0.8),
-        0 0 20px rgba(255, 140, 66, 0.6),
-        0 0 30px rgba(255, 107, 0, 0.5);
-    }
-  }
-
-  @keyframes flameDance {
-    0%, 100% {
-      transform: translateY(0px) rotate(0deg);
-    }
-    25% {
-      transform: translateY(-2px) rotate(5deg);
-    }
-    50% {
-      transform: translateY(-1px) rotate(-3deg);
-    }
-    75% {
-      transform: translateY(-3px) rotate(2deg);
-    }
-  }
-
-  @keyframes flameFlicker {
-    from {
-      opacity: 0.8;
-      transform: scale(1) rotate(0deg);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1.1) rotate(5deg);
-    }
-  }
-
-  @keyframes flameFloat1 {
-    0%, 100% {
-      transform: translateY(0px) translateX(0px) rotate(0deg);
-      opacity: 0.7;
-    }
-    33% {
-      transform: translateY(-8px) translateX(3px) rotate(10deg);
-      opacity: 1;
-    }
-    66% {
-      transform: translateY(-5px) translateX(-2px) rotate(-5deg);
-      opacity: 0.8;
-    }
-  }
-
-  @keyframes flameFloat2 {
-    0%, 100% {
-      transform: translateY(0px) translateX(0px) rotate(0deg);
-      opacity: 0.6;
-    }
-    50% {
-      transform: translateY(-10px) translateX(-4px) rotate(15deg);
-      opacity: 0.9;
-    }
-  }
-
-  @keyframes flameFloat3 {
-    0%, 100% {
-      transform: translateY(0px) translateX(0px) rotate(0deg);
-      opacity: 0.8;
-    }
-    25% {
-      transform: translateY(-6px) translateX(2px) rotate(-8deg);
-      opacity: 1;
-    }
-    75% {
-      transform: translateY(-12px) translateX(-1px) rotate(12deg);
-      opacity: 0.7;
-    }
-  }
-
-  @keyframes flameFloat4 {
-    0%, 100% {
-      transform: translateY(0px) translateX(0px) rotate(0deg);
-      opacity: 0.5;
-    }
-    40% {
-      transform: translateY(-7px) translateX(4px) rotate(-10deg);
-      opacity: 0.9;
-    }
-    80% {
-      transform: translateY(-4px) translateX(-3px) rotate(8deg);
-      opacity: 0.6;
     }
   }
 
@@ -628,6 +618,15 @@
   }
 
   @keyframes heroGlow {
+    from {
+      text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+    }
+    to {
+      text-shadow: 0 0 20px rgba(0, 191, 255, 0.8), 0 0 30px rgba(0, 191, 255, 0.4);
+    }
+  }
+
+  .dark @keyframes heroGlow {
     from {
       text-shadow: 0 0 10px rgba(255, 107, 0, 0.5);
     }
@@ -854,6 +853,15 @@
   }
 
   @keyframes cardBorderGlow {
+    0%, 100% {
+      box-shadow: inset 0 0 0 2px rgba(59, 130, 246, 0.2);
+    }
+    50% {
+      box-shadow: inset 0 0 0 3px rgba(59, 130, 246, 0.6);
+    }
+  }
+
+  .dark @keyframes cardBorderGlow {
     0%, 100% {
       box-shadow: inset 0 0 0 2px rgba(255, 107, 0, 0.2);
     }
@@ -1093,6 +1101,15 @@
 
   @keyframes ctaGlow {
     0%, 100% {
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.8), 0 0 40px rgba(0, 191, 255, 0.4);
+    }
+  }
+
+  .dark @keyframes ctaGlow {
+    0%, 100% {
       box-shadow: 0 0 15px rgba(255, 107, 0, 0.5);
     }
     50% {
@@ -1101,6 +1118,17 @@
   }
 
   @keyframes glowBorder {
+    0%, 100% {
+      border-color: rgba(59, 130, 246, 0.5);
+      box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+    }
+    50% {
+      border-color: rgba(59, 130, 246, 1);
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+    }
+  }
+
+  .dark @keyframes glowBorder {
     0%, 100% {
       border-color: rgba(255, 107, 0, 0.5);
       box-shadow: 0 0 10px rgba(255, 107, 0, 0.3);
