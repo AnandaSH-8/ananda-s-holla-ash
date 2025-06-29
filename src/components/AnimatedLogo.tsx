@@ -64,7 +64,7 @@ const AnimatedLogo = () => {
           </filter>
 
           <filter id="strongTextGlow" x="-100%" y="-100%" width="300%" height="300%">
-            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
             <feMerge> 
               <feMergeNode in="coloredBlur"/>
               <feMergeNode in="SourceGraphic"/>
@@ -204,7 +204,7 @@ const AnimatedLogo = () => {
           />
         </g>
         
-        {/* Letter A for Light Mode - Maximum Contrast */}
+        {/* Letter A for Light Mode - MAXIMUM CONTRAST */}
         <text
           x="40"
           y="44"
@@ -212,21 +212,21 @@ const AnimatedLogo = () => {
           dominantBaseline="middle"
           filter="url(#strongTextGlow)"
           style={{ 
-            fontSize: '32px',
+            fontSize: '36px',
             fontFamily: 'Georgia, "Times New Roman", serif',
             fontWeight: '900',
             fill: '#000000',
             stroke: '#ffffff',
-            strokeWidth: '2px',
-            textShadow: '0 0 10px rgba(0, 0, 0, 0.8)',
-            letterSpacing: '1px'
+            strokeWidth: '3px',
+            paintOrder: 'stroke fill',
+            letterSpacing: '2px'
           }}
           className="dark:hidden animate-letter-water-glow"
         >
           A
         </text>
 
-        {/* Letter A for Dark Mode - High Contrast */}
+        {/* Letter A for Dark Mode - MAXIMUM CONTRAST */}
         <text
           x="40"
           y="44"
@@ -234,74 +234,40 @@ const AnimatedLogo = () => {
           dominantBaseline="middle"
           filter="url(#strongTextGlow)"
           style={{ 
-            fontSize: '32px',
+            fontSize: '36px',
             fontFamily: 'Georgia, "Times New Roman", serif',
             fontWeight: '900',
             fill: '#ffffff',
-            stroke: '#333333',
-            strokeWidth: '2px',
-            textShadow: '0 0 15px rgba(255, 255, 255, 0.9)',
-            letterSpacing: '1px'
+            stroke: '#000000',
+            strokeWidth: '3px',
+            paintOrder: 'stroke fill',
+            letterSpacing: '2px'
           }}
           className="hidden dark:block animate-letter-fire-burn"
         >
           A
         </text>
         
-        {/* Light mode - Floating water droplets */}
+        {/* Light mode - Ocean wave emojis floating around */}
         <g className="dark:hidden">
-          <circle cx="12" cy="20" r="1.5" fill="#4682B4" opacity="0.7" className="animate-water-bubble-1">
-            <animate attributeName="cy" values="20;12;20" dur="3s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values="0.7;1;0.7" dur="3s" repeatCount="indefinite"/>
-          </circle>
-          
-          <circle cx="68" cy="22" r="1.3" fill="#1E90FF" opacity="0.6" className="animate-water-bubble-2">
-            <animate attributeName="cy" values="22;14;22" dur="2.5s" repeatCount="indefinite" begin="0.5s"/>
-            <animate attributeName="opacity" values="0.6;1;0.6" dur="2.5s" repeatCount="indefinite" begin="0.5s"/>
-          </circle>
-          
-          <circle cx="24" cy="16" r="1.2" fill="#00BFFF" opacity="0.8" className="animate-water-bubble-3">
-            <animate attributeName="cy" values="16;8;16" dur="2.8s" repeatCount="indefinite" begin="1s"/>
-            <animate attributeName="opacity" values="0.8;1;0.8" dur="2.8s" repeatCount="indefinite" begin="1s"/>
-          </circle>
-          
-          <circle cx="56" cy="18" r="1.1" fill="#87CEEB" opacity="0.5" className="animate-water-bubble-4">
-            <animate attributeName="cy" values="18;10;18" dur="3.2s" repeatCount="indefinite" begin="1.5s"/>
-            <animate attributeName="opacity" values="0.5;1;0.5" dur="3.2s" repeatCount="indefinite" begin="1.5s"/>
-          </circle>
+          <text x="8" y="18" fontSize="16" className="animate-water-bubble-1">🌊</text>
+          <text x="64" y="20" fontSize="14" className="animate-water-bubble-2">💧</text>
+          <text x="20" y="14" fontSize="12" className="animate-water-bubble-3">🌊</text>
+          <text x="56" y="16" fontSize="13" className="animate-water-bubble-4">💧</text>
+          <text x="12" y="64" fontSize="15" className="animate-water-bubble-1">🌊</text>
+          <text x="68" y="66" fontSize="14" className="animate-water-bubble-2">💧</text>
         </g>
 
-        {/* Dark mode - Fire sparks around lotus */}
+        {/* Dark mode - Fire flame emojis floating around */}
         <g className="hidden dark:block">
-          <circle cx="12" cy="20" r="1.5" fill="#FFD700" className="animate-sparks-explosion">
-            <animate attributeName="cy" values="20;12;20" dur="2s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/>
-          </circle>
-          
-          <circle cx="68" cy="22" r="1.3" fill="#FFA500" className="animate-sparks-explosion">
-            <animate attributeName="cy" values="22;14;22" dur="1.8s" repeatCount="indefinite" begin="0.3s"/>
-            <animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite" begin="0.3s"/>
-          </circle>
-          
-          <circle cx="20" cy="16" r="1.2" fill="#FF6B00" className="animate-sparks-explosion">
-            <animate attributeName="cy" values="16;8;16" dur="2.2s" repeatCount="indefinite" begin="0.6s"/>
-            <animate attributeName="opacity" values="0;1;0" dur="2.2s" repeatCount="indefinite" begin="0.6s"/>
-          </circle>
-          
-          <circle cx="60" cy="18" r="1.1" fill="#FF4500" className="animate-sparks-explosion">
-            <animate attributeName="cy" values="18;10;18" dur="1.9s" repeatCount="indefinite" begin="0.9s"/>
-            <animate attributeName="opacity" values="0;1;0" dur="1.9s" repeatCount="indefinite" begin="0.9s"/>
-          </circle>
-
-          <circle cx="28" cy="60" r="0.8" fill="#FF8C00" className="animate-sparks-explosion">
-            <animate attributeName="cy" values="60;68;60" dur="2.3s" repeatCount="indefinite" begin="1.2s"/>
-            <animate attributeName="opacity" values="0;1;0" dur="2.3s" repeatCount="indefinite" begin="1.2s"/>
-          </circle>
-
-          <circle cx="52" cy="60" r="0.8" fill="#FF6347" className="animate-sparks-explosion">
-            <animate attributeName="cy" values="60;68;60" dur="2.4s" repeatCount="indefinite" begin="1.5s"/>
-            <animate attributeName="opacity" values="0;1;0" dur="2.4s" repeatCount="indefinite" begin="1.5s"/>
-          </circle>
+          <text x="8" y="18" fontSize="16" className="animate-sparks-explosion">🔥</text>
+          <text x="64" y="20" fontSize="14" className="animate-sparks-explosion">✨</text>
+          <text x="20" y="14" fontSize="12" className="animate-sparks-explosion">🔥</text>
+          <text x="56" y="16" fontSize="13" className="animate-sparks-explosion">✨</text>
+          <text x="12" y="64" fontSize="15" className="animate-sparks-explosion">🔥</text>
+          <text x="68" y="66" fontSize="14" className="animate-sparks-explosion">✨</text>
+          <text x="32" y="68" fontSize="13" className="animate-sparks-explosion">🔥</text>
+          <text x="48" y="68" fontSize="12" className="animate-sparks-explosion">✨</text>
         </g>
       </svg>
     </div>
