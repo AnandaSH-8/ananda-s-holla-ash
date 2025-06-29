@@ -41,7 +41,7 @@ const Hero = () => {
             {/* Interactive background effects */}
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 dark:from-orange-500/10 dark:to-red-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             
-            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-[#333] dark:text-[#EDEDED] mb-6 leading-tight relative z-10 transition-all duration-500 p-6">
+            <h1 className="text-1xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-[#333] dark:text-[#EDEDED] mb-6 leading-tight relative z-10 transition-all duration-500 p-6">
               <span className="relative inline-block transition-all duration-500 group w-full text-center lg:text-left">
                 {/* Default state - ASH with theme-appropriate gradient */}
                 <span className="water-gradient-text dark:fire-gradient-text group-hover:opacity-0 group-hover:scale-85 transition-all duration-1000 block">
