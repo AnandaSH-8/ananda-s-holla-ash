@@ -28,13 +28,13 @@ import {
   SiPostman,
   SiVercel,
   SiNetlify,
-  SiVuetify,
   SiRedis,
   SiDocker,
   SiAws,
-  SiFigma,
-  SiVscode
+  SiFigma
 } from 'react-icons/si';
+import { VscCode } from 'react-icons/vsc';
+import { DiVuejs } from 'react-icons/di';
 
 interface TechItem {
   name: string;
@@ -116,7 +116,7 @@ const TechStack = () => {
     },
     {
       name: 'Vuetify',
-      icon: SiVuetify,
+      icon: DiVuejs,
       color: '#1867C0',
       experience: '1+ Year',
       projects: 3,
@@ -262,7 +262,7 @@ const TechStack = () => {
     },
     {
       name: 'VS Code',
-      icon: SiVscode,
+      icon: VscCode,
       color: '#007ACC',
       experience: '3+ Years',
       projects: 30,
