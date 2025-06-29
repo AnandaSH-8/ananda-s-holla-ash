@@ -63,18 +63,18 @@ const AnimatedLogo = () => {
             </feMerge>
           </filter>
 
-          <filter id="textGlow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+          <filter id="strongTextGlow" x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
             <feMerge> 
               <feMergeNode in="coloredBlur"/>
               <feMergeNode in="SourceGraphic"/>
             </feMerge>
           </filter>
 
-          {/* Import fancy cursive Google Fonts */}
+          {/* Import Thai-style fonts */}
           <style>
             {`
-              @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Allura&family=Alex+Brush&display=swap');
+              @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700;800&family=Prompt:wght@400;500;600;700;800;900&family=Kanit:wght@400;500;600;700;800;900&display=swap');
             `}
           </style>
         </defs>
@@ -211,48 +211,48 @@ const AnimatedLogo = () => {
           />
         </g>
         
-        {/* Cursive Letter A - Mathematical Script Style for Light Mode */}
+        {/* Thai-style Letter A for Light Mode - High Contrast */}
         <text
           x="50"
           y="55"
           textAnchor="middle"
           dominantBaseline="middle"
-          filter="url(#textGlow)"
+          filter="url(#strongTextGlow)"
           style={{ 
-            fontSize: '42px',
-            fontFamily: 'Great Vibes, cursive',
-            fontWeight: '400',
-            fill: '#1a1a1a',
+            fontSize: '48px',
+            fontFamily: 'Kanit, Prompt, Sarabun, sans-serif',
+            fontWeight: '900',
+            fill: '#1a365d',
             stroke: '#ffffff',
-            strokeWidth: '1.5px',
-            textShadow: '3px 3px 6px rgba(0,0,0,0.7)',
-            fontStyle: 'italic'
+            strokeWidth: '3px',
+            textShadow: '0 0 20px rgba(26, 54, 93, 0.8)',
+            letterSpacing: '2px'
           }}
           className="dark:hidden animate-letter-water-glow"
         >
-          𝒜
+          ค
         </text>
 
-        {/* Cursive Letter A - Mathematical Script Style for Dark Mode */}
+        {/* Thai-style Letter A for Dark Mode - High Contrast */}
         <text
           x="50"
           y="55"
           textAnchor="middle"
           dominantBaseline="middle"
-          filter="url(#textGlow)"
+          filter="url(#strongTextGlow)"
           style={{ 
-            fontSize: '42px',
-            fontFamily: 'Great Vibes, cursive',
-            fontWeight: '400',
+            fontSize: '48px',
+            fontFamily: 'Kanit, Prompt, Sarabun, sans-serif',
+            fontWeight: '900',
             fill: '#ffffff',
-            stroke: '#000000',
-            strokeWidth: '1.5px',
-            textShadow: '3px 3px 6px rgba(255,255,255,0.9)',
-            fontStyle: 'italic'
+            stroke: '#1a1a1a',
+            strokeWidth: '3px',
+            textShadow: '0 0 20px rgba(255, 255, 255, 0.9)',
+            letterSpacing: '2px'
           }}
           className="hidden dark:block animate-letter-fire-burn"
         >
-          𝒜
+          ค
         </text>
         
         {/* Light mode - Floating water droplets spread across width */}
