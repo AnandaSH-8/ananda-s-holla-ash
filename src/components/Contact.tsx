@@ -110,18 +110,6 @@ const Contact = () => {
                 </a>
               </div>
             </div>
-
-            {/* Quick Stats */}
-            <div className="mt-8 grid grid-cols-2 gap-4">
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center">
-                <div className="text-2xl font-bold text-cyan-300 dark:text-orange-300">2.7+</div>
-                <div className="text-sm text-blue-200 dark:text-orange-200">Years Experience</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center">
-                <div className="text-2xl font-bold text-cyan-300 dark:text-orange-300">50+</div>
-                <div className="text-sm text-blue-200 dark:text-orange-200">Projects Completed</div>
-              </div>
-            </div>
           </div>
           
           {/* Contact Form */}

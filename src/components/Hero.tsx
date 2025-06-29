@@ -122,7 +122,7 @@ const Hero = () => {
               onClick={scrollToProjects}
               variant="outline" 
               size="lg"
-              className="border-2 border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white dark:border-orange-500 dark:text-orange-500 dark:hover:bg-orange-500 hover-scale transition-all duration-300 font-bold px-8 py-4 text-lg backdrop-blur-sm"
+              className="border-2 border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white dark:border-orange-500 dark:text-orange-500 dark:hover:bg-orange-500 dark:hover:text-white hover-scale transition-all duration-300 font-bold px-8 py-4 text-lg backdrop-blur-sm"
             >
               View Projects
             </Button>
@@ -158,7 +158,7 @@ const Hero = () => {
 
         {/* Right Side - Professional Photo Space (50% of hero section) */}
         <div className="flex justify-center items-center animate-hero-photo order-1 lg:order-2">
-          <div className="relative w-full max-w-[500px] aspect-square bg-gradient-to-br from-blue-50 to-blue-200/30 dark:from-orange-500/10 dark:to-red-500/30 rounded-full flex items-center justify-center border-4 border-blue-500 dark:border-orange-500 shadow-2xl hover-scale group overflow-hidden">
+          <div className="relative w-full max-w-[500px] aspect-square bg-gradient-to-br from-blue-100 to-blue-200 dark:from-orange-500/20 dark:to-orange-600/30 rounded-full flex items-center justify-center border-4 border-blue-500 dark:border-orange-500 shadow-2xl hover-scale group overflow-hidden">
             {/* Professional photo placeholder */}
             <div className="text-center p-8 relative z-10">
               <div className="w-32 h-32 lg:w-40 lg:h-40 xl:w-48 xl:h-48 mx-auto mb-6 bg-blue-500/20 dark:bg-orange-500/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-500">

@@ -14,7 +14,13 @@ import {
   SiGit,
   SiPostman,
   SiVercel,
-  SiNetlify
+  SiNetlify,
+  SiTypescript,
+  SiRedux,
+  SiGraphql,
+  SiDocker,
+  SiAws,
+  SiFigma
 } from 'react-icons/si';
 
 interface TechIconProps {
@@ -32,6 +38,7 @@ const TechIcon = ({ name, className = "" }: TechIconProps) => {
       'HTML': SiHtml5,
       'CSS': SiCss3,
       'JavaScript': SiJavascript,
+      'TypeScript': SiTypescript,
       'Node.js': SiNodedotjs,
       'Express.js': SiExpress,
       'NestJS': SiNestjs,
@@ -43,6 +50,11 @@ const TechIcon = ({ name, className = "" }: TechIconProps) => {
       'Netlify': SiNetlify,
       'Vuetify': SiVuedotjs,
       'REST APIs': SiNodedotjs,
+      'Redux': SiRedux,
+      'GraphQL': SiGraphql,
+      'Docker': SiDocker,
+      'AWS': SiAws,
+      'Figma': SiFigma,
     };
     
     const IconComponent = iconMap[iconName];
@@ -58,6 +70,7 @@ const TechIcon = ({ name, className = "" }: TechIconProps) => {
       'HTML': '#E34F26',
       'CSS': '#1572B6',
       'JavaScript': '#F7DF1E',
+      'TypeScript': '#3178C6',
       'Node.js': '#339933',
       'Express.js': '#000000',
       'NestJS': '#E0234E',
@@ -67,6 +80,11 @@ const TechIcon = ({ name, className = "" }: TechIconProps) => {
       'Postman': '#FF6C37',
       'Vercel': '#000000',
       'Netlify': '#00C7B7',
+      'Redux': '#764ABC',
+      'GraphQL': '#E10098',
+      'Docker': '#2496ED',
+      'AWS': '#FF9900',
+      'Figma': '#F24E1E',
     };
     
     return colorMap[iconName] || '#6B7280';
@@ -75,7 +93,7 @@ const TechIcon = ({ name, className = "" }: TechIconProps) => {
   return (
     <div className={`group cursor-pointer ${className}`}>
       <div 
-        className="relative w-12 h-12 flex flex-col items-center justify-center rounded-lg shadow-sm transform transition-all duration-300 hover:scale-125 hover:shadow-lg hover:-translate-y-1 bg-gray-50 dark:bg-gray-700 hover:bg-white dark:hover:bg-gray-600"
+        className="relative w-12 h-12 flex flex-col items-center justify-center rounded-lg shadow-sm transform transition-all duration-300 hover:scale-125 hover:shadow-xl hover:-translate-y-2 bg-gray-50 dark:bg-gray-700 hover:bg-white dark:hover:bg-gray-600"
         style={{ 
           borderLeft: `3px solid ${getIconColor(name)}`,
         }}
@@ -91,9 +109,9 @@ const TechIcon = ({ name, className = "" }: TechIconProps) => {
           {getIcon(name)}
         </div>
         
-        {/* Animated glow effect */}
+        {/* Animated glow effect on hover only */}
         <div 
-          className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-30 transition-all duration-300 animate-pulse"
+          className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-30 transition-all duration-300"
           style={{ 
             backgroundColor: getIconColor(name),
             boxShadow: `0 0 20px ${getIconColor(name)}40`
