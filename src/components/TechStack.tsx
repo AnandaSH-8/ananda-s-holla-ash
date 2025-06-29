@@ -33,7 +33,7 @@ import {
   SiDocker,
   SiAws,
   SiFigma,
-  SiVscode
+  SiVisualstudiocode
 } from 'react-icons/si';
 
 interface TechItem {
@@ -262,7 +262,7 @@ const TechStack = () => {
     },
     {
       name: 'VS Code',
-      icon: SiVscode,
+      icon: SiVisualstudiocode,
       color: '#007ACC',
       experience: '3+ Years',
       projects: 30,
