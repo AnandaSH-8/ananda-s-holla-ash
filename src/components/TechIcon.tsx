@@ -19,8 +19,8 @@ import {
   SiRedux,
   SiGraphql,
   SiDocker,
-  SiAmazonAws,
-  SiFigma
+  SiFigma,
+  SiFirebase
 } from 'react-icons/si';
 
 interface TechIconProps {
@@ -53,7 +53,7 @@ const TechIcon = ({ name, className = "" }: TechIconProps) => {
       'Redux': SiRedux,
       'GraphQL': SiGraphql,
       'Docker': SiDocker,
-      'AWS': SiAmazonAws,
+      'Firebase': SiFirebase,
       'Figma': SiFigma,
     };
     
@@ -83,7 +83,7 @@ const TechIcon = ({ name, className = "" }: TechIconProps) => {
       'Redux': '#764ABC',
       'GraphQL': '#E10098',
       'Docker': '#2496ED',
-      'AWS': '#FF9900',
+      'Firebase': '#FFCA28',
       'Figma': '#F24E1E',
     };
     
