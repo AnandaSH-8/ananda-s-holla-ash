@@ -44,7 +44,7 @@ const Hero = () => {
             <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-[#333] dark:text-[#EDEDED] mb-6 leading-tight relative z-10 transition-all duration-500 p-6">
               <span className="relative inline-block transition-all duration-500 group w-full text-center lg:text-left">
                 {/* Default state - ASH with theme-appropriate gradient */}
-                <span className="water-gradient-text dark:fire-gradient-text group-hover:opacity-0 group-hover:scale-5 transition-all duration-100 block">
+                <span className="water-gradient-text dark:fire-gradient-text group-hover:opacity-0 group-hover:scale-85 transition-all duration-1000 block">
                   ASH
                 </span>
                 
