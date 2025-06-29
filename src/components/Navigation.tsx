@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import AnimatedLogo from "./AnimatedLogo";
 import ThemeToggle from "./ThemeToggle";
@@ -9,7 +8,7 @@ const Navigation = () => {
   const navItems = [
     { id: "hero", label: "Home" },
     { id: "about", label: "About" },
-    { id: "skills", label: "Skills" },
+    { id: "tech-stack", label: "Tech Stack" },
     { id: "experience", label: "Experience" },
     { id: "projects", label: "Projects" },
     { id: "contact", label: "Contact" },
@@ -52,8 +51,8 @@ const Navigation = () => {
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className={`nav-underline text-sm font-medium transition-colors hover:text-orange-500 ${
-                activeSection === item.id ? 'active text-orange-500' : 'text-muted-foreground'
+              className={`nav-underline text-sm font-medium transition-colors hover:text-blue-500 dark:hover:text-orange-500 ${
+                activeSection === item.id ? 'active text-blue-500 dark:text-orange-500' : 'text-muted-foreground'
               }`}
             >
               {item.label}
