@@ -19,7 +19,7 @@ import {
   SiRedux,
   SiGraphql,
   SiDocker,
-  SiAmazonaws,
+  SiAmazonAws,
   SiFigma
 } from 'react-icons/si';
 
@@ -53,7 +53,7 @@ const TechIcon = ({ name, className = "" }: TechIconProps) => {
       'Redux': SiRedux,
       'GraphQL': SiGraphql,
       'Docker': SiDocker,
-      'AWS': SiAmazonaws,
+      'AWS': SiAmazonAws,
       'Figma': SiFigma,
     };
     
