@@ -41,27 +41,49 @@ const Hero = () => {
             {/* Interactive background effects */}
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 dark:from-orange-500/10 dark:to-red-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             
-            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-10xl font-black text-[#333] dark:text-[#EDEDED] mb-6 leading-tight relative z-10 transition-all duration-500 p-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-[#333] dark:text-[#EDEDED] mb-6 leading-tight relative z-10 transition-all duration-500 p-6">
               <span className="relative inline-block transition-all duration-500 group w-full text-center lg:text-left">
                 {/* Default state - ASH with theme-appropriate gradient */}
                 <span className="water-gradient-text dark:fire-gradient-text group-hover:opacity-0 group-hover:scale-85 transition-all duration-1000 block">
                   ASH
                 </span>
                 
-                {/* Hover state - Full name with theme animation */}
-                <span className="absolute inset-0 opacity-0 scale-105 group-hover:opacity-100 group-hover:scale-100 transition-all duration-500 flex items-center justify-center lg:justify-start w-full">
-                  <span className="relative inline-block">
-                    {"Ananda S Holla".split("").map((letter, index) => (
-                      <span
-                        key={index}
-                        className="inline-block animate-letter-bounce text-blue-600 dark:text-orange-500 relative"
-                        style={{ 
-                          animationDelay: `${index * 0.1}s`,
-                        }}
-                      >
-                        {letter === " " ? "\u00A0" : letter}
-                      </span>
-                    ))}
+                {/* Hover state - Full name with theme animation and responsive sizing */}
+                <span className="absolute inset-0 opacity-0 scale-105 group-hover:opacity-100 group-hover:scale-100 transition-all duration-500 flex items-center justify-center lg:justify-start w-full overflow-hidden">
+                  <span className="relative inline-block whitespace-nowrap text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+                    {/* Light theme - Wave animation */}
+                    <span className="block dark:hidden">
+                      {"Ananda S Holla".split("").map((letter, index) => (
+                        <span
+                          key={index}
+                          className="inline-block text-blue-600 relative animate-letter-bounce"
+                          style={{ 
+                            animationDelay: `${index * 0.1}s`,
+                            transform: `translateY(${Math.sin(index * 0.5) * 3}px)`,
+                            animation: `letterWave 2s ease-in-out infinite ${index * 0.1}s, letterBounce 0.8s ease-out ${index * 0.1}s`
+                          }}
+                        >
+                          {letter === " " ? "\u00A0" : letter}
+                        </span>
+                      ))}
+                    </span>
+                    
+                    {/* Dark theme - Flame animation */}
+                    <span className="hidden dark:block">
+                      {"Ananda S Holla".split("").map((letter, index) => (
+                        <span
+                          key={index}
+                          className="inline-block text-orange-500 relative animate-letter-bounce"
+                          style={{ 
+                            animationDelay: `${index * 0.1}s`,
+                            filter: `brightness(${1 + Math.sin(index * 0.8) * 0.3}) hue-rotate(${Math.sin(index * 0.6) * 20}deg)`,
+                            animation: `letterFlame 1.5s ease-in-out infinite ${index * 0.1}s, letterBounce 0.8s ease-out ${index * 0.1}s`
+                          }}
+                        >
+                          {letter === " " ? "\u00A0" : letter}
+                        </span>
+                      ))}
+                    </span>
                   </span>
                 </span>
               </span>
