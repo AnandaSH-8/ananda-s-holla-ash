@@ -2,46 +2,60 @@ const AnimatedLogo = () => {
   return (
     <div className="relative inline-block cursor-pointer group">
       <svg
-        width="60"
-        height="60"
-        viewBox="0 0 60 60"
-        className="animate-logo-burn hover:scale-110 transition-transform duration-300"
+        width="80"
+        height="80"
+        viewBox="0 0 80 80"
+        className="hover:scale-110 transition-transform duration-300"
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
-          {/* Enhanced fire gradients for more realistic effect */}
-          <radialGradient id="fireCore" cx="50%" cy="80%" r="35%">
-            <stop offset="0%" stopColor="#FFD700" />
-            <stop offset="25%" stopColor="#FFA500" />
+          {/* Lotus-inspired fire gradients for dark mode */}
+          <radialGradient id="lotusFireCore" cx="50%" cy="70%" r="30%">
+            <stop offset="0%" stopColor="#FFFFFF" />
+            <stop offset="20%" stopColor="#FFD700" />
             <stop offset="50%" stopColor="#FF6B00" />
-            <stop offset="75%" stopColor="#FF4500" />
+            <stop offset="80%" stopColor="#FF4500" />
             <stop offset="100%" stopColor="#DC143C" />
           </radialGradient>
           
-          <radialGradient id="fireOuter" cx="50%" cy="85%" r="50%">
-            <stop offset="0%" stopColor="#FF6B00" stopOpacity="0.9" />
-            <stop offset="40%" stopColor="#FF4500" stopOpacity="0.7" />
-            <stop offset="70%" stopColor="#DC143C" stopOpacity="0.5" />
+          <radialGradient id="lotusFirePetal" cx="50%" cy="60%" r="40%">
+            <stop offset="0%" stopColor="#FFA500" stopOpacity="0.9" />
+            <stop offset="40%" stopColor="#FF6B00" stopOpacity="0.7" />
+            <stop offset="70%" stopColor="#FF4500" stopOpacity="0.5" />
+            <stop offset="100%" stopColor="#8B0000" stopOpacity="0.3" />
+          </radialGradient>
+
+          <radialGradient id="lotusFireOuter" cx="50%" cy="65%" r="50%">
+            <stop offset="0%" stopColor="#FF8C00" stopOpacity="0.8" />
+            <stop offset="30%" stopColor="#FF4500" stopOpacity="0.6" />
+            <stop offset="60%" stopColor="#DC143C" stopOpacity="0.4" />
             <stop offset="100%" stopColor="#8B0000" stopOpacity="0.2" />
           </radialGradient>
 
-          <radialGradient id="fireInner" cx="50%" cy="75%" r="25%">
-            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.8" />
-            <stop offset="30%" stopColor="#FFD700" stopOpacity="0.9" />
-            <stop offset="70%" stopColor="#FFA500" stopOpacity="0.7" />
-            <stop offset="100%" stopColor="#FF6B00" stopOpacity="0.5" />
-          </radialGradient>
+          {/* Light wave gradients for light mode */}
+          <linearGradient id="waveLight1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#E0F6FF" stopOpacity="0.8" />
+            <stop offset="25%" stopColor="#87CEEB" stopOpacity="0.9" />
+            <stop offset="50%" stopColor="#4682B4" stopOpacity="0.7" />
+            <stop offset="75%" stopColor="#1E90FF" stopOpacity="0.8" />
+            <stop offset="100%" stopColor="#00BFFF" stopOpacity="0.6" />
+          </linearGradient>
+          
+          <linearGradient id="waveLight2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#B0E0E6" stopOpacity="0.6" />
+            <stop offset="30%" stopColor="#87CEEB" stopOpacity="0.8" />
+            <stop offset="60%" stopColor="#4682B4" stopOpacity="0.5" />
+            <stop offset="100%" stopColor="#1E90FF" stopOpacity="0.4" />
+          </linearGradient>
 
-          {/* Advanced glow effects */}
-          <filter id="fireGlow" x="-100%" y="-100%" width="300%" height="300%">
-            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-            <feMerge> 
-              <feMergeNode in="coloredBlur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
+          <linearGradient id="waveLight3" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#F0F8FF" stopOpacity="0.9" />
+            <stop offset="50%" stopColor="#E0F6FF" stopOpacity="0.7" />
+            <stop offset="100%" stopColor="#B0E0E6" stopOpacity="0.5" />
+          </linearGradient>
 
-          <filter id="letterGlow" x="-50%" y="-50%" width="200%" height="200%">
+          {/* Enhanced glow effects */}
+          <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
             <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
             <feMerge> 
               <feMergeNode in="coloredBlur"/>
@@ -49,118 +63,224 @@ const AnimatedLogo = () => {
             </feMerge>
           </filter>
 
-          {/* Flame distortion for realistic flicker */}
-          <filter id="flameTurbulence">
-            <feTurbulence baseFrequency="0.05 0.1" numOctaves="3" result="noise" seed="2"/>
-            <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5"/>
+          <filter id="textGlow" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+            <feMerge> 
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
           </filter>
+
+          {/* Import fancy Google Font */}
+          <style>
+            {`
+              @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&family=Righteous&family=Fredoka+One:wght@400&display=swap');
+            `}
+          </style>
         </defs>
         
-        {/* Multiple flame layers for depth */}
+        {/* Light mode - Light wave structures */}
+        <g className="dark:hidden">
+          {/* Wave 1 - Outermost gentle wave */}
+          <path
+            d="M5 35 
+               Q15 25, 25 35 
+               T45 35 
+               Q55 25, 65 35 
+               T80 35
+               L80 50
+               Q70 60, 60 50
+               T40 50
+               Q30 60, 20 50
+               T5 50 Z"
+            fill="url(#waveLight1)"
+            filter="url(#softGlow)"
+            className="animate-wave-deep"
+          />
+          
+          {/* Wave 2 - Middle flowing wave */}
+          <path
+            d="M10 38 
+               Q20 30, 30 38 
+               T50 38 
+               Q60 30, 70 38
+               L70 48
+               Q60 55, 50 48
+               T30 48
+               Q20 55, 10 48 Z"
+            fill="url(#waveLight2)"
+            filter="url(#softGlow)"
+            className="animate-wave-mid"
+          />
+          
+          {/* Wave 3 - Inner surface wave */}
+          <path
+            d="M18 40 
+               Q28 35, 38 40 
+               T58 40
+               Q62 42, 62 45
+               Q58 50, 48 47
+               T28 47
+               Q18 50, 18 45 Z"
+            fill="url(#waveLight3)"
+            filter="url(#softGlow)"
+            className="animate-wave-surface"
+          />
+        </g>
+
+        {/* Dark mode - Lotus fire structure */}
+        <g className="hidden dark:block">
+          {/* Lotus petal 1 - Left */}
+          <ellipse
+            cx="25" cy="40" rx="12" ry="18"
+            fill="url(#lotusFireOuter)"
+            filter="url(#softGlow)"
+            className="animate-flame-massive"
+            transform="rotate(-30 25 40)"
+          />
+          
+          {/* Lotus petal 2 - Right */}
+          <ellipse
+            cx="55" cy="40" rx="12" ry="18"
+            fill="url(#lotusFireOuter)"
+            filter="url(#softGlow)"
+            className="animate-flame-massive"
+            transform="rotate(30 55 40)"
+          />
+          
+          {/* Lotus petal 3 - Center back */}
+          <ellipse
+            cx="40" cy="35" rx="10" ry="20"
+            fill="url(#lotusFirePetal)"
+            filter="url(#softGlow)"
+            className="animate-flame-intense"
+          />
+          
+          {/* Lotus petal 4 - Left front */}
+          <ellipse
+            cx="30" cy="45" rx="8" ry="15"
+            fill="url(#lotusFirePetal)"
+            filter="url(#softGlow)"
+            className="animate-flame-intense"
+            transform="rotate(-15 30 45)"
+          />
+          
+          {/* Lotus petal 5 - Right front */}
+          <ellipse
+            cx="50" cy="45" rx="8" ry="15"
+            fill="url(#lotusFirePetal)"
+            filter="url(#softGlow)"
+            className="animate-flame-intense"
+            transform="rotate(15 50 45)"
+          />
+          
+          {/* Lotus center - Core flame */}
+          <ellipse
+            cx="40" cy="42" rx="6" ry="12"
+            fill="url(#lotusFireCore)"
+            filter="url(#softGlow)"
+            className="animate-flame-core"
+          />
+        </g>
         
-        {/* Outermost flame - largest */}
-        <path
-          d="M30 8 
-             C38 15, 45 25, 43 38 
-             C41 48, 35 52, 30 54 
-             C25 52, 19 48, 17 38 
-             C15 25, 22 15, 30 8 Z"
-          fill="url(#fireOuter)"
-          filter="url(#fireGlow)"
-          className="animate-flame-outer"
-        />
-        
-        {/* Middle flame layer */}
-        <path
-          d="M30 12 
-             C36 18, 40 26, 38.5 36 
-             C37 44, 33 47, 30 48.5 
-             C27 47, 23 44, 21.5 36 
-             C20 26, 24 18, 30 12 Z"
-          fill="url(#fireCore)"
-          filter="url(#fireGlow)"
-          className="animate-flame-middle"
-        />
-        
-        {/* Inner flame - hottest part */}
-        <path
-          d="M30 16 
-             C34 20, 36 26, 35 32 
-             C34 37, 32 39, 30 40 
-             C28 39, 26 37, 25 32 
-             C24 26, 26 20, 30 16 Z"
-          fill="url(#fireInner)"
-          filter="url(#fireGlow)"
-          className="animate-flame-inner"
-        />
-        
-        {/* Letter A - bold and burning */}
+        {/* Letter A with fancy font - HIGH CONTRAST and VISIBILITY */}
         <text
-          x="30"
-          y="35"
+          x="40"
+          y="45"
           textAnchor="middle"
           dominantBaseline="middle"
-          className="fill-white font-black animate-letter-burn drop-shadow-lg"
-          filter="url(#letterGlow)"
+          filter="url(#textGlow)"
           style={{ 
-            fontSize: '24px', 
-            fontFamily: 'Inter, sans-serif', 
-            fontWeight: '900',
-            textShadow: '0 0 10px rgba(255, 255, 255, 0.8)'
+            fontSize: '28px',
+            fontFamily: 'Righteous, cursive',
+            fontWeight: '400',
+            fill: '#1a1a1a',
+            stroke: '#ffffff',
+            strokeWidth: '1px',
+            textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
           }}
+          className="dark:hidden"
+        >
+          A
+        </text>
+
+        {/* Letter A for dark mode - HIGH CONTRAST */}
+        <text
+          x="40"
+          y="45"
+          textAnchor="middle"
+          dominantBaseline="middle"
+          filter="url(#textGlow)"
+          style={{ 
+            fontSize: '28px',
+            fontFamily: 'Righteous, cursive',
+            fontWeight: '400',
+            fill: '#ffffff',
+            stroke: '#000000',
+            strokeWidth: '1px',
+            textShadow: '2px 2px 4px rgba(255,255,255,0.8)'
+          }}
+          className="hidden dark:block animate-letter-fire-burn"
         >
           A
         </text>
         
-        {/* Dynamic sparks and embers */}
-        <g className="animate-sparks-dance">
-          {/* Primary sparks */}
-          <circle cx="20" cy="15" r="1.5" fill="#FFD700" className="animate-spark-1">
-            <animate attributeName="opacity" values="0;1;0" dur="0.8s" repeatCount="indefinite" begin="0s"/>
-            <animate attributeName="cy" values="15;10;15" dur="0.8s" repeatCount="indefinite" begin="0s"/>
-            <animate attributeName="r" values="1.5;2;1.5" dur="0.8s" repeatCount="indefinite" begin="0s"/>
+        {/* Light mode - Floating water droplets */}
+        <g className="dark:hidden">
+          <circle cx="15" cy="25" r="1.5" fill="#4682B4" opacity="0.7" className="animate-water-bubble-1">
+            <animate attributeName="cy" values="25;15;25" dur="3s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.7;1;0.7" dur="3s" repeatCount="indefinite"/>
           </circle>
           
-          <circle cx="40" cy="12" r="1.2" fill="#FFA500" className="animate-spark-2">
-            <animate attributeName="opacity" values="0;1;0" dur="1.2s" repeatCount="indefinite" begin="0.3s"/>
-            <animate attributeName="cy" values="12;7;12" dur="1.2s" repeatCount="indefinite" begin="0.3s"/>
-            <animate attributeName="r" values="1.2;1.8;1.2" dur="1.2s" repeatCount="indefinite" begin="0.3s"/>
+          <circle cx="65" cy="28" r="1.2" fill="#1E90FF" opacity="0.6" className="animate-water-bubble-2">
+            <animate attributeName="cy" values="28;18;28" dur="2.5s" repeatCount="indefinite" begin="0.5s"/>
+            <animate attributeName="opacity" values="0.6;1;0.6" dur="2.5s" repeatCount="indefinite" begin="0.5s"/>
           </circle>
           
-          <circle cx="25" cy="10" r="1" fill="#FF6B00" className="animate-spark-3">
-            <animate attributeName="opacity" values="0;1;0" dur="1.5s" repeatCount="indefinite" begin="0.6s"/>
-            <animate attributeName="cy" values="10;5;10" dur="1.5s" repeatCount="indefinite" begin="0.6s"/>
-            <animate attributeName="r" values="1;1.5;1" dur="1.5s" repeatCount="indefinite" begin="0.6s"/>
+          <circle cx="25" cy="20" r="1" fill="#00BFFF" opacity="0.8" className="animate-water-bubble-3">
+            <animate attributeName="cy" values="20;12;20" dur="2.8s" repeatCount="indefinite" begin="1s"/>
+            <animate attributeName="opacity" values="0.8;1;0.8" dur="2.8s" repeatCount="indefinite" begin="1s"/>
           </circle>
           
-          <circle cx="35" cy="14" r="0.8" fill="#FF4500" className="animate-spark-4">
-            <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" begin="0.9s"/>
-            <animate attributeName="cy" values="14;8;14" dur="2s" repeatCount="indefinite" begin="0.9s"/>
-            <animate attributeName="r" values="0.8;1.3;0.8" dur="2s" repeatCount="indefinite" begin="0.9s"/>
-          </circle>
-          
-          {/* Secondary floating embers */}
-          <circle cx="18" cy="20" r="0.5" fill="#DC143C" className="animate-ember-float-1">
-            <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite" begin="0s"/>
-            <animate attributeName="cx" values="18;22;18" dur="3s" repeatCount="indefinite" begin="0s"/>
-            <animate attributeName="cy" values="20;18;20" dur="3s" repeatCount="indefinite" begin="0s"/>
-          </circle>
-          
-          <circle cx="42" cy="25" r="0.7" fill="#8B0000" className="animate-ember-float-2">
-            <animate attributeName="opacity" values="0.2;0.6;0.2" dur="4s" repeatCount="indefinite" begin="1s"/>
-            <animate attributeName="cx" values="42;38;42" dur="4s" repeatCount="indefinite" begin="1s"/>
-            <animate attributeName="cy" values="25;22;25" dur="4s" repeatCount="indefinite" begin="1s"/>
+          <circle cx="55" cy="22" r="0.8" fill="#87CEEB" opacity="0.5" className="animate-water-bubble-4">
+            <animate attributeName="cy" values="22;14;22" dur="3.2s" repeatCount="indefinite" begin="1.5s"/>
+            <animate attributeName="opacity" values="0.5;1;0.5" dur="3.2s" repeatCount="indefinite" begin="1.5s"/>
           </circle>
         </g>
-        
-        {/* Heat distortion effect */}
-        <rect x="15" y="45" width="30" height="8" fill="url(#fireOuter)" opacity="0.3" className="animate-heat-shimmer" rx="4"/>
+
+        {/* Dark mode - Fire sparks around lotus */}
+        <g className="hidden dark:block">
+          <circle cx="20" cy="25" r="1.5" fill="#FFD700" className="animate-sparks-explosion">
+            <animate attributeName="cy" values="25;15;25" dur="2s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/>
+            <animate attributeName="r" values="1.5;2.5;1.5" dur="2s" repeatCount="indefinite"/>
+          </circle>
+          
+          <circle cx="60" cy="28" r="1.2" fill="#FFA500" className="animate-sparks-explosion">
+            <animate attributeName="cy" values="28;18;28" dur="1.8s" repeatCount="indefinite" begin="0.3s"/>
+            <animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite" begin="0.3s"/>
+            <animate attributeName="r" values="1.2;2;1.2" dur="1.8s" repeatCount="indefinite" begin="0.3s"/>
+          </circle>
+          
+          <circle cx="25" cy="20" r="1" fill="#FF6B00" className="animate-sparks-explosion">
+            <animate attributeName="cy" values="20;12;20" dur="2.2s" repeatCount="indefinite" begin="0.6s"/>
+            <animate attributeName="opacity" values="0;1;0" dur="2.2s" repeatCount="indefinite" begin="0.6s"/>
+            <animate attributeName="r" values="1;1.8;1" dur="2.2s" repeatCount="indefinite" begin="0.6s"/>
+          </circle>
+          
+          <circle cx="55" cy="22" r="0.8" fill="#FF4500" className="animate-sparks-explosion">
+            <animate attributeName="cy" values="22;14;22" dur="1.9s" repeatCount="indefinite" begin="0.9s"/>
+            <animate attributeName="opacity" values="0;1;0" dur="1.9s" repeatCount="indefinite" begin="0.9s"/>
+            <animate attributeName="r" values="0.8;1.5;0.8" dur="1.9s" repeatCount="indefinite" begin="0.9s"/>
+          </circle>
+        </g>
       </svg>
       
-      {/* Hover tooltip */}
-      <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-        <span className="text-xs text-[#FF6B00] bg-white dark:bg-[#2E2E2E] px-3 py-1 rounded-full shadow-lg border border-[#FF6B00]/20 whitespace-nowrap">
-          Always Burning 🔥
+      {/* Enhanced hover tooltip */}
+      <div className="absolute -bottom-14 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-20">
+        <span className="text-xs text-blue-600 dark:text-orange-500 bg-white dark:bg-gray-800 px-4 py-2 rounded-full shadow-xl border border-blue-200 dark:border-orange-200 whitespace-nowrap font-medium">
+          <span className="dark:hidden">Flowing Waves 🌊</span>
+          <span className="hidden dark:inline">Lotus Fire 🪷🔥</span>
         </span>
       </div>
     </div>
