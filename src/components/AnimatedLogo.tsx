@@ -9,28 +9,38 @@ const AnimatedLogo = () => {
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
-          {/* Realistic Fire Gradients for Dark Mode */}
-          <radialGradient id="realisticFireCore" cx="50%" cy="80%" r="30%">
+          {/* ENHANCED REALISTIC FIRE GRADIENTS for Dark Mode */}
+          <radialGradient id="ultraFireCore" cx="50%" cy="85%" r="25%">
             <stop offset="0%" stopColor="#FFFFFF" />
-            <stop offset="15%" stopColor="#FFFF99" />
-            <stop offset="35%" stopColor="#FFD700" />
-            <stop offset="60%" stopColor="#FF6B00" />
-            <stop offset="85%" stopColor="#FF4500" />
-            <stop offset="100%" stopColor="#8B0000" />
+            <stop offset="10%" stopColor="#FFFACD" />
+            <stop offset="25%" stopColor="#FFD700" />
+            <stop offset="45%" stopColor="#FFA500" />
+            <stop offset="70%" stopColor="#FF6B00" />
+            <stop offset="90%" stopColor="#FF4500" />
+            <stop offset="100%" stopColor="#DC143C" />
           </radialGradient>
           
-          <radialGradient id="realisticFireMid" cx="50%" cy="75%" r="40%">
-            <stop offset="0%" stopColor="#FFD700" stopOpacity="0.9" />
-            <stop offset="30%" stopColor="#FF6B00" stopOpacity="0.8" />
-            <stop offset="60%" stopColor="#FF4500" stopOpacity="0.6" />
-            <stop offset="90%" stopColor="#DC143C" stopOpacity="0.4" />
-            <stop offset="100%" stopColor="#8B0000" stopOpacity="0.2" />
+          <radialGradient id="ultraFireMid" cx="50%" cy="80%" r="35%">
+            <stop offset="0%" stopColor="#FFD700" stopOpacity="0.95" />
+            <stop offset="20%" stopColor="#FFA500" stopOpacity="0.9" />
+            <stop offset="40%" stopColor="#FF6B00" stopOpacity="0.8" />
+            <stop offset="65%" stopColor="#FF4500" stopOpacity="0.7" />
+            <stop offset="85%" stopColor="#DC143C" stopOpacity="0.5" />
+            <stop offset="100%" stopColor="#8B0000" stopOpacity="0.3" />
           </radialGradient>
 
-          <radialGradient id="realisticFireOuter" cx="50%" cy="70%" r="50%">
-            <stop offset="0%" stopColor="#FF8C00" stopOpacity="0.7" />
-            <stop offset="40%" stopColor="#FF4500" stopOpacity="0.5" />
-            <stop offset="70%" stopColor="#DC143C" stopOpacity="0.3" />
+          <radialGradient id="ultraFireOuter" cx="50%" cy="75%" r="45%">
+            <stop offset="0%" stopColor="#FF8C00" stopOpacity="0.8" />
+            <stop offset="30%" stopColor="#FF4500" stopOpacity="0.6" />
+            <stop offset="60%" stopColor="#DC143C" stopOpacity="0.4" />
+            <stop offset="85%" stopColor="#8B0000" stopOpacity="0.2" />
+            <stop offset="100%" stopColor="#4B0000" stopOpacity="0.1" />
+          </radialGradient>
+
+          <radialGradient id="ultraFireBase" cx="50%" cy="70%" r="55%">
+            <stop offset="0%" stopColor="#FF6B00" stopOpacity="0.6" />
+            <stop offset="40%" stopColor="#FF4500" stopOpacity="0.4" />
+            <stop offset="70%" stopColor="#DC143C" stopOpacity="0.2" />
             <stop offset="100%" stopColor="#8B0000" stopOpacity="0.1" />
           </radialGradient>
 
@@ -58,15 +68,7 @@ const AnimatedLogo = () => {
           </linearGradient>
 
           {/* Enhanced glow effects */}
-          <filter id="realisticGlow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-            <feMerge> 
-              <feMergeNode in="coloredBlur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-
-          <filter id="textGlow" x="-100%" y="-100%" width="300%" height="300%">
+          <filter id="ultraGlow" x="-100%" y="-100%" width="300%" height="300%">
             <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
             <feMerge> 
               <feMergeNode in="coloredBlur"/>
@@ -74,10 +76,18 @@ const AnimatedLogo = () => {
             </feMerge>
           </filter>
 
-          {/* Realistic flame distortion */}
-          <filter id="flameDistortion">
-            <feTurbulence baseFrequency="0.02 0.1" numOctaves="4" result="noise" seed="1"/>
-            <feDisplacementMap in="SourceGraphic" in2="noise" scale="2"/>
+          <filter id="textGlow" x="-150%" y="-150%" width="400%" height="400%">
+            <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+            <feMerge> 
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+
+          {/* Enhanced flame distortion */}
+          <filter id="ultraFlameDistortion">
+            <feTurbulence baseFrequency="0.03 0.15" numOctaves="5" result="noise" seed="1"/>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="3"/>
           </filter>
 
           {/* Ocean wave distortion */}
@@ -144,113 +154,135 @@ const AnimatedLogo = () => {
                Q14 44, 8 48
                Q2 52, 0 48 Z"
             fill="url(#oceanSurface)"
-            filter="url(#realisticGlow)"
+            filter="url(#ultraGlow)"
             className="animate-wave-surface"
           />
 
           {/* Ocean foam and bubbles */}
-          <circle cx="15" cy="30" r="1.5" fill="#FFFFFF" opacity="0.7" className="animate-bubbles-float">
-            <animate attributeName="cy" values="30;20;30" dur="3s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values="0.7;0.3;0.7" dur="3s" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="35" cy="28" r="1" fill="#FFFFFF" opacity="0.5" className="animate-bubbles-float">
-            <animate attributeName="cy" values="28;18;28" dur="4s" repeatCount="indefinite" begin="1s"/>
-            <animate attributeName="opacity" values="0.5;0.2;0.5" dur="4s" repeatCount="indefinite" begin="1s"/>
-          </circle>
-          <circle cx="55" cy="32" r="1.2" fill="#FFFFFF" opacity="0.6" className="animate-bubbles-float">
-            <animate attributeName="cy" values="32;22;32" dur="3.5s" repeatCount="indefinite" begin="0.5s"/>
-            <animate attributeName="opacity" values="0.6;0.2;0.6" dur="3.5s" repeatCount="indefinite" begin="0.5s"/>
-          </circle>
-          <circle cx="65" cy="29" r="0.8" fill="#FFFFFF" opacity="0.4" className="animate-bubbles-float">
-            <animate attributeName="cy" values="29;19;29" dur="2.8s" repeatCount="indefinite" begin="1.5s"/>
-            <animate attributeName="opacity" values="0.4;0.1;0.4" dur="2.8s" repeatCount="indefinite" begin="1.5s"/>
-          </circle>
+          <circle cx="15" cy="30" r="1.5" fill="#FFFFFF" opacity="0.7" className="animate-water-bubble-1" />
+          <circle cx="35" cy="28" r="1" fill="#FFFFFF" opacity="0.5" className="animate-water-bubble-2" />
+          <circle cx="55" cy="32" r="1.2" fill="#FFFFFF" opacity="0.6" className="animate-water-bubble-3" />
+          <circle cx="65" cy="29" r="0.8" fill="#FFFFFF" opacity="0.4" className="animate-water-bubble-4" />
         </g>
 
-        {/* Dark Mode - Realistic Fire Flames */}
+        {/* Dark Mode - ULTRA REALISTIC Fire Flames */}
         <g className="hidden dark:block">
-          {/* Main flame body */}
+          {/* Base flame foundation */}
           <path
-            d="M40 15
-               Q35 20, 30 30
-               Q28 40, 32 50
-               Q36 58, 40 60
-               Q44 58, 48 50
-               Q52 40, 50 30
-               Q45 20, 40 15 Z"
-            fill="url(#realisticFireOuter)"
-            filter="url(#flameDistortion)"
+            d="M40 12
+               Q32 18, 25 32
+               Q20 45, 25 58
+               Q30 65, 40 68
+               Q50 65, 55 58
+               Q60 45, 55 32
+               Q48 18, 40 12 Z"
+            fill="url(#ultraFireBase)"
+            filter="url(#ultraFlameDistortion)"
             className="animate-flame-massive"
           />
           
-          {/* Secondary flame tongues */}
+          {/* Main flame body - larger and more realistic */}
           <path
-            d="M25 25
-               Q22 30, 24 40
-               Q26 48, 30 52
-               Q32 50, 30 45
-               Q28 35, 25 25 Z"
-            fill="url(#realisticFireMid)"
-            filter="url(#flameDistortion)"
+            d="M40 15
+               Q34 22, 28 35
+               Q25 48, 30 58
+               Q35 63, 40 65
+               Q45 63, 50 58
+               Q55 48, 52 35
+               Q46 22, 40 15 Z"
+            fill="url(#ultraFireOuter)"
+            filter="url(#ultraFlameDistortion)"
+            className="animate-flame-massive"
+          />
+          
+          {/* Left flame tongue - more pronounced */}
+          <path
+            d="M22 28
+               Q18 35, 20 45
+               Q22 52, 28 58
+               Q32 60, 35 58
+               Q33 50, 30 42
+               Q28 35, 22 28 Z"
+            fill="url(#ultraFireMid)"
+            filter="url(#ultraFlameDistortion)"
             className="animate-flame-intense"
           />
           
+          {/* Right flame tongue - more pronounced */}
           <path
-            d="M55 25
-               Q58 30, 56 40
-               Q54 48, 50 52
-               Q48 50, 50 45
-               Q52 35, 55 25 Z"
-            fill="url(#realisticFireMid)"
-            filter="url(#flameDistortion)"
+            d="M58 28
+               Q62 35, 60 45
+               Q58 52, 52 58
+               Q48 60, 45 58
+               Q47 50, 50 42
+               Q52 35, 58 28 Z"
+            fill="url(#ultraFireMid)"
+            filter="url(#ultraFlameDistortion)"
             className="animate-flame-intense"
           />
           
-          {/* Inner flame core */}
+          {/* Secondary inner flame */}
           <path
             d="M40 20
-               Q37 25, 35 35
-               Q34 42, 36 48
-               Q38 52, 40 54
-               Q42 52, 44 48
-               Q46 42, 45 35
-               Q43 25, 40 20 Z"
-            fill="url(#realisticFireMid)"
-            filter="url(#realisticGlow)"
+               Q36 26, 32 38
+               Q30 48, 34 56
+               Q37 60, 40 62
+               Q43 60, 46 56
+               Q50 48, 48 38
+               Q44 26, 40 20 Z"
+            fill="url(#ultraFireMid)"
+            filter="url(#ultraGlow)"
             className="animate-flame-intense"
           />
           
-          {/* Hottest core */}
+          {/* Hottest core - white-hot center */}
           <path
             d="M40 25
-               Q38 28, 37 35
-               Q36 40, 38 45
-               Q39 48, 40 50
-               Q41 48, 42 45
-               Q44 40, 43 35
-               Q42 28, 40 25 Z"
-            fill="url(#realisticFireCore)"
-            filter="url(#realisticGlow)"
+               Q37 30, 35 40
+               Q34 47, 36 52
+               Q38 55, 40 57
+               Q42 55, 44 52
+               Q46 47, 45 40
+               Q43 30, 40 25 Z"
+            fill="url(#ultraFireCore)"
+            filter="url(#ultraGlow)"
             className="animate-flame-core"
           />
 
-          {/* Sparks and embers */}
-          <circle cx="25" cy="18" r="1" fill="#FFD700" className="animate-sparks-explosion">
-            <animate attributeName="opacity" values="0;1;0" dur="1.5s" repeatCount="indefinite" begin="0s"/>
-            <animate attributeName="cy" values="18;12;18" dur="1.5s" repeatCount="indefinite" begin="0s"/>
+          {/* Enhanced sparks and embers */}
+          <circle cx="20" cy="15" r="1.5" fill="#FFD700" className="animate-sparks-explosion">
+            <animate attributeName="opacity" values="0;1;0" dur="1.2s" repeatCount="indefinite" begin="0s"/>
+            <animate attributeName="cy" values="15;8;15" dur="1.2s" repeatCount="indefinite" begin="0s"/>
+            <animate attributeName="r" values="1.5;2.5;1.5" dur="1.2s" repeatCount="indefinite" begin="0s"/>
           </circle>
-          <circle cx="55" cy="20" r="0.8" fill="#FF6B00" className="animate-sparks-explosion">
-            <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" begin="0.5s"/>
-            <animate attributeName="cy" values="20;14;20" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+          <circle cx="60" cy="18" r="1.2" fill="#FF6B00" className="animate-sparks-explosion">
+            <animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite" begin="0.3s"/>
+            <animate attributeName="cy" values="18;10;18" dur="1.8s" repeatCount="indefinite" begin="0.3s"/>
+            <animate attributeName="r" values="1.2;2;1.2" dur="1.8s" repeatCount="indefinite" begin="0.3s"/>
           </circle>
-          <circle cx="35" cy="15" r="0.6" fill="#FF4500" className="animate-sparks-explosion">
-            <animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite" begin="1s"/>
-            <animate attributeName="cy" values="15;9;15" dur="1.8s" repeatCount="indefinite" begin="1s"/>
+          <circle cx="30" cy="12" r="1" fill="#FF4500" className="animate-sparks-explosion">
+            <animate attributeName="opacity" values="0;1;0" dur="1.5s" repeatCount="indefinite" begin="0.6s"/>
+            <animate attributeName="cy" values="12;5;12" dur="1.5s" repeatCount="indefinite" begin="0.6s"/>
+            <animate attributeName="r" values="1;1.8;1" dur="1.5s" repeatCount="indefinite" begin="0.6s"/>
           </circle>
-          <circle cx="45" cy="17" r="0.7" fill="#FFD700" className="animate-sparks-explosion">
-            <animate attributeName="opacity" values="0;1;0" dur="1.3s" repeatCount="indefinite" begin="0.3s"/>
-            <animate attributeName="cy" values="17;11;17" dur="1.3s" repeatCount="indefinite" begin="0.3s"/>
+          <circle cx="50" cy="14" r="1.3" fill="#FFD700" className="animate-sparks-explosion">
+            <animate attributeName="opacity" values="0;1;0" dur="1.1s" repeatCount="indefinite" begin="0.9s"/>
+            <animate attributeName="cy" values="14;7;14" dur="1.1s" repeatCount="indefinite" begin="0.9s"/>
+            <animate attributeName="r" values="1.3;2.2;1.3" dur="1.1s" repeatCount="indefinite" begin="0.9s"/>
           </circle>
+          <circle cx="35" cy="10" r="0.8" fill="#FFFFFF" className="animate-sparks-explosion">
+            <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" begin="0.2s"/>
+            <animate attributeName="cy" values="10;3;10" dur="2s" repeatCount="indefinite" begin="0.2s"/>
+            <animate attributeName="r" values="0.8;1.5;0.8" dur="2s" repeatCount="indefinite" begin="0.2s"/>
+          </circle>
+          <circle cx="45" cy="11" r="0.9" fill="#FFFFFF" className="animate-sparks-explosion">
+            <animate attributeName="opacity" values="0;1;0" dur="1.7s" repeatCount="indefinite" begin="0.5s"/>
+            <animate attributeName="cy" values="11;4;11" dur="1.7s" repeatCount="indefinite" begin="0.5s"/>
+            <animate attributeName="r" values="0.9;1.6;0.9" dur="1.7s" repeatCount="indefinite" begin="0.5s"/>
+          </circle>
+
+          {/* Heat shimmer effect at base */}
+          <ellipse cx="40" cy="65" rx="25" ry="4" fill="url(#ultraFireOuter)" opacity="0.4" className="animate-heat-intense" />
         </g>
         
         {/* Letter A - Orange for Light Mode */}

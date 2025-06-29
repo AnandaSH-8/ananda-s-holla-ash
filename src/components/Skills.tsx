@@ -4,85 +4,118 @@ import TechIcon from "./TechIcon";
 const Skills = () => {
   const skillCategories = [
     {
-      title: "Frontend",
-      icon: "🎨",
-      gradient: "from-blue-500 to-cyan-500 dark:from-orange-500 dark:to-red-500",
+      title: "Frontend Development",
+      icon: "💻",
+      description: "Building beautiful, responsive user interfaces",
+      gradient: "from-blue-500 via-purple-500 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-600",
+      borderGradient: "from-blue-400 to-purple-500 dark:from-orange-400 dark:to-red-500",
       skills: ["React.js", "Vue.js", "Tailwind CSS", "Vuetify", "MUI", "HTML", "CSS", "JavaScript"]
     },
     {
-      title: "Backend", 
+      title: "Backend Development", 
       icon: "⚙️",
-      gradient: "from-cyan-500 to-blue-600 dark:from-red-500 dark:to-orange-600",
+      description: "Scalable server-side architecture & APIs",
+      gradient: "from-green-500 via-teal-500 to-cyan-600 dark:from-yellow-500 dark:via-orange-500 dark:to-red-600",
+      borderGradient: "from-green-400 to-teal-500 dark:from-yellow-400 dark:to-orange-500",
       skills: ["Node.js", "Express.js", "NestJS", "REST APIs"]
     },
     {
-      title: "Database",
+      title: "Database Management",
       icon: "🗄️",
-      gradient: "from-blue-600 to-indigo-600 dark:from-orange-600 dark:to-yellow-600",
+      description: "Efficient data storage & retrieval systems",
+      gradient: "from-purple-500 via-pink-500 to-rose-600 dark:from-red-500 dark:via-pink-500 dark:to-orange-600",
+      borderGradient: "from-purple-400 to-pink-500 dark:from-red-400 dark:to-pink-500",
       skills: ["PostgreSQL", "MongoDB"]
     },
     {
-      title: "Tools & Others",
+      title: "DevOps & Tools",
       icon: "🛠️",
-      gradient: "from-indigo-500 to-purple-500 dark:from-yellow-500 dark:to-orange-500",
+      description: "Development workflow & deployment tools",
+      gradient: "from-indigo-500 via-blue-500 to-cyan-600 dark:from-pink-500 dark:via-purple-500 dark:to-indigo-600",
+      borderGradient: "from-indigo-400 to-blue-500 dark:from-pink-400 dark:to-purple-500",
       skills: ["Git", "Postman", "Vercel", "Netlify"]
     }
   ];
 
   return (
-    <section id="skills" className="py-20 px-4 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
-      {/* Floating background elements */}
+    <section id="skills" className="py-20 px-4 bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-orange-900 relative overflow-hidden">
+      {/* Enhanced floating background elements */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-10 w-4 h-4 bg-blue-400/20 dark:bg-orange-400/20 rounded-full animate-float-bg-1"></div>
-        <div className="absolute top-40 right-20 w-6 h-6 bg-cyan-400/15 dark:bg-red-400/15 rounded-full animate-float-bg-2"></div>
-        <div className="absolute bottom-40 left-1/4 w-3 h-3 bg-blue-500/25 dark:bg-orange-500/25 rounded-full animate-float-bg-3"></div>
-        <div className="absolute bottom-20 right-1/3 w-5 h-5 bg-indigo-400/20 dark:bg-yellow-400/20 rounded-full animate-float-bg-4"></div>
+        <div className="absolute top-20 left-10 w-6 h-6 bg-blue-400/20 dark:bg-orange-400/20 rounded-full animate-skills-particle-dance"></div>
+        <div className="absolute top-40 right-20 w-8 h-8 bg-purple-400/15 dark:bg-red-400/15 rounded-full animate-skills-particle-dance" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-40 left-1/4 w-4 h-4 bg-green-500/25 dark:bg-yellow-500/25 rounded-full animate-skills-particle-dance" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-20 right-1/3 w-7 h-7 bg-indigo-400/20 dark:bg-pink-400/20 rounded-full animate-skills-particle-dance" style={{animationDelay: '0.5s'}}></div>
+        <div className="absolute top-1/2 left-1/2 w-5 h-5 bg-cyan-400/15 dark:bg-purple-400/15 rounded-full animate-skills-particle-dance" style={{animationDelay: '1.5s'}}></div>
       </div>
 
-      <div className="max-w-6xl mx-auto relative z-10">
-        {/* Header section */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-            Skills & Tech Stack
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Enhanced header section */}
+        <div className="text-center mb-20 animate-skills-spectacular-entrance">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 dark:text-white mb-8 relative">
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-500 bg-clip-text text-transparent animate-skills-text-shimmer">
+              Skills & Expertise
+            </span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-orange-500 dark:to-red-500 mx-auto mb-8"></div>
-          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            Technologies and tools I use to bring innovative ideas to life
+          <div className="w-32 h-2 bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-500 mx-auto mb-10 rounded-full animate-skills-border-flow"></div>
+          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
+            Transforming ideas into powerful digital experiences with cutting-edge technologies
           </p>
         </div>
         
-        {/* Skills grid */}
-        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8">
+        {/* Enhanced skills grid */}
+        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8 lg:gap-10 mb-16">
           {skillCategories.map((category, index) => (
             <Card
               key={index}
-              className="border-0 shadow-lg bg-white dark:bg-gray-800 overflow-hidden h-full hover:shadow-2xl hover:-translate-y-4 hover:rotate-1 transition-all duration-500 relative group"
+              className="border-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl overflow-hidden h-full group relative transform transition-all duration-700 hover:scale-105 hover:-translate-y-6 hover:rotate-1 animate-skills-card-float"
+              style={{ 
+                animationDelay: `${index * 0.2}s`,
+                boxShadow: '0 20px 40px -10px rgba(0,0,0,0.1)'
+              }}
             >
-              <CardContent className="p-6 relative">
-                {/* Animated gradient background */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
+              {/* Animated border gradient */}
+              <div className={`absolute inset-0 bg-gradient-to-r ${category.borderGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-[2px] rounded-lg`}>
+                <div className="w-full h-full bg-white dark:bg-gray-800 rounded-lg"></div>
+              </div>
+              
+              <CardContent className="p-8 relative z-10">
+                {/* Enhanced animated gradient background */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-0 group-hover:opacity-10 transition-all duration-700 animate-skills-glow-pulse`}></div>
                 
-                {/* Category header with enhanced icon */}
-                <div className="text-center mb-6 relative z-10">
-                  <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-orange-100 dark:to-red-100 rounded-xl flex items-center justify-center text-3xl group-hover:scale-125 group-hover:rotate-12 transition-all duration-500">
-                    <span className="group-hover:animate-bounce">{category.icon}</span>
+                {/* Category header with spectacular icon */}
+                <div className="text-center mb-8 relative z-10">
+                  <div className="relative mb-6">
+                    <div className="w-20 h-20 mx-auto bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 rounded-2xl flex items-center justify-center text-4xl group-hover:scale-125 group-hover:rotate-12 transition-all duration-700 animate-skills-icon-breathe shadow-lg">
+                      <span className="group-hover:animate-bounce filter drop-shadow-lg">{category.icon}</span>
+                    </div>
+                    {/* Orbiting particles */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      <div className="absolute top-2 left-2 w-2 h-2 bg-blue-400 dark:bg-orange-400 rounded-full animate-skills-icon-orbit"></div>
+                      <div className="absolute top-2 right-2 w-1.5 h-1.5 bg-purple-400 dark:bg-red-400 rounded-full animate-skills-icon-orbit" style={{animationDelay: '0.5s'}}></div>
+                      <div className="absolute bottom-2 left-2 w-1 h-1 bg-green-400 dark:bg-yellow-400 rounded-full animate-skills-icon-orbit" style={{animationDelay: '1s'}}></div>
+                      <div className="absolute bottom-2 right-2 w-1.5 h-1.5 bg-indigo-400 dark:bg-pink-400 rounded-full animate-skills-icon-orbit" style={{animationDelay: '1.5s'}}></div>
+                    </div>
                   </div>
                   
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-orange-500 transition-colors duration-300">
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 dark:group-hover:from-orange-500 dark:group-hover:to-red-500 group-hover:bg-clip-text transition-all duration-500">
                     {category.title}
                   </h3>
                   
-                  <div className="text-sm text-gray-500 dark:text-gray-400">
+                  <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors duration-300">
+                    {category.description}
+                  </p>
+                  
+                  <div className="text-xs text-gray-500 dark:text-gray-500 mt-2 font-medium">
                     {category.skills.length} Technologies
                   </div>
                 </div>
                 
-                {/* Tech icons grid */}
-                <div className="grid grid-cols-2 gap-4 relative z-10">
+                {/* Enhanced tech icons grid */}
+                <div className="grid grid-cols-2 gap-6 relative z-10">
                   {category.skills.map((skill, skillIndex) => (
                     <div
                       key={skillIndex}
-                      className="transform transition-all duration-500 group-hover:scale-110"
+                      className="transform transition-all duration-700 group-hover:scale-110 animate-skills-hover-lift"
                       style={{ 
                         transitionDelay: `${skillIndex * 0.1}s`
                       }}
@@ -91,19 +124,38 @@ const Skills = () => {
                     </div>
                   ))}
                 </div>
+
+                {/* Skill count indicator */}
+                <div className="mt-6 text-center">
+                  <div className="inline-flex items-center px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-full text-sm font-medium text-gray-600 dark:text-gray-300 group-hover:bg-gradient-to-r group-hover:from-blue-100 group-hover:to-purple-100 dark:group-hover:from-orange-100 dark:group-hover:to-red-100 group-hover:text-gray-800 transition-all duration-500">
+                    <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
+                    Mastered
+                  </div>
+                </div>
               </CardContent>
             </Card>
           ))}
         </div>
         
-        {/* Call to action */}
-        <div className="text-center mt-16">
-          <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
-            Always learning and exploring new technologies
-          </p>
-          <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 dark:from-orange-500 dark:to-red-500 text-white rounded-full font-semibold hover:scale-105 transition-transform duration-300">
-            <span className="mr-2">🚀</span>
-            Ready to build amazing things together
+        {/* Enhanced call to action */}
+        <div className="text-center animate-bounce-in">
+          <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-orange-900/50 dark:to-red-900/50 backdrop-blur-xl rounded-3xl p-12 max-w-4xl mx-auto border border-blue-200/50 dark:border-orange-500/30 shadow-2xl">
+            <h3 className="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-orange-500 dark:to-red-500 bg-clip-text text-transparent">
+              Ready to Build Something Amazing?
+            </h3>
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+              Let's combine these technologies to create innovative solutions that make a difference
+            </p>
+            <div className="flex flex-wrap justify-center gap-6">
+              <div className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 dark:from-orange-500 dark:to-red-500 text-white rounded-2xl font-bold hover:scale-105 hover:shadow-2xl transition-all duration-300 animate-skills-glow-pulse">
+                <span className="mr-3 text-2xl">🚀</span>
+                Let's Collaborate
+              </div>
+              <div className="inline-flex items-center px-8 py-4 bg-white dark:bg-gray-800 border-2 border-blue-500 dark:border-orange-500 text-blue-600 dark:text-orange-500 rounded-2xl font-bold hover:bg-blue-500 dark:hover:bg-orange-500 hover:text-white hover:scale-105 transition-all duration-300">
+                <span className="mr-3 text-2xl">💡</span>
+                Explore Projects
+              </div>
+            </div>
           </div>
         </div>
       </div>

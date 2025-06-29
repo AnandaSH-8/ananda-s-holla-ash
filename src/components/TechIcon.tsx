@@ -22,6 +22,7 @@ import {
   SiFigma,
   SiFirebase
 } from 'react-icons/si';
+import { useState } from 'react';
 
 interface TechIconProps {
   name: string;
@@ -29,6 +30,9 @@ interface TechIconProps {
 }
 
 const TechIcon = ({ name, className = "" }: TechIconProps) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
+
   const getIcon = (iconName: string) => {
     const iconMap: { [key: string]: React.ComponentType<any> } = {
       'React.js': SiReact,
@@ -72,7 +76,7 @@ const TechIcon = ({ name, className = "" }: TechIconProps) => {
       'JavaScript': '#F7DF1E',
       'TypeScript': '#3178C6',
       'Node.js': '#339933',
-      'Express.js': '#000000',
+      'Express.js': '#68A063',
       'NestJS': '#E0234E',
       'PostgreSQL': '#336791',
       'MongoDB': '#47A248',
@@ -90,43 +94,138 @@ const TechIcon = ({ name, className = "" }: TechIconProps) => {
     return colorMap[iconName] || '#6B7280';
   };
 
+  const handleClick = () => {
+    setIsClicked(true);
+    setTimeout(() => setIsClicked(false), 2000);
+  };
+
   return (
-    <div className={`group cursor-pointer ${className}`}>
+    <div 
+      className={`group cursor-pointer ${className}`} 
+      onClick={handleClick}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <div 
-        className="relative w-12 h-12 flex flex-col items-center justify-center rounded-lg shadow-sm transform transition-all duration-300 hover:scale-125 hover:shadow-xl hover:-translate-y-2 bg-gray-50 dark:bg-gray-700 hover:bg-white dark:hover:bg-gray-600"
+        className={`relative w-14 h-14 flex flex-col items-center justify-center rounded-xl shadow-lg transform transition-all duration-500 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 ${
+          isHovered ? 'scale-125 -translate-y-3 shadow-2xl' : 'hover:scale-110 hover:-translate-y-1'
+        } ${isClicked ? 'animate-bounce' : ''}`}
         style={{ 
-          borderLeft: `3px solid ${getIconColor(name)}`,
+          boxShadow: isHovered 
+            ? `0 20px 40px -10px ${getIconColor(name)}40, 0 0 30px ${getIconColor(name)}30`
+            : '0 10px 25px -5px rgba(0,0,0,0.1)',
+          borderColor: isHovered ? getIconColor(name) : undefined,
+          borderWidth: isHovered ? '2px' : '1px'
         }}
       >
-        {/* Icon with enhanced hover effects */}
+        {/* Animated background gradient on hover */}
         <div 
-          className="text-xl transition-all duration-300 group-hover:scale-125 relative z-10"
+          className={`absolute inset-0 rounded-xl opacity-0 transition-opacity duration-500 ${
+            isHovered ? 'opacity-20' : ''
+          }`}
+          style={{ 
+            background: `linear-gradient(135deg, ${getIconColor(name)}20, ${getIconColor(name)}40)`
+          }}
+        />
+        
+        {/* Icon with enhanced effects */}
+        <div 
+          className={`text-2xl transition-all duration-500 relative z-10 ${
+            isClicked ? 'animate-pulse scale-125' : ''
+          } ${isHovered ? 'scale-125' : ''}`}
           style={{ 
             color: getIconColor(name),
-            filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
+            filter: isHovered 
+              ? `drop-shadow(0 0 15px ${getIconColor(name)}) brightness(1.3)` 
+              : 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))',
+            transform: isHovered ? 'rotateY(15deg)' : 'rotateY(0deg)'
           }}
         >
           {getIcon(name)}
         </div>
         
-        {/* Animated glow effect on hover only */}
-        <div 
-          className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-30 transition-all duration-300"
-          style={{ 
-            backgroundColor: getIconColor(name),
-            boxShadow: `0 0 20px ${getIconColor(name)}40`
-          }}
-        />
+        {/* Orbiting particles on hover */}
+        {isHovered && (
+          <div className="absolute inset-0">
+            <div 
+              className="absolute w-1.5 h-1.5 rounded-full animate-skills-icon-orbit"
+              style={{ 
+                backgroundColor: getIconColor(name),
+                top: '10%',
+                left: '10%'
+              }}
+            />
+            <div 
+              className="absolute w-1 h-1 rounded-full animate-skills-icon-orbit"
+              style={{ 
+                backgroundColor: getIconColor(name),
+                top: '10%',
+                right: '10%',
+                animationDelay: '0.5s'
+              }}
+            />
+            <div 
+              className="absolute w-1.5 h-1.5 rounded-full animate-skills-icon-orbit"
+              style={{ 
+                backgroundColor: getIconColor(name),
+                bottom: '10%',
+                left: '10%',
+                animationDelay: '1s'
+              }}
+            />
+            <div 
+              className="absolute w-1 h-1 rounded-full animate-skills-icon-orbit"
+              style={{ 
+                backgroundColor: getIconColor(name),
+                bottom: '10%',
+                right: '10%',
+                animationDelay: '1.5s'
+              }}
+            />
+          </div>
+        )}
         
-        {/* Subtle rotation on hover */}
-        <div className="absolute inset-0 rounded-lg group-hover:rotate-3 transition-transform duration-300"></div>
+        {/* Pulsing glow effect when clicked */}
+        {isClicked && (
+          <div 
+            className="absolute inset-0 rounded-xl animate-ping"
+            style={{ 
+              backgroundColor: getIconColor(name),
+              opacity: 0.3
+            }}
+          />
+        )}
+        
+        {/* Skill level indicator */}
+        <div className={`absolute -bottom-1 -right-1 w-3 h-3 rounded-full border-2 border-white dark:border-gray-700 transition-all duration-300 ${
+          isHovered ? 'scale-125' : ''
+        }`} style={{ backgroundColor: getIconColor(name) }}>
+          <div className="w-full h-full rounded-full animate-pulse" style={{ backgroundColor: getIconColor(name) }}></div>
+        </div>
       </div>
       
-      {/* Skill name with enhanced typography */}
-      <div className="mt-2 text-center">
-        <span className="text-xs font-medium text-gray-600 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300 group-hover:font-semibold">
+      {/* Enhanced skill name with better typography */}
+      <div className="mt-3 text-center">
+        <span className={`text-xs font-semibold transition-all duration-300 block ${
+          isHovered 
+            ? 'text-gray-900 dark:text-white scale-110 font-bold' 
+            : 'text-gray-600 dark:text-gray-400'
+        } ${isClicked ? 'animate-bounce' : ''}`}>
           {name}
         </span>
+        
+        {/* Proficiency level indicator */}
+        <div className={`mt-1 h-1 bg-gray-200 dark:bg-gray-600 rounded-full overflow-hidden transition-all duration-500 ${
+          isHovered ? 'opacity-100' : 'opacity-0'
+        }`}>
+          <div 
+            className="h-full rounded-full transition-all duration-1000"
+            style={{ 
+              backgroundColor: getIconColor(name),
+              width: isHovered ? '85%' : '0%'
+            }}
+          />
+        </div>
       </div>
     </div>
   );
