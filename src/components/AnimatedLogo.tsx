@@ -2,9 +2,9 @@ const AnimatedLogo = () => {
   return (
     <div className="relative inline-block cursor-pointer group">
       <svg
-        width="100"
-        height="100"
-        viewBox="0 0 100 100"
+        width="80"
+        height="80"
+        viewBox="0 0 80 80"
         className="hover:scale-110 transition-transform duration-300"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -56,7 +56,7 @@ const AnimatedLogo = () => {
 
           {/* Enhanced glow effects */}
           <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
             <feMerge> 
               <feMergeNode in="coloredBlur"/>
               <feMergeNode in="SourceGraphic"/>
@@ -64,37 +64,30 @@ const AnimatedLogo = () => {
           </filter>
 
           <filter id="strongTextGlow" x="-100%" y="-100%" width="300%" height="300%">
-            <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
             <feMerge> 
               <feMergeNode in="coloredBlur"/>
               <feMergeNode in="SourceGraphic"/>
             </feMerge>
           </filter>
-
-          {/* Import Thai-style fonts */}
-          <style>
-            {`
-              @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700;800&family=Prompt:wght@400;500;600;700;800;900&family=Kanit:wght@400;500;600;700;800;900&display=swap');
-            `}
-          </style>
         </defs>
         
-        {/* Light mode - Larger light wave structures covering full width */}
+        {/* Light mode - Light wave structures covering full width */}
         <g className="dark:hidden">
-          {/* Wave 1 - Outermost gentle wave spanning full width */}
+          {/* Wave 1 - Outermost gentle wave */}
           <path
-            d="M0 40 
-               Q10 25, 20 40 
-               T40 40 
-               Q50 25, 60 40 
-               T80 40
-               Q90 25, 100 40
-               L100 65
-               Q90 75, 80 65
-               T60 65
-               Q50 75, 40 65
-               T20 65
-               Q10 75, 0 65 Z"
+            d="M0 32 
+               Q8 20, 16 32 
+               T32 32 
+               Q40 20, 48 32 
+               T64 32
+               Q72 20, 80 32
+               L80 52
+               Q72 60, 64 52
+               T48 52
+               Q40 60, 32 52
+               T16 52
+               Q8 60, 0 52 Z"
             fill="url(#waveLight1)"
             filter="url(#softGlow)"
             className="animate-wave-deep"
@@ -102,18 +95,18 @@ const AnimatedLogo = () => {
           
           {/* Wave 2 - Middle flowing wave */}
           <path
-            d="M5 43 
-               Q15 32, 25 43 
-               T45 43 
-               Q55 32, 65 43
-               T85 43
-               Q95 32, 100 43
-               L100 62
-               Q90 70, 80 62
-               T60 62
-               Q50 70, 40 62
-               T20 62
-               Q10 70, 5 62 Z"
+            d="M4 34 
+               Q12 26, 20 34 
+               T36 34 
+               Q44 26, 52 34
+               T68 34
+               Q76 26, 80 34
+               L80 50
+               Q72 56, 64 50
+               T48 50
+               Q40 56, 32 50
+               T16 50
+               Q8 56, 4 50 Z"
             fill="url(#waveLight2)"
             filter="url(#softGlow)"
             className="animate-wave-mid"
@@ -121,64 +114,64 @@ const AnimatedLogo = () => {
           
           {/* Wave 3 - Inner surface wave */}
           <path
-            d="M12 45 
-               Q22 38, 32 45 
-               T52 45
-               Q62 38, 72 45
-               T88 45
-               Q92 47, 92 52
-               Q82 60, 72 55
-               T52 55
-               Q42 60, 32 55
-               T12 55
-               Q8 52, 12 50 Z"
+            d="M10 36 
+               Q18 30, 26 36 
+               T42 36
+               Q50 30, 58 36
+               T70 36
+               Q74 38, 74 42
+               Q66 48, 58 44
+               T42 44
+               Q34 48, 26 44
+               T10 44
+               Q6 42, 10 40 Z"
             fill="url(#waveLight3)"
             filter="url(#softGlow)"
             className="animate-wave-surface"
           />
         </g>
 
-        {/* Dark mode - Larger lotus fire structure covering full width */}
+        {/* Dark mode - Lotus fire structure covering full width */}
         <g className="hidden dark:block">
           {/* Lotus petal 1 - Far Left */}
           <ellipse
-            cx="20" cy="50" rx="15" ry="25"
+            cx="16" cy="40" rx="12" ry="20"
             fill="url(#lotusFireOuter)"
             filter="url(#softGlow)"
             className="animate-flame-massive"
-            transform="rotate(-35 20 50)"
+            transform="rotate(-35 16 40)"
           />
           
           {/* Lotus petal 2 - Far Right */}
           <ellipse
-            cx="80" cy="50" rx="15" ry="25"
+            cx="64" cy="40" rx="12" ry="20"
             fill="url(#lotusFireOuter)"
             filter="url(#softGlow)"
             className="animate-flame-massive"
-            transform="rotate(35 80 50)"
+            transform="rotate(35 64 40)"
           />
           
           {/* Lotus petal 3 - Left */}
           <ellipse
-            cx="35" cy="45" rx="12" ry="22"
+            cx="28" cy="36" rx="10" ry="18"
             fill="url(#lotusFirePetal)"
             filter="url(#softGlow)"
             className="animate-flame-intense"
-            transform="rotate(-20 35 45)"
+            transform="rotate(-20 28 36)"
           />
           
           {/* Lotus petal 4 - Right */}
           <ellipse
-            cx="65" cy="45" rx="12" ry="22"
+            cx="52" cy="36" rx="10" ry="18"
             fill="url(#lotusFirePetal)"
             filter="url(#softGlow)"
             className="animate-flame-intense"
-            transform="rotate(20 65 45)"
+            transform="rotate(20 52 36)"
           />
           
           {/* Lotus petal 5 - Center back */}
           <ellipse
-            cx="50" cy="40" rx="10" ry="25"
+            cx="40" cy="32" rx="8" ry="20"
             fill="url(#lotusFirePetal)"
             filter="url(#softGlow)"
             className="animate-flame-intense"
@@ -186,161 +179,131 @@ const AnimatedLogo = () => {
           
           {/* Lotus petal 6 - Left front */}
           <ellipse
-            cx="40" cy="55" rx="8" ry="18"
+            cx="32" cy="44" rx="6" ry="14"
             fill="url(#lotusFireCore)"
             filter="url(#softGlow)"
             className="animate-flame-core"
-            transform="rotate(-15 40 55)"
+            transform="rotate(-15 32 44)"
           />
           
           {/* Lotus petal 7 - Right front */}
           <ellipse
-            cx="60" cy="55" rx="8" ry="18"
+            cx="48" cy="44" rx="6" ry="14"
             fill="url(#lotusFireCore)"
             filter="url(#softGlow)"
             className="animate-flame-core"
-            transform="rotate(15 60 55)"
+            transform="rotate(15 48 44)"
           />
           
           {/* Lotus center - Core flame */}
           <ellipse
-            cx="50" cy="50" rx="6" ry="15"
+            cx="40" cy="40" rx="5" ry="12"
             fill="url(#lotusFireCore)"
             filter="url(#softGlow)"
             className="animate-flame-core"
           />
         </g>
         
-        {/* Thai-style Letter A for Light Mode - High Contrast */}
+        {/* Letter A for Light Mode - Maximum Contrast */}
         <text
-          x="50"
-          y="55"
+          x="40"
+          y="44"
           textAnchor="middle"
           dominantBaseline="middle"
           filter="url(#strongTextGlow)"
           style={{ 
-            fontSize: '48px',
-            fontFamily: 'Kanit, Prompt, Sarabun, sans-serif',
+            fontSize: '32px',
+            fontFamily: 'Georgia, "Times New Roman", serif',
             fontWeight: '900',
-            fill: '#1a365d',
+            fill: '#000000',
             stroke: '#ffffff',
-            strokeWidth: '3px',
-            textShadow: '0 0 20px rgba(26, 54, 93, 0.8)',
-            letterSpacing: '2px'
+            strokeWidth: '2px',
+            textShadow: '0 0 10px rgba(0, 0, 0, 0.8)',
+            letterSpacing: '1px'
           }}
           className="dark:hidden animate-letter-water-glow"
         >
-          ค
+          A
         </text>
 
-        {/* Thai-style Letter A for Dark Mode - High Contrast */}
+        {/* Letter A for Dark Mode - High Contrast */}
         <text
-          x="50"
-          y="55"
+          x="40"
+          y="44"
           textAnchor="middle"
           dominantBaseline="middle"
           filter="url(#strongTextGlow)"
           style={{ 
-            fontSize: '48px',
-            fontFamily: 'Kanit, Prompt, Sarabun, sans-serif',
+            fontSize: '32px',
+            fontFamily: 'Georgia, "Times New Roman", serif',
             fontWeight: '900',
             fill: '#ffffff',
-            stroke: '#1a1a1a',
-            strokeWidth: '3px',
-            textShadow: '0 0 20px rgba(255, 255, 255, 0.9)',
-            letterSpacing: '2px'
+            stroke: '#333333',
+            strokeWidth: '2px',
+            textShadow: '0 0 15px rgba(255, 255, 255, 0.9)',
+            letterSpacing: '1px'
           }}
           className="hidden dark:block animate-letter-fire-burn"
         >
-          ค
+          A
         </text>
         
-        {/* Light mode - Floating water droplets spread across width */}
+        {/* Light mode - Floating water droplets */}
         <g className="dark:hidden">
-          <circle cx="15" cy="25" r="2" fill="#4682B4" opacity="0.7" className="animate-water-bubble-1">
-            <animate attributeName="cy" values="25;15;25" dur="3s" repeatCount="indefinite"/>
+          <circle cx="12" cy="20" r="1.5" fill="#4682B4" opacity="0.7" className="animate-water-bubble-1">
+            <animate attributeName="cy" values="20;12;20" dur="3s" repeatCount="indefinite"/>
             <animate attributeName="opacity" values="0.7;1;0.7" dur="3s" repeatCount="indefinite"/>
-            <animate attributeName="r" values="2;3;2" dur="3s" repeatCount="indefinite"/>
           </circle>
           
-          <circle cx="85" cy="28" r="1.8" fill="#1E90FF" opacity="0.6" className="animate-water-bubble-2">
-            <animate attributeName="cy" values="28;18;28" dur="2.5s" repeatCount="indefinite" begin="0.5s"/>
+          <circle cx="68" cy="22" r="1.3" fill="#1E90FF" opacity="0.6" className="animate-water-bubble-2">
+            <animate attributeName="cy" values="22;14;22" dur="2.5s" repeatCount="indefinite" begin="0.5s"/>
             <animate attributeName="opacity" values="0.6;1;0.6" dur="2.5s" repeatCount="indefinite" begin="0.5s"/>
-            <animate attributeName="r" values="1.8;2.5;1.8" dur="2.5s" repeatCount="indefinite" begin="0.5s"/>
           </circle>
           
-          <circle cx="30" cy="20" r="1.5" fill="#00BFFF" opacity="0.8" className="animate-water-bubble-3">
-            <animate attributeName="cy" values="20;12;20" dur="2.8s" repeatCount="indefinite" begin="1s"/>
+          <circle cx="24" cy="16" r="1.2" fill="#00BFFF" opacity="0.8" className="animate-water-bubble-3">
+            <animate attributeName="cy" values="16;8;16" dur="2.8s" repeatCount="indefinite" begin="1s"/>
             <animate attributeName="opacity" values="0.8;1;0.8" dur="2.8s" repeatCount="indefinite" begin="1s"/>
-            <animate attributeName="r" values="1.5;2.2;1.5" dur="2.8s" repeatCount="indefinite" begin="1s"/>
           </circle>
           
-          <circle cx="70" cy="22" r="1.3" fill="#87CEEB" opacity="0.5" className="animate-water-bubble-4">
-            <animate attributeName="cy" values="22;14;22" dur="3.2s" repeatCount="indefinite" begin="1.5s"/>
+          <circle cx="56" cy="18" r="1.1" fill="#87CEEB" opacity="0.5" className="animate-water-bubble-4">
+            <animate attributeName="cy" values="18;10;18" dur="3.2s" repeatCount="indefinite" begin="1.5s"/>
             <animate attributeName="opacity" values="0.5;1;0.5" dur="3.2s" repeatCount="indefinite" begin="1.5s"/>
-            <animate attributeName="r" values="1.3;2;1.3" dur="3.2s" repeatCount="indefinite" begin="1.5s"/>
-          </circle>
-
-          <circle cx="50" cy="18" r="1.2" fill="#B0E0E6" opacity="0.6" className="animate-water-bubble-1">
-            <animate attributeName="cy" values="18;10;18" dur="3.5s" repeatCount="indefinite" begin="2s"/>
-            <animate attributeName="opacity" values="0.6;1;0.6" dur="3.5s" repeatCount="indefinite" begin="2s"/>
-            <animate attributeName="r" values="1.2;1.8;1.2" dur="3.5s" repeatCount="indefinite" begin="2s"/>
           </circle>
         </g>
 
-        {/* Dark mode - Fire sparks around lotus spread across width */}
+        {/* Dark mode - Fire sparks around lotus */}
         <g className="hidden dark:block">
-          <circle cx="15" cy="25" r="2" fill="#FFD700" className="animate-sparks-explosion">
-            <animate attributeName="cy" values="25;15;25" dur="2s" repeatCount="indefinite"/>
+          <circle cx="12" cy="20" r="1.5" fill="#FFD700" className="animate-sparks-explosion">
+            <animate attributeName="cy" values="20;12;20" dur="2s" repeatCount="indefinite"/>
             <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/>
-            <animate attributeName="r" values="2;3.5;2" dur="2s" repeatCount="indefinite"/>
           </circle>
           
-          <circle cx="85" cy="28" r="1.8" fill="#FFA500" className="animate-sparks-explosion">
-            <animate attributeName="cy" values="28;18;28" dur="1.8s" repeatCount="indefinite" begin="0.3s"/>
+          <circle cx="68" cy="22" r="1.3" fill="#FFA500" className="animate-sparks-explosion">
+            <animate attributeName="cy" values="22;14;22" dur="1.8s" repeatCount="indefinite" begin="0.3s"/>
             <animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite" begin="0.3s"/>
-            <animate attributeName="r" values="1.8;3;1.8" dur="1.8s" repeatCount="indefinite" begin="0.3s"/>
           </circle>
           
-          <circle cx="25" cy="20" r="1.5" fill="#FF6B00" className="animate-sparks-explosion">
-            <animate attributeName="cy" values="20;12;20" dur="2.2s" repeatCount="indefinite" begin="0.6s"/>
+          <circle cx="20" cy="16" r="1.2" fill="#FF6B00" className="animate-sparks-explosion">
+            <animate attributeName="cy" values="16;8;16" dur="2.2s" repeatCount="indefinite" begin="0.6s"/>
             <animate attributeName="opacity" values="0;1;0" dur="2.2s" repeatCount="indefinite" begin="0.6s"/>
-            <animate attributeName="r" values="1.5;2.8;1.5" dur="2.2s" repeatCount="indefinite" begin="0.6s"/>
           </circle>
           
-          <circle cx="75" cy="22" r="1.3" fill="#FF4500" className="animate-sparks-explosion">
-            <animate attributeName="cy" values="22;14;22" dur="1.9s" repeatCount="indefinite" begin="0.9s"/>
+          <circle cx="60" cy="18" r="1.1" fill="#FF4500" className="animate-sparks-explosion">
+            <animate attributeName="cy" values="18;10;18" dur="1.9s" repeatCount="indefinite" begin="0.9s"/>
             <animate attributeName="opacity" values="0;1;0" dur="1.9s" repeatCount="indefinite" begin="0.9s"/>
-            <animate attributeName="r" values="1.3;2.5;1.3" dur="1.9s" repeatCount="indefinite" begin="0.9s"/>
           </circle>
 
-          <circle cx="50" cy="18" r="1.2" fill="#DC143C" className="animate-sparks-explosion">
-            <animate attributeName="cy" values="18;10;18" dur="2.1s" repeatCount="indefinite" begin="1.2s"/>
-            <animate attributeName="opacity" values="0;1;0" dur="2.1s" repeatCount="indefinite" begin="1.2s"/>
-            <animate attributeName="r" values="1.2;2.3;1.2" dur="2.1s" repeatCount="indefinite" begin="1.2s"/>
+          <circle cx="28" cy="60" r="0.8" fill="#FF8C00" className="animate-sparks-explosion">
+            <animate attributeName="cy" values="60;68;60" dur="2.3s" repeatCount="indefinite" begin="1.2s"/>
+            <animate attributeName="opacity" values="0;1;0" dur="2.3s" repeatCount="indefinite" begin="1.2s"/>
           </circle>
 
-          <circle cx="35" cy="75" r="1" fill="#FF8C00" className="animate-sparks-explosion">
-            <animate attributeName="cy" values="75;85;75" dur="2.3s" repeatCount="indefinite" begin="1.5s"/>
-            <animate attributeName="opacity" values="0;1;0" dur="2.3s" repeatCount="indefinite" begin="1.5s"/>
-            <animate attributeName="r" values="1;2;1" dur="2.3s" repeatCount="indefinite" begin="1.5s"/>
-          </circle>
-
-          <circle cx="65" cy="75" r="1" fill="#FF6347" className="animate-sparks-explosion">
-            <animate attributeName="cy" values="75;85;75" dur="2.4s" repeatCount="indefinite" begin="1.8s"/>
-            <animate attributeName="opacity" values="0;1;0" dur="2.4s" repeatCount="indefinite" begin="1.8s"/>
-            <animate attributeName="r" values="1;2;1" dur="2.4s" repeatCount="indefinite" begin="1.8s"/>
+          <circle cx="52" cy="60" r="0.8" fill="#FF6347" className="animate-sparks-explosion">
+            <animate attributeName="cy" values="60;68;60" dur="2.4s" repeatCount="indefinite" begin="1.5s"/>
+            <animate attributeName="opacity" values="0;1;0" dur="2.4s" repeatCount="indefinite" begin="1.5s"/>
           </circle>
         </g>
       </svg>
-      
-      {/* Enhanced hover tooltip */}
-      <div className="absolute -bottom-14 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-20">
-        <span className="text-xs text-blue-600 dark:text-orange-500 bg-white dark:bg-gray-800 px-4 py-2 rounded-full shadow-xl border border-blue-200 dark:border-orange-200 whitespace-nowrap font-medium">
-          <span className="dark:hidden">Flowing Elegance 🌊</span>
-          <span className="hidden dark:inline">Lotus Flame 🪷🔥</span>
-        </span>
-      </div>
     </div>
   );
 };
