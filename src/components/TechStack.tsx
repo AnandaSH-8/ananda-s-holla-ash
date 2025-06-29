@@ -34,7 +34,6 @@ import {
   SiFigma
 } from 'react-icons/si';
 import { VscCode } from 'react-icons/vsc';
-import { DiVuejs } from 'react-icons/di';
 
 interface TechItem {
   name: string;
@@ -116,7 +115,7 @@ const TechStack = () => {
     },
     {
       name: 'Vuetify',
-      icon: DiVuejs,
+      icon: SiVuedotjs,
       color: '#1867C0',
       experience: '1+ Year',
       projects: 3,
