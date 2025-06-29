@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { Github, Linkedin, Mail, Twitter, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
@@ -16,6 +16,16 @@ const Hero = () => {
     }
   };
 
+  const downloadResume = () => {
+    // Create a temporary link to download resume
+    const link = document.createElement('a');
+    link.href = '/resume.pdf'; // You'll need to add your resume to the public folder
+    link.download = 'Ananda_S_Holla_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center px-4 pt-20 bg-gradient-to-br from-white via-blue-50 to-cyan-50 dark:from-[#1A1A2E] dark:via-[#2E2E2E] dark:to-[#1A1A2E] relative overflow-hidden">
       {/* Water bubbles for light mode */}
@@ -28,7 +38,7 @@ const Hero = () => {
 
       {/* Fire embers for dark mode */}
       <div className="absolute inset-0 pointer-events-none hidden dark:block">
-        <div className="absolute w-1 h-1 bg-orange-400 rounded-full animate-float-ember-1 opacity-70"></div>
+        <div className="absolute w-1 h-1 bg-orange-400 rounded-full animate-float-ember-1 opacity-70" style={{top: '20%', left: '10%'}}></div>
         <div className="absolute w-1.5 h-1.5 bg-orange-500 rounded-full animate-float-ember-2 opacity-50" style={{top: '60%', right: '15%'}}></div>
         <div className="absolute w-1 h-1 bg-orange-300 rounded-full animate-float-ember-3 opacity-60" style={{bottom: '30%', left: '20%'}}></div>
         <div className="absolute w-2 h-2 bg-orange-600 rounded-full animate-float-ember-4 opacity-40" style={{top: '40%', right: '30%'}}></div>
@@ -99,7 +109,7 @@ const Hero = () => {
             Passionate about clean architecture and performance optimization.
           </p>
           
-          <div className="flex flex-wrap justify-center lg:justify-start gap-6 mb-12 animate-hero-cta">
+          <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-12 animate-hero-cta">
             <Button 
               onClick={scrollToContact}
               size="lg" 
@@ -114,7 +124,16 @@ const Hero = () => {
               size="lg"
               className="border-2 border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white dark:border-orange-500 dark:text-orange-500 dark:hover:bg-orange-500 hover-scale transition-all duration-300 font-bold px-8 py-4 text-lg backdrop-blur-sm"
             >
-              View My Work
+              View Projects
+            </Button>
+            <Button 
+              onClick={downloadResume}
+              variant="outline" 
+              size="lg"
+              className="border-2 border-green-500 text-green-600 hover:bg-green-500 hover:text-white hover-scale transition-all duration-300 font-bold px-8 py-4 text-lg backdrop-blur-sm"
+            >
+              <Download className="mr-3 h-6 w-6" />
+              Resume
             </Button>
           </div>
           
@@ -137,19 +156,19 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Right Side - Professional Photo Space */}
+        {/* Right Side - Professional Photo Space (50% of hero section) */}
         <div className="flex justify-center items-center animate-hero-photo order-1 lg:order-2">
-          <div className="relative w-96 h-96 lg:w-[500px] lg:h-[500px] xl:w-[600px] xl:h-[600px] bg-gradient-to-br from-blue-50 to-blue-200/30 dark:from-orange-500/10 dark:to-red-500/30 rounded-full flex items-center justify-center border-4 border-blue-500 dark:border-orange-500 shadow-2xl hover-scale group overflow-hidden">
+          <div className="relative w-full max-w-[500px] aspect-square bg-gradient-to-br from-blue-50 to-blue-200/30 dark:from-orange-500/10 dark:to-red-500/30 rounded-full flex items-center justify-center border-4 border-blue-500 dark:border-orange-500 shadow-2xl hover-scale group overflow-hidden">
             {/* Professional photo placeholder */}
-            <div className="text-center p-12 relative z-10">
-              <div className="w-40 h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56 mx-auto mb-8 bg-blue-500/20 dark:bg-orange-500/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                <span className="text-8xl lg:text-9xl xl:text-[120px] animate-photo-bounce">📸</span>
+            <div className="text-center p-8 relative z-10">
+              <div className="w-32 h-32 lg:w-40 lg:h-40 xl:w-48 xl:h-48 mx-auto mb-6 bg-blue-500/20 dark:bg-orange-500/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                <span className="text-6xl lg:text-7xl xl:text-8xl animate-photo-bounce">📸</span>
               </div>
-              <p className="text-blue-600 dark:text-orange-500 font-bold text-xl lg:text-2xl mb-4">
+              <p className="text-blue-600 dark:text-orange-500 font-bold text-lg lg:text-xl mb-3">
                 Professional Photo
               </p>
               <p className="text-sm lg:text-base text-[#333]/60 dark:text-[#EDEDED]/60">
-                High-quality headshot recommended<br/>
+                High-quality headshot<br/>
                 for maximum impact
               </p>
             </div>
