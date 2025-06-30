@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -31,7 +30,6 @@ import {
   SiNetlify,
   SiRedis,
   SiDocker,
-  SiAws,
   SiFigma
 } from 'react-icons/si';
 import { VscCode } from 'react-icons/vsc';
@@ -290,10 +288,10 @@ const TechStack = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-5xl md:text-6xl font-black text-foreground mb-6">
+          <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-500 bg-clip-text text-transparent">
             Tech Stack
           </h2>
-          <div className="w-32 h-2 bg-primary mx-auto mb-8 rounded-full"></div>
+          <div className="w-32 h-2 bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-500 mx-auto mb-8 rounded-full"></div>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Technologies I use to build modern, scalable, and efficient applications
           </p>
@@ -324,30 +322,6 @@ const TechStack = () => {
           {filteredTech.map((tech, index) => (
             <TechModal key={tech.name} tech={tech} />
           ))}
-        </div>
-
-        {/* Stats Summary */}
-        <div className="bg-card/80 backdrop-blur-xl rounded-3xl p-8 max-w-4xl mx-auto border shadow-2xl animate-bounce-in">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="text-3xl font-bold text-primary mb-2">
-                {techStack.length}
-              </div>
-              <div className="text-sm text-muted-foreground">Technologies</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-primary mb-2">
-                4
-              </div>
-              <div className="text-sm text-muted-foreground">Categories</div>
-            </div>
-            <div className="col-span-2 md:col-span-1">
-              <div className="text-3xl font-bold text-primary mb-2">
-                2.7+
-              </div>
-              <div className="text-sm text-muted-foreground">Years Experience</div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

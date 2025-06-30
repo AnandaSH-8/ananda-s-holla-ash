@@ -42,10 +42,10 @@ const Experience = () => {
     <section id="experience" className="py-20 px-4 bg-gradient-to-br from-background to-warm-cream dark:from-background dark:to-charcoal">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-500 bg-clip-text text-transparent">
             Experience
           </h2>
-          <div className="w-24 h-1 orange-gradient mx-auto mb-8"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-500 mx-auto mb-8 rounded-full"></div>
         </div>
         
         <div className="grid lg:grid-cols-2 gap-12">

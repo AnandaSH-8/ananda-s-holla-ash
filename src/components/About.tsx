@@ -1,3 +1,4 @@
+
 import { Card, CardContent } from "@/components/ui/card";
 
 const About = () => {
@@ -5,10 +6,10 @@ const About = () => {
     <section id="about" className="py-20 px-4 bg-background">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-500 bg-clip-text text-transparent">
             About Me
           </h2>
-          <div className="w-24 h-1 water-gradient dark:fire-gradient mx-auto mb-8"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-500 mx-auto mb-8 rounded-full"></div>
         </div>
         
         <div className="grid md:grid-cols-2 gap-12 items-center">
