@@ -234,7 +234,7 @@ const TechStack = () => {
 
   const TechCard = ({ tech, index }: { tech: TechItem; index: number }) => (
     <Card
-      className={`group relative overflow-hidden border bg-card shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:scale-102 ${
+      className={`group relative overflow-hidden border bg-card shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-105 ${
         visibleItems.includes(index) 
           ? 'animate-fade-in opacity-100 translate-y-0' 
           : 'opacity-0 translate-y-10'
@@ -243,6 +243,22 @@ const TechStack = () => {
         animationDelay: `${index * 0.1}s`
       }}
     >
+      {/* Water bubble animation for light theme */}
+      <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 dark:hidden">
+        <div className="absolute top-4 left-4 w-3 h-3 bg-blue-400/30 rounded-full animate-ping"></div>
+        <div className="absolute top-8 right-6 w-2 h-2 bg-cyan-400/40 rounded-full animate-ping" style={{ animationDelay: '0.5s' }}></div>
+        <div className="absolute bottom-6 left-8 w-4 h-4 bg-blue-300/25 rounded-full animate-ping" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-4 right-4 w-2.5 h-2.5 bg-cyan-300/35 rounded-full animate-ping" style={{ animationDelay: '1.5s' }}></div>
+      </div>
+      
+      {/* Flame bubble animation for dark theme */}
+      <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 hidden dark:block">
+        <div className="absolute top-4 left-4 w-3 h-3 bg-orange-400/40 rounded-full animate-ping"></div>
+        <div className="absolute top-8 right-6 w-2 h-2 bg-red-400/50 rounded-full animate-ping" style={{ animationDelay: '0.5s' }}></div>
+        <div className="absolute bottom-6 left-8 w-4 h-4 bg-orange-300/35 rounded-full animate-ping" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-4 right-4 w-2.5 h-2.5 bg-pink-400/45 rounded-full animate-ping" style={{ animationDelay: '1.5s' }}></div>
+      </div>
+
       <CardContent className="relative z-10 p-6 flex flex-col items-center text-center h-full">
         {/* Tech Icon */}
         <div className="relative mb-4 p-4 rounded-2xl bg-muted transition-all duration-300 group-hover:scale-110">
@@ -265,11 +281,9 @@ const TechStack = () => {
           {tech.category}
         </Badge>
 
-        {/* Hover overlay for click hint */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-end justify-center pb-4">
-          <span className="text-xs font-medium text-muted-foreground bg-background/90 px-3 py-1 rounded-full border">
-            Click for details
-          </span>
+        {/* Description on hover */}
+        <div className="absolute inset-x-4 bottom-4 bg-background/95 backdrop-blur-sm rounded-lg p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-xs text-muted-foreground leading-relaxed">
+          {tech.description}
         </div>
       </CardContent>
     </Card>
