@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -46,7 +47,6 @@ interface TechItem {
 const TechStack = () => {
   const [visibleItems, setVisibleItems] = useState<number[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
-  const [hoveredTech, setHoveredTech] = useState<string | null>(null);
 
   const techStack: TechItem[] = [
     // Frontend
@@ -125,7 +125,7 @@ const TechStack = () => {
     {
       name: 'Express.js',
       icon: SiExpress,
-      color: '#68A063',
+      color: '#000000',
       description: 'Fast, unopinionated web framework for Node.js with middleware and routing.',
       category: 'Backend'
     },
@@ -141,7 +141,7 @@ const TechStack = () => {
     {
       name: 'PostgreSQL',
       icon: SiPostgresql,
-      color: '#336791',
+      color: '#4169E1',
       description: 'Advanced relational database with complex queries, indexing, and performance optimization.',
       category: 'Database'
     },
@@ -215,7 +215,8 @@ const TechStack = () => {
           <DialogTitle className="flex items-center gap-3">
             <div className="p-2 rounded-lg bg-muted">
               <tech.icon 
-                className="w-8 h-8 text-foreground" 
+                className="w-8 h-8" 
+                style={{ color: tech.color }}
               />
             </div>
             {tech.name}
@@ -235,7 +236,7 @@ const TechStack = () => {
 
   const TechCard = ({ tech, index }: { tech: TechItem; index: number }) => (
     <Card
-      className={`group relative overflow-hidden border bg-card shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 ${
+      className={`group relative overflow-hidden border bg-card shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:scale-102 ${
         visibleItems.includes(index) 
           ? 'animate-fade-in opacity-100 translate-y-0' 
           : 'opacity-0 translate-y-10'
@@ -243,29 +244,14 @@ const TechStack = () => {
       style={{ 
         animationDelay: `${index * 0.1}s`
       }}
-      onMouseEnter={() => setHoveredTech(tech.name)}
-      onMouseLeave={() => setHoveredTech(null)}
     >
       <CardContent className="relative z-10 p-6 flex flex-col items-center text-center h-full">
         {/* Tech Icon */}
-        <div 
-          className={`relative mb-4 p-4 rounded-2xl bg-muted transition-all duration-500 group-hover:scale-110 ${
-            hoveredTech === tech.name ? 'animate-bounce' : ''
-          }`}
-        >
+        <div className="relative mb-4 p-4 rounded-2xl bg-muted transition-all duration-300 group-hover:scale-110">
           <tech.icon 
-            className="w-16 h-16 text-foreground transition-all duration-500" 
+            className="w-16 h-16 transition-all duration-300" 
+            style={{ color: tech.color }}
           />
-          
-          {/* Orbiting particles on hover */}
-          {hoveredTech === tech.name && (
-            <div className="absolute inset-0">
-              <div className="absolute w-2 h-2 bg-primary rounded-full animate-skills-icon-orbit" style={{ top: '10%', left: '10%' }} />
-              <div className="absolute w-1.5 h-1.5 bg-primary rounded-full animate-skills-icon-orbit" style={{ top: '10%', right: '10%', animationDelay: '0.5s' }} />
-              <div className="absolute w-2 h-2 bg-primary rounded-full animate-skills-icon-orbit" style={{ bottom: '10%', left: '10%', animationDelay: '1s' }} />
-              <div className="absolute w-1.5 h-1.5 bg-primary rounded-full animate-skills-icon-orbit" style={{ bottom: '10%', right: '10%', animationDelay: '1.5s' }} />
-            </div>
-          )}
         </div>
 
         {/* Tech Name */}
@@ -320,7 +306,7 @@ const TechStack = () => {
               key={category}
               variant={selectedCategory === category ? "default" : "outline"}
               onClick={() => setSelectedCategory(category)}
-              className="transition-all duration-300 hover:scale-105"
+              className="transition-all duration-300"
             >
               {category}
               <Badge 
