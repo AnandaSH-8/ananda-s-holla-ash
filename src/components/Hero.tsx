@@ -1,3 +1,4 @@
+
 import { Github, Linkedin, Mail, Twitter, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -130,7 +131,7 @@ const Hero = () => {
               onClick={downloadResume}
               variant="outline" 
               size="lg"
-              className="border-2 border-green-500 text-green-600 hover:bg-green-500 hover:text-white hover-scale transition-all duration-300 font-bold px-8 py-4 text-lg backdrop-blur-sm"
+              className="border-2 border-emerald-500 text-emerald-600 hover:bg-emerald-500 hover:text-white dark:border-emerald-400 dark:text-emerald-400 dark:hover:bg-emerald-500 dark:hover:text-white hover-scale transition-all duration-300 font-bold px-8 py-4 text-lg backdrop-blur-sm"
             >
               <Download className="mr-3 h-6 w-6" />
               Resume
@@ -173,10 +174,10 @@ const Hero = () => {
               </p>
             </div>
             
-            {/* Animated glowing border */}
+            {/* Animated glowing border - Theme appropriate colors */}
             <div className="absolute inset-0 rounded-full border-4 border-blue-500 dark:border-orange-500 animate-glow-border opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             
-            {/* Background pattern */}
+            {/* Background pattern - Theme appropriate colors */}
             <div className="absolute inset-0 opacity-10 dark:opacity-20">
               <div className="absolute top-10 left-10 w-4 h-4 bg-blue-500 dark:bg-orange-500 rounded-full animate-pulse"></div>
               <div className="absolute bottom-20 right-20 w-6 h-6 bg-cyan-500 dark:bg-red-500 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>

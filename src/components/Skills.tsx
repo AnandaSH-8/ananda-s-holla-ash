@@ -1,3 +1,4 @@
+
 import { Card, CardContent } from "@/components/ui/card";
 import TechIcon from "./TechIcon";
 
@@ -147,11 +148,11 @@ const Skills = () => {
               Let's combine these technologies to create innovative solutions that make a difference
             </p>
             <div className="flex flex-wrap justify-center gap-6">
-              <div className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 dark:from-orange-500 dark:to-red-500 text-white rounded-2xl font-bold hover:scale-105 hover:shadow-2xl transition-all duration-300 animate-skills-glow-pulse">
+              <div className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-500 dark:from-emerald-400 dark:to-teal-400 text-white rounded-2xl font-bold hover:scale-105 hover:shadow-2xl transition-all duration-300 animate-skills-glow-pulse">
                 <span className="mr-3 text-2xl">🚀</span>
                 Let's Collaborate
               </div>
-              <div className="inline-flex items-center px-8 py-4 bg-white dark:bg-gray-800 border-2 border-blue-500 dark:border-orange-500 text-blue-600 dark:text-orange-500 rounded-2xl font-bold hover:bg-blue-500 dark:hover:bg-orange-500 hover:text-white hover:scale-105 transition-all duration-300">
+              <div className="inline-flex items-center px-8 py-4 bg-white dark:bg-gray-800 border-2 border-emerald-500 dark:border-emerald-400 text-emerald-600 dark:text-emerald-400 rounded-2xl font-bold hover:bg-emerald-500 dark:hover:bg-emerald-500 hover:text-white hover:scale-105 transition-all duration-300">
                 <span className="mr-3 text-2xl">💡</span>
                 Explore Projects
               </div>

@@ -3,14 +3,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { 
-  Dialog, 
-  DialogContent, 
-  DialogDescription, 
-  DialogHeader, 
-  DialogTitle, 
-  DialogTrigger 
-} from "@/components/ui/dialog";
-import { 
   SiReact, 
   SiVuedotjs, 
   SiTailwindcss, 
@@ -201,37 +193,6 @@ const TechStack = () => {
     };
   }, [selectedCategory]);
 
-  const TechModal = ({ tech }: { tech: TechItem }) => (
-    <Dialog>
-      <DialogTrigger asChild>
-        <div className="cursor-pointer">
-          <TechCard tech={tech} index={0} />
-        </div>
-      </DialogTrigger>
-      <DialogContent className="max-w-md">
-        <DialogHeader>
-          <DialogTitle className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-muted">
-              <tech.icon 
-                className="w-8 h-8" 
-                style={{ color: tech.color }}
-              />
-            </div>
-            {tech.name}
-          </DialogTitle>
-          <DialogDescription className="space-y-4">
-            <p className="text-base leading-relaxed text-muted-foreground">{tech.description}</p>
-            
-            <div>
-              <p className="font-semibold text-sm text-foreground mb-2">Category</p>
-              <Badge variant="secondary">{tech.category}</Badge>
-            </div>
-          </DialogDescription>
-        </DialogHeader>
-      </DialogContent>
-    </Dialog>
-  );
-
   const TechCard = ({ tech, index }: { tech: TechItem; index: number }) => (
     <Card
       className={`group relative overflow-hidden border bg-card shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-105 ${
@@ -334,7 +295,7 @@ const TechStack = () => {
         {/* Tech Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-16">
           {filteredTech.map((tech, index) => (
-            <TechModal key={tech.name} tech={tech} />
+            <TechCard key={tech.name} tech={tech} index={index} />
           ))}
         </div>
       </div>
