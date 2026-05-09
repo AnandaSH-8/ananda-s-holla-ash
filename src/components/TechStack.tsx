@@ -7,8 +7,8 @@ import {
   SiVuedotjs, 
   SiTailwindcss, 
   SiMui,
-  SiHtml5,
-  SiCss3,
+  SiHtml,
+  SiCss,
   SiJavascript,
   SiTypescript,
   SiNodedotjs,
@@ -91,14 +91,14 @@ const TechStack = () => {
     },
     {
       name: 'HTML5',
-      icon: SiHtml5,
+      icon: SiHtml,
       color: '#E34F26',
       description: 'Semantic HTML5 markup, accessibility best practices, and modern web standards.',
       category: 'Frontend'
     },
     {
       name: 'CSS3',
-      icon: SiCss3,
+      icon: SiCss,
       color: '#1572B6',
       description: 'Advanced CSS3 features, animations, grid, flexbox, and responsive design.',
       category: 'Frontend'
