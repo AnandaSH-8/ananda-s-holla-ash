@@ -7,7 +7,7 @@ import {
   SiVuedotjs, 
   SiTailwindcss, 
   SiMui,
-  SiHtml,
+  SiHtml5,
   SiCss,
   SiJavascript,
   SiTypescript,
@@ -91,7 +91,7 @@ const TechStack = () => {
     },
     {
       name: 'HTML5',
-      icon: SiHtml,
+      icon: SiHtml5,
       color: '#E34F26',
       description: 'Semantic HTML5 markup, accessibility best practices, and modern web standards.',
       category: 'Frontend'
