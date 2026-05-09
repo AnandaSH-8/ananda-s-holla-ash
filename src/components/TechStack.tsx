@@ -6,9 +6,6 @@ import {
   SiReact, 
   SiVuedotjs, 
   SiTailwindcss, 
-  SiMui,
-  SiHtml5,
-  SiCss,
   SiJavascript,
   SiTypescript,
   SiNodedotjs,
@@ -16,22 +13,15 @@ import {
   SiNestjs,
   SiPostgresql,
   SiMongodb,
-  SiGit,
-  SiPostman,
-  SiVercel,
-  SiNetlify,
-  SiRedis,
-  SiDocker,
-  SiFigma
+  SiNextdotjs
 } from 'react-icons/si';
-import { VscCode } from 'react-icons/vsc';
 
 interface TechItem {
   name: string;
   icon: React.ComponentType<any>;
   color: string;
   description: string;
-  category: 'Frontend' | 'Backend' | 'Database' | 'Tools';
+  category: 'Frontend' | 'Backend' | 'Database';
 }
 
 const TechStack = () => {
@@ -45,6 +35,13 @@ const TechStack = () => {
       icon: SiReact,
       color: '#61DAFB',
       description: 'Building dynamic, component-based user interfaces with hooks, context, and modern React patterns.',
+      category: 'Frontend'
+    },
+    {
+      name: 'Next.js',
+      icon: SiNextdotjs,
+      color: '#000000',
+      description: 'React framework for production with server-side rendering, static site generation, and API routes.',
       category: 'Frontend'
     },
     {
@@ -73,34 +70,6 @@ const TechStack = () => {
       icon: SiTailwindcss,
       color: '#06B6D4',
       description: 'Utility-first CSS framework for rapid UI development and responsive design.',
-      category: 'Frontend'
-    },
-    {
-      name: 'Material-UI',
-      icon: SiMui,
-      color: '#007FFF',
-      description: 'React component library implementing Google\'s Material Design principles.',
-      category: 'Frontend'
-    },
-    {
-      name: 'Vuetify',
-      icon: SiVuedotjs,
-      color: '#1867C0',
-      description: 'Vue.js component framework with Material Design components.',
-      category: 'Frontend'
-    },
-    {
-      name: 'HTML5',
-      icon: SiHtml5,
-      color: '#E34F26',
-      description: 'Semantic HTML5 markup, accessibility best practices, and modern web standards.',
-      category: 'Frontend'
-    },
-    {
-      name: 'CSS3',
-      icon: SiCss,
-      color: '#1572B6',
-      description: 'Advanced CSS3 features, animations, grid, flexbox, and responsive design.',
       category: 'Frontend'
     },
 
@@ -141,40 +110,10 @@ const TechStack = () => {
       color: '#47A248',
       description: 'NoSQL document database for flexible, scalable data storage solutions.',
       category: 'Database'
-    },
-
-    // Tools
-    {
-      name: 'Git',
-      icon: SiGit,
-      color: '#F05032',
-      description: 'Version control with advanced Git workflows, branching strategies, and collaboration.',
-      category: 'Tools'
-    },
-    {
-      name: 'Postman',
-      icon: SiPostman,
-      color: '#FF6C37',
-      description: 'API development and testing with automated testing and documentation.',
-      category: 'Tools'
-    },
-    {
-      name: 'Vercel',
-      icon: SiVercel,
-      color: '#000000',
-      description: 'Frontend deployment platform with serverless functions and edge computing.',
-      category: 'Tools'
-    },
-    {
-      name: 'Netlify',
-      icon: SiNetlify,
-      color: '#00C7B7',
-      description: 'JAMstack deployment platform with continuous deployment and form handling.',
-      category: 'Tools'
     }
   ];
 
-  const categories = ['All', 'Frontend', 'Backend', 'Database', 'Tools'];
+  const categories = ['All', 'Frontend', 'Backend', 'Database'];
 
   const filteredTech = selectedCategory === 'All' 
     ? techStack 
