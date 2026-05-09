@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, MouseEvent } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -37,7 +37,6 @@ interface TechItem {
 const TechStack = () => {
   const [visibleItems, setVisibleItems] = useState<number[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
-  const [clickedCard, setClickedCard] = useState<number | null>(null);
 
   const techStack: TechItem[] = [
     // Frontend
@@ -194,96 +193,67 @@ const TechStack = () => {
     };
   }, [selectedCategory]);
 
-  const handleCardClick = (index: number) => {
-    setClickedCard(index);
-    setTimeout(() => setClickedCard(null), 3000);
-  };
+  const TechCard = ({ tech, index }: { tech: TechItem; index: number }) => {
+    const cardRef = useRef<HTMLDivElement>(null);
+    const [pos, setPos] = useState({ x: -200, y: -200 });
+    const [hovered, setHovered] = useState(false);
 
-  const TechCard = ({ tech, index }: { tech: TechItem; index: number }) => (
-    <Card
-      className={`group relative overflow-hidden border bg-card shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-105 cursor-pointer ${
-        visibleItems.includes(index) 
-          ? 'animate-fade-in opacity-100 translate-y-0' 
-          : 'opacity-0 translate-y-10'
-      }`}
-      style={{ 
-        animationDelay: `${index * 0.1}s`
-      }}
-      onClick={() => handleCardClick(index)}
-    >
-      {/* Enhanced water bubble animation for light theme */}
-      <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 dark:hidden">
-        <div className="absolute top-4 left-4 w-3 h-3 bg-blue-400/30 rounded-full animate-ping"></div>
-        <div className="absolute top-8 right-6 w-2 h-2 bg-cyan-400/40 rounded-full animate-ping" style={{ animationDelay: '0.5s' }}></div>
-        <div className="absolute bottom-6 left-8 w-4 h-4 bg-blue-300/25 rounded-full animate-ping" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-4 right-4 w-2.5 h-2.5 bg-cyan-300/35 rounded-full animate-ping" style={{ animationDelay: '1.5s' }}></div>
-        <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-blue-500/40 rounded-full animate-ping" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-6 right-10 w-1.5 h-1.5 bg-cyan-500/45 rounded-full animate-ping" style={{ animationDelay: '2.5s' }}></div>
-        <div className="absolute bottom-8 left-6 w-3 h-3 bg-blue-400/30 rounded-full animate-ping" style={{ animationDelay: '3s' }}></div>
-        <div className="absolute bottom-10 right-8 w-1 h-1 bg-cyan-600/50 rounded-full animate-ping" style={{ animationDelay: '3.5s' }}></div>
-      </div>
-      
-      {/* Enhanced flame bubble animation for dark theme */}
-      <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 hidden dark:block">
-        <div className="absolute top-4 left-4 w-3 h-3 bg-orange-400/40 rounded-full animate-ping"></div>
-        <div className="absolute top-8 right-6 w-2 h-2 bg-red-400/50 rounded-full animate-ping" style={{ animationDelay: '0.5s' }}></div>
-        <div className="absolute bottom-6 left-8 w-4 h-4 bg-orange-300/35 rounded-full animate-ping" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-4 right-4 w-2.5 h-2.5 bg-pink-400/45 rounded-full animate-ping" style={{ animationDelay: '1.5s' }}></div>
-        <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-red-500/50 rounded-full animate-ping" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-6 right-10 w-1.5 h-1.5 bg-orange-500/55 rounded-full animate-ping" style={{ animationDelay: '2.5s' }}></div>
-        <div className="absolute bottom-8 left-6 w-3 h-3 bg-pink-500/40 rounded-full animate-ping" style={{ animationDelay: '3s' }}></div>
-        <div className="absolute bottom-10 right-8 w-1 h-1 bg-red-600/60 rounded-full animate-ping" style={{ animationDelay: '3.5s' }}></div>
-      </div>
+    const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+      const rect = cardRef.current?.getBoundingClientRect();
+      if (!rect) return;
+      setPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+    };
 
-      {/* Extra bubbles on click */}
-      {clickedCard === index && (
-        <>
-          {/* Light theme click bubbles */}
-          <div className="absolute inset-0 pointer-events-none dark:hidden">
-            <div className="absolute top-2 left-2 w-1 h-1 bg-blue-600/60 rounded-full animate-ping"></div>
-            <div className="absolute top-12 right-2 w-1.5 h-1.5 bg-cyan-600/50 rounded-full animate-ping" style={{ animationDelay: '0.3s' }}></div>
-            <div className="absolute bottom-2 left-2 w-2 h-2 bg-blue-500/45 rounded-full animate-ping" style={{ animationDelay: '0.6s' }}></div>
-            <div className="absolute bottom-12 right-2 w-1 h-1 bg-cyan-700/55 rounded-full animate-ping" style={{ animationDelay: '0.9s' }}></div>
-            <div className="absolute top-1/3 left-2 w-1.5 h-1.5 bg-blue-400/50 rounded-full animate-ping" style={{ animationDelay: '1.2s' }}></div>
-            <div className="absolute top-2/3 right-2 w-2 h-2 bg-cyan-400/40 rounded-full animate-ping" style={{ animationDelay: '1.5s' }}></div>
-          </div>
-          
-          {/* Dark theme click bubbles */}
-          <div className="absolute inset-0 pointer-events-none hidden dark:block">
-            <div className="absolute top-2 left-2 w-1 h-1 bg-orange-600/70 rounded-full animate-ping"></div>
-            <div className="absolute top-12 right-2 w-1.5 h-1.5 bg-red-600/60 rounded-full animate-ping" style={{ animationDelay: '0.3s' }}></div>
-            <div className="absolute bottom-2 left-2 w-2 h-2 bg-pink-600/55 rounded-full animate-ping" style={{ animationDelay: '0.6s' }}></div>
-            <div className="absolute bottom-12 right-2 w-1 h-1 bg-orange-700/65 rounded-full animate-ping" style={{ animationDelay: '0.9s' }}></div>
-            <div className="absolute top-1/3 left-2 w-1.5 h-1.5 bg-red-500/60 rounded-full animate-ping" style={{ animationDelay: '1.2s' }}></div>
-            <div className="absolute top-2/3 right-2 w-2 h-2 bg-pink-500/50 rounded-full animate-ping" style={{ animationDelay: '1.5s' }}></div>
-          </div>
-        </>
-      )}
-
-      <CardContent className="relative z-10 p-6 flex flex-col items-center text-center h-full">
-        {/* Tech Icon */}
-        <div className="relative mb-4 p-4 rounded-2xl bg-muted transition-all duration-300 group-hover:scale-110">
-          <tech.icon 
-            className="w-16 h-16 transition-all duration-300" 
-            style={{ color: tech.color }}
+    return (
+      <div
+        ref={cardRef}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        onMouseMove={handleMouseMove}
+        className={`group relative rounded-xl p-[1px] transition-all duration-500 ${
+          visibleItems.includes(index)
+            ? 'animate-fade-in opacity-100 translate-y-0'
+            : 'opacity-0 translate-y-10'
+        }`}
+        style={{
+          animationDelay: `${index * 0.1}s`,
+          background: hovered
+            ? `conic-gradient(from ${pos.x}deg at ${pos.x}px ${pos.y}px, hsl(var(--primary)), hsl(var(--primary) / 0.3), hsl(var(--primary)))`
+            : 'hsl(var(--border))',
+        }}
+      >
+        <Card className="relative overflow-hidden rounded-[11px] border-0 bg-card/40 backdrop-blur-xl shadow-lg group-hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-1">
+          {/* Spotlight follow-mouse */}
+          <div
+            className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            style={{
+              background: `radial-gradient(280px circle at ${pos.x}px ${pos.y}px, hsl(var(--primary) / 0.18), transparent 70%)`,
+            }}
           />
-        </div>
 
-        {/* Tech Name */}
-        <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
-          {tech.name}
-        </h3>
+          <CardContent className="relative z-10 p-6 flex flex-col items-center text-center h-full">
+            <div className="relative mb-4 p-4 rounded-2xl bg-muted/60 backdrop-blur-sm transition-transform duration-500 group-hover:scale-110">
+              <tech.icon
+                className="w-16 h-16 transition-all duration-500"
+                style={{
+                  color: tech.color,
+                  filter: hovered ? `drop-shadow(0 0 12px ${tech.color}80)` : 'none',
+                }}
+              />
+            </div>
 
-        {/* Category Badge */}
-        <Badge 
-          variant="secondary" 
-          className="mb-3 text-xs font-medium"
-        >
-          {tech.category}
-        </Badge>
-      </CardContent>
-    </Card>
-  );
+            <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+              {tech.name}
+            </h3>
+
+            <Badge variant="secondary" className="mb-1 text-xs font-medium">
+              {tech.category}
+            </Badge>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  };
 
   return (
     <section id="tech-stack" className="py-20 px-4 bg-gradient-to-br from-background to-muted/30 relative overflow-hidden">
