@@ -2,25 +2,14 @@ import {
   SiReact, 
   SiVuedotjs, 
   SiTailwindcss, 
-  SiMui,
-  SiHtml5,
-  SiCss,
   SiJavascript,
+  SiTypescript,
   SiNodedotjs,
   SiExpress,
   SiNestjs,
   SiPostgresql,
   SiMongodb,
-  SiGit,
-  SiPostman,
-  SiVercel,
-  SiNetlify,
-  SiTypescript,
-  SiRedux,
-  SiGraphql,
-  SiDocker,
-  SiFigma,
-  SiFirebase
+  SiNextdotjs
 } from 'react-icons/si';
 import { useState } from 'react';
 
@@ -36,11 +25,9 @@ const TechIcon = ({ name, className = "" }: TechIconProps) => {
   const getIcon = (iconName: string) => {
     const iconMap: { [key: string]: React.ComponentType<any> } = {
       'React.js': SiReact,
+      'Next.js': SiNextdotjs,
       'Vue.js': SiVuedotjs,
       'Tailwind CSS': SiTailwindcss,
-      'MUI': SiMui,
-      'HTML': SiHtml5,
-      'CSS': SiCss,
       'JavaScript': SiJavascript,
       'TypeScript': SiTypescript,
       'Node.js': SiNodedotjs,
@@ -48,17 +35,6 @@ const TechIcon = ({ name, className = "" }: TechIconProps) => {
       'NestJS': SiNestjs,
       'PostgreSQL': SiPostgresql,
       'MongoDB': SiMongodb,
-      'Git': SiGit,
-      'Postman': SiPostman,
-      'Vercel': SiVercel,
-      'Netlify': SiNetlify,
-      'Vuetify': SiVuedotjs,
-      'REST APIs': SiNodedotjs,
-      'Redux': SiRedux,
-      'GraphQL': SiGraphql,
-      'Docker': SiDocker,
-      'Firebase': SiFirebase,
-      'Figma': SiFigma,
     };
     
     const IconComponent = iconMap[iconName];
@@ -68,11 +44,9 @@ const TechIcon = ({ name, className = "" }: TechIconProps) => {
   const getIconColor = (iconName: string) => {
     const colorMap: { [key: string]: string } = {
       'React.js': '#61DAFB',
+      'Next.js': '#000000',
       'Vue.js': '#4FC08D',
       'Tailwind CSS': '#06B6D4',
-      'MUI': '#007FFF',
-      'HTML': '#E34F26',
-      'CSS': '#1572B6',
       'JavaScript': '#F7DF1E',
       'TypeScript': '#3178C6',
       'Node.js': '#339933',
@@ -80,15 +54,6 @@ const TechIcon = ({ name, className = "" }: TechIconProps) => {
       'NestJS': '#E0234E',
       'PostgreSQL': '#336791',
       'MongoDB': '#47A248',
-      'Git': '#F05032',
-      'Postman': '#FF6C37',
-      'Vercel': '#000000',
-      'Netlify': '#00C7B7',
-      'Redux': '#764ABC',
-      'GraphQL': '#E10098',
-      'Docker': '#2496ED',
-      'Firebase': '#FFCA28',
-      'Figma': '#F24E1E',
     };
     
     return colorMap[iconName] || '#6B7280';
