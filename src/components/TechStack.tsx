@@ -1,11 +1,16 @@
-import { useState, useEffect, useRef, MouseEvent } from 'react';
+import {
+  useState,
+  useEffect,
+  useRef,
+  MouseEvent
+} from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { 
-  SiReact, 
-  SiVuedotjs, 
-  SiTailwindcss, 
+import {
+  SiReact,
+  SiVuedotjs,
+  SiTailwindcss,
   SiJavascript,
   SiTypescript,
   SiNodedotjs,
@@ -13,124 +18,128 @@ import {
   SiNestjs,
   SiPostgresql,
   SiMongodb,
-  SiNextdotjs
-} from 'react-icons/si';
+  SiNextdotjs,
+} from "react-icons/si";
 
 interface TechItem {
   name: string;
   icon: React.ComponentType<any>;
   color: string;
   description: string;
-  category: 'Frontend' | 'Backend' | 'Database';
+  category: "Frontend" | "Backend" | "Database";
 }
+
+const techStack: TechItem[] = [
+  // Frontend
+  {
+    name: "React.js",
+    icon: SiReact,
+    color: "#61DAFB",
+    description:
+      "Building dynamic, component-based user interfaces with hooks, context, and modern React patterns.",
+    category: "Frontend",
+  },
+  {
+    name: "Next.js",
+    icon: SiNextdotjs,
+    color: "#000000",
+    description:
+      "React framework for production with server-side rendering, static site generation, and API routes.",
+    category: "Frontend",
+  },
+  {
+    name: "Vue.js",
+    icon: SiVuedotjs,
+    color: "#4FC08D",
+    description:
+      "Creating reactive applications with Vue 3 composition API and state management.",
+    category: "Frontend",
+  },
+  {
+    name: "TypeScript",
+    icon: SiTypescript,
+    color: "#3178C6",
+    description:
+      "Type-safe development with advanced TypeScript features and strict type checking.",
+    category: "Frontend",
+  },
+  {
+    name: "JavaScript",
+    icon: SiJavascript,
+    color: "#F7DF1E",
+    description:
+      "ES6+ features, async/await, closures, and modern JavaScript development.",
+    category: "Frontend",
+  },
+  {
+    name: "Tailwind CSS",
+    icon: SiTailwindcss,
+    color: "#06B6D4",
+    description:
+      "Utility-first CSS framework for rapid UI development and responsive design.",
+    category: "Frontend",
+  },
+
+  // Backend
+  {
+    name: "Node.js",
+    icon: SiNodedotjs,
+    color: "#339933",
+    description:
+      "Server-side JavaScript runtime for building scalable network applications.",
+    category: "Backend",
+  },
+  {
+    name: "Express.js",
+    icon: SiExpress,
+    color: "#000000",
+    description:
+      "Fast, unopinionated web framework for Node.js with middleware and routing.",
+    category: "Backend",
+  },
+  {
+    name: "NestJS",
+    icon: SiNestjs,
+    color: "#E0234E",
+    description:
+      "Progressive Node.js framework for building efficient and scalable server-side applications.",
+    category: "Backend",
+  },
+
+  // Database
+  {
+    name: "PostgreSQL",
+    icon: SiPostgresql,
+    color: "#4169E1",
+    description:
+      "Advanced relational database with complex queries, indexing, and performance optimization.",
+    category: "Database",
+  },
+  {
+    name: "MongoDB",
+    icon: SiMongodb,
+    color: "#47A248",
+    description:
+      "NoSQL document database for flexible, scalable data storage solutions.",
+    category: "Database",
+  },
+];
 
 const TechStack = () => {
   const [visibleItems, setVisibleItems] = useState<number[]>([]);
-  const [selectedCategory, setSelectedCategory] = useState<string>('All');
-
-  const techStack: TechItem[] = [
-    // Frontend
-    {
-      name: 'React.js',
-      icon: SiReact,
-      color: '#61DAFB',
-      description: 'Building dynamic, component-based user interfaces with hooks, context, and modern React patterns.',
-      category: 'Frontend'
-    },
-    {
-      name: 'Next.js',
-      icon: SiNextdotjs,
-      color: '#000000',
-      description: 'React framework for production with server-side rendering, static site generation, and API routes.',
-      category: 'Frontend'
-    },
-    {
-      name: 'Vue.js',
-      icon: SiVuedotjs,
-      color: '#4FC08D',
-      description: 'Creating reactive applications with Vue 3 composition API and state management.',
-      category: 'Frontend'
-    },
-    {
-      name: 'TypeScript',
-      icon: SiTypescript,
-      color: '#3178C6',
-      description: 'Type-safe development with advanced TypeScript features and strict type checking.',
-      category: 'Frontend'
-    },
-    {
-      name: 'JavaScript',
-      icon: SiJavascript,
-      color: '#F7DF1E',
-      description: 'ES6+ features, async/await, closures, and modern JavaScript development.',
-      category: 'Frontend'
-    },
-    {
-      name: 'Tailwind CSS',
-      icon: SiTailwindcss,
-      color: '#06B6D4',
-      description: 'Utility-first CSS framework for rapid UI development and responsive design.',
-      category: 'Frontend'
-    },
-
-    // Backend
-    {
-      name: 'Node.js',
-      icon: SiNodedotjs,
-      color: '#339933',
-      description: 'Server-side JavaScript runtime for building scalable network applications.',
-      category: 'Backend'
-    },
-    {
-      name: 'Express.js',
-      icon: SiExpress,
-      color: '#000000',
-      description: 'Fast, unopinionated web framework for Node.js with middleware and routing.',
-      category: 'Backend'
-    },
-    {
-      name: 'NestJS',
-      icon: SiNestjs,
-      color: '#E0234E',
-      description: 'Progressive Node.js framework for building efficient and scalable server-side applications.',
-      category: 'Backend'
-    },
-
-    // Database
-    {
-      name: 'PostgreSQL',
-      icon: SiPostgresql,
-      color: '#4169E1',
-      description: 'Advanced relational database with complex queries, indexing, and performance optimization.',
-      category: 'Database'
-    },
-    {
-      name: 'MongoDB',
-      icon: SiMongodb,
-      color: '#47A248',
-      description: 'NoSQL document database for flexible, scalable data storage solutions.',
-      category: 'Database'
-    }
-  ];
-
-  const categories = ['All', 'Frontend', 'Backend', 'Database'];
-
-  const filteredTech = selectedCategory === 'All' 
-    ? techStack 
-    : techStack.filter(tech => tech.category === selectedCategory);
 
   useEffect(() => {
-    const timers = filteredTech.map((_, index) => 
+    const timers = techStack.map((_, index) =>
       setTimeout(() => {
-        setVisibleItems(prev => [...prev, index]);
-      }, index * 100)
+        setVisibleItems((prev) => [...prev, index]);
+      }, index * 100),
     );
 
     return () => {
       timers.forEach(clearTimeout);
       setVisibleItems([]);
     };
-  }, [selectedCategory]);
+  }, []);
 
   const TechCard = ({ tech, index }: { tech: TechItem; index: number }) => {
     const cardRef = useRef<HTMLDivElement>(null);
@@ -151,14 +160,14 @@ const TechStack = () => {
         onMouseMove={handleMouseMove}
         className={`group relative rounded-xl p-[1px] transition-all duration-500 ${
           visibleItems.includes(index)
-            ? 'animate-fade-in opacity-100 translate-y-0'
-            : 'opacity-0 translate-y-10'
+            ? "animate-fade-in opacity-100 translate-y-0"
+            : "opacity-0 translate-y-10"
         }`}
         style={{
           animationDelay: `${index * 0.1}s`,
           background: hovered
             ? `conic-gradient(from ${pos.x}deg at ${pos.x}px ${pos.y}px, hsl(var(--primary)), hsl(var(--primary) / 0.3), hsl(var(--primary)))`
-            : 'hsl(var(--border))',
+            : "hsl(var(--border))",
         }}
       >
         <Card className="relative overflow-hidden rounded-[11px] border-0 bg-card/40 backdrop-blur-xl shadow-lg group-hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-1">
@@ -176,7 +185,9 @@ const TechStack = () => {
                 className="w-16 h-16 transition-all duration-500"
                 style={{
                   color: tech.color,
-                  filter: hovered ? `drop-shadow(0 0 12px ${tech.color}80)` : 'none',
+                  filter: hovered
+                    ? `drop-shadow(0 0 12px ${tech.color}80)`
+                    : "none",
                 }}
               />
             </div>
@@ -195,7 +206,10 @@ const TechStack = () => {
   };
 
   return (
-    <section id="tech-stack" className="py-20 px-4 bg-gradient-to-br from-background to-muted/30 relative overflow-hidden">
+    <section
+      id="tech-stack"
+      className="py-20 px-4 bg-gradient-to-br from-background to-muted/30 relative overflow-hidden"
+    >
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-10 w-6 h-6 bg-primary/5 rounded-full animate-float-bg-1"></div>
@@ -212,33 +226,14 @@ const TechStack = () => {
           </h2>
           <div className="w-32 h-2 bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-500 mx-auto mb-8 rounded-full"></div>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Technologies I use to build modern, scalable, and efficient applications
+            Technologies I use to build modern, scalable, and efficient
+            applications
           </p>
-        </div>
-
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((category) => (
-            <Button
-              key={category}
-              variant={selectedCategory === category ? "default" : "outline"}
-              onClick={() => setSelectedCategory(category)}
-              className="transition-all duration-300"
-            >
-              {category}
-              <Badge 
-                variant="secondary" 
-                className="ml-2 text-xs"
-              >
-                {category === 'All' ? techStack.length : techStack.filter(t => t.category === category).length}
-              </Badge>
-            </Button>
-          ))}
         </div>
 
         {/* Tech Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-16">
-          {filteredTech.map((tech, index) => (
+          {techStack.map((tech, index) => (
             <TechCard key={tech.name} tech={tech} index={index} />
           ))}
         </div>
