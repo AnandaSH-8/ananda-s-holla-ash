@@ -94,18 +94,21 @@ const Contact = () => {
               <h4 className="text-lg font-bold mb-4">Connect With Me</h4>
               <div className="flex space-x-4">
                 <a href="https://linkedin.com/in/ananda-s-holla" target="_blank" rel="noopener noreferrer"
+                   aria-label="LinkedIn profile"
                    className="bg-blue-600 dark:bg-orange-600 p-3 rounded-lg hover:bg-blue-700 dark:hover:bg-orange-700 transition-colors hover-scale group">
                   <Linkedin className="h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
                 </a>
                 <a href="https://github.com/AnandaSH-8" target="_blank" rel="noopener noreferrer"
+                   aria-label="GitHub profile"
                    className="bg-cyan-600 dark:bg-red-600 p-3 rounded-lg hover:bg-cyan-700 dark:hover:bg-red-700 transition-colors hover-scale group">
                   <Github className="h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
                 </a>
                 <a href="mailto:anandsholla8@gmail.com"
+                   aria-label="Email Ananda"
                    className="bg-blue-500 dark:bg-orange-500 p-3 rounded-lg hover:bg-blue-600 dark:hover:bg-orange-600 transition-colors hover-scale group">
                   <Mail className="h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
                 </a>
-                <a href="#" className="bg-cyan-500 dark:bg-red-500 p-3 rounded-lg hover:bg-cyan-600 dark:hover:bg-red-600 transition-colors hover-scale group">
+                <a href="#" aria-label="Twitter profile" className="bg-cyan-500 dark:bg-red-500 p-3 rounded-lg hover:bg-cyan-600 dark:hover:bg-red-600 transition-colors hover-scale group">
                   <Twitter className="h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
                 </a>
               </div>
@@ -119,8 +122,9 @@ const Contact = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-blue-100 dark:text-orange-100 mb-2">Name *</label>
+                    <label htmlFor="contact-name" className="block text-sm font-medium text-blue-100 dark:text-orange-100 mb-2">Name *</label>
                     <Input 
+                      id="contact-name"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
@@ -130,8 +134,9 @@ const Contact = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-blue-100 dark:text-orange-100 mb-2">Email *</label>
+                    <label htmlFor="contact-email" className="block text-sm font-medium text-blue-100 dark:text-orange-100 mb-2">Email *</label>
                     <Input 
+                      id="contact-email"
                       type="email" 
                       name="email"
                       value={formData.email}
@@ -143,8 +148,9 @@ const Contact = () => {
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-blue-100 dark:text-orange-100 mb-2">Subject *</label>
+                  <label htmlFor="contact-subject" className="block text-sm font-medium text-blue-100 dark:text-orange-100 mb-2">Subject *</label>
                   <Input 
+                    id="contact-subject"
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
@@ -154,8 +160,9 @@ const Contact = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-blue-100 dark:text-orange-100 mb-2">Message *</label>
+                  <label htmlFor="contact-message" className="block text-sm font-medium text-blue-100 dark:text-orange-100 mb-2">Message *</label>
                   <Textarea 
+                    id="contact-message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
