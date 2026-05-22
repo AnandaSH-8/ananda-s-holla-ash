@@ -172,6 +172,7 @@ const Hero = () => {
               href="https://linkedin.com/in/ananda-s-holla"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="LinkedIn profile"
               className="text-[#333]/60 dark:text-[#EDEDED]/60 hover:text-blue-500 dark:hover:text-orange-500 transition-all duration-300 hover-scale social-glow"
             >
               <Linkedin className="h-8 w-8" />
@@ -180,18 +181,21 @@ const Hero = () => {
               href="https://github.com/AnandaSH-8"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="GitHub profile"
               className="text-[#333]/60 dark:text-[#EDEDED]/60 hover:text-blue-500 dark:hover:text-orange-500 transition-all duration-300 hover-scale social-glow"
             >
               <Github className="h-8 w-8" />
             </a>
             <a
               href="mailto:anandsholla8@gmail.com"
+              aria-label="Email Ananda"
               className="text-[#333]/60 dark:text-[#EDEDED]/60 hover:text-blue-500 dark:hover:text-orange-500 transition-all duration-300 hover-scale social-glow"
             >
               <Mail className="h-8 w-8" />
             </a>
             <a
               href="#"
+              aria-label="Twitter profile"
               className="text-[#333]/60 dark:text-[#EDEDED]/60 hover:text-blue-500 dark:hover:text-orange-500 transition-all duration-300 hover-scale social-glow"
             >
               <Twitter className="h-8 w-8" />
