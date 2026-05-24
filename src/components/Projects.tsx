@@ -9,6 +9,19 @@ const Projects = () => {
 
   const projects = [
     {
+      title: "AssetsManager",
+      subtitle: "Personal Finance Dashboard",
+      description: "A modern, secure financial portfolio management application to track investments, manage assets, and monitor financial growth with beautiful analytics, interactive charts, and period comparisons. Features glassmorphism design with dark/light mode.",
+      features: ["Secure Authentication", "Portfolio Analytics", "Asset Tracking", "Growth Insights"],
+      stack: ["React.js", "TypeScript", "Tailwind CSS", "Supabase", "Recharts", "Framer Motion"],
+      role: "Designed and built the full-stack application — UI, dashboard analytics, Supabase auth, RLS policies, and real-time data visualization.",
+      github: "https://github.com/AnandaSH-8",
+      demo: "https://assets-manager-site.lovable.app",
+      image: "https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&w=800",
+      stats: { stars: 18, contributors: 1, lastUpdate: "Just now" },
+      status: "Active Development"
+    },
+    {
       title: "E-Commerce Platform",
       subtitle: "Full Stack Application",
       description: "Complete e-commerce solution with user authentication, product catalog, shopping cart, payment integration, and admin dashboard. Built with modern technologies for scalability and performance.",
