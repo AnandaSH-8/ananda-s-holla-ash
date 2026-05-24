@@ -1,6 +1,18 @@
 const AnimatedLogo = () => {
   return (
     <div className="relative inline-block cursor-pointer group">
+      {/* Tooltip - Dark mode: fire theme */}
+      <div className="hidden dark:block absolute left-1/2 -translate-x-1/2 top-full mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-50 whitespace-nowrap">
+        <div className="px-3 py-1.5 rounded-md bg-gradient-to-r from-orange-600 to-red-600 text-white text-xs font-semibold shadow-lg shadow-orange-500/50">
+          🔥 Always Burning
+        </div>
+      </div>
+      {/* Tooltip - Light mode: water theme */}
+      <div className="dark:hidden absolute left-1/2 -translate-x-1/2 top-full mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-50 whitespace-nowrap">
+        <div className="px-3 py-1.5 rounded-md bg-gradient-to-r from-blue-500 to-cyan-400 text-white text-xs font-semibold shadow-lg shadow-blue-400/50">
+          🌊 Always Flowing
+        </div>
+      </div>
       <svg
         width="80"
         height="80"
