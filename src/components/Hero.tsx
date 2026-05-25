@@ -205,7 +205,7 @@ const Hero = () => {
 
         {/* Right Side - Professional Photo Space (50% of hero section) */}
         <div className="flex justify-center items-center animate-hero-photo order-1 lg:order-2">
-          <div className="relative w-full max-w-[500px] aspect-square bg-gradient-to-br from-blue-100 to-blue-200 dark:from-orange-500/20 dark:to-orange-600/30 rounded-full flex items-center justify-center border-4 border-blue-500 dark:border-orange-500 shadow-2xl hover-scale group overflow-hidden">
+          <div className="relative w-full max-w-[500px] aspect-square bg-gradient-to-br from-orange-100 to-orange-200 dark:from-blue-500/20 dark:to-blue-600/30 rounded-full flex items-center justify-center border-4 border-orange-500 dark:border-blue-500 shadow-2xl hover-scale group overflow-hidden">
             {/* Professional photo */}
             <img
               src={profileImg}
@@ -214,7 +214,7 @@ const Hero = () => {
             />
 
             {/* Animated glowing border - Theme appropriate colors */}
-            <div className="absolute inset-0 rounded-full border-4 border-blue-500 dark:border-orange-500 animate-glow-border opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20 pointer-events-none"></div>
+            <div className="absolute inset-0 rounded-full border-4 border-orange-500 dark:border-blue-500 animate-glow-border opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20 pointer-events-none"></div>
 
             {/* Background pattern - Theme appropriate colors */}
             <div className="absolute inset-0 opacity-10 dark:opacity-20">
