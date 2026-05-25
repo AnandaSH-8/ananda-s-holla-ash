@@ -214,7 +214,7 @@ const Hero = () => {
             />
 
             {/* Animated glowing border - Theme appropriate colors */}
-            <div className="absolute inset-0 rounded-full border-4 border-blue-500 dark:border-orange-500 animate-glow-border opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20 pointer-events-none"></div>
+            <div className="absolute inset-0 rounded-full border-4 border-orange-500 dark:border-blue-500 animate-glow-border opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20 pointer-events-none"></div>
 
             {/* Background pattern - Theme appropriate colors */}
             <div className="absolute inset-0 opacity-10 dark:opacity-20">
