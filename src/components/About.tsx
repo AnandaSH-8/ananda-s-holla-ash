@@ -20,17 +20,16 @@ const About = () => {
                   Hey! I'm Ananda 👋
                 </h3>
                 <p className="text-muted-foreground leading-relaxed mb-4">
-                  I'm a full stack web developer experienced in crafting dynamic
-                  web applications using modern JavaScript frameworks and tools.
-                  I enjoy solving real-world problems through clean code and
-                  efficient systems.
+                  I'm a Full-Stack Developer who enjoys building scalable web
+                  applications and solving real-world problems through clean,
+                  maintainable software. I work across both frontend and backend
+                  development, turning ideas into reliable digital products that
+                  deliver meaningful user experiences.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  Currently working as a software engineer, I've contributed to
-                  both internal tools and customer-facing applications, handling
-                  frontend interfaces and backend logic. I'm always exploring
-                  better ways to build fast, accessible, and intuitive digital
-                  products.
+                  I enjoy learning new technologies, improving development
+                  workflows, and creating solutions that balance performance,
+                  usability, and long-term maintainability.
                 </p>
               </CardContent>
             </Card>

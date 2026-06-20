@@ -1,12 +1,13 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Github, Star, Users, Calendar } from "lucide-react";
+import { ExternalLink } from "lucide-react"; // Star, Users, Calendar
+import { FaGithub } from "react-icons/fa6";
 import { useState } from "react";
 import assetsDashboard from "@/assets/assetsmanager-dashboard.png";
 
 const Projects = () => {
-  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const [ setHoveredProject] = useState<number | null>(null); //hoveredProject
 
   const projects = [
     {
@@ -27,16 +28,26 @@ const Projects = () => {
         "Fully Responsive",
       ],
       stack: [
-        "React 18", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui",
-        "Framer Motion", "Recharts", "TanStack Query", "Zod",
-        "Supabase", "PostgreSQL", "Deno Edge Functions", "JWT",
+        "React 18",
+        "TypeScript",
+        "Vite",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "Framer Motion",
+        "Recharts",
+        "TanStack Query",
+        "Zod",
+        "Supabase",
+        "PostgreSQL",
+        "Deno Edge Functions",
+        "JWT",
       ],
       role: "Full-Stack Developer (Sole Author) — architected frontend, backend, PostgreSQL schema with RLS policies, three Supabase Edge Functions, custom design system, and production deployment.",
       github: "https://github.com/AnandaSH-8/assets-manager",
       demo: "https://assets-manager-site.lovable.app",
       image: assetsDashboard,
-      stats: { stars: 18, contributors: 1, lastUpdate: "Just now" },
-      status: "Active Development",
+      // stats: { stars: 18, contributors: 1, lastUpdate: "Just now" },
+      // status: "Active Development",
     },
   ];
 
@@ -53,7 +64,8 @@ const Projects = () => {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-500 mx-auto mb-8 rounded-full" />
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Showcasing my expertise through real-world applications that solve complex problems
+            Showcasing my expertise through real-world applications that solve
+            complex problems
           </p>
         </div>
 
@@ -79,7 +91,7 @@ const Projects = () => {
 
                     {/* Status Badge */}
                     <div className="absolute top-4 left-4">
-                      <Badge
+                      {/* <Badge
                         variant="secondary"
                         className={
                           project.status === "Production Ready"
@@ -90,11 +102,11 @@ const Projects = () => {
                         }
                       >
                         {project.status}
-                      </Badge>
+                      </Badge> */}
                     </div>
 
                     {/* Project Stats */}
-                    <div className="absolute bottom-4 left-4 flex space-x-4 text-white">
+                    {/* <div className="absolute bottom-4 left-4 flex space-x-4 text-white">
                       <div className="flex items-center space-x-1 bg-black/50 rounded-full px-2 py-1">
                         <Star className="w-4 h-4" />
                         <span className="text-sm">{project.stats.stars}</span>
@@ -107,7 +119,7 @@ const Projects = () => {
                         <Calendar className="w-4 h-4" />
                         <span className="text-sm">{project.stats.lastUpdate}</span>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
 
                   {/* Project Details */}
@@ -177,8 +189,12 @@ const Projects = () => {
                         asChild
                         className="bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-orange-600 dark:to-red-600 hover:shadow-lg hover-scale transition-all duration-300 text-white"
                       >
-                        <a href={project.github} target="_blank" rel="noopener noreferrer">
-                          <Github className="mr-2 h-4 w-4" />
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <FaGithub className="mr-2 h-4 w-4" />
                           View Code
                         </a>
                       </Button>
@@ -187,7 +203,11 @@ const Projects = () => {
                         asChild
                         className="border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white dark:border-orange-500 dark:text-orange-500 dark:hover:bg-orange-500 hover-scale transition-all duration-300"
                       >
-                        <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                        <a
+                          href={project.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                           <ExternalLink className="mr-2 h-4 w-4" />
                           Live Demo
                         </a>
@@ -211,8 +231,12 @@ const Projects = () => {
               size="lg"
               className="bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-orange-600 dark:to-red-600 hover:shadow-lg hover-scale transition-all duration-300 text-white"
             >
-              <a href="https://github.com/AnandaSH-8" target="_blank" rel="noopener noreferrer">
-                <Github className="mr-2 h-5 w-5" />
+              <a
+                href="https://github.com/AnandaSH-8"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaGithub className="mr-2 h-5 w-5" />
                 View All Projects
               </a>
             </Button>

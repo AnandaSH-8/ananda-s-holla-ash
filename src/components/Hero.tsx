@@ -1,28 +1,34 @@
+import {
+  FaGithub,
+  FaLinkedin,
+  FaEnvelope,
+  FaXTwitter,
+  FaDownload,
+} from "react-icons/fa6";
 
-import { Github, Linkedin, Mail, Twitter, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import profileImg from "@/assets/profile.png";
 
 const Hero = () => {
   const scrollToContact = () => {
-    const element = document.getElementById('contact');
+    const element = document.getElementById("contact");
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   const scrollToProjects = () => {
-    const element = document.getElementById('projects');
+    const element = document.getElementById("projects");
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   const downloadResume = () => {
     // Create a temporary link to download resume
-    const link = document.createElement('a');
-    link.href = '/resume.pdf'; // You'll need to add your resume to the public folder
-    link.download = 'Ananda_S_Holla_Resume.pdf';
+    const link = document.createElement("a");
+    link.href = "/resume.pdf"; // You'll need to add your resume to the public folder
+    link.download = "Ananda_S_Holla_Resume.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -134,9 +140,10 @@ const Hero = () => {
           </h2>
 
           <p className="text-lg md:text-xl lg:text-2xl text-[#333]/70 dark:text-[#EDEDED]/70 mb-12 leading-relaxed animate-hero-description max-w-2xl lg:max-w-none">
-            Crafting scalable and maintainable web applications with 2.7+ years
-            of experience. Passionate about clean architecture and performance
-            optimization.
+            Full-Stack Developer with 3.6+ years of experience designing and
+            developing scalable web applications. Experienced in building robust
+            backend services, intuitive user interfaces, and end-to-end
+            solutions that deliver real business value.
           </p>
 
           <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-12 animate-hero-cta">
@@ -145,7 +152,7 @@ const Hero = () => {
               size="lg"
               className="water-gradient dark:fire-gradient hover:shadow-2xl hover-scale transition-all duration-300 text-white font-bold px-8 py-4 text-lg animate-cta-glow"
             >
-              <Mail className="mr-3 h-6 w-6" />
+              <FaEnvelope className="mr-3 h-6 w-6" />
               Hire Me
             </Button>
             <Button
@@ -162,7 +169,7 @@ const Hero = () => {
               size="lg"
               className="border-2 border-emerald-500 text-emerald-600 hover:bg-emerald-500 hover:text-white dark:border-emerald-400 dark:text-emerald-400 dark:hover:bg-emerald-500 dark:hover:text-white hover-scale transition-all duration-300 font-bold px-8 py-4 text-lg backdrop-blur-sm"
             >
-              <Download className="mr-3 h-6 w-6" />
+              <FaDownload className="mr-3 h-6 w-6" />
               Resume
             </Button>
           </div>
@@ -175,7 +182,7 @@ const Hero = () => {
               aria-label="LinkedIn profile"
               className="text-[#333]/60 dark:text-[#EDEDED]/60 hover:text-blue-500 dark:hover:text-orange-500 transition-all duration-300 hover-scale social-glow"
             >
-              <Linkedin className="h-8 w-8" />
+              <FaLinkedin className="h-8 w-8" />
             </a>
             <a
               href="https://github.com/AnandaSH-8"
@@ -184,21 +191,24 @@ const Hero = () => {
               aria-label="GitHub profile"
               className="text-[#333]/60 dark:text-[#EDEDED]/60 hover:text-blue-500 dark:hover:text-orange-500 transition-all duration-300 hover-scale social-glow"
             >
-              <Github className="h-8 w-8" />
+              <FaGithub className="h-8 w-8" />
             </a>
             <a
               href="mailto:anandsholla8@gmail.com"
               aria-label="Email Ananda"
               className="text-[#333]/60 dark:text-[#EDEDED]/60 hover:text-blue-500 dark:hover:text-orange-500 transition-all duration-300 hover-scale social-glow"
             >
-              <Mail className="h-8 w-8" />
+              <FaEnvelope className="h-8 w-8" />
             </a>
             <a
-              href="#"
+              href="https://x.com/anandsholla8"
               aria-label="Twitter profile"
               className="text-[#333]/60 dark:text-[#EDEDED]/60 hover:text-blue-500 dark:hover:text-orange-500 transition-all duration-300 hover-scale social-glow"
             >
-              <Twitter className="h-8 w-8" />
+              {/* uPDATE LATEST TWITTER / X ICON
+               */}
+
+              <FaXTwitter className="h-8 w-8" />
             </a>
           </div>
         </div>
