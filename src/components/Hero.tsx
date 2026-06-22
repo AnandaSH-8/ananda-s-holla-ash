@@ -8,6 +8,7 @@ import {
 
 import { Button } from "@/components/ui/button";
 import profileImg from "@/assets/profile.png";
+import LazyImage from "@/components/LazyImage";
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -217,10 +218,12 @@ const Hero = () => {
         <div className="flex justify-center items-center animate-hero-photo order-1 lg:order-2">
           <div className="relative w-full max-w-[500px] aspect-square bg-gradient-to-br from-blue-100 to-blue-200 dark:from-orange-500/20 dark:to-orange-600/30 rounded-full flex items-center justify-center border-4 border-blue-500 dark:border-orange-500 shadow-2xl hover-scale group overflow-hidden">
             {/* Professional photo */}
-            <img
+            <LazyImage
               src={profileImg}
               alt="Ananda S Holla"
-              className="w-full h-full object-cover rounded-full relative z-10 group-hover:scale-110 transition-transform duration-500"
+              loading="eager"
+              wrapperClassName="w-full h-full rounded-full relative z-10"
+              className="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform duration-500"
             />
 
             {/* Animated glowing border - Theme appropriate colors */}
