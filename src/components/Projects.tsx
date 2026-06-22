@@ -5,9 +5,10 @@ import { ExternalLink } from "lucide-react"; // Star, Users, Calendar
 import { FaGithub } from "react-icons/fa6";
 import { useState } from "react";
 import assetsDashboard from "@/assets/assetsmanager-dashboard.png";
+import LazyImage from "@/components/LazyImage";
 
 const Projects = () => {
-  const [ setHoveredProject] = useState<number | null>(null); //hoveredProject
+  const [, setHoveredProject] = useState<number | null>(null); //hoveredProject
 
   const projects = [
     {
@@ -82,9 +83,10 @@ const Projects = () => {
                 <div className="grid lg:grid-cols-5 gap-0">
                   {/* Project Image */}
                   <div className="lg:col-span-2 relative overflow-hidden">
-                    <img
+                    <LazyImage
                       src={project.image}
                       alt={project.title}
+                      wrapperClassName="w-full h-64 lg:h-full"
                       className="w-full h-64 lg:h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-cyan-600/20 dark:from-orange-600/20 dark:to-red-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
