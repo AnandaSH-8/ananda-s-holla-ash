@@ -7,7 +7,7 @@ import { useState } from "react";
 import assetsDashboard from "@/assets/assetsmanager-dashboard.png";
 
 const Projects = () => {
-  const [ setHoveredProject] = useState<number | null>(null); //hoveredProject
+  const [, setHoveredProject] = useState<number | null>(null); //hoveredProject
 
   const projects = [
     {
