@@ -64,7 +64,7 @@ const SectionTOC = () => {
             <span
               className={`text-xs font-semibold uppercase tracking-wider transition-all duration-300 ${
                 isActive
-                  ? "opacity-100 text-blue-600 dark:text-orange-500 translate-x-0"
+                  ? "opacity-100 dark:text-blue-600 text-orange-500 translate-x-0"
                   : "opacity-0 group-hover:opacity-100 text-[#333]/70 dark:text-[#EDEDED]/70 translate-x-2 group-hover:translate-x-0"
               }`}
             >
@@ -73,8 +73,8 @@ const SectionTOC = () => {
             <span
               className={`block rounded-full transition-all duration-300 ${
                 isActive
-                  ? "w-3 h-3 bg-blue-500 dark:bg-orange-500 shadow-[0_0_10px_rgba(59,130,246,0.7)] dark:shadow-[0_0_10px_rgba(249,115,22,0.7)]"
-                  : "w-2 h-2 bg-[#333]/30 dark:bg-[#EDEDED]/30 group-hover:bg-blue-400 dark:group-hover:bg-orange-400"
+                  ? "w-3 h-3 bg-orange-500 dark:bg-blue-500 dark:shadow-[0_0_10px_rgba(59,130,246,0.7)] shadow-[0_0_10px_rgba(249,115,22,0.7)]"
+                  : "w-2 h-2 bg-[#333]/30 dark:bg-[#EDEDED]/30 dark:group-hover:bg-blue-400 group-hover:bg-orange-400"
               }`}
             />
           </button>
