@@ -2,40 +2,72 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Send } from "lucide-react";
 import {
   FaGithub,
   FaLinkedin,
   FaEnvelope,
   FaXTwitter,
-  // FaDownload,
   FaPhone,
   FaMapPin,
-  // send alternative
   FaPaperPlane,
+  FaCircleCheck,
 } from "react-icons/fa6";
 import { useState } from "react";
 
-const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
+const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
 
-  const handleSubmit = (e: React.FormEvent) => {
+const Contact = () => {
+  const REASONS = [
+    { label: "Project Inquiry", subject: "Project Inquiry" },
+    { label: "Job Opportunity", subject: "Job Opportunity" },
+    { label: "Networking / Just Connecting", subject: "Networking" },
+    { label: "Collaboration", subject: "Collaboration Idea" },
+    { label: "Other", subject: "" },
+  ];
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    reason: "",
+    subject: "",
+    message: "",
+    botcheck: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    // You can integrate with a form service like Formspree, Netlify Forms, etc.
+    setIsSubmitting(true);
+    setError("");
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ access_key: WEB3FORMS_ACCESS_KEY, ...formData }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setIsSuccess(true);
+        setFormData({ name: "", email: "", reason: "", subject: "", message: "", botcheck: "" });
+      } else {
+        setError("Something went wrong. Please try again or email me directly.");
+      }
+    } catch {
+      setError("Network error. Please try emailing me directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleReasonChange = (value: string) => {
+    const match = REASONS.find((r) => r.label === value);
+    setFormData({ ...formData, reason: value, subject: match?.subject ?? "" });
   };
 
   return (
@@ -54,12 +86,12 @@ const Contact = () => {
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Let's Work Together
+            Let's Connect
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-300 dark:from-orange-400 dark:to-red-300 mx-auto mb-8"></div>
           <p className="text-xl text-blue-100 dark:text-orange-100 max-w-2xl mx-auto">
-            Ready to bring your next project to life? Let's discuss how we can
-            work together to create something amazing.
+            Whether it's a project, an opportunity, or just a hello — feel free
+            to reach out. I'm always open to a good conversation.
           </p>
         </div>
 
@@ -162,87 +194,141 @@ const Contact = () => {
               <h3 className="text-2xl font-bold text-white mb-6">
                 Send Message
               </h3>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
+
+              {isSuccess ? (
+                <div className="flex flex-col items-center justify-center py-12 text-center space-y-4">
+                  <FaCircleCheck className="h-14 w-14 text-cyan-400 dark:text-orange-400" />
+                  <h4 className="text-xl font-bold text-white">Message Sent!</h4>
+                  <p className="text-blue-200 dark:text-orange-200">
+                    Thanks for reaching out. I'll get back to you soon.
+                  </p>
+                  <Button
+                    variant="ghost"
+                    className="text-cyan-300 dark:text-orange-300 hover:text-white"
+                    onClick={() => setIsSuccess(false)}
+                  >
+                    Send another message
+                  </Button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Honeypot anti-spam */}
+                  <input
+                    type="checkbox"
+                    name="botcheck"
+                    checked={!!formData.botcheck}
+                    onChange={handleChange}
+                    className="hidden"
+                    aria-hidden="true"
+                    tabIndex={-1}
+                  />
+
+                  <div>
+                    <label className="block text-sm font-medium text-blue-100 dark:text-orange-100 mb-2">
+                      Reason for reaching out *
+                    </label>
+                    <select
+                      value={formData.reason}
+                      onChange={(e) => handleReasonChange(e.target.value)}
+                      required
+                      className="w-full rounded-md bg-white/20 border border-white/30 text-white px-3 py-2 text-sm focus:outline-none focus:border-cyan-400 dark:focus:border-orange-400 transition-colors [&>option]:text-black"
+                    >
+                      <option value="" disabled>Select a reason...</option>
+                      {REASONS.map((r) => (
+                        <option key={r.label} value={r.label}>{r.label}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <label
+                        htmlFor="contact-name"
+                        className="block text-sm font-medium text-blue-100 dark:text-orange-100 mb-2"
+                      >
+                        Name *
+                      </label>
+                      <Input
+                        id="contact-name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="Your name"
+                        className="bg-white/20 border-white/30 text-white placeholder:text-blue-200 dark:placeholder:text-orange-200 focus:border-cyan-400 dark:focus:border-orange-400 transition-colors"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="contact-email"
+                        className="block text-sm font-medium text-blue-100 dark:text-orange-100 mb-2"
+                      >
+                        Email *
+                      </label>
+                      <Input
+                        id="contact-email"
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="your@email.com"
+                        className="bg-white/20 border-white/30 text-white placeholder:text-blue-200 dark:placeholder:text-orange-200 focus:border-cyan-400 dark:focus:border-orange-400 transition-colors"
+                        required
+                      />
+                    </div>
+                  </div>
+
                   <div>
                     <label
-                      htmlFor="contact-name"
+                      htmlFor="contact-subject"
                       className="block text-sm font-medium text-blue-100 dark:text-orange-100 mb-2"
                     >
-                      Name *
+                      Subject *
                     </label>
                     <Input
-                      id="contact-name"
-                      name="name"
-                      value={formData.name}
+                      id="contact-subject"
+                      name="subject"
+                      value={formData.subject}
                       onChange={handleChange}
-                      placeholder="Your name"
+                      placeholder="Project discussion"
                       className="bg-white/20 border-white/30 text-white placeholder:text-blue-200 dark:placeholder:text-orange-200 focus:border-cyan-400 dark:focus:border-orange-400 transition-colors"
                       required
                     />
                   </div>
+
                   <div>
                     <label
-                      htmlFor="contact-email"
+                      htmlFor="contact-message"
                       className="block text-sm font-medium text-blue-100 dark:text-orange-100 mb-2"
                     >
-                      Email *
+                      Message *
                     </label>
-                    <Input
-                      id="contact-email"
-                      type="email"
-                      name="email"
-                      value={formData.email}
+                    <Textarea
+                      id="contact-message"
+                      name="message"
+                      value={formData.message}
                       onChange={handleChange}
-                      placeholder="your@email.com"
-                      className="bg-white/20 border-white/30 text-white placeholder:text-blue-200 dark:placeholder:text-orange-200 focus:border-cyan-400 dark:focus:border-orange-400 transition-colors"
+                      placeholder="What's on your mind?"
+                      rows={5}
+                      className="bg-white/20 border-white/30 text-white placeholder:text-blue-200 dark:placeholder:text-orange-200 resize-none focus:border-cyan-400 dark:focus:border-orange-400 transition-colors"
                       required
                     />
                   </div>
-                </div>
-                <div>
-                  <label
-                    htmlFor="contact-subject"
-                    className="block text-sm font-medium text-blue-100 dark:text-orange-100 mb-2"
+
+                  {error && (
+                    <p className="text-red-300 text-sm">{error}</p>
+                  )}
+
+                  <Button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-orange-600 dark:to-red-600 hover:from-cyan-700 hover:to-blue-700 dark:hover:from-orange-700 dark:hover:to-red-700 hover-scale transition-all duration-300 text-white font-semibold disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    Subject *
-                  </label>
-                  <Input
-                    id="contact-subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    placeholder="Project discussion"
-                    className="bg-white/20 border-white/30 text-white placeholder:text-blue-200 dark:placeholder:text-orange-200 focus:border-cyan-400 dark:focus:border-orange-400 transition-colors"
-                    required
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="contact-message"
-                    className="block text-sm font-medium text-blue-100 dark:text-orange-100 mb-2"
-                  >
-                    Message *
-                  </label>
-                  <Textarea
-                    id="contact-message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Tell me about your project..."
-                    rows={5}
-                    className="bg-white/20 border-white/30 text-white placeholder:text-blue-200 dark:placeholder:text-orange-200 resize-none focus:border-cyan-400 dark:focus:border-orange-400 transition-colors"
-                    required
-                  />
-                </div>
-                <Button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-orange-600 dark:to-red-600 hover:from-cyan-700 hover:to-blue-700 dark:hover:from-orange-700 dark:hover:to-red-700 hover-scale transition-all duration-300 text-white font-semibold"
-                >
-                  <FaPaperPlane className="mr-2 h-4 w-4" />
-                  Send Message
-                </Button>
-              </form>
+                    <FaPaperPlane className="mr-2 h-4 w-4" />
+                    {isSubmitting ? "Sending..." : "Send Message"}
+                  </Button>
+                </form>
+              )}
             </CardContent>
           </Card>
         </div>
@@ -251,11 +337,10 @@ const Contact = () => {
         <div className="text-center mt-16 animate-bounce-in">
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold mb-4">
-              Ready to Start Your Project?
+              Want to Reach Out Directly?
             </h3>
             <p className="text-blue-200 dark:text-orange-200 mb-6">
-              Let's turn your ideas into reality. I'm here to help you build
-              something amazing.
+              Prefer email? Drop me a message directly — I read every one.
             </p>
             <Button
               asChild
@@ -264,7 +349,7 @@ const Contact = () => {
             >
               <a href="mailto:anandsholla8@gmail.com">
                 <FaEnvelope className="mr-2 h-5 w-5" />
-                Start a Conversation
+                Say Hello
               </a>
             </Button>
           </div>
