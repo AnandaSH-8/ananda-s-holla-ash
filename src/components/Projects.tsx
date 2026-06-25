@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { ExternalLink } from "lucide-react"; // Star, Users, Calendar
 import { FaGithub } from "react-icons/fa6";
 import { useState } from "react";
-import assetsDashboard from "@/assets/assetsmanager-dashboard.png";
+import assetsDashboard from "@/assets/assetpulse.png";
 import LazyImage from "@/components/LazyImage";
 
 const Projects = () => {
@@ -12,7 +12,7 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "AssetsManager",
+      title: "AssetPulse",
       subtitle: "Personal Finance Dashboard",
       description:
         "A full-stack personal finance app to track liquid assets, investments, and monthly portfolio growth with interactive analytics, glass-morphism UI, secure authentication, and row-level data isolation — built as a production-grade SaaS-style experience.",
@@ -43,9 +43,9 @@ const Projects = () => {
         "Deno Edge Functions",
         "JWT",
       ],
-      role: "Full-Stack Developer (Sole Author) — architected frontend, backend, PostgreSQL schema with RLS policies, three Supabase Edge Functions, custom design system, and production deployment.",
-      github: "https://github.com/AnandaSH-8/assets-manager",
-      demo: "https://assets-manager-site.lovable.app",
+      role: "Architected frontend, backend, PostgreSQL schema with RLS policies, three Supabase Edge Functions, custom design system, and production deployment.",
+      github: "https://github.com/AnandaSH-8/AssetPulse",
+      demo: "https://ashets-manager.vercel.app/",
       image: assetsDashboard,
       // stats: { stars: 18, contributors: 1, lastUpdate: "Just now" },
       // status: "Active Development",
