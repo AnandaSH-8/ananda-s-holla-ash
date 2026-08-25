@@ -49,7 +49,7 @@ const BackgroundScene = () => {
           />
         )}
         {/* Readability scrim */}
-        <div className="absolute inset-0 bg-[#FFF4E6]/80" />
+        <div className="absolute inset-0 bg-[#FFF4E6]/60" />
       </div>
 
       {/* Dark theme - sea & beach */}
@@ -76,7 +76,7 @@ const BackgroundScene = () => {
           />
         )}
         {/* Readability scrim */}
-        <div className="absolute inset-0 bg-[#1A1A2E]/75" />
+        <div className="absolute inset-0 bg-[#1A1A2E]/70" />
       </div>
     </div>
   );
