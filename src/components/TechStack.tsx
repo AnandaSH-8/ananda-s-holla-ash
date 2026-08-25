@@ -208,7 +208,7 @@ const TechStack = () => {
   return (
     <section
       id="tech-stack"
-      className="py-20 px-4 bg-gradient-to-br from-background to-muted/30 relative overflow-hidden"
+      className="py-20 px-4 bg-gradient-to-br from-background/70 to-muted/40 backdrop-blur-sm relative overflow-hidden"
     >
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
