@@ -55,7 +55,7 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="py-20 px-4 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800"
+      className="py-20 px-4 bg-gradient-to-br from-gray-50/70 to-white/60 dark:from-gray-900/70 dark:to-gray-800/60 backdrop-blur-sm"
     >
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}

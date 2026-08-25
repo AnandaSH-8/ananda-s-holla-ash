@@ -73,7 +73,7 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="py-20 px-4 bg-gradient-to-br from-blue-900 via-blue-800 to-cyan-800 dark:from-orange-900 dark:via-red-800 dark:to-orange-700 text-white relative overflow-hidden"
+      className="py-20 px-4 bg-gradient-to-br from-blue-900/85 via-blue-800/80 to-cyan-800/85 dark:from-orange-900/85 dark:via-red-800/80 dark:to-orange-700/85 backdrop-blur-sm text-white relative overflow-hidden"
     >
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none">

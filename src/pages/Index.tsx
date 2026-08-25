@@ -8,10 +8,12 @@ import Contact from "@/components/Contact";
 import ScrollProgress from "@/components/ScrollProgress";
 import SectionTOC from "@/components/SectionTOC";
 import SectionReveal from "@/components/SectionReveal";
+import BackgroundScene from "@/components/BackgroundScene";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <BackgroundScene />
       <ScrollProgress />
       <SectionTOC />
       <Navigation />

@@ -38,7 +38,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center px-4 pt-20 bg-gradient-to-br from-white via-blue-50 to-cyan-50 dark:from-[#1A1A2E] dark:via-[#2E2E2E] dark:to-[#1A1A2E] relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center px-4 pt-20 bg-gradient-to-br from-white/55 via-blue-50/40 to-cyan-50/40 dark:from-[#1A1A2E]/70 dark:via-[#2E2E2E]/60 dark:to-[#1A1A2E]/70 backdrop-blur-sm relative overflow-hidden"
     >
       {/* Water bubbles for light mode */}
       <div className="absolute inset-0 pointer-events-none dark:hidden">

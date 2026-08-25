@@ -47,7 +47,7 @@ const Experience = () => {
   return (
     <section
       id="experience"
-      className="py-20 px-4 bg-gradient-to-br from-background to-warm-cream dark:from-background dark:to-charcoal"
+      className="py-20 px-4 bg-gradient-to-br from-background/70 to-warm-cream/60 dark:from-background/70 dark:to-charcoal/60 backdrop-blur-sm"
     >
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16 animate-fade-in">
