@@ -76,7 +76,7 @@ const BackgroundScene = () => {
           />
         )}
         {/* Readability scrim */}
-        <div className="absolute inset-0 bg-[#1A1A2E]/70" />
+        <div className="absolute inset-0 bg-[#1A1A2E]/80" />
       </div>
     </div>
   );
