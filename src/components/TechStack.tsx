@@ -113,9 +113,9 @@ const TechStack = () => {
       </div>
 
       {/* Flowing stream */}
-      <div className="relative">
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-20 w-24 bg-gradient-to-r from-background to-transparent md:w-40" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-20 w-24 bg-gradient-to-l from-background to-transparent md:w-40" />
+      <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl border border-border/60 bg-card/60 px-2 py-2 backdrop-blur-xl">
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-20 w-24 bg-gradient-to-r from-card to-transparent md:w-40" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-20 w-24 bg-gradient-to-l from-card to-transparent md:w-40" />
 
         <motion.div
           className="flex w-max items-center py-10"
