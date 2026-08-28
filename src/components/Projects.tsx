@@ -45,7 +45,7 @@ const Projects = () => {
       ],
       role: "Architected frontend, backend, PostgreSQL schema with RLS policies, three Supabase Edge Functions, custom design system, and production deployment.",
       github: "https://github.com/AnandaSH-8/AssetPulse",
-      demo: "https://ashets-manager.vercel.app/",
+      demo: "https://ashets-pulse.vercel.app/",
       image: assetsDashboard,
       // stats: { stars: 18, contributors: 1, lastUpdate: "Just now" },
       // status: "Active Development",
@@ -65,8 +65,7 @@ const Projects = () => {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-500 mx-auto mb-8 rounded-full" />
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Showcasing my expertise through real-world applications that solve
-            complex problems
+            Showcasing my expertise through real-world applications that solve complex problems
           </p>
         </div>
 
@@ -130,26 +129,17 @@ const Projects = () => {
                       <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-orange-500 transition-colors duration-300 mb-1">
                         {project.title}
                       </h3>
-                      <p className="text-blue-600 dark:text-orange-500 font-medium text-lg">
-                        {project.subtitle}
-                      </p>
+                      <p className="text-blue-600 dark:text-orange-500 font-medium text-lg">{project.subtitle}</p>
                     </div>
 
-                    <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                      {project.description}
-                    </p>
+                    <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">{project.description}</p>
 
                     {/* Key Features */}
                     <div className="mb-6">
-                      <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-3">
-                        Key Features:
-                      </h4>
+                      <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-3">Key Features:</h4>
                       <div className="grid grid-cols-2 gap-2">
                         {project.features.map((feature, fi) => (
-                          <div
-                            key={fi}
-                            className="flex items-center text-sm text-gray-600 dark:text-gray-300"
-                          >
+                          <div key={fi} className="flex items-center text-sm text-gray-600 dark:text-gray-300">
                             <div className="w-2 h-2 bg-blue-500 dark:bg-orange-500 rounded-full mr-2 shrink-0" />
                             {feature}
                           </div>
@@ -159,19 +149,13 @@ const Projects = () => {
 
                     {/* My Role */}
                     <div className="mb-6">
-                      <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-2">
-                        My Role:
-                      </h4>
-                      <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                        {project.role}
-                      </p>
+                      <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-2">My Role:</h4>
+                      <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">{project.role}</p>
                     </div>
 
                     {/* Tech Stack */}
                     <div className="mb-8">
-                      <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-3">
-                        Tech Stack:
-                      </h4>
+                      <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-3">Tech Stack:</h4>
                       <div className="flex flex-wrap gap-2">
                         {project.stack.map((tech, ti) => (
                           <Badge
@@ -191,11 +175,7 @@ const Projects = () => {
                         asChild
                         className="bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-orange-600 dark:to-red-600 hover:shadow-lg hover-scale transition-all duration-300 text-white"
                       >
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
+                        <a href={project.github} target="_blank" rel="noopener noreferrer">
                           <FaGithub className="mr-2 h-4 w-4" />
                           View Code
                         </a>
@@ -205,11 +185,7 @@ const Projects = () => {
                         asChild
                         className="border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white dark:border-orange-500 dark:text-orange-500 dark:hover:bg-orange-500 hover-scale transition-all duration-300"
                       >
-                        <a
-                          href={project.demo}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
+                        <a href={project.demo} target="_blank" rel="noopener noreferrer">
                           <ExternalLink className="mr-2 h-4 w-4" />
                           Live Demo
                         </a>
@@ -233,11 +209,7 @@ const Projects = () => {
               size="lg"
               className="bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-orange-600 dark:to-red-600 hover:shadow-lg hover-scale transition-all duration-300 text-white"
             >
-              <a
-                href="https://github.com/AnandaSH-8"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="https://github.com/AnandaSH-8" target="_blank" rel="noopener noreferrer">
                 <FaGithub className="mr-2 h-5 w-5" />
                 View All Projects
               </a>
