@@ -1,12 +1,5 @@
-import {
-  useState,
-  useEffect,
-  useRef,
-  MouseEvent
-} from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { motion } from "framer-motion";
 import {
   SiReact,
   SiVuedotjs,
@@ -23,220 +16,126 @@ import {
 
 interface TechItem {
   name: string;
-  icon: React.ComponentType<any>;
+  icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }>;
   color: string;
-  description: string;
-  category: "Frontend" | "Backend" | "Database";
 }
 
 const techStack: TechItem[] = [
-  // Frontend
-  {
-    name: "React.js",
-    icon: SiReact,
-    color: "#61DAFB",
-    description:
-      "Building dynamic, component-based user interfaces with hooks, context, and modern React patterns.",
-    category: "Frontend",
-  },
-  {
-    name: "Next.js",
-    icon: SiNextdotjs,
-    color: "#000000",
-    description:
-      "React framework for production with server-side rendering, static site generation, and API routes.",
-    category: "Frontend",
-  },
-  {
-    name: "Vue.js",
-    icon: SiVuedotjs,
-    color: "#4FC08D",
-    description:
-      "Creating reactive applications with Vue 3 composition API and state management.",
-    category: "Frontend",
-  },
-  {
-    name: "TypeScript",
-    icon: SiTypescript,
-    color: "#3178C6",
-    description:
-      "Type-safe development with advanced TypeScript features and strict type checking.",
-    category: "Frontend",
-  },
-  {
-    name: "JavaScript",
-    icon: SiJavascript,
-    color: "#F7DF1E",
-    description:
-      "ES6+ features, async/await, closures, and modern JavaScript development.",
-    category: "Frontend",
-  },
-  {
-    name: "Tailwind CSS",
-    icon: SiTailwindcss,
-    color: "#06B6D4",
-    description:
-      "Utility-first CSS framework for rapid UI development and responsive design.",
-    category: "Frontend",
-  },
-
-  // Backend
-  {
-    name: "Node.js",
-    icon: SiNodedotjs,
-    color: "#339933",
-    description:
-      "Server-side JavaScript runtime for building scalable network applications.",
-    category: "Backend",
-  },
-  {
-    name: "Express.js",
-    icon: SiExpress,
-    color: "#000000",
-    description:
-      "Fast, unopinionated web framework for Node.js with middleware and routing.",
-    category: "Backend",
-  },
-  {
-    name: "NestJS",
-    icon: SiNestjs,
-    color: "#E0234E",
-    description:
-      "Progressive Node.js framework for building efficient and scalable server-side applications.",
-    category: "Backend",
-  },
-
-  // Database
-  {
-    name: "PostgreSQL",
-    icon: SiPostgresql,
-    color: "#4169E1",
-    description:
-      "Advanced relational database with complex queries, indexing, and performance optimization.",
-    category: "Database",
-  },
-  {
-    name: "MongoDB",
-    icon: SiMongodb,
-    color: "#47A248",
-    description:
-      "NoSQL document database for flexible, scalable data storage solutions.",
-    category: "Database",
-  },
+  { name: "React.js", icon: SiReact, color: "#61DAFB" },
+  { name: "Next.js", icon: SiNextdotjs, color: "#8B8B8B" },
+  { name: "Vue.js", icon: SiVuedotjs, color: "#4FC08D" },
+  { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+  { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+  { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
+  { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
+  { name: "Express.js", icon: SiExpress, color: "#7A7A7A" },
+  { name: "NestJS", icon: SiNestjs, color: "#E0234E" },
+  { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
+  { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
 ];
 
-const TechStack = () => {
-  const [visibleItems, setVisibleItems] = useState<number[]>([]);
+const TechOrb = ({
+  tech,
+  index,
+  dimmed,
+  onHoverChange,
+}: {
+  tech: TechItem;
+  index: number;
+  dimmed: boolean;
+  onHoverChange: (name: string | null) => void;
+}) => {
+  // gentle wave offset per item
+  const offset = [0, -14, 10, -6, 16, -12][index % 6];
+  const duration = 4 + (index % 5) * 0.7;
 
-  useEffect(() => {
-    const timers = techStack.map((_, index) =>
-      setTimeout(() => {
-        setVisibleItems((prev) => [...prev, index]);
-      }, index * 100),
-    );
-
-    return () => {
-      timers.forEach(clearTimeout);
-      setVisibleItems([]);
-    };
-  }, []);
-
-  const TechCard = ({ tech, index }: { tech: TechItem; index: number }) => {
-    const cardRef = useRef<HTMLDivElement>(null);
-    const [pos, setPos] = useState({ x: -200, y: -200 });
-    const [hovered, setHovered] = useState(false);
-
-    const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
-      const rect = cardRef.current?.getBoundingClientRect();
-      if (!rect) return;
-      setPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-    };
-
-    return (
-      <div
-        ref={cardRef}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        onMouseMove={handleMouseMove}
-        className={`group relative rounded-xl p-[1px] transition-all duration-500 ${
-          visibleItems.includes(index)
-            ? "animate-fade-in opacity-100 translate-y-0"
-            : "opacity-0 translate-y-10"
-        }`}
+  return (
+    <motion.div
+      className="flex shrink-0 flex-col items-center gap-3 px-6 md:px-9"
+      style={{ marginTop: offset }}
+      animate={{ y: [0, -8, 0] }}
+      transition={{ duration, repeat: Infinity, ease: "easeInOut" }}
+      onHoverStart={() => onHoverChange(tech.name)}
+      onHoverEnd={() => onHoverChange(null)}
+    >
+      <motion.div
+        whileHover={{ scale: 1.18 }}
+        transition={{ type: "spring", stiffness: 260, damping: 18 }}
+        className="relative grid h-24 w-24 place-items-center rounded-full border border-border/60 bg-card/30 backdrop-blur-xl md:h-28 md:w-28"
         style={{
-          animationDelay: `${index * 0.1}s`,
-          background: hovered
-            ? `conic-gradient(from ${pos.x}deg at ${pos.x}px ${pos.y}px, hsl(var(--primary)), hsl(var(--primary) / 0.3), hsl(var(--primary)))`
-            : "hsl(var(--border))",
+          opacity: dimmed ? 0.4 : 1,
+          transition: "opacity 400ms ease",
+          boxShadow: `0 8px 30px -12px ${tech.color}55`,
         }}
       >
-        <Card className="relative overflow-hidden rounded-[11px] border-0 bg-card/40 backdrop-blur-xl shadow-lg group-hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-1">
-          {/* Spotlight follow-mouse */}
-          <div
-            className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-            style={{
-              background: `radial-gradient(280px circle at ${pos.x}px ${pos.y}px, hsl(var(--primary) / 0.18), transparent 70%)`,
-            }}
-          />
+        <div
+          className="pointer-events-none absolute inset-0 rounded-full opacity-60"
+          style={{
+            background: `radial-gradient(circle at 30% 25%, ${tech.color}25, transparent 65%)`,
+          }}
+        />
+        <tech.icon
+          className="relative h-10 w-10 md:h-12 md:w-12"
+          style={{ color: tech.color }}
+        />
+      </motion.div>
+      <span className="text-xs font-medium tracking-wide text-muted-foreground md:text-sm">
+        {tech.name}
+      </span>
+    </motion.div>
+  );
+};
 
-          <CardContent className="relative z-10 p-6 flex flex-col items-center text-center h-full">
-            <div className="relative mb-4 p-4 rounded-2xl bg-muted/60 backdrop-blur-sm transition-transform duration-500 group-hover:scale-110">
-              <tech.icon
-                className="w-16 h-16 transition-all duration-500"
-                style={{
-                  color: tech.color,
-                  filter: hovered
-                    ? `drop-shadow(0 0 12px ${tech.color}80)`
-                    : "none",
-                }}
-              />
-            </div>
-
-            <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
-              {tech.name}
-            </h3>
-
-            <Badge variant="secondary" className="mb-1 text-xs font-medium">
-              {tech.category}
-            </Badge>
-          </CardContent>
-        </Card>
-      </div>
-    );
-  };
+const TechStack = () => {
+  const [hovered, setHovered] = useState<string | null>(null);
+  const loop = [...techStack, ...techStack];
 
   return (
     <section
       id="tech-stack"
-      className="py-20 px-4 bg-gradient-to-br from-background/70 to-muted/40 backdrop-blur-sm relative overflow-hidden"
+      className="relative overflow-hidden px-4 py-24 backdrop-blur-sm"
     >
-      {/* Background Effects */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-10 w-6 h-6 bg-primary/5 rounded-full animate-float-bg-1"></div>
-        <div className="absolute top-40 right-20 w-8 h-8 bg-primary/3 rounded-full animate-float-bg-2"></div>
-        <div className="absolute bottom-40 left-1/4 w-4 h-4 bg-primary/7 rounded-full animate-float-bg-3"></div>
-        <div className="absolute bottom-20 right-1/3 w-7 h-7 bg-primary/5 rounded-full animate-float-bg-4"></div>
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute left-1/4 top-10 h-64 w-64 rounded-full bg-primary/5 blur-3xl" />
+        <div className="absolute bottom-10 right-1/4 h-72 w-72 rounded-full bg-primary/5 blur-3xl" />
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Header */}
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-500 bg-clip-text text-transparent">
+      <div className="relative z-10 mx-auto max-w-7xl">
+        <div className="mb-16 text-center">
+          <h2 className="mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-5xl font-black text-transparent dark:from-orange-500 dark:via-red-500 dark:to-pink-500 md:text-6xl">
             Tech Stack
           </h2>
-          <div className="w-32 h-2 bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-500 mx-auto mb-8 rounded-full"></div>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Technologies I use to build modern, scalable, and efficient
-            applications
+          <div className="mx-auto mb-8 h-2 w-32 rounded-full bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-500" />
+          <p className="mx-auto max-w-3xl text-xl leading-relaxed text-muted-foreground">
+            A living stream of the technologies I build with
           </p>
         </div>
+      </div>
 
-        {/* Tech Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-16">
-          {techStack.map((tech, index) => (
-            <TechCard key={tech.name} tech={tech} index={index} />
+      {/* Flowing stream */}
+      <div className="relative">
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-20 w-24 bg-gradient-to-r from-background to-transparent md:w-40" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-20 w-24 bg-gradient-to-l from-background to-transparent md:w-40" />
+
+        <motion.div
+          className="flex w-max items-center py-10"
+          animate={{ x: ["-50%", "0%"] }}
+          transition={{
+            duration: hovered ? 90 : 38,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+        >
+          {loop.map((tech, i) => (
+            <TechOrb
+              key={`${tech.name}-${i}`}
+              tech={tech}
+              index={i}
+              dimmed={hovered !== null && hovered !== tech.name}
+              onHoverChange={setHovered}
+            />
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
