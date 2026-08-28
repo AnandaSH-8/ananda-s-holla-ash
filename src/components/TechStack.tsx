@@ -61,7 +61,7 @@ const TechOrb = ({
       <motion.div
         whileHover={{ scale: 1.18 }}
         transition={{ type: "spring", stiffness: 260, damping: 18 }}
-        className="relative grid h-24 w-24 place-items-center rounded-full border border-border/60 bg-card/30 backdrop-blur-xl md:h-28 md:w-28"
+        className="relative grid h-24 w-24 place-items-center rounded-full border border-border/70 bg-card/70 backdrop-blur-xl md:h-28 md:w-28"
         style={{
           opacity: dimmed ? 0.4 : 1,
           transition: "opacity 400ms ease",
@@ -113,9 +113,9 @@ const TechStack = () => {
       </div>
 
       {/* Flowing stream */}
-      <div className="relative">
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-20 w-24 bg-gradient-to-r from-background to-transparent md:w-40" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-20 w-24 bg-gradient-to-l from-background to-transparent md:w-40" />
+      <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl border border-border/60 bg-card/60 px-2 py-2 backdrop-blur-xl">
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-20 w-24 bg-gradient-to-r from-card to-transparent md:w-40" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-20 w-24 bg-gradient-to-l from-card to-transparent md:w-40" />
 
         <motion.div
           className="flex w-max items-center py-10"
