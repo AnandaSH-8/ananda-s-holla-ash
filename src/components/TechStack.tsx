@@ -61,7 +61,7 @@ const TechOrb = ({
       <motion.div
         whileHover={{ scale: 1.18 }}
         transition={{ type: "spring", stiffness: 260, damping: 18 }}
-        className="relative grid h-24 w-24 place-items-center rounded-full border border-border/60 bg-card/30 backdrop-blur-xl md:h-28 md:w-28"
+        className="relative grid h-24 w-24 place-items-center rounded-full border border-border/70 bg-card/70 backdrop-blur-xl md:h-28 md:w-28"
         style={{
           opacity: dimmed ? 0.4 : 1,
           transition: "opacity 400ms ease",
