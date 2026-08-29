@@ -51,7 +51,7 @@ const TechOrb = ({
 
   return (
     <motion.div
-      className="group flex shrink-0 flex-col items-center gap-3 px-6 md:px-9"
+      className="group flex shrink-0 flex-col items-center gap-3 px-8 md:px-12"
       style={{ marginTop: offset }}
       animate={{ y: [0, -8, 0] }}
       transition={{ duration, repeat: Infinity, ease: "easeInOut" }}
@@ -61,7 +61,7 @@ const TechOrb = ({
       <motion.div
         whileHover={{ scale: 1.2, y: -6 }}
         transition={{ type: "spring", stiffness: 280, damping: 16 }}
-        className="relative grid h-24 w-24 place-items-center rounded-full border-2 border-border bg-card/80 shadow-md backdrop-blur-xl transition-colors duration-300 group-hover:border-transparent md:h-28 md:w-28"
+        className="relative grid h-28 w-28 place-items-center rounded-full border-2 border-border bg-white shadow-md backdrop-blur-xl transition-colors duration-300 group-hover:border-transparent dark:bg-card/90 md:h-32 md:w-32"
         style={{
           opacity: dimmed ? 0.4 : 1,
           transition: "opacity 400ms ease",
@@ -82,7 +82,7 @@ const TechOrb = ({
           }}
         />
         <tech.icon
-          className="relative h-10 w-10 transition-transform duration-300 group-hover:scale-110 md:h-12 md:w-12"
+          className="relative h-12 w-12 transition-transform duration-300 group-hover:scale-110 md:h-14 md:w-14"
           style={{ color: tech.color }}
         />
       </motion.div>
@@ -126,11 +126,11 @@ const TechStack = () => {
 
       {/* Flowing stream */}
       <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl border border-border bg-card/80 px-2 py-2 shadow-lg backdrop-blur-xl">
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-20 w-24 bg-gradient-to-r from-card to-transparent md:w-40" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-20 w-24 bg-gradient-to-l from-card to-transparent md:w-40" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-20 w-28 bg-gradient-to-r from-white to-transparent dark:from-card md:w-48" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-20 w-28 bg-gradient-to-l from-white to-transparent dark:from-card md:w-48" />
 
         <motion.div
-          className="flex w-max items-center py-10"
+          className="flex w-max items-center py-12"
           animate={{ x: ["-50%", "0%"] }}
           transition={{
             duration: hovered ? 90 : 38,
