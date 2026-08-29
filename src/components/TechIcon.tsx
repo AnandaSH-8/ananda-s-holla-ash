@@ -56,7 +56,7 @@ const TechIcon = ({ name, className = "" }: TechIconProps) => {
       MongoDB: "#47A248",
     };
 
-    return colorMap[iconName] || "red";
+    return colorMap[iconName] || "#6B7280";
   };
 
   const handleClick = () => {
@@ -72,7 +72,7 @@ const TechIcon = ({ name, className = "" }: TechIconProps) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <div
-        className={`relative w-14 h-14 flex flex-col items-center justify-center rounded-xl shadow-lg transform transition-all duration-500 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 ${
+        className={`relative w-14 h-14 flex flex-col items-center justify-center rounded-xl shadow-lg transform transition-all duration-500 bg-red dark:bg-gray-700 border border-gray-200 dark:border-gray-600 ${
           isHovered ? "scale-125 -translate-y-3 shadow-2xl" : "hover:scale-110 hover:-translate-y-1"
         } ${isClicked ? "animate-bounce" : ""}`}
         style={{
