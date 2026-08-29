@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { Menu, X } from "lucide-react";
 import AnimatedLogo from "./AnimatedLogo";
 import ThemeToggle from "./ThemeToggle";
 
 const Navigation = () => {
   const [activeSection, setActiveSection] = useState("hero");
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const reduceMotion = useReducedMotion();
 
   const navItems = [
     { id: "hero", label: "Home" },
@@ -37,31 +41,99 @@ const Navigation = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+    setMobileOpen(false);
   };
 
+  const pillTransition = reduceMotion
+    ? { duration: 0 }
+    : { type: "spring" as const, stiffness: 400, damping: 32 };
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-md border-b border-border">
-      <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+    <nav className="fixed top-3 left-0 right-0 z-50 px-4">
+      <div className="max-w-6xl mx-auto flex items-center justify-between gap-3">
+        {/* Logo */}
         <div className="flex items-center">
           <AnimatedLogo />
         </div>
-        
-        <div className="hidden md:flex items-center space-x-6">
-          {navItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => scrollToSection(item.id)}
-              className={`nav-underline text-sm font-medium transition-colors hover:text-blue-500 dark:hover:text-orange-500 ${
-                activeSection === item.id ? 'active text-blue-500 dark:text-orange-500' : 'text-muted-foreground'
-              }`}
-            >
-              {item.label}
-            </button>
-          ))}
+
+        {/* Floating pill — desktop */}
+        <div className="hidden md:flex items-center rounded-full bg-card/70 backdrop-blur-xl border border-border shadow-lg shadow-black/5 px-2 py-1.5">
+          {navItems.map((item) => {
+            const isActive = activeSection === item.id;
+            return (
+              <motion.button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                whileHover={reduceMotion ? undefined : { y: -1 }}
+                whileTap={reduceMotion ? undefined : { scale: 0.96 }}
+                className={`relative rounded-full px-4 py-1.5 text-sm font-medium transition-colors duration-300 ${
+                  isActive
+                    ? 'text-primary-foreground'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                {isActive && (
+                  <motion.span
+                    layoutId="nav-active-pill"
+                    transition={pillTransition}
+                    className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-400 to-orange-500 dark:from-blue-500 dark:to-blue-600 shadow-md shadow-orange-500/30 dark:shadow-blue-500/30"
+                  />
+                )}
+                <span className="relative z-10">{item.label}</span>
+              </motion.button>
+            );
+          })}
         </div>
 
-        <ThemeToggle />
+        {/* Right side: theme toggle + mobile hamburger */}
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          <button
+            onClick={() => setMobileOpen((o) => !o)}
+            aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={mobileOpen}
+            className="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-card/70 backdrop-blur-xl border border-border shadow-lg shadow-black/5 text-foreground transition-colors"
+          >
+            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile dropdown */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: -8, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -8, scale: 0.98 }}
+            transition={{ duration: reduceMotion ? 0 : 0.2, ease: "easeOut" }}
+            className="md:hidden mt-2 mx-auto max-w-6xl rounded-3xl bg-card/80 backdrop-blur-xl border border-border shadow-xl shadow-black/10 p-3 flex flex-col gap-1"
+          >
+            {navItems.map((item, i) => {
+              const isActive = activeSection === item.id;
+              return (
+                <motion.button
+                  key={item.id}
+                  initial={reduceMotion ? false : { opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: reduceMotion ? 0 : i * 0.04, duration: 0.2 }}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`relative w-full text-left rounded-2xl px-4 py-2.5 text-sm font-medium transition-colors duration-300 ${
+                    isActive
+                      ? 'text-primary-foreground'
+                      : 'text-muted-foreground hover:text-foreground'
+                  }`}
+                >
+                  {isActive && (
+                    <span className="absolute inset-0 rounded-2xl bg-gradient-to-r from-orange-400 to-orange-500 dark:from-blue-500 dark:to-blue-600" />
+                  )}
+                  <span className="relative z-10">{item.label}</span>
+                </motion.button>
+              );
+            })}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };

@@ -435,31 +435,8 @@
     will-change: transform;
   }
 
-  /* Navigation Underline */
-  .nav-underline {
-    position: relative;
-  }
 
-  .nav-underline::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 3px;
-    bottom: -6px;
-    left: 0;
-    background: linear-gradient(90deg, #3B82F6, #00BFFF);
-    transition: width 0.3s ease-out;
-    border-radius: 2px;
-  }
 
-  .dark .nav-underline::after {
-    background: linear-gradient(90deg, #FF6B00, #FFA500);
-  }
-
-  .nav-underline:hover::after,
-  .nav-underline.active::after {
-    width: 100%;
-  }
 
   /* Name expansion animations */
   .animate-fade-in {
