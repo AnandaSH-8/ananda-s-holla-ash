@@ -85,13 +85,11 @@ const Contact = () => {
 
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Let's Connect
-          </h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Let's Connect</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-300 dark:from-orange-400 dark:to-red-300 mx-auto mb-8"></div>
           <p className="text-xl text-blue-100 dark:text-orange-100 max-w-2xl mx-auto">
-            Whether it's a project, an opportunity, or just a hello — feel free
-            to reach out. I'm always open to a good conversation.
+            Whether it's a project, an opportunity, or just a hello — feel free to reach out. I'm always open to a good
+            conversation.
           </p>
         </div>
 
@@ -137,12 +135,8 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="font-medium">Location</p>
-                  <p className="text-blue-300 dark:text-orange-300">
-                    Moodabidri, Karnataka, India
-                  </p>
-                  <p className="text-sm text-blue-400 dark:text-orange-400">
-                    Available for remote work worldwide
-                  </p>
+                  <p className="text-blue-300 dark:text-orange-300">Moodabidri, Karnataka, India</p>
+                  <p className="text-sm text-blue-400 dark:text-orange-400">Available for remote work worldwide</p>
                 </div>
               </div>
             </div>
@@ -169,13 +163,6 @@ const Contact = () => {
                   <FaGithub className="h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
                 </a>
                 <a
-                  href="mailto:anandsholla8@gmail.com"
-                  aria-label="Email Ananda"
-                  className="bg-blue-500 dark:bg-orange-500 p-3 rounded-lg hover:bg-blue-600 dark:hover:bg-orange-600 transition-colors hover-scale group"
-                >
-                  <FaEnvelope className="h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
-                </a>
-                <a
                   href="https://x.com/anandsholla8"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -191,9 +178,7 @@ const Contact = () => {
           {/* Contact Form */}
           <Card className="border-0 bg-white/10 backdrop-blur-sm hover:bg-white/15 transition-all duration-300 animate-scale-in">
             <CardContent className="p-8">
-              <h3 className="text-2xl font-bold text-white mb-6">
-                Send Message
-              </h3>
+              <h3 className="text-2xl font-bold text-white mb-6">Send Message</h3>
 
               {isSuccess ? (
                 <div className="flex flex-col items-center justify-center py-12 text-center space-y-4">
@@ -233,9 +218,13 @@ const Contact = () => {
                       required
                       className="w-full rounded-md bg-white/20 border border-white/30 text-white px-3 py-2 text-sm focus:outline-none focus:border-cyan-400 dark:focus:border-orange-400 transition-colors [&>option]:text-black"
                     >
-                      <option value="" disabled>Select a reason...</option>
+                      <option value="" disabled>
+                        Select a reason...
+                      </option>
                       {REASONS.map((r) => (
-                        <option key={r.label} value={r.label}>{r.label}</option>
+                        <option key={r.label} value={r.label}>
+                          {r.label}
+                        </option>
                       ))}
                     </select>
                   </div>
@@ -315,9 +304,7 @@ const Contact = () => {
                     />
                   </div>
 
-                  {error && (
-                    <p className="text-red-300 text-sm">{error}</p>
-                  )}
+                  {error && <p className="text-red-300 text-sm">{error}</p>}
 
                   <Button
                     type="submit"
@@ -336,9 +323,7 @@ const Contact = () => {
         {/* Call to Action */}
         <div className="text-center mt-16 animate-bounce-in">
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold mb-4">
-              Want to Reach Out Directly?
-            </h3>
+            <h3 className="text-2xl font-bold mb-4">Want to Reach Out Directly?</h3>
             <p className="text-blue-200 dark:text-orange-200 mb-6">
               Prefer email? Drop me a message directly — I read every one.
             </p>
