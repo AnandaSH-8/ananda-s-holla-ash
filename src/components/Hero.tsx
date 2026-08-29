@@ -1,10 +1,4 @@
-import {
-  FaGithub,
-  FaLinkedin,
-  FaEnvelope,
-  FaXTwitter,
-  FaDownload,
-} from "react-icons/fa6";
+import { FaGithub, FaLinkedin, FaEnvelope, FaXTwitter, FaDownload } from "react-icons/fa6";
 
 import { Button } from "@/components/ui/button";
 import profileImg from "@/assets/profile.png";
@@ -141,10 +135,9 @@ const Hero = () => {
           </h2>
 
           <p className="text-lg md:text-xl lg:text-2xl text-[#333]/70 dark:text-[#EDEDED]/70 mb-12 leading-relaxed animate-hero-description max-w-2xl lg:max-w-none">
-            Full-Stack Developer with 3.6+ years of experience designing and
-            developing scalable web applications. Experienced in building robust
-            backend services, intuitive user interfaces, and end-to-end
-            solutions that deliver real business value.
+            Full-Stack Developer with 3.7 years of experience designing and developing scalable web applications.
+            Experienced in building robust backend services, intuitive user interfaces, and end-to-end solutions that
+            deliver real business value.
           </p>
 
           <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-12 animate-hero-cta">
