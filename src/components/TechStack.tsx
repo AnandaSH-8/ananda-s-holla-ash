@@ -83,7 +83,7 @@ const TechOrb = ({
         />
         <tech.icon
           className="relative h-10 w-10 transition-transform duration-300 group-hover:scale-110 md:h-12 md:w-12"
-          style={{ color: tech.color }}
+          style={{ color: tech.color, border: "2px solid red" }}
         />
       </motion.div>
       {/* brand-tinted name pill */}
@@ -106,10 +106,7 @@ const TechStack = () => {
   const loop = [...techStack, ...techStack];
 
   return (
-    <section
-      id="tech-stack"
-      className="relative overflow-hidden px-4 py-24 backdrop-blur-sm"
-    >
+    <section id="tech-stack" className="relative overflow-hidden px-4 py-24 backdrop-blur-sm">
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute left-1/4 top-10 h-64 w-64 rounded-full bg-primary/5 blur-3xl" />
         <div className="absolute bottom-10 right-1/4 h-72 w-72 rounded-full bg-primary/5 blur-3xl" />
