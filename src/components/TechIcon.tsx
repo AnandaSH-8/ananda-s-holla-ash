@@ -38,7 +38,7 @@ const TechIcon = ({ name, className = "" }: TechIconProps) => {
     };
 
     const IconComponent = iconMap[iconName];
-    return IconComponent ? <IconComponent /> : <div className="w-6 h-6 bg-gray-800 rounded"></div>;
+    return IconComponent ? <IconComponent /> : <div className="w-6 h-6 bg-gray-400 rounded"></div>;
   };
 
   const getIconColor = (iconName: string) => {
@@ -56,7 +56,7 @@ const TechIcon = ({ name, className = "" }: TechIconProps) => {
       MongoDB: "#47A248",
     };
 
-    return colorMap[iconName] || "#6B7280";
+    return colorMap[iconName] || "red";
   };
 
   const handleClick = () => {
