@@ -97,7 +97,7 @@ const Experience = () => {
                   <span className="block w-3.5 h-3.5 rounded-full bg-blue-600 dark:bg-orange-500 shadow-[0_0_12px_rgba(37,99,235,0.6)] dark:shadow-[0_0_14px_rgba(249,115,22,0.7)] transition-transform duration-300 group-hover:scale-125" />
                 </span>
 
-                <div className="rounded-2xl bg-card/60 backdrop-blur-xl p-6 md:p-8 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_-16px_rgba(37,99,235,0.45)] dark:hover:shadow-[0_16px_40px_-16px_rgba(249,115,22,0.5)]">
+                <div className="rounded-2xl border border-border bg-card/80 backdrop-blur-xl p-6 md:p-8 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_-16px_rgba(37,99,235,0.45)] dark:hover:shadow-[0_16px_40px_-16px_rgba(249,115,22,0.5)]">
                   <div className="flex flex-wrap items-baseline justify-between gap-2 mb-5">
                     <h3 className="text-xl md:text-2xl font-bold text-foreground">
                       {role.title}
