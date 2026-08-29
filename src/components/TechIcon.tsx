@@ -66,7 +66,7 @@ const TechIcon = ({ name, className = "" }: TechIconProps) => {
 
   return (
     <div
-      className={`group cursor-pointer ${className} border-3 border-red-800`}
+      className={`group cursor-pointer ${className}`}
       onClick={handleClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
