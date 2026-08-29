@@ -83,7 +83,7 @@ const TechOrb = ({
         />
         <tech.icon
           className="relative h-10 w-10 transition-transform duration-300 group-hover:scale-110 md:h-12 md:w-12"
-          style={{ color: tech.color, border: "2px solid red" }}
+          style={{ color: tech.color }}
         />
       </motion.div>
       {/* brand-tinted name pill */}
