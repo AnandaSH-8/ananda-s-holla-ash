@@ -51,7 +51,7 @@ const TechOrb = ({
 
   return (
     <motion.div
-      className="flex shrink-0 flex-col items-center gap-3 px-6 md:px-9"
+      className="group flex shrink-0 flex-col items-center gap-3 px-6 md:px-9"
       style={{ marginTop: offset }}
       animate={{ y: [0, -8, 0] }}
       transition={{ duration, repeat: Infinity, ease: "easeInOut" }}
@@ -59,27 +59,42 @@ const TechOrb = ({
       onHoverEnd={() => onHoverChange(null)}
     >
       <motion.div
-        whileHover={{ scale: 1.18 }}
-        transition={{ type: "spring", stiffness: 260, damping: 18 }}
-        className="relative grid h-24 w-24 place-items-center rounded-full border border-border bg-card/80 shadow-md backdrop-blur-xl md:h-28 md:w-28"
+        whileHover={{ scale: 1.2, y: -6 }}
+        transition={{ type: "spring", stiffness: 280, damping: 16 }}
+        className="relative grid h-24 w-24 place-items-center rounded-full border-2 border-border bg-card/80 shadow-md backdrop-blur-xl transition-colors duration-300 group-hover:border-transparent md:h-28 md:w-28"
         style={{
           opacity: dimmed ? 0.4 : 1,
           transition: "opacity 400ms ease",
           boxShadow: `0 8px 30px -12px ${tech.color}55`,
         }}
       >
+        {/* brand-colored glow ring on hover */}
+        <span
+          className="pointer-events-none absolute inset-0 rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          style={{
+            boxShadow: `0 0 0 2px ${tech.color}, 0 0 28px 6px ${tech.color}55`,
+          }}
+        />
         <div
-          className="pointer-events-none absolute inset-0 rounded-full opacity-60"
+          className="pointer-events-none absolute inset-0 rounded-full opacity-60 transition-opacity duration-300 group-hover:opacity-100"
           style={{
             background: `radial-gradient(circle at 30% 25%, ${tech.color}25, transparent 65%)`,
           }}
         />
         <tech.icon
-          className="relative h-10 w-10 md:h-12 md:w-12"
+          className="relative h-10 w-10 transition-transform duration-300 group-hover:scale-110 md:h-12 md:w-12"
           style={{ color: tech.color }}
         />
       </motion.div>
-      <span className="text-xs font-medium tracking-wide text-muted-foreground md:text-sm">
+      {/* brand-tinted name pill */}
+      <span
+        className="rounded-full border px-3 py-1 text-xs font-semibold tracking-wide md:text-sm"
+        style={{
+          color: tech.color,
+          borderColor: `${tech.color}40`,
+          backgroundColor: `${tech.color}12`,
+        }}
+      >
         {tech.name}
       </span>
     </motion.div>
