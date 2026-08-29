@@ -11,7 +11,7 @@ interface Role {
 const company = {
   name: "Sheshi Pvt. Ltd.",
   location: "Bengaluru, India",
-  duration: "3.6 Years",
+  duration: "3.7 Years",
 };
 
 const roles: Role[] = [
@@ -99,12 +99,8 @@ const Experience = () => {
 
                 <div className="rounded-2xl border border-border bg-card/80 backdrop-blur-xl p-6 md:p-8 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_-16px_rgba(37,99,235,0.45)] dark:hover:shadow-[0_16px_40px_-16px_rgba(249,115,22,0.5)]">
                   <div className="flex flex-wrap items-baseline justify-between gap-2 mb-5">
-                    <h3 className="text-xl md:text-2xl font-bold text-foreground">
-                      {role.title}
-                    </h3>
-                    <span className="text-sm font-medium text-blue-600 dark:text-orange-400">
-                      {role.timeline}
-                    </span>
+                    <h3 className="text-xl md:text-2xl font-bold text-foreground">{role.title}</h3>
+                    <span className="text-sm font-medium text-blue-600 dark:text-orange-400">{role.timeline}</span>
                   </div>
 
                   <ul className="space-y-3 mb-6">
