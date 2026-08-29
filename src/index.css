@@ -9,7 +9,7 @@
     --background: 0 0% 100%;
     --foreground: 0 0% 15%;
 
-    --card: 32 60% 96%; /* warm cream tint for contrast on white bg */
+    --card: 200 100% 97%; /* existing water-light #F0F9FF for contrast on white bg */
     --card-foreground: 0 0% 15%;
 
     --popover: 0 0% 100%;
