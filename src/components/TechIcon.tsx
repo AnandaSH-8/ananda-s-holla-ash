@@ -71,7 +71,7 @@ const TechIcon = ({ name, className = "" }: TechIconProps) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      { <div
+      <div
         className={`relative w-14 h-14 flex flex-col items-center justify-center rounded-xl shadow-lg transform transition-all duration-500 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 ${
           isHovered ? "scale-125 -translate-y-3 shadow-2xl" : "hover:scale-110 hover:-translate-y-1"
         } ${isClicked ? "animate-bounce" : ""}`}
