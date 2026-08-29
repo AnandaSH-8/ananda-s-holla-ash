@@ -73,7 +73,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <Card
               key={index}
-              className="border-0 shadow-xl hover:shadow-2xl bg-white dark:bg-gray-800 overflow-hidden animate-slide-up group transition-all duration-500 hover:-translate-y-2"
+              className="border border-border shadow-xl hover:shadow-2xl bg-card overflow-hidden animate-slide-up group transition-all duration-500 hover:-translate-y-2"
               style={{ animationDelay: `${index * 0.2}s` }}
               onMouseEnter={() => setHoveredProject(index)}
               onMouseLeave={() => setHoveredProject(null)}
