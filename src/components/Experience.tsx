@@ -1,142 +1,141 @@
+import { motion, useReducedMotion } from "framer-motion";
+import { MapPin, Building2 } from "lucide-react";
 
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Briefcase, Users, User } from "lucide-react";
+interface Role {
+  title: string;
+  timeline: string;
+  bullets: string[];
+  tech: string[];
+}
+
+const company = {
+  name: "Sheshi Pvt. Ltd.",
+  location: "Bengaluru, India",
+  duration: "3.6 Years",
+};
+
+const roles: Role[] = [
+  {
+    title: "Software Development Engineer - 2",
+    timeline: "Apr 2025 – Apr 2026",
+    bullets: [
+      "Owned backend development of Admin and Organization modules with scalable, hierarchical data flows.",
+      "Designed and shipped 40+ RESTful APIs with NestJS and PostgreSQL, defining request/response contracts with product.",
+      "Built and maintained 30+ PostgreSQL databases — schema evolution, migrations and cross-entity synchronization.",
+      "Automated template migration workflows through backend services and AWS Lambda.",
+      "Optimized services with Redis caching, efficient SQL, indexing and DTO-based validation.",
+    ],
+    tech: ["NestJS", "PostgreSQL", "Redis", "AWS Lambda"],
+  },
+  {
+    title: "Software Development Engineer",
+    timeline: "Sep 2022 – Mar 2025",
+    bullets: [
+      "Developed responsive user interfaces with Vue.js, Vuetify, Vuex and Bootstrap.",
+      "Built APIs with NestJS, Express, Node.js and PostgreSQL to support business workflows.",
+      "Wrote complex SQL involving multi-table joins, transactions and reporting aggregation.",
+      "Cut response times on data-intensive APIs through Redis caching and service tuning.",
+    ],
+    tech: ["Vue.js", "Vuex", "Node.js", "Express", "NestJS"],
+  },
+];
 
 const Experience = () => {
-  const experiences = [
-    {
-      title: "Software Development Engineer",
-      company: "Sheshi Pvt. Ltd.",
-      timeline: "Sept 2022 – Apr 2026",
-      duration: "3.6 Years",
-      type: "Full-time",
-      description:
-        "Developed and maintained scalable web applications using modern JavaScript technologies. Contributed across both frontend and backend development, building customer-facing applications and internal tools while collaborating with cross-functional teams to deliver reliable and maintainable solutions.",
-      highlights: [
-        "Frontend & Backend Development",
-        "Scalable Application Architecture",
-        "Performance Optimization",
-        "Team Collaboration",
-      ],
-    },
-  ];
-
-  const projectTypes = [
-    {
-      icon: Briefcase,
-      title: "Assets Manager",
-      description:
-        "Built a full-stack financial portfolio management platform featuring secure authentication, real-time analytics, investment tracking, growth insights, and period-over-period comparisons.",
-    },
-    {
-      icon: Users,
-      title: "Full-Stack Development",
-      description:
-        "Developed scalable frontend and backend solutions using React, Next.js, Node.js, NestJS, PostgreSQL, and modern JavaScript technologies.",
-    },
-    {
-      icon: User,
-      title: "Backend Engineering",
-      description:
-        "Designed RESTful APIs, implemented authentication workflows, integrated databases, and built maintainable server-side services focused on scalability and performance.",
-    },
-  ];
-
+  const reduce = useReducedMotion();
 
   return (
     <section
       id="experience"
       className="py-20 px-4 bg-gradient-to-br from-background/70 to-warm-cream/60 dark:from-background/70 dark:to-charcoal/60 backdrop-blur-sm"
     >
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16 animate-fade-in">
+      <div className="max-w-4xl mx-auto">
+        <div className="text-center mb-14">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-500 bg-clip-text text-transparent">
             Experience
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-500 mx-auto mb-8 rounded-full"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-500 mx-auto rounded-full" />
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Professional Experience */}
-          <div className="animate-slide-up">
-            <h3 className="text-2xl font-bold text-foreground mb-6">
-              Professional Journey
-            </h3>
-            {experiences.map((exp, index) => (
-              <Card
-                key={index}
-                className="border-0 shadow-lg mb-6 card-hover bg-card/50 backdrop-blur-sm"
+        {/* Company header */}
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-12 text-sm md:text-base">
+          <span className="inline-flex items-center gap-2 font-semibold text-foreground">
+            <Building2 className="h-4 w-4 text-blue-600 dark:text-orange-500" />
+            {company.name}
+          </span>
+          <span className="inline-flex items-center gap-2 text-muted-foreground">
+            <MapPin className="h-4 w-4" />
+            {company.location}
+          </span>
+          <span className="px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-700 dark:bg-orange-500/15 dark:text-orange-400">
+            {company.duration}
+          </span>
+        </div>
+
+        {/* Timeline */}
+        <div className="relative pl-8 md:pl-12">
+          {/* Spine */}
+          <motion.div
+            className="absolute left-[7px] md:left-[11px] top-2 bottom-2 w-[2px] origin-top rounded-full bg-gradient-to-b from-blue-600 via-purple-500 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-500"
+            initial={reduce ? false : { scaleY: 0 }}
+            whileInView={{ scaleY: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          />
+
+          <div className="space-y-10">
+            {roles.map((role, i) => (
+              <motion.div
+                key={role.title}
+                className="relative group"
+                initial={reduce ? false : { opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6, delay: i * 0.15, ease: [0.22, 1, 0.36, 1] }}
               >
-                <CardContent className="p-6">
-                  <div className="flex justify-between items-start mb-4">
-                    <div>
-                      <h4 className="text-xl font-bold text-foreground">
-                        {exp.title}
-                      </h4>
-                      <p className="text-orange-500 font-medium">
-                        {exp.company}
-                      </p>
-                      <p className="text-muted-foreground text-sm">
-                        {exp.timeline}
-                      </p>
-                    </div>
-                    <Badge
-                      variant="outline"
-                      className="text-sm border-orange-500 text-orange-500"
-                    >
-                      {exp.duration}
-                    </Badge>
+                {/* Dot */}
+                <span className="absolute -left-8 md:-left-12 top-6 flex items-center justify-center">
+                  <span className="block w-3.5 h-3.5 rounded-full bg-blue-600 dark:bg-orange-500 shadow-[0_0_12px_rgba(37,99,235,0.6)] dark:shadow-[0_0_14px_rgba(249,115,22,0.7)] transition-transform duration-300 group-hover:scale-125" />
+                </span>
+
+                <div className="rounded-2xl bg-card/60 backdrop-blur-xl p-6 md:p-8 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_-16px_rgba(37,99,235,0.45)] dark:hover:shadow-[0_16px_40px_-16px_rgba(249,115,22,0.5)]">
+                  <div className="flex flex-wrap items-baseline justify-between gap-2 mb-5">
+                    <h3 className="text-xl md:text-2xl font-bold text-foreground">
+                      {role.title}
+                    </h3>
+                    <span className="text-sm font-medium text-blue-600 dark:text-orange-400">
+                      {role.timeline}
+                    </span>
                   </div>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    {exp.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {exp.highlights.map((highlight, idx) => (
-                      <Badge
-                        key={idx}
-                        variant="secondary"
-                        className="text-xs hover:bg-orange-100 dark:hover:bg-orange-900 tech-bounce"
+
+                  <ul className="space-y-3 mb-6">
+                    {role.bullets.map((b, bi) => (
+                      <motion.li
+                        key={bi}
+                        className="flex items-start gap-3 text-muted-foreground leading-relaxed"
+                        initial={reduce ? false : { opacity: 0, y: 8 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.4 }}
+                        transition={{ duration: 0.4, delay: 0.2 + bi * 0.08 }}
                       >
-                        {highlight}
-                      </Badge>
+                        <span className="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 dark:from-orange-500 dark:to-red-500" />
+                        <span>{b}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
+
+                  <div className="flex flex-wrap gap-2">
+                    {role.tech.map((t) => (
+                      <span
+                        key={t}
+                        className="px-3 py-1 rounded-full text-xs font-semibold border border-blue-500/30 text-blue-700 bg-blue-500/5 dark:border-orange-500/30 dark:text-orange-300 dark:bg-orange-500/10 transition-transform duration-200 hover:scale-105"
+                      >
+                        {t}
+                      </span>
                     ))}
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </motion.div>
             ))}
-          </div>
-
-          {/* Project Types */}
-          <div className="animate-scale-in">
-            <h3 className="text-2xl font-bold text-foreground mb-6">
-              Project Experience
-            </h3>
-            <div className="space-y-6">
-              {projectTypes.map((type, index) => (
-                <Card
-                  key={index}
-                  className="border-0 shadow-lg card-hover bg-card/50 backdrop-blur-sm"
-                  style={{ animationDelay: `${index * 0.2}s` }}
-                >
-                  <CardContent className="p-6">
-                    <div className="flex items-start space-x-4">
-                      <div className="orange-gradient p-3 rounded-lg animate-pulse-orange">
-                        <type.icon className="h-6 w-6 text-white" />
-                      </div>
-                      <div>
-                        <h4 className="text-lg font-bold text-foreground mb-2">
-                          {type.title}
-                        </h4>
-                        <p className="text-muted-foreground leading-relaxed">
-                          {type.description}
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
           </div>
         </div>
       </div>
