@@ -1,241 +1,199 @@
-import { FaGithub, FaLinkedin, FaEnvelope, FaXTwitter, FaDownload } from "react-icons/fa6";
+import { useState } from "react";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { FaGithub, FaLinkedin, FaEnvelope, FaXTwitter, FaArrowRight } from "react-icons/fa6";
 
-import { Button } from "@/components/ui/button";
 import profileImg from "@/assets/profile.png";
 import LazyImage from "@/components/LazyImage";
 
-const Hero = () => {
-  const scrollToContact = () => {
-    const element = document.getElementById("contact");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+const socials = [
+  { label: "GitHub", href: "https://github.com/AnandaSH-8", Icon: FaGithub },
+  { label: "LinkedIn", href: "https://linkedin.com/in/ananda-s-holla", Icon: FaLinkedin },
+  { label: "Email", href: "mailto:anandsholla8@gmail.com", Icon: FaEnvelope },
+  { label: "X", href: "https://x.com/anandsholla8", Icon: FaXTwitter },
+];
 
-  const scrollToProjects = () => {
-    const element = document.getElementById("projects");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+const Hero = () => {
+  const [expanded, setExpanded] = useState(false);
+  const reduce = useReducedMotion();
+
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   const downloadResume = () => {
-    // Create a temporary link to download resume
     const link = document.createElement("a");
-    link.href = "/resume.pdf"; // You'll need to add your resume to the public folder
+    link.href = "/resume.pdf";
     link.download = "Ananda_S_Holla_Resume.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
+  const fade = (delay: number) =>
+    reduce
+      ? {}
+      : {
+          initial: { opacity: 0, y: 24 },
+          animate: { opacity: 1, y: 0 },
+          transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] as const },
+        };
+
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center px-4 pt-20 bg-gradient-to-br from-white/55 via-blue-50/40 to-cyan-50/40 dark:from-[#1A1A2E]/70 dark:via-[#2E2E2E]/60 dark:to-[#1A1A2E]/70 backdrop-blur-sm relative overflow-hidden"
+      className="relative min-h-screen flex items-center px-6 py-28 md:py-32 overflow-hidden"
     >
-      {/* Water bubbles for light mode */}
-      <div className="absolute inset-0 pointer-events-none dark:hidden">
-        <div
-          className="absolute w-2 h-2 bg-blue-400/30 rounded-full animate-water-bubble-1"
-          style={{ top: "20%", left: "10%" }}
-        ></div>
-        <div
-          className="absolute w-3 h-3 bg-cyan-400/20 rounded-full animate-water-bubble-2"
-          style={{ top: "60%", right: "15%" }}
-        ></div>
-        <div
-          className="absolute w-1.5 h-1.5 bg-blue-300/40 rounded-full animate-water-bubble-3"
-          style={{ bottom: "30%", left: "20%" }}
-        ></div>
-        <div
-          className="absolute w-2.5 h-2.5 bg-cyan-500/25 rounded-full animate-water-bubble-4"
-          style={{ top: "40%", right: "30%" }}
-        ></div>
+      {/* Ambient atmosphere */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div className="absolute -top-32 -left-24 w-[32rem] h-[32rem] rounded-full bg-blue-500/10 dark:bg-orange-500/10 blur-[120px]" />
+        <div className="absolute bottom-0 right-0 w-[28rem] h-[28rem] rounded-full bg-cyan-400/10 dark:bg-red-500/10 blur-[120px]" />
       </div>
 
-      {/* Fire embers for dark mode */}
-      <div className="absolute inset-0 pointer-events-none hidden dark:block">
-        <div
-          className="absolute w-1 h-1 bg-orange-400 rounded-full animate-float-ember-1 opacity-70"
-          style={{ top: "20%", left: "10%" }}
-        ></div>
-        <div
-          className="absolute w-1.5 h-1.5 bg-orange-500 rounded-full animate-float-ember-2 opacity-50"
-          style={{ top: "60%", right: "15%" }}
-        ></div>
-        <div
-          className="absolute w-1 h-1 bg-orange-300 rounded-full animate-float-ember-3 opacity-60"
-          style={{ bottom: "30%", left: "20%" }}
-        ></div>
-        <div
-          className="absolute w-2 h-2 bg-orange-600 rounded-full animate-float-ember-4 opacity-40"
-          style={{ top: "40%", right: "30%" }}
-        ></div>
-      </div>
+      <div className="relative z-10 max-w-7xl w-full mx-auto grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        {/* Left — content */}
+        <div className="order-2 lg:order-1 space-y-10 text-center lg:text-left">
+          <motion.div
+            {...fade(0)}
+            className="flex items-center justify-center lg:justify-start gap-3 text-xs font-bold uppercase tracking-[0.25em] text-blue-600 dark:text-orange-400"
+          >
+            <span className="hidden lg:block w-8 h-px bg-blue-600 dark:bg-orange-400" />
+            <span>Full-Stack Engineer</span>
+          </motion.div>
 
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
-        {/* Left Side - Content */}
-        <div className="text-center lg:text-left animate-hero-content-entrance order-2 lg:order-1">
-          <div className="relative group mb-8 transition-all duration-500">
-            {/* Interactive background effects */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 dark:from-orange-500/10 dark:to-red-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-[#333] dark:text-[#EDEDED] mb-6 leading-tight relative z-10 transition-all duration-500 p-6">
-              <span className="relative inline-block transition-all duration-500 group w-full text-center lg:text-left">
-                {/* Default state - ASH with theme-appropriate gradient */}
-                <span className="water-gradient-text dark:fire-gradient-text group-hover:opacity-0 group-hover:scale-85 transition-all duration-1000 block">
-                  ASH
-                </span>
-
-                {/* Hover state - Full name with theme animation and responsive sizing */}
-                <span className="absolute inset-0 opacity-0 scale-105 group-hover:opacity-100 group-hover:scale-100 transition-all duration-500 flex items-center justify-center lg:justify-start w-full overflow-hidden">
-                  <span className="relative inline-block whitespace-nowrap text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
-                    {/* Light theme - Wave animation */}
-                    <span className="block dark:hidden">
-                      {"Ananda S Holla".split("").map((letter, index) => (
-                        <span
-                          key={index}
-                          className="inline-block text-blue-600 relative animate-letter-bounce"
-                          style={{
-                            animationDelay: `${index * 0.1}s`,
-                            transform: `translateY(${Math.sin(index * 0.5) * 3}px)`,
-                            animation: `letterWave 2s ease-in-out infinite ${index * 0.1}s, letterBounce 0.8s ease-out ${index * 0.1}s`,
-                          }}
-                        >
-                          {letter === " " ? "\u00A0" : letter}
-                        </span>
-                      ))}
-                    </span>
-
-                    {/* Dark theme - Flame animation */}
-                    <span className="hidden dark:block">
-                      {"Ananda S Holla".split("").map((letter, index) => (
-                        <span
-                          key={index}
-                          className="inline-block text-orange-500 relative animate-letter-bounce"
-                          style={{
-                            animationDelay: `${index * 0.1}s`,
-                            filter: `brightness(${1 + Math.sin(index * 0.8) * 0.3}) hue-rotate(${Math.sin(index * 0.6) * 20}deg)`,
-                            animation: `letterFlame 1.5s ease-in-out infinite ${index * 0.1}s, letterBounce 0.8s ease-out ${index * 0.1}s`,
-                          }}
-                        >
-                          {letter === " " ? "\u00A0" : letter}
-                        </span>
-                      ))}
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </h1>
-          </div>
-
-          <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-[#333]/80 dark:text-[#EDEDED]/80 mb-8 font-bold animate-hero-subtitle">
-            Full Stack Web Developer
-          </h2>
-
-          <p className="text-lg md:text-xl lg:text-2xl text-[#333]/70 dark:text-[#EDEDED]/70 mb-12 leading-relaxed animate-hero-description max-w-2xl lg:max-w-none">
-            Full-Stack Developer with 3.5+ years of experience designing and developing scalable web applications.
-            Experienced in building robust backend services, intuitive user interfaces, and end-to-end solutions that
-            deliver real business value.
-          </p>
-
-          <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-12 animate-hero-cta">
-            <Button
-              onClick={scrollToContact}
-              size="lg"
-              className="water-gradient dark:fire-gradient hover:shadow-2xl hover-scale transition-all duration-300 text-white font-bold px-8 py-4 text-lg animate-cta-glow"
+          <motion.div {...fade(0.08)} className="relative">
+            <span
+              className="pointer-events-none absolute -top-4 -left-3 hidden lg:block w-12 h-12 border-t-2 border-l-2 border-orange-400/40 dark:border-blue-400/40"
+              aria-hidden="true"
+            />
+            <button
+              type="button"
+              onClick={() => setExpanded((v) => !v)}
+              aria-expanded={expanded}
+              aria-label={expanded ? "Collapse full name" : "Show full name"}
+              className="group block w-full text-center lg:text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-2xl"
             >
-              <FaEnvelope className="mr-3 h-6 w-6" />
-              Hire Me
-            </Button>
-            <Button
-              onClick={scrollToProjects}
-              variant="outline"
-              size="lg"
-              className="border-2 border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white dark:border-orange-500 dark:text-orange-500 dark:hover:bg-orange-500 dark:hover:text-white hover-scale transition-all duration-300 font-bold px-8 py-4 text-lg backdrop-blur-sm"
+              <h1 className="font-display font-bold tracking-tighter leading-[0.85] text-foreground text-[clamp(4.5rem,14vw,10rem)]">
+                A
+                <span className="text-orange-500 dark:text-blue-400 transition-colors group-hover:text-orange-400 dark:group-hover:text-blue-300">
+                  S
+                </span>
+                H
+              </h1>
+              <AnimatePresence initial={false}>
+                {expanded && (
+                  <motion.span
+                    key="fullname"
+                    initial={reduce ? { opacity: 0 } : { opacity: 0, height: 0, y: -8 }}
+                    animate={reduce ? { opacity: 1 } : { opacity: 1, height: "auto", y: 0 }}
+                    exit={reduce ? { opacity: 0 } : { opacity: 0, height: 0, y: -8 }}
+                    transition={
+                      reduce
+                        ? { duration: 0 }
+                        : { type: "spring", stiffness: 240, damping: 26 }
+                    }
+                    className="block overflow-hidden"
+                  >
+                    <span className="block font-display text-2xl sm:text-3xl md:text-4xl font-light italic tracking-tight text-blue-600 dark:text-orange-400 mt-4">
+                      Ananda S Holla
+                    </span>
+                  </motion.span>
+                )}
+              </AnimatePresence>
+              {!expanded && (
+                <span className="block mt-3 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                  Tap to reveal full name
+                </span>
+              )}
+            </button>
+          </motion.div>
+
+          <motion.p
+            {...fade(0.16)}
+            className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl mx-auto lg:mx-0"
+          >
+            I design and build scalable web applications — robust backend services, fluid
+            interfaces, and end-to-end solutions that hold up in the real world.
+          </motion.p>
+
+          <motion.div
+            {...fade(0.24)}
+            className="flex flex-wrap justify-center lg:justify-start gap-4"
+          >
+            <button
+              onClick={() => scrollTo("contact")}
+              className="group relative inline-flex items-center gap-2 rounded-full px-8 py-4 font-bold text-primary-foreground dark:text-foreground bg-gradient-to-r from-blue-500 to-cyan-500 dark:from-orange-500 dark:to-red-500 shadow-lg shadow-blue-500/20 dark:shadow-orange-500/20 transition-transform duration-300 hover:-translate-y-0.5"
+            >
+              Let&apos;s Work Together
+              <FaArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </button>
+            <button
+              onClick={downloadResume}
+              className="rounded-full px-8 py-4 font-bold border border-border bg-card/60 backdrop-blur-md text-foreground transition-colors hover:bg-card"
+            >
+              Get Resume
+            </button>
+            <button
+              onClick={() => scrollTo("projects")}
+              className="rounded-full px-8 py-4 font-bold border border-border bg-transparent text-muted-foreground transition-colors hover:text-foreground hover:bg-card/50"
             >
               View Projects
-            </Button>
-            <Button
-              onClick={downloadResume}
-              variant="outline"
-              size="lg"
-              className="border-2 border-emerald-500 text-emerald-600 hover:bg-emerald-500 hover:text-white dark:border-emerald-400 dark:text-emerald-400 dark:hover:bg-emerald-500 dark:hover:text-white hover-scale transition-all duration-300 font-bold px-8 py-4 text-lg backdrop-blur-sm"
-            >
-              <FaDownload className="mr-3 h-6 w-6" />
-              Resume
-            </Button>
-          </div>
+            </button>
+          </motion.div>
 
-          <div className="flex justify-center lg:justify-start space-x-8 animate-hero-social">
-            <a
-              href="https://linkedin.com/in/ananda-s-holla"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn profile"
-              className="text-[#333]/60 dark:text-[#EDEDED]/60 hover:text-blue-500 dark:hover:text-orange-500 transition-all duration-300 hover-scale social-glow"
-            >
-              <FaLinkedin className="h-8 w-8" />
-            </a>
-            <a
-              href="https://github.com/AnandaSH-8"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub profile"
-              className="text-[#333]/60 dark:text-[#EDEDED]/60 hover:text-blue-500 dark:hover:text-orange-500 transition-all duration-300 hover-scale social-glow"
-            >
-              <FaGithub className="h-8 w-8" />
-            </a>
-            <a
-              href="mailto:anandsholla8@gmail.com"
-              aria-label="Email Ananda"
-              className="text-[#333]/60 dark:text-[#EDEDED]/60 hover:text-blue-500 dark:hover:text-orange-500 transition-all duration-300 hover-scale social-glow"
-            >
-              <FaEnvelope className="h-8 w-8" />
-            </a>
-            <a
-              href="https://x.com/anandsholla8"
-              aria-label="Twitter profile"
-              className="text-[#333]/60 dark:text-[#EDEDED]/60 hover:text-blue-500 dark:hover:text-orange-500 transition-all duration-300 hover-scale social-glow"
-            >
-              {/* uPDATE LATEST TWITTER / X ICON
-               */}
-
-              <FaXTwitter className="h-8 w-8" />
-            </a>
-          </div>
+          <motion.div
+            {...fade(0.32)}
+            className="flex items-center justify-center lg:justify-start gap-7"
+          >
+            {socials.map(({ label, href, Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target={href.startsWith("http") ? "_blank" : undefined}
+                rel="noopener noreferrer"
+                aria-label={`${label} profile`}
+                className="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground transition-colors hover:text-cyan-600 dark:hover:text-orange-400"
+              >
+                <Icon className="h-4 w-4" />
+                <span className="hidden sm:inline">{label}</span>
+              </a>
+            ))}
+          </motion.div>
         </div>
 
-        {/* Right Side - Professional Photo Space (50% of hero section) */}
-        <div className="flex justify-center items-center animate-hero-photo order-1 lg:order-2">
-          <div className="relative w-full max-w-[500px] aspect-square bg-gradient-to-br from-blue-100 to-blue-200 dark:from-orange-500/20 dark:to-orange-600/30 rounded-full flex items-center justify-center border-4 border-blue-500 dark:border-orange-500 shadow-2xl hover-scale group overflow-hidden">
-            {/* Professional photo */}
-            <LazyImage
-              src={profileImg}
-              alt="Ananda S Holla"
-              loading="eager"
-              wrapperClassName="w-full h-full rounded-full relative z-10"
-              className="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform duration-500"
-            />
-
-            {/* Animated glowing border - Theme appropriate colors */}
-            <div className="absolute inset-0 rounded-full border-4 border-orange-500 dark:border-blue-500 animate-glow-border opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20 pointer-events-none"></div>
-
-            {/* Background pattern - Theme appropriate colors */}
-            <div className="absolute inset-0 opacity-10 dark:opacity-20">
-              <div className="absolute top-10 left-10 w-4 h-4 bg-blue-500 dark:bg-orange-500 rounded-full animate-pulse"></div>
-              <div
-                className="absolute bottom-20 right-20 w-6 h-6 bg-cyan-500 dark:bg-red-500 rounded-full animate-pulse"
-                style={{ animationDelay: "0.5s" }}
-              ></div>
-              <div
-                className="absolute top-1/2 right-10 w-3 h-3 bg-blue-400 dark:bg-orange-400 rounded-full animate-pulse"
-                style={{ animationDelay: "1s" }}
-              ></div>
+        {/* Right — photo */}
+        <motion.div
+          initial={reduce ? undefined : { opacity: 0, scale: 0.92 }}
+          animate={reduce ? undefined : { opacity: 1, scale: 1 }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          className="order-1 lg:order-2 relative flex justify-center items-center"
+        >
+          <div
+            className="absolute inset-0 scale-110 rounded-full bg-gradient-to-tr from-blue-500/25 to-orange-400/15 dark:from-orange-500/25 dark:to-blue-500/15 blur-[100px]"
+            aria-hidden="true"
+          />
+          <div className="relative group">
+            <div className="w-72 h-72 md:w-[26rem] md:h-[26rem] rounded-full p-4 border border-border bg-card/30 backdrop-blur-2xl shadow-2xl">
+              <div className="w-full h-full rounded-full overflow-hidden border-2 border-blue-500 dark:border-orange-500 relative">
+                <LazyImage
+                  src={profileImg}
+                  alt="Ananda S Holla"
+                  loading="eager"
+                  wrapperClassName="w-full h-full rounded-full"
+                  className="w-full h-full object-cover rounded-full saturate-[0.85] transition-all duration-700 group-hover:saturate-100 group-hover:scale-105"
+                />
+                <div
+                  className="absolute inset-0 rounded-full border-4 border-orange-500 dark:border-blue-500 animate-glow-border opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                  aria-hidden="true"
+                />
+              </div>
+            </div>
+            <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 -rotate-2 rounded-2xl px-6 py-3 shadow-xl bg-gradient-to-r from-blue-500 to-cyan-500 dark:from-orange-500 dark:to-red-500">
+              <span className="font-display font-bold text-sm whitespace-nowrap text-primary-foreground dark:text-foreground">
+                3.6 YEARS EXP
+              </span>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
