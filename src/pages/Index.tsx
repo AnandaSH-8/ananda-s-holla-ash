@@ -6,7 +6,6 @@ import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import ScrollProgress from "@/components/ScrollProgress";
-import SectionTOC from "@/components/SectionTOC";
 import SectionReveal from "@/components/SectionReveal";
 import BackgroundScene from "@/components/BackgroundScene";
 
@@ -15,7 +14,6 @@ const Index = () => {
     <div className="min-h-screen">
       <BackgroundScene />
       <ScrollProgress />
-      <SectionTOC />
       <Navigation />
       <main>
         <Hero />
