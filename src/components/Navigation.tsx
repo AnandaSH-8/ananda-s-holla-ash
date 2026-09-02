@@ -18,10 +18,13 @@ const Navigation = () => {
     { id: "contact", label: "Contact" },
   ];
 
+  const [scrolled, setScrolled] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       const sections = navItems.map(item => document.getElementById(item.id));
       const scrollPos = window.scrollY + 100;
+      setScrolled(window.scrollY > 20);
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i];
@@ -32,9 +35,11 @@ const Navigation = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
