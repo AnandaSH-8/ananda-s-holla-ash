@@ -23,13 +23,11 @@ const About = () => {
   return (
     <section id="about" className="py-24 px-6">
       <div className="max-w-5xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-14">
-          <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-500 bg-clip-text text-transparent">
+        <div className="text-center mb-14">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-500 bg-clip-text text-transparent">
             About Me
           </h2>
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-600 dark:text-orange-400">
-            01 — Who I am
-          </p>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-500 mx-auto rounded-full" />
         </div>
 
         {/* Intro */}
