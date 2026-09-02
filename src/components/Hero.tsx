@@ -185,18 +185,20 @@ const Hero = () => {
             aria-hidden="true"
           />
           <div className="relative group">
-            <div className="w-72 h-72 md:w-[26rem] md:h-[26rem] rounded-full p-4 border border-border bg-card/30 backdrop-blur-2xl shadow-2xl">
-              <div className="w-full h-full rounded-full overflow-hidden border-2 border-blue-500 dark:border-orange-500 relative">
+            <div className="relative w-72 h-72 md:w-[26rem] md:h-[26rem] rounded-full p-4 shadow-2xl">
+              {/* Dual-tone ring: static by default, rotates on hover */}
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 rounded-full bg-[conic-gradient(from_0deg,hsl(217_91%_55%)_0deg,hsl(217_91%_55%)_170deg,transparent_180deg,transparent_180deg,hsl(28_95%_55%)_190deg,hsl(28_95%_55%)_350deg,transparent_360deg)] dark:bg-[conic-gradient(from_0deg,hsl(28_95%_55%)_0deg,hsl(28_95%_55%)_170deg,transparent_180deg,transparent_180deg,hsl(217_91%_55%)_190deg,hsl(217_91%_55%)_350deg,transparent_360deg)] opacity-80 blur-[1px] transition-all duration-500 group-hover:opacity-100 group-hover:blur-0 motion-safe:group-hover:animate-[spin_3.5s_linear_infinite]"
+              />
+              <div className="absolute inset-[6px] rounded-full border border-border bg-card/40 backdrop-blur-2xl" aria-hidden="true" />
+              <div className="relative w-full h-full rounded-full overflow-hidden">
                 <LazyImage
                   src={profileImg}
                   alt="Ananda S Holla"
                   loading="eager"
                   wrapperClassName="w-full h-full rounded-full"
                   className="w-full h-full object-cover rounded-full saturate-[0.85] transition-all duration-700 group-hover:saturate-100 group-hover:scale-105"
-                />
-                <div
-                  className="absolute inset-0 rounded-full border-4 border-orange-500 dark:border-blue-500 animate-glow-border opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  aria-hidden="true"
                 />
               </div>
             </div>
