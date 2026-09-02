@@ -13,7 +13,7 @@ const socials = [
 ];
 
 const Hero = () => {
-  const [expanded, setExpanded] = useState(false);
+  const [revealed, setRevealed] = useState(false);
   const reduce = useReducedMotion();
 
   const scrollTo = (id: string) => {
@@ -65,46 +65,59 @@ const Hero = () => {
               className="pointer-events-none absolute -top-4 -left-3 hidden lg:block w-12 h-12 border-t-2 border-l-2 border-orange-400/40 dark:border-blue-400/40"
               aria-hidden="true"
             />
-            <button
-              type="button"
-              onClick={() => setExpanded((v) => !v)}
-              aria-expanded={expanded}
-              aria-label={expanded ? "Collapse full name" : "Show full name"}
-              className="group block w-full text-center lg:text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-2xl"
+            <div
+              tabIndex={0}
+              role="img"
+              aria-label="ASH — Ananda S Holla"
+              onMouseEnter={() => setRevealed(true)}
+              onMouseLeave={() => setRevealed(false)}
+              onFocus={() => setRevealed(true)}
+              onBlur={() => setRevealed(false)}
+              onClick={() => setRevealed((v) => !v)}
+              className="group block w-full cursor-default select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-2xl"
             >
-              <h1 className="font-display font-bold tracking-tighter leading-[0.85] text-foreground text-[clamp(4.5rem,14vw,10rem)]">
+              <h1 className="font-display font-bold tracking-tighter leading-[0.85] text-[clamp(4.5rem,14vw,10rem)] bg-gradient-to-br from-blue-600 via-cyan-500 to-indigo-600 dark:from-orange-400 dark:via-orange-500 dark:to-red-500 bg-clip-text text-transparent">
                 A
-                <span className="text-orange-500 dark:text-blue-400 transition-colors group-hover:text-orange-400 dark:group-hover:text-blue-300">
+                <span className="bg-gradient-to-br from-orange-400 to-orange-500 dark:from-cyan-300 dark:to-blue-400 bg-clip-text text-transparent">
                   S
                 </span>
                 H
               </h1>
-              <AnimatePresence initial={false}>
-                {expanded && (
-                  <motion.span
-                    key="fullname"
-                    initial={reduce ? { opacity: 0 } : { opacity: 0, height: 0, y: -8 }}
-                    animate={reduce ? { opacity: 1 } : { opacity: 1, height: "auto", y: 0 }}
-                    exit={reduce ? { opacity: 0 } : { opacity: 0, height: 0, y: -8 }}
-                    transition={
-                      reduce
-                        ? { duration: 0 }
-                        : { type: "spring", stiffness: 240, damping: 26 }
-                    }
-                    className="block overflow-hidden"
-                  >
-                    <span className="block font-display text-2xl sm:text-3xl md:text-4xl font-light italic tracking-tight text-blue-600 dark:text-orange-400 mt-4">
+
+              {/* Reserved space so nothing below shifts */}
+              <div className="h-10 sm:h-12 md:h-14 mt-3 flex items-center justify-center lg:justify-start">
+                <AnimatePresence initial={false}>
+                  {revealed && (
+                    <motion.span
+                      key="fullname"
+                      initial={reduce ? { opacity: 0 } : { opacity: 0, y: 14, filter: "blur(6px)" }}
+                      animate={
+                        reduce
+                          ? { opacity: 1 }
+                          : { opacity: 1, y: [0, -5, 0], filter: "blur(0px)" }
+                      }
+                      exit={reduce ? { opacity: 0 } : { opacity: 0, y: 10, filter: "blur(6px)" }}
+                      transition={
+                        reduce
+                          ? { duration: 0 }
+                          : {
+                              opacity: { duration: 0.4 },
+                              filter: { duration: 0.4 },
+                              y: {
+                                duration: 3.2,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                              },
+                            }
+                      }
+                      className="block font-display text-2xl sm:text-3xl md:text-4xl font-light italic tracking-tight text-blue-600 dark:text-orange-400"
+                    >
                       Ananda S Holla
-                    </span>
-                  </motion.span>
-                )}
-              </AnimatePresence>
-              {!expanded && (
-                <span className="block mt-3 text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                  Tap to reveal full name
-                </span>
-              )}
-            </button>
+                    </motion.span>
+                  )}
+                </AnimatePresence>
+              </div>
+            </div>
           </motion.div>
 
           <motion.p
@@ -186,11 +199,6 @@ const Hero = () => {
                   aria-hidden="true"
                 />
               </div>
-            </div>
-            <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 -rotate-2 rounded-2xl px-6 py-3 shadow-xl bg-gradient-to-r from-blue-500 to-cyan-500 dark:from-orange-500 dark:to-red-500">
-              <span className="font-display font-bold text-sm whitespace-nowrap text-primary-foreground dark:text-foreground">
-                3.6 YEARS EXP
-              </span>
             </div>
           </div>
         </motion.div>
