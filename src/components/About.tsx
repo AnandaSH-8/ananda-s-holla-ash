@@ -67,7 +67,7 @@ const About = () => {
           {/* Focus areas */}
           <motion.div
             {...card(0.08)}
-            className="col-span-12 md:col-span-6 lg:col-span-4 rounded-[2.5rem] p-10 flex flex-col justify-between gap-8 text-primary-foreground bg-gradient-to-br from-blue-500 to-cyan-500 dark:from-orange-500 dark:to-red-500 shadow-lg transition-transform duration-300 hover:-translate-y-1"
+            className="col-span-12 md:col-span-6 lg:col-span-4 rounded-[2.5rem] p-10 flex flex-col justify-between gap-8 text-primary-foreground dark:text-foreground bg-gradient-to-br from-blue-500 to-cyan-500 dark:from-orange-500 dark:to-red-500 shadow-lg transition-transform duration-300 hover:-translate-y-1"
           >
             <h3 className="font-display text-2xl font-bold">Focus Areas</h3>
             <ul className="space-y-4 font-medium">
@@ -86,7 +86,7 @@ const About = () => {
           {/* Experience */}
           <motion.div
             {...card(0.16)}
-            className="col-span-12 md:col-span-6 lg:col-span-4 rounded-[2.5rem] p-10 flex flex-col justify-between gap-8 bg-gradient-to-br from-orange-400 to-orange-500 dark:from-blue-500 dark:to-indigo-600 text-primary-foreground shadow-lg transition-transform duration-300 hover:-translate-y-1 hover:rotate-1"
+            className="col-span-12 md:col-span-6 lg:col-span-4 rounded-[2.5rem] p-10 flex flex-col justify-between gap-8 bg-gradient-to-br from-orange-400 to-orange-500 dark:from-blue-500 dark:to-indigo-600 text-primary-foreground dark:text-foreground shadow-lg transition-transform duration-300 hover:-translate-y-1 hover:rotate-1"
           >
             <div className="space-y-3">
               <h3 className="font-display text-2xl font-bold">Experience</h3>

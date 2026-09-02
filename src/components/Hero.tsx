@@ -121,7 +121,7 @@ const Hero = () => {
           >
             <button
               onClick={() => scrollTo("contact")}
-              className="group relative inline-flex items-center gap-2 rounded-full px-8 py-4 font-bold text-primary-foreground bg-gradient-to-r from-blue-500 to-cyan-500 dark:from-orange-500 dark:to-red-500 shadow-lg shadow-blue-500/20 dark:shadow-orange-500/20 transition-transform duration-300 hover:-translate-y-0.5"
+              className="group relative inline-flex items-center gap-2 rounded-full px-8 py-4 font-bold text-primary-foreground dark:text-foreground bg-gradient-to-r from-blue-500 to-cyan-500 dark:from-orange-500 dark:to-red-500 shadow-lg shadow-blue-500/20 dark:shadow-orange-500/20 transition-transform duration-300 hover:-translate-y-0.5"
             >
               Let&apos;s Work Together
               <FaArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -188,7 +188,7 @@ const Hero = () => {
               </div>
             </div>
             <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 -rotate-2 rounded-2xl px-6 py-3 shadow-xl bg-gradient-to-r from-blue-500 to-cyan-500 dark:from-orange-500 dark:to-red-500">
-              <span className="font-display font-bold text-sm whitespace-nowrap text-primary-foreground">
+              <span className="font-display font-bold text-sm whitespace-nowrap text-primary-foreground dark:text-foreground">
                 3.6 YEARS EXP
               </span>
             </div>
