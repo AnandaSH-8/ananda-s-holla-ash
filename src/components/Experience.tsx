@@ -11,7 +11,7 @@ interface Role {
 const company = {
   name: "Sheshi Pvt. Ltd.",
   location: "Bengaluru, India",
-  duration: "3.7 Years",
+  duration: "3.5+ Years",
 };
 
 const roles: Role[] = [
