@@ -115,7 +115,7 @@ const About = () => {
               {tech.map((t) => (
                 <div
                   key={t.name}
-                  className={`h-24 rounded-2xl flex items-center justify-center border font-bold text-sm ${t.cls}`}
+                  className={`h-24 w-full md:w-28 rounded-2xl flex items-center justify-center border font-bold text-sm ${t.cls}`}
                 >
                   {t.name}
                 </div>
