@@ -135,7 +135,7 @@ const Hero = () => {
           </h2>
 
           <p className="text-lg md:text-xl lg:text-2xl text-[#333]/70 dark:text-[#EDEDED]/70 mb-12 leading-relaxed animate-hero-description max-w-2xl lg:max-w-none">
-            Full-Stack Developer with 3.7 years of experience designing and developing scalable web applications.
+            Full-Stack Developer with 3.5+ years of experience designing and developing scalable web applications.
             Experienced in building robust backend services, intuitive user interfaces, and end-to-end solutions that
             deliver real business value.
           </p>
