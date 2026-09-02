@@ -104,7 +104,7 @@ const Navigation = () => {
             onClick={() => setMobileOpen((o) => !o)}
             aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={mobileOpen}
-            className="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-card/70 backdrop-blur-xl border border-border shadow-lg shadow-black/5 text-foreground transition-colors"
+            className="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-card/70 backdrop-blur-xl border border-border text-foreground transition-colors"
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
