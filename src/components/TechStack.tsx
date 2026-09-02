@@ -114,10 +114,10 @@ const TechStack = () => {
 
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="mb-16 text-center">
-          <h2 className="mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-5xl font-black text-transparent dark:from-orange-500 dark:via-red-500 dark:to-pink-500 md:text-6xl">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-500 bg-clip-text text-transparent">
             Tech Stack
           </h2>
-          <div className="mx-auto mb-8 h-2 w-32 rounded-full bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-500" />
+          <div className="w-24 h-1 mx-auto mb-8 rounded-full bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-500" />
           <p className="mx-auto max-w-3xl text-xl leading-relaxed text-muted-foreground">
             A living stream of the technologies I build with
           </p>
