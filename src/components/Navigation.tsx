@@ -55,14 +55,21 @@ const Navigation = () => {
 
   return (
     <nav className="fixed top-3 left-0 right-0 z-50 px-4">
-      <div className="max-w-6xl mx-auto flex items-center justify-between gap-3">
+      <div
+        className={`max-w-6xl mx-auto flex items-center justify-between gap-3 rounded-full px-3 py-2 border transition-all duration-300 ${
+          scrolled
+            ? 'bg-card/80 backdrop-blur-xl border-border shadow-lg shadow-black/10'
+            : 'bg-transparent border-transparent shadow-none'
+        }`}
+      >
         {/* Logo */}
         <div className="flex items-center">
           <AnimatedLogo />
         </div>
 
-        {/* Floating pill — desktop */}
-        <div className="hidden md:flex items-center rounded-full bg-card/70 backdrop-blur-xl border border-border shadow-lg shadow-black/5 px-2 py-1.5">
+        {/* Links — desktop */}
+        <div className="hidden md:flex items-center">
+
           {navItems.map((item) => {
             const isActive = activeSection === item.id;
             return (
