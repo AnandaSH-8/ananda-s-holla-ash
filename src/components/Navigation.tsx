@@ -18,10 +18,13 @@ const Navigation = () => {
     { id: "contact", label: "Contact" },
   ];
 
+  const [scrolled, setScrolled] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       const sections = navItems.map(item => document.getElementById(item.id));
       const scrollPos = window.scrollY + 100;
+      setScrolled(window.scrollY > 20);
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i];
@@ -32,9 +35,11 @@ const Navigation = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -50,14 +55,21 @@ const Navigation = () => {
 
   return (
     <nav className="fixed top-3 left-0 right-0 z-50 px-4">
-      <div className="max-w-6xl mx-auto flex items-center justify-between gap-3">
+      <div
+        className={`max-w-6xl mx-auto flex items-center justify-between gap-3 rounded-full px-3 py-2 border transition-all duration-300 ${
+          scrolled
+            ? 'bg-card/80 backdrop-blur-xl border-border shadow-lg shadow-black/10'
+            : 'bg-transparent border-transparent shadow-none'
+        }`}
+      >
         {/* Logo */}
         <div className="flex items-center">
           <AnimatedLogo />
         </div>
 
-        {/* Floating pill — desktop */}
-        <div className="hidden md:flex items-center rounded-full bg-card/70 backdrop-blur-xl border border-border shadow-lg shadow-black/5 px-2 py-1.5">
+        {/* Links — desktop */}
+        <div className="hidden md:flex items-center">
+
           {navItems.map((item) => {
             const isActive = activeSection === item.id;
             return (
@@ -92,7 +104,7 @@ const Navigation = () => {
             onClick={() => setMobileOpen((o) => !o)}
             aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={mobileOpen}
-            className="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-card/70 backdrop-blur-xl border border-border shadow-lg shadow-black/5 text-foreground transition-colors"
+            className="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-card/70 backdrop-blur-xl border border-border text-foreground transition-colors"
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
