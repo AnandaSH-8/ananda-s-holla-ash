@@ -6,10 +6,10 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 200 60% 97%; /* soft water-tinted off-white, easier on the eyes than pure white */
     --foreground: 0 0% 15%;
 
-    --card: 200 100% 97%; /* existing water-light #F0F9FF for contrast on white bg */
+    --card: 0 0% 100%; /* clean white surfaces lift above the tinted page */
     --card-foreground: 0 0% 15%;
 
     --popover: 0 0% 100%;
@@ -18,21 +18,22 @@
     --primary: 217 91% 60%; /* Blue for water theme */
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 98%;
+    --secondary: 200 45% 94%;
     --secondary-foreground: 222.2 47.4% 11.2%;
 
-    --muted: 210 40% 98%;
-    --muted-foreground: 215.4 16.3% 56.9%;
+    --muted: 200 45% 94%;
+    --muted-foreground: 215.4 16.3% 46%;
 
-    --accent: 210 40% 98%;
+    --accent: 200 45% 94%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
+    --border: 205 28% 87%;
+    --input: 205 28% 87%;
     --ring: 217 91% 60%;
+
 
     --radius: 0.5rem;
 
