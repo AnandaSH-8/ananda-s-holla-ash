@@ -26,7 +26,7 @@ const SectionTOC = () => {
           if (entry.isIntersecting) setActive(entry.target.id);
         });
       },
-      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 },
     );
 
     sections.forEach((s) => {
@@ -68,7 +68,7 @@ const SectionTOC = () => {
                   : "opacity-0 group-hover:opacity-100 text-[#333]/70 dark:text-[#EDEDED]/70 translate-x-2 group-hover:translate-x-0"
               }`}
             >
-              {s.label}
+              {s.label} *
             </span>
             <span
               className={`block rounded-full transition-all duration-300 ${
