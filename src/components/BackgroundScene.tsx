@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import seaVideo from "@/assets/bg-sea.mp4.asset.json";
 import seaPoster from "@/assets/bg-sea-poster.jpg";
