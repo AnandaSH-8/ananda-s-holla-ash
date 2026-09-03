@@ -64,13 +64,22 @@ const BackgroundScene = () => {
         ) : (
           <video
             key="sea"
+            ref={videoRef}
             src={seaVideo.url}
             poster={seaPoster}
             autoPlay
             muted
             loop
             playsInline
-            preload="metadata"
+            controls={false}
+            disablePictureInPicture
+            disableRemotePlayback
+            preload="auto"
+            onLoadedData={(e) => {
+              const v = e.currentTarget;
+              v.muted = true;
+              v.play().catch(() => {});
+            }}
             className="w-full h-full object-cover"
           />
         )}
