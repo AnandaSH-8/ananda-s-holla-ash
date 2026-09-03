@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import seaVideo from "@/assets/bg-sea.mp4.asset.json";
 import seaPoster from "@/assets/bg-sea-poster.jpg";
@@ -12,6 +12,7 @@ import seaPoster from "@/assets/bg-sea-poster.jpg";
  */
 const BackgroundScene = () => {
   const [reduceMotion, setReduceMotion] = useState(false);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -20,6 +21,30 @@ const BackgroundScene = () => {
     mq.addEventListener("change", onChange);
     return () => mq.removeEventListener("change", onChange);
   }, []);
+
+  // Some browsers block autoplay until the element is explicitly muted in JS
+  // and/or the user interacts. Keep retrying playback so the clip never
+  // freezes on its poster frame in production.
+  useEffect(() => {
+    if (reduceMotion) return;
+    const tryPlay = () => {
+      const v = videoRef.current;
+      if (!v) return;
+      v.muted = true;
+      v.defaultMuted = true;
+      const p = v.play();
+      if (p && typeof p.catch === "function") p.catch(() => {});
+    };
+    tryPlay();
+    const events = ["pointerdown", "touchstart", "keydown", "scroll", "visibilitychange"];
+    events.forEach((e) => window.addEventListener(e, tryPlay, { passive: true }));
+    const id = window.setInterval(tryPlay, 2000);
+    return () => {
+      events.forEach((e) => window.removeEventListener(e, tryPlay));
+      window.clearInterval(id);
+    };
+  }, [reduceMotion]);
+
 
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none" aria-hidden="true">
@@ -39,13 +64,22 @@ const BackgroundScene = () => {
         ) : (
           <video
             key="sea"
+            ref={videoRef}
             src={seaVideo.url}
             poster={seaPoster}
             autoPlay
             muted
             loop
             playsInline
-            preload="metadata"
+            controls={false}
+            disablePictureInPicture
+            disableRemotePlayback
+            preload="auto"
+            onLoadedData={(e) => {
+              const v = e.currentTarget;
+              v.muted = true;
+              v.play().catch(() => {});
+            }}
             className="w-full h-full object-cover"
           />
         )}

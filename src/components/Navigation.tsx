@@ -22,17 +22,25 @@ const Navigation = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = navItems.map((item) => document.getElementById(item.id));
-      const scrollPos = window.scrollY + 100;
       setScrolled(window.scrollY > 20);
 
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        if (section && section.offsetTop <= scrollPos) {
-          setActiveSection(navItems[i].id);
-          break;
-        }
+      // Use viewport-relative positions (offsetTop is unreliable inside
+      // transformed wrappers like SectionReveal).
+      const offset = 120;
+      let current = navItems[0].id;
+      for (const item of navItems) {
+        const el = document.getElementById(item.id);
+        if (!el) continue;
+        const top = el.getBoundingClientRect().top;
+        if (top - offset <= 0) current = item.id;
       }
+
+      // At the very bottom of the page, highlight the last section.
+      if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 2) {
+        current = navItems[navItems.length - 1].id;
+      }
+
+      setActiveSection(current);
     };
 
     handleScroll();
