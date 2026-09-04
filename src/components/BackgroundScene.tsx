@@ -88,7 +88,7 @@ const BackgroundScene = () => {
       <div className="absolute inset-0 dark:hidden">
         <VideoLayer src="/bg-sun.mp4" poster={sunPoster} reduceMotion={reduceMotion} />
         {/* Readability scrim */}
-        <div className="absolute inset-0 bg-background/85" />
+        <div className="absolute inset-0 bg-background/50" />
       </div>
 
       {/* Dark theme - sea & beach */}
