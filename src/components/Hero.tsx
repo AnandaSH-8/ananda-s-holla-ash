@@ -76,7 +76,7 @@ const Hero = () => {
               onClick={() => setRevealed((v) => !v)}
               className="group block w-full cursor-default select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-2xl"
             >
-              <h1 className="font-display font-bold tracking-tighter leading-[0.85] text-[clamp(4.5rem,14vw,10rem)] bg-gradient-to-br from-blue-600 via-cyan-500 to-indigo-600 dark:from-orange-400 dark:via-orange-500 dark:to-red-500 bg-clip-text text-transparent">
+              <h1 className="font-display font-bold tracking-tighter leading-[0.85] text-[clamp(4.5rem,14vw,10rem)] bg-gradient-to-br from-blue-600 via-cyan-500 to-blue-500 dark:from-orange-400 dark:via-orange-500 dark:to-red-500 bg-clip-text text-transparent">
                 A
                 <span className="bg-gradient-to-br from-orange-400 to-orange-500 dark:from-cyan-300 dark:to-blue-400 bg-clip-text text-transparent">
                   S
