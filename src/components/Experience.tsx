@@ -53,7 +53,7 @@ const Experience = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-500 bg-clip-text text-transparent">
             Experience
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-500 mx-auto rounded-full" />
+          <div className="w-24 h-1 heading-rule mx-auto rounded-full" />
         </div>
 
         {/* Company header */}

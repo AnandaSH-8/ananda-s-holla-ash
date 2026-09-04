@@ -63,7 +63,7 @@ const Projects = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-500 bg-clip-text text-transparent">
             Featured Projects
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-500 mx-auto mb-8 rounded-full" />
+          <div className="w-24 h-1 heading-rule mx-auto mb-8 rounded-full" />
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Showcasing my expertise through real-world applications that solve complex problems
           </p>

@@ -22,7 +22,7 @@ const About = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-500 bg-clip-text text-transparent">
             About Me
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-500 mx-auto rounded-full" />
+          <div className="w-24 h-1 heading-rule mx-auto rounded-full" />
         </div>
 
         {/* Intro */}
@@ -31,7 +31,7 @@ const About = () => {
           className="rounded-3xl border border-border bg-card/70 backdrop-blur-xl p-10 md:p-14"
         >
           <h3 className="font-display text-3xl md:text-4xl font-bold mb-6 text-foreground">
-            Crafting the <span className="text-cyan-600 dark:text-orange-400">invisible architecture</span>
+            Crafting the <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-500 bg-clip-text text-transparent">invisible architecture</span>
           </h3>
           <p className="text-lg text-muted-foreground leading-relaxed mb-4">
             I&apos;m a Full-Stack Developer who enjoys building scalable web applications and solving real-world

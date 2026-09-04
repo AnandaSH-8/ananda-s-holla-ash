@@ -118,6 +118,27 @@
 }
 
 @layer utilities {
+  .heading-rule {
+    background-image: linear-gradient(90deg, #2563eb, #9333ea, #4f46e5, #9333ea, #2563eb);
+    background-size: 200% 100%;
+    animation: headingRuleFlow 3s linear infinite;
+  }
+
+  .dark .heading-rule {
+    background-image: linear-gradient(90deg, #f97316, #ef4444, #ec4899, #ef4444, #f97316);
+  }
+
+  @keyframes headingRuleFlow {
+    from { background-position: 0% 0; }
+    to { background-position: -200% 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .heading-rule { animation: none; }
+  }
+}
+
+@layer utilities {
   /* SPECTACULAR SKILLS ANIMATIONS */
   .animate-skills-spectacular-entrance {
     animation: skillsSpectacularEntrance 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
