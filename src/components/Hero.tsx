@@ -39,10 +39,7 @@ const Hero = () => {
         };
 
   return (
-    <section
-      id="hero"
-      className="relative min-h-screen flex items-center px-6 py-28 md:py-32 overflow-hidden"
-    >
+    <section id="hero" className="relative min-h-screen flex items-center px-6 py-28 md:py-32 overflow-hidden">
       {/* Ambient atmosphere */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute -top-32 -left-24 w-[32rem] h-[32rem] rounded-full bg-blue-500/10 dark:bg-orange-500/10 blur-[120px]" />
@@ -91,11 +88,7 @@ const Hero = () => {
                     <motion.span
                       key="fullname"
                       initial={reduce ? { opacity: 0 } : { opacity: 0, y: 14, filter: "blur(6px)" }}
-                      animate={
-                        reduce
-                          ? { opacity: 1 }
-                          : { opacity: 1, y: [0, -5, 0], filter: "blur(0px)" }
-                      }
+                      animate={reduce ? { opacity: 1 } : { opacity: 1, y: [0, -5, 0], filter: "blur(0px)" }}
                       exit={reduce ? { opacity: 0 } : { opacity: 0, y: 10, filter: "blur(6px)" }}
                       transition={
                         reduce
@@ -124,14 +117,11 @@ const Hero = () => {
             {...fade(0.16)}
             className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl mx-auto lg:mx-0"
           >
-            I design and build scalable web applications — robust backend services, fluid
-            interfaces, and end-to-end solutions that hold up in the real world.
+            I design and build scalable web applications — robust backend services, fluid interfaces, and end-to-end
+            solutions that hold up in the real world.
           </motion.p>
 
-          <motion.div
-            {...fade(0.24)}
-            className="flex flex-wrap justify-center lg:justify-start gap-4"
-          >
+          <motion.div {...fade(0.24)} className="flex flex-wrap justify-center lg:justify-start gap-4">
             <button
               onClick={() => scrollTo("contact")}
               className="group relative inline-flex items-center gap-2 rounded-full px-8 py-4 font-bold text-primary-foreground dark:text-foreground bg-gradient-to-r from-blue-500 to-cyan-500 dark:from-orange-500 dark:to-red-500 shadow-lg shadow-blue-500/20 dark:shadow-orange-500/20 transition-transform duration-300 hover:-translate-y-0.5"
@@ -153,17 +143,13 @@ const Hero = () => {
             </button>
           </motion.div>
 
-          <motion.div
-            {...fade(0.32)}
-            className="flex items-center justify-center lg:justify-start gap-8"
-          >
+          <motion.div {...fade(0.32)} className="flex items-center justify-center lg:justify-start gap-8">
             {socials.map(({ label, href, Icon }) => (
               <a
                 key={label}
                 href={href}
                 target={href.startsWith("http") ? "_blank" : undefined}
                 rel="noopener noreferrer"
-                {/* aria-label={`${label} profile`} */}
                 className="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground transition-colors hover:text-cyan-600 dark:hover:text-orange-400"
               >
                 <Icon className="h-7 w-7 md:h-8 md:w-8 transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-0.5" />
@@ -191,7 +177,10 @@ const Hero = () => {
                 aria-hidden="true"
                 className="absolute inset-0 rounded-full bg-[conic-gradient(from_0deg,hsl(217_91%_55%)_0deg,hsl(217_91%_55%)_170deg,transparent_180deg,transparent_180deg,hsl(28_95%_55%)_190deg,hsl(28_95%_55%)_350deg,transparent_360deg)] dark:bg-[conic-gradient(from_0deg,hsl(28_95%_55%)_0deg,hsl(28_95%_55%)_170deg,transparent_180deg,transparent_180deg,hsl(217_91%_55%)_190deg,hsl(217_91%_55%)_350deg,transparent_360deg)] opacity-80 blur-[1px] transition-all duration-500 group-hover:opacity-100 group-hover:blur-0 motion-safe:group-hover:animate-[spin_3.5s_linear_infinite]"
               />
-              <div className="absolute inset-[6px] rounded-full border border-border bg-card/40 backdrop-blur-2xl" aria-hidden="true" />
+              <div
+                className="absolute inset-[6px] rounded-full border border-border bg-card/40 backdrop-blur-2xl"
+                aria-hidden="true"
+              />
               <div className="relative w-full h-full rounded-full overflow-hidden">
                 <LazyImage
                   src={profileImg}
