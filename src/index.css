@@ -7,13 +7,13 @@
 @layer base {
   :root {
     --background: 200 60% 97%; /* soft water-tinted off-white, easier on the eyes than pure white */
-    --foreground: 0 0% 15%;
+    --foreground: 222 47% 11%; /* near-black ink, strong contrast over the animated backdrop */
 
     --card: 0 0% 100%; /* clean white surfaces lift above the tinted page */
-    --card-foreground: 0 0% 15%;
+    --card-foreground: 222 47% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 15%;
+    --popover-foreground: 222 47% 11%;
 
     --primary: 217 91% 60%; /* Blue for water theme */
     --primary-foreground: 210 40% 98%;
