@@ -163,7 +163,7 @@ const Hero = () => {
                 href={href}
                 target={href.startsWith("http") ? "_blank" : undefined}
                 rel="noopener noreferrer"
-                aria-label={`${label} profile`}
+                {/* aria-label={`${label} profile`} */}
                 className="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground transition-colors hover:text-cyan-600 dark:hover:text-orange-400"
               >
                 <Icon className="h-7 w-7 md:h-8 md:w-8 transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-0.5" />
