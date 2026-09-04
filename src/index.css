@@ -119,7 +119,7 @@
 
 @layer utilities {
   .heading-rule {
-    background-image: linear-gradient(90deg, #2563eb, #9333ea, #4f46e5, #9333ea, #2563eb);
+    background-image: linear-gradient(90deg, #2563eb, #06b6d4, #3b82f6, #06b6d4, #2563eb);
     background-size: 200% 100%;
     animation: headingRuleFlow 3s linear infinite;
   }
