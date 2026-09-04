@@ -8,8 +8,8 @@ const Skills = () => {
       title: "Frontend Development",
       icon: "💻",
       description: "Building beautiful, responsive user interfaces",
-      gradient: "from-blue-500 via-purple-500 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-600",
-      borderGradient: "from-blue-400 to-purple-500 dark:from-orange-400 dark:to-red-500",
+      gradient: "from-blue-500 via-cyan-500 to-blue-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-600",
+      borderGradient: "from-blue-400 to-cyan-500 dark:from-orange-400 dark:to-red-500",
       skills: ["React.js", "Vue.js", "Tailwind CSS", "Vuetify", "MUI", "HTML", "CSS", "JavaScript"]
     },
     {
@@ -24,16 +24,16 @@ const Skills = () => {
       title: "Database Management",
       icon: "🗄️",
       description: "Efficient data storage & retrieval systems",
-      gradient: "from-purple-500 via-pink-500 to-rose-600 dark:from-red-500 dark:via-pink-500 dark:to-orange-600",
-      borderGradient: "from-purple-400 to-pink-500 dark:from-red-400 dark:to-pink-500",
+      gradient: "from-blue-500 via-cyan-500 to-blue-600 dark:from-red-500 dark:via-pink-500 dark:to-orange-600",
+      borderGradient: "from-blue-400 to-cyan-500 dark:from-red-400 dark:to-pink-500",
       skills: ["PostgreSQL", "MongoDB"]
     },
     {
       title: "DevOps & Tools",
       icon: "🛠️",
       description: "Development workflow & deployment tools",
-      gradient: "from-indigo-500 via-blue-500 to-cyan-600 dark:from-pink-500 dark:via-purple-500 dark:to-indigo-600",
-      borderGradient: "from-indigo-400 to-blue-500 dark:from-pink-400 dark:to-purple-500",
+      gradient: "from-blue-500 via-cyan-500 to-blue-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-600",
+      borderGradient: "from-blue-400 to-cyan-500 dark:from-orange-400 dark:to-red-500",
       skills: ["Git", "Postman", "Vercel", "Netlify"]
     }
   ];
@@ -43,10 +43,10 @@ const Skills = () => {
       {/* Enhanced floating background elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-10 w-6 h-6 bg-blue-400/20 dark:bg-orange-400/20 rounded-full animate-skills-particle-dance"></div>
-        <div className="absolute top-40 right-20 w-8 h-8 bg-purple-400/15 dark:bg-red-400/15 rounded-full animate-skills-particle-dance" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-40 right-20 w-8 h-8 bg-blue-400/15 dark:bg-red-400/15 rounded-full animate-skills-particle-dance" style={{animationDelay: '1s'}}></div>
         <div className="absolute bottom-40 left-1/4 w-4 h-4 bg-green-500/25 dark:bg-yellow-500/25 rounded-full animate-skills-particle-dance" style={{animationDelay: '2s'}}></div>
-        <div className="absolute bottom-20 right-1/3 w-7 h-7 bg-indigo-400/20 dark:bg-pink-400/20 rounded-full animate-skills-particle-dance" style={{animationDelay: '0.5s'}}></div>
-        <div className="absolute top-1/2 left-1/2 w-5 h-5 bg-cyan-400/15 dark:bg-purple-400/15 rounded-full animate-skills-particle-dance" style={{animationDelay: '1.5s'}}></div>
+        <div className="absolute bottom-20 right-1/3 w-7 h-7 bg-blue-400/20 dark:bg-pink-400/20 rounded-full animate-skills-particle-dance" style={{animationDelay: '0.5s'}}></div>
+        <div className="absolute top-1/2 left-1/2 w-5 h-5 bg-cyan-400/15 dark:bg-orange-400/15 rounded-full animate-skills-particle-dance" style={{animationDelay: '1.5s'}}></div>
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -92,13 +92,13 @@ const Skills = () => {
                     {/* Orbiting particles */}
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                       <div className="absolute top-2 left-2 w-2 h-2 bg-blue-400 dark:bg-orange-400 rounded-full animate-skills-icon-orbit"></div>
-                      <div className="absolute top-2 right-2 w-1.5 h-1.5 bg-purple-400 dark:bg-red-400 rounded-full animate-skills-icon-orbit" style={{animationDelay: '0.5s'}}></div>
+                      <div className="absolute top-2 right-2 w-1.5 h-1.5 bg-blue-400 dark:bg-red-400 rounded-full animate-skills-icon-orbit" style={{animationDelay: '0.5s'}}></div>
                       <div className="absolute bottom-2 left-2 w-1 h-1 bg-green-400 dark:bg-yellow-400 rounded-full animate-skills-icon-orbit" style={{animationDelay: '1s'}}></div>
-                      <div className="absolute bottom-2 right-2 w-1.5 h-1.5 bg-indigo-400 dark:bg-pink-400 rounded-full animate-skills-icon-orbit" style={{animationDelay: '1.5s'}}></div>
+                      <div className="absolute bottom-2 right-2 w-1.5 h-1.5 bg-blue-400 dark:bg-pink-400 rounded-full animate-skills-icon-orbit" style={{animationDelay: '1.5s'}}></div>
                     </div>
                   </div>
                   
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 dark:group-hover:from-orange-500 dark:group-hover:to-red-500 group-hover:bg-clip-text transition-all duration-500">
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-cyan-600 dark:group-hover:from-orange-500 dark:group-hover:to-red-500 group-hover:bg-clip-text transition-all duration-500">
                     {category.title}
                   </h3>
                   
@@ -128,7 +128,7 @@ const Skills = () => {
 
                 {/* Skill count indicator */}
                 <div className="mt-6 text-center">
-                  <div className="inline-flex items-center px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-full text-sm font-medium text-gray-600 dark:text-gray-300 group-hover:bg-gradient-to-r group-hover:from-blue-100 group-hover:to-purple-100 dark:group-hover:from-orange-100 dark:group-hover:to-red-100 group-hover:text-gray-800 transition-all duration-500">
+                  <div className="inline-flex items-center px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-full text-sm font-medium text-gray-600 dark:text-gray-300 group-hover:bg-gradient-to-r group-hover:from-blue-100 group-hover:to-blue-100 dark:group-hover:from-orange-100 dark:group-hover:to-red-100 group-hover:text-gray-800 transition-all duration-500">
                     <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
                     Mastered
                   </div>
@@ -140,8 +140,8 @@ const Skills = () => {
         
         {/* Enhanced call to action */}
         <div className="text-center animate-bounce-in">
-          <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-orange-900/50 dark:to-red-900/50 backdrop-blur-xl rounded-3xl p-12 max-w-4xl mx-auto border border-blue-200/50 dark:border-orange-500/30 shadow-2xl">
-            <h3 className="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-orange-500 dark:to-red-500 bg-clip-text text-transparent">
+          <div className="bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-orange-900/50 dark:to-red-900/50 backdrop-blur-xl rounded-3xl p-12 max-w-4xl mx-auto border border-blue-200/50 dark:border-orange-500/30 shadow-2xl">
+            <h3 className="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-orange-500 dark:to-red-500 bg-clip-text text-transparent">
               Ready to Build Something Amazing?
             </h3>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">

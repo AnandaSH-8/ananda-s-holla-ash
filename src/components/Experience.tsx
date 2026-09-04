@@ -75,7 +75,7 @@ const Experience = () => {
         <div className="relative pl-8 md:pl-12">
           {/* Spine */}
           <motion.div
-            className="absolute left-[7px] md:left-[11px] top-2 bottom-2 w-[2px] origin-top rounded-full bg-gradient-to-b from-blue-600 via-purple-500 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-500"
+            className="absolute left-[7px] md:left-[11px] top-2 bottom-2 w-[2px] origin-top rounded-full bg-gradient-to-b from-blue-600 via-cyan-500 to-blue-500 dark:from-orange-500 dark:via-red-500 dark:to-pink-500"
             initial={reduce ? false : { scaleY: 0 }}
             whileInView={{ scaleY: 1 }}
             viewport={{ once: true, amount: 0.2 }}
@@ -113,7 +113,7 @@ const Experience = () => {
                         viewport={{ once: true, amount: 0.4 }}
                         transition={{ duration: 0.4, delay: 0.2 + bi * 0.08 }}
                       >
-                        <span className="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 dark:from-orange-500 dark:to-red-500" />
+                        <span className="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 dark:from-orange-500 dark:to-red-500" />
                         <span>{b}</span>
                       </motion.li>
                     ))}
