@@ -53,11 +53,11 @@ const Skills = () => {
         {/* Enhanced header section */}
         <div className="text-center mb-20 animate-skills-spectacular-entrance">
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 dark:text-white mb-8 relative">
-            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-500 bg-clip-text text-transparent animate-skills-text-shimmer">
+            <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-500 dark:from-orange-500 dark:via-red-500 dark:to-pink-500 bg-clip-text text-transparent animate-skills-text-shimmer">
               Skills & Expertise
             </span>
           </h2>
-          <div className="w-32 h-2 bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-600 dark:from-orange-500 dark:via-red-500 dark:to-pink-500 mx-auto mb-10 rounded-full animate-skills-border-flow"></div>
+          <div className="w-32 h-2 bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-500 dark:from-orange-500 dark:via-red-500 dark:to-pink-500 mx-auto mb-10 rounded-full animate-skills-border-flow"></div>
           <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
             Transforming ideas into powerful digital experiences with cutting-edge technologies
           </p>
