@@ -86,7 +86,7 @@ const Contact = () => {
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Let's Connect</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-300 dark:from-orange-400 dark:to-red-300 mx-auto mb-8"></div>
+          <div className="w-24 h-1 heading-rule mx-auto mb-8 rounded-full"></div>
           <p className="text-xl text-blue-100 dark:text-orange-100 max-w-2xl mx-auto">
             Whether it's a project, an opportunity, or just a hello — feel free to reach out. I'm always open to a good
             conversation.
