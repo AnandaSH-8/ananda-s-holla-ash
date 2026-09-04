@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 
-import seaVideo from "@/assets/bg-sea.mp4.asset.json";
 import seaPoster from "@/assets/bg-sea-poster.jpg";
 
 /**
@@ -65,7 +64,7 @@ const BackgroundScene = () => {
           <video
             key="sea"
             ref={videoRef}
-            src={seaVideo.url}
+            src="/bg-sea.mp4"
             poster={seaPoster}
             autoPlay
             muted
