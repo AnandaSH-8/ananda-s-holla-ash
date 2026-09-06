@@ -45,7 +45,7 @@ const Projects = () => {
       ],
       role: "Architected frontend, backend, PostgreSQL schema with RLS policies, three Supabase Edge Functions, custom design system, and production deployment.",
       github: "https://github.com/AnandaSH-8/AssetPulse",
-      demo: "https://ashets-pulse.vercel.app/",
+      demo: "https://www.ashetpulse.com/",
       image: assetsDashboard,
       // stats: { stars: 18, contributors: 1, lastUpdate: "Just now" },
       // status: "Active Development",
