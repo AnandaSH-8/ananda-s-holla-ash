@@ -92,6 +92,7 @@ const Projects = () => {
       ],
       role: "Conceptualized and developed an interactive learning platform focused on visualizing complex technical concepts. Designed reusable 3D components, animated learning flows, and interactive exploration experiences to make abstract software engineering concepts easier to understand.",
       github: "https://github.com/AnandaSH-8/ConceptVerse",
+      demo: "https://concept-verse.vercel.app/",
       image: conceptVerseImg,
       status: "In Progress",
     },
@@ -178,7 +179,6 @@ const Projects = () => {
                       <p className="text-blue-600 dark:text-orange-500 font-medium text-lg">{project.subtitle}</p>
                     </div>
 
-
                     <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">{project.description}</p>
 
                     {/* Key Features */}
@@ -246,7 +246,6 @@ const Projects = () => {
             </Card>
           ))}
         </div>
-
       </div>
     </section>
   );
