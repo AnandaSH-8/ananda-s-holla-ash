@@ -110,11 +110,11 @@ const Projects = () => {
           </h2>
           <div className="w-24 h-1 heading-rule mx-auto mb-8 rounded-full" />
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Showcasing my expertise through real-world applications that solve complex problems
+            A few things I've designed and built
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-1 gap-8 mb-12">
+        <div className="grid lg:grid-cols-1 gap-8">
           {projects.map((project, index) => (
             <Card
               key={index}
@@ -247,32 +247,6 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* Call to Action */}
-        <div className="text-center animate-bounce-in">
-          <p className="text-gray-600 dark:text-gray-300 mb-6 text-lg">
-            Want to see more projects or discuss a collaboration?
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Button
-              asChild
-              size="lg"
-              className="bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-orange-600 dark:to-red-600 hover:shadow-lg hover-scale transition-all duration-300 text-white"
-            >
-              <a href="https://github.com/AnandaSH-8" target="_blank" rel="noopener noreferrer">
-                <FaGithub className="mr-2 h-5 w-5" />
-                View All Projects
-              </a>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="border-green-500 text-green-600 hover:bg-green-500 hover:text-white hover-scale transition-all duration-300"
-            >
-              <a href="#contact">Let's Work Together</a>
-            </Button>
-          </div>
-        </div>
       </div>
     </section>
   );
