@@ -172,18 +172,12 @@ const Projects = () => {
                   {/* Project Details */}
                   <div className="lg:col-span-3 p-8">
                     <div className="mb-6">
-                      <div className="flex flex-wrap items-center gap-3 mb-1">
-                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-orange-500 transition-colors duration-300">
-                          {project.title}
-                        </h3>
-                        {project.status && (
-                          <Badge className="bg-blue-100 text-blue-800 border-blue-300 dark:bg-orange-500/15 dark:text-orange-200 dark:border-orange-400/40 text-xs font-semibold">
-                            {project.status}
-                          </Badge>
-                        )}
-                      </div>
+                      <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-orange-500 transition-colors duration-300 mb-1">
+                        {project.title}
+                      </h3>
                       <p className="text-blue-600 dark:text-orange-500 font-medium text-lg">{project.subtitle}</p>
                     </div>
+
 
                     <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">{project.description}</p>
 
